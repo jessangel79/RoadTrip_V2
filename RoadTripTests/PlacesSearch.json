@@ -1,0 +1,1006 @@
+{
+   "html_attributions": [],
+   "next_page_token": "CpQCBwEAAC2v_3BM1U6-l5uDGn6s_mDK8hp7SB7WkBv0R5fTMtzxS4KIi94jsLsWXhEAY2s74tYfTRVvFjO2FskdwbyTx55Yf3zLM6ZsBR83UPTnX1eWMCYEByxw_dCFm4lUqmiCdp4Lhj15kh2t9kGj0VlPL5_wFG2FtA9gHSumqPIkowbggeKKiTNNNZ6STQXkTXv3hgaaLunkpOksUQ4YcUe3GFQxOxRxmP0LN9TVu67ZPcmzwe-UHvYCr7JPHZRvJiBZ57AR-ndaWA3egy5f-w0ZdSg6GnBVywqOovoYCinSZDCRyFmg39UKigBjY1eLIj8X_9o_aNfRfor2gjcuyY6i1XLej41XIErQ9wG1k7T5K3AZEhBQx6faHFAhQHCUswcm_YY0GhRK4v1_c4Ikj74kX3pDAUvSONGN3g",
+   "results": [
+      {
+         "formatted_address": "42 Avenue de la Libération, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.05399600000001,
+               "lng": 2.1944825
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.05535547989271,
+                  "lng": 2.195866879892722
+               },
+               "southwest": {
+                  "lat": 49.05265582010727,
+                  "lng": 2.193167220107277
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "b63a3ae95d863216ab002e944b1ee7e09561ee0c",
+         "name": "Tesoro Mio",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 344,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/107420246192067366185\">Ben Farez</a>"
+               ],
+               "photo_reference": "CmRaAAAAQ_3eOheMnehj2dUuxDXswSjJL-iENJxULT6ExbjM3aFppmHdU7VGDXHJXRZnxo9VGIOTFC9jWV3dNwmmrIDHoF1OPo5yvhtxlFheWdd4wHoiyUVcfdAcCwIS3y-Wf1sKEhA8Xrse-tsZVFLtgMgIaJ_vGhQA4MLMwwXTHCc3Pb0DtqUnbLblCA",
+               "width": 612
+            }
+         ],
+         "place_id": "ChIJOekZpnte5kcRqdAs6YuHE_M",
+         "plus_code": {
+            "compound_code": "353V+HQ Méry-sur-Oise",
+            "global_code": "8FX4353V+HQ"
+         },
+         "price_level": 2,
+         "rating": 4.5,
+         "reference": "ChIJOekZpnte5kcRqdAs6YuHE_M",
+         "types": [
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 366
+      },
+      {
+         "formatted_address": "58 Avenue Marcel Perrin, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.06194439999999,
+               "lng": 2.1880556
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.06332932989272,
+                  "lng": 2.189473579892722
+               },
+               "southwest": {
+                  "lat": 49.06062967010728,
+                  "lng": 2.186773920107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "47fa4525344e5b0e6fa274eca688cca928831cf0",
+         "name": "La Comtesse de Ségur",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 3024,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/107720972322568615428\">georges fidalgo</a>"
+               ],
+               "photo_reference": "CmRaAAAANNOSVAP6J7eDO_ZLZvR-pDqb39ZumBdVzhe9aDMLvIUu_8w1VyAzQAXprFo5GECsMjPQEp_eeUwrDr5edFPJrMrBhOYhbfTlH9BuV2LOAVpaoSrzg8953AfcQ7k5EaL6EhD_dwuTlzo-msqQaH--zzt4GhSp_RjsB5XTNMSM6IprlDx-dTs4-w",
+               "width": 4032
+            }
+         ],
+         "place_id": "ChIJMQhZwYle5kcRpQ3UklachCM",
+         "plus_code": {
+            "compound_code": "356Q+Q6 Méry-sur-Oise",
+            "global_code": "8FX4356Q+Q6"
+         },
+         "rating": 4.3,
+         "reference": "ChIJMQhZwYle5kcRpQ3UklachCM",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 38
+      },
+      {
+         "formatted_address": "3 Rue de l'Oise, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0597222,
+               "lng": 2.1644444
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.06112582989272,
+                  "lng": 2.165880229892722
+               },
+               "southwest": {
+                  "lat": 49.05842617010727,
+                  "lng": 2.163180570107277
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "298856ae1a1102266d804e19b05dadacfe94e308",
+         "name": "Le Chiquito",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 3648,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/111833733786870688236\">Maharo RAVOMANDIMBY-DEVALEZ</a>"
+               ],
+               "photo_reference": "CmRaAAAAKiUd5qhU4A8aOX9kvJX2hHWnhO6gTSU5CZvj-lxqHQb9s0fpWVPZhq2vPNoXtYMP5nqbTGzlJVDNxo7q93wQEDS1s44FPettaENugFX2qDFXPvYnhDh4lQMRyChJJmY_EhCeP_15tEVoGQbDT4DQfGOkGhS4bv0RP_syhqVA3Q__Qh1awZ06Mw",
+               "width": 2736
+            }
+         ],
+         "place_id": "ChIJjynpbVZe5kcRGvCxbVhDiFQ",
+         "plus_code": {
+            "compound_code": "3557+VQ Méry-sur-Oise",
+            "global_code": "8FX43557+VQ"
+         },
+         "price_level": 3,
+         "rating": 4.8,
+         "reference": "ChIJjynpbVZe5kcRGvCxbVhDiFQ",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 474
+      },
+      {
+         "formatted_address": "2 Place Frédéric Joliot Curie, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0641212,
+               "lng": 2.1843643
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.06547127989272,
+                  "lng": 2.185713879892722
+               },
+               "southwest": {
+                  "lat": 49.06277162010728,
+                  "lng": 2.183014220107277
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "c68a752633996d67df38464f6735f76574327527",
+         "name": "Restaurant Le Deaps",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 540,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/101302861319679497433\">Jean Ferrat</a>"
+               ],
+               "photo_reference": "CmRaAAAAu8y-h39OqF7aDzG6RecM-FezhEGl9YO-TDMErqd_jdv9hxz3DFwko-N-LmQvw53RP6644TAetiLeqI84XRhjWrcFz2gtlPOcuhnyjbnI-hK3b_OBzLbHjW1edrkNsRUsEhA_ETCq9E3kLVFFOirRf5BYGhSRlRRtBywpcsXbTRUwDauzlFyJdw",
+               "width": 960
+            }
+         ],
+         "place_id": "ChIJyfnSx4te5kcRLojPq2CcHmk",
+         "plus_code": {
+            "compound_code": "357M+JP Méry-sur-Oise",
+            "global_code": "8FX4357M+JP"
+         },
+         "price_level": 2,
+         "rating": 3.8,
+         "reference": "ChIJyfnSx4te5kcRLojPq2CcHmk",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 79
+      },
+      {
+         "formatted_address": "40 Rue de Pontoise, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0629198,
+               "lng": 2.1799354
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.06421467989273,
+                  "lng": 2.181293279892722
+               },
+               "southwest": {
+                  "lat": 49.06151502010728,
+                  "lng": 2.178593620107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id": "70009829da532dd3e1595ace2462e76ac82b3062",
+         "name": "Pizza 2000",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 1960,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/116660626256495279694\">laurentlolo Lol</a>"
+               ],
+               "photo_reference": "CmRaAAAAtiRj8Otdvt0PMOQFJ8FFTgPp6E1qYXnp1UsmaZmtfBdu4IJkIPwum9LMznF6UKRkS-zXW-SPkra45cSYpnp85FRvOQEsXJ93qH3xtFTB75hvinKOlI4-j4B4rGgiqmSPEhDABY-wIRT4Q52sUpMfG4vEGhSOUA_baS_hrs_SAQHhtZ1liY2wzQ",
+               "width": 4032
+            }
+         ],
+         "place_id": "ChIJJSI3OvVe5kcRPkSrGeGer5A",
+         "plus_code": {
+            "compound_code": "357H+5X Méry-sur-Oise",
+            "global_code": "8FX4357H+5X"
+         },
+         "rating": 4.6,
+         "reference": "ChIJJSI3OvVe5kcRPkSrGeGer5A",
+         "types": [
+            "meal_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 208
+      },
+      {
+         "formatted_address": "4 Rue de l'Oise, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0597864,
+               "lng": 2.1648897
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.06110227989272,
+                  "lng": 2.166211479892722
+               },
+               "southwest": {
+                  "lat": 49.05840262010727,
+                  "lng": 2.163511820107277
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "65101f47825852a1bb014dae12f9a2f9212de982",
+         "name": "Una Storia",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 1936,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/104762871794553685624\">A Google User</a>"
+               ],
+               "photo_reference": "CmRaAAAAjXrxNIfK6NR3XKmKIst5PgEN7gJu-KG3FBArFxHElifp4hv2AauFbbNZwANJymwdwxcJVk8dTBSjLf60wPoVtRpD3xP-W3ehYgKOP5wt8KY6iB3lHNexiO22iQDoVnp4EhA1AGQhtnVldxwnkcti5qNcGhQymKo0sdJQCW13OZj0YupEJL5qpg",
+               "width": 2592
+            }
+         ],
+         "place_id": "ChIJoUUlaVZe5kcR8BJ6Hi4EJDA",
+         "plus_code": {
+            "compound_code": "3557+WX Méry-sur-Oise",
+            "global_code": "8FX43557+WX"
+         },
+         "rating": 4.5,
+         "reference": "ChIJoUUlaVZe5kcR8BJ6Hi4EJDA",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 89
+      },
+      {
+         "formatted_address": "3Bis Rue de Paris, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0713669,
+               "lng": 2.1767399
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07274757989272,
+                  "lng": 2.178144129892722
+               },
+               "southwest": {
+                  "lat": 49.07004792010728,
+                  "lng": 2.175444470107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "747cca8f23e7d492854b6a6d38f60f0aaeaad881",
+         "name": "Le Chemin des Peintres",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 3024,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/114705752875878733991\">Thomas Cousin</a>"
+               ],
+               "photo_reference": "CmRaAAAA7cxRlIza40a89XsDyI47KvOOm4BWgQ80K0GygLlyI4uNGabhUvGPSekRBlK3JHElRNNtlHjQpV55bKIXoGtznm-jlKza9fhKgSrD18AtKybDTV78fVcNR8DOoKj66ajaEhC8J9mK0wRQSdcf1-cdkooyGhQBci_-mTOkrPGvqY3LPTsxinlqZA",
+               "width": 4032
+            }
+         ],
+         "place_id": "ChIJEQjx9e1e5kcRmzy0U0uj1Cw",
+         "plus_code": {
+            "compound_code": "35CG+GM Auvers-sur-Oise",
+            "global_code": "8FX435CG+GM"
+         },
+         "price_level": 2,
+         "rating": 4.4,
+         "reference": "ChIJEQjx9e1e5kcRmzy0U0uj1Cw",
+         "types": [
+            "restaurant",
+            "cafe",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+         ],
+         "user_ratings_total": 228
+      },
+      {
+         "formatted_address": "9 Rue de l'Isle Adam, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0657867,
+               "lng": 2.1906087
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.06713512989273,
+                  "lng": 2.191959879892722
+               },
+               "southwest": {
+                  "lat": 49.06443547010728,
+                  "lng": 2.189260220107277
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id": "c95fee2ffb4a68c51d19c161a1c9e6488d507c68",
+         "name": "Château de Méry - L'Hôtel",
+         "photos": [
+            {
+               "height": 2368,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/109494353160471442996\">Jose Manuel Diaz</a>"
+               ],
+               "photo_reference": "CmRaAAAA-nidDBl4MxKN7G0inHygTeuiC1dbyFKcJDqs9zMFhCDdokueOoQPGHBM4ZYFkKk7hxNS0F1eLNtF3e07HvJOaBRDHZ21K0rM_XXICLQy_wiZ0JFux1V_5jvRRWhpSYLHEhAaQi-66H37lpO-gSiP_BHTGhQQpw07cB-38X8WPwX47BPfm0BXoA",
+               "width": 5120
+            }
+         ],
+         "place_id": "ChIJJSKN0Ihe5kcRORctLjn_Npk",
+         "plus_code": {
+            "compound_code": "358R+86 Méry-sur-Oise",
+            "global_code": "8FX4358R+86"
+         },
+         "rating": 4.5,
+         "reference": "ChIJJSKN0Ihe5kcRORctLjn_Npk",
+         "types": [
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 158
+      },
+      {
+         "formatted_address": "11 Rue du Général de Gaulle, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0705041,
+               "lng": 2.1724854
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07191852989272,
+                  "lng": 2.173826929892722
+               },
+               "southwest": {
+                  "lat": 49.06921887010728,
+                  "lng": 2.171127270107277
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "19d72be6f32b8f7ace60d5900dd26e4e3700297c",
+         "name": "L'atelier Gourmand",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 4032,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/102573033239248394604\">A Google User</a>"
+               ],
+               "photo_reference": "CmRaAAAA_PV7GPC6oBco7h_cF8xVw8qnwXHmKK1LV_KHlj4DIhsoPehTtM7GNeGe6cc25DPFGZitO2i8ApaBmP2BPL8wDJlbmPQgrcqTBa63ngzhN_nfKSTAVlvlyXxhsc745wJNEhBBgggu27NyPCSqB7i5dftPGhRlRM_SF2Vfp3ZGhzmR-KC1OI3EAQ",
+               "width": 3024
+            }
+         ],
+         "place_id": "ChIJoXJJMfBe5kcRYPlr8qrur68",
+         "plus_code": {
+            "compound_code": "35CC+6X Auvers-sur-Oise",
+            "global_code": "8FX435CC+6X"
+         },
+         "price_level": 2,
+         "rating": 4.4,
+         "reference": "ChIJoXJJMfBe5kcRYPlr8qrur68",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 203
+      },
+      {
+         "formatted_address": "20 Avenue Marcel Perrin, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.06385419999999,
+               "lng": 2.1857948
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.06523437989272,
+                  "lng": 2.187202229892722
+               },
+               "southwest": {
+                  "lat": 49.06253472010727,
+                  "lng": 2.184502570107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "24fde7f01ecb3a5e70ed89dc443e70d1bea6c4e3",
+         "name": "Restaurant de la mairie",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 3456,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/112107957033056490581\">Teddy Naudey</a>"
+               ],
+               "photo_reference": "CmRaAAAAbSs3pentXwRv5CCbprT_faKdosnP1QPQ3PfS_Q_eTHcQAGghYejqbsQYg4x5fVa9ClHN0JQ3AZn5CqZBIPyHOMducS5ACBxA5ZjA7uMmztRumTggXuqzebVDTODoWrA6EhB9AfOt67Wzdk27hGRbjbL8GhRYQmKqZrbN7BR05QE99ugM0lwcww",
+               "width": 4608
+            }
+         ],
+         "place_id": "ChIJqQf2zYte5kcRU2DTbAXy6Ao",
+         "plus_code": {
+            "compound_code": "357P+G8 Méry-sur-Oise",
+            "global_code": "8FX4357P+G8"
+         },
+         "rating": 4,
+         "reference": "ChIJqQf2zYte5kcRU2DTbAXy6Ao",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 94
+      },
+      {
+         "formatted_address": "35 Avenue Marcel Perrin, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0630012,
+               "lng": 2.187148
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.06432887989271,
+                  "lng": 2.188454779892723
+               },
+               "southwest": {
+                  "lat": 49.06162922010727,
+                  "lng": 2.185755120107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "ef1fecd7c492958c23646f5186ab3a02a27fa950",
+         "name": "Miso",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 1920,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/114593478980875490181\">Ayadi Anisse</a>"
+               ],
+               "photo_reference": "CmRaAAAAi_GjTnujueWIvaS77W615NeyOVD-rNjRze95YSf7DQRF5V3TU8dxm78PfaqaBDgPxfeoTWilDPdUMlGGcwqie8RZgOgW-2GQBnN6iRFcLuCEZFktcTv6ABA2acLJyrzaEhCR_kaMdJujRxSmFOr5dTPwGhTeB5RnUkrqpl6wNqGyFXoVTFOfGA",
+               "width": 1080
+            }
+         ],
+         "place_id": "ChIJ8Xk-hYle5kcR6VvQxAcAoP8",
+         "plus_code": {
+            "compound_code": "357P+6V Méry-sur-Oise",
+            "global_code": "8FX4357P+6V"
+         },
+         "price_level": 2,
+         "rating": 3.6,
+         "reference": "ChIJ8Xk-hYle5kcR6VvQxAcAoP8",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 67
+      },
+      {
+         "formatted_address": "74 Rue du Général de Gaulle, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.071016,
+               "lng": 2.168959
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07232737989273,
+                  "lng": 2.170304129892723
+               },
+               "southwest": {
+                  "lat": 49.06962772010728,
+                  "lng": 2.167604470107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "bcc79094a8667682156361e6f7b705b7d260f305",
+         "name": "Le Handi",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 599,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/104240953544465502578\">A Google User</a>"
+               ],
+               "photo_reference": "CmRaAAAA9MhXIyANUao9U2-aa8ja4TYucA3IC84LZ5jyyPo9iqpG0mUTpPxVXrHyVN8EX1dIWJGieieObdSmphrSe2MxE80nsqfp9cql-cN2jkLej9FkNGMW5C_UVfTxrEYm1S0TEhB197oCuiCwtd6LM1BJnSjtGhRuctfWgDYnHGWssAEgF98Y8ODofQ",
+               "width": 893
+            }
+         ],
+         "place_id": "ChIJ-_Hztvpe5kcRsrZtCEqzV-8",
+         "plus_code": {
+            "compound_code": "35C9+CH Auvers-sur-Oise",
+            "global_code": "8FX435C9+CH"
+         },
+         "rating": 4.3,
+         "reference": "ChIJ-_Hztvpe5kcRsrZtCEqzV-8",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 125
+      },
+      {
+         "formatted_address": "52 Rue du Général de Gaulle, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0707146,
+               "lng": 2.1715404
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07200227989272,
+                  "lng": 2.172921929892722
+               },
+               "southwest": {
+                  "lat": 49.06930262010728,
+                  "lng": 2.170222270107277
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "870bc1825cb0e9bcc295fae3d5b98369e058587d",
+         "name": "Auberge Ravoux",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 3689,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/112105762111633837290\">Aaron Pfaff</a>"
+               ],
+               "photo_reference": "CmRaAAAAUiS4B7hKAZN53ZcRIs1mA4nGCYcWgPRxXkk8XzS8R2hb1o2GlIQi6ufMu9GOytP3Mfz_siH36u4HpnEmw0-NMDKN5Yr6TsMOH9kpGVDVqbxVTQNHaf9JGXhBAJJwq2jiEhBngI1eYugZU_fb28Z-WQEUGhTy2Yxy9TUBqxRAIzNg4OuRM1BniA",
+               "width": 3036
+            }
+         ],
+         "place_id": "ChIJcyQrFvBe5kcR89v2xJHnRg4",
+         "plus_code": {
+            "compound_code": "35CC+7J Auvers-sur-Oise",
+            "global_code": "8FX435CC+7J"
+         },
+         "price_level": 2,
+         "rating": 4.2,
+         "reference": "ChIJcyQrFvBe5kcR89v2xJHnRg4",
+         "types": [
+            "museum",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 601
+      },
+      {
+         "formatted_address": "5 Rue Marceau, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.070621,
+               "lng": 2.1484875
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07203822989272,
+                  "lng": 2.149809779892722
+               },
+               "southwest": {
+                  "lat": 49.06933857010728,
+                  "lng": 2.147110120107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "94165149f3209d2ecef1d3e7a82fef20c6162fc5",
+         "name": "Nuage de Saveurs",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 4032,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/105663990478633458479\">blasia tricault</a>"
+               ],
+               "photo_reference": "CmRaAAAA_kB3Rjhmoo8jph--NS_JauZLeYPvDrY9cERHlW6FsItkkFBQjYxLzsAbTIUzhieAISrdDhauvPyAfoPEoVlOX3Ajii1pFBu0Y-0VSfZTf4rYMoTe0ElJt6xXrtK1ePWkEhDSDhcGeuJCGDLx_Csx4dkZGhT2BipvYQx4GZOy0OSscUAJ5f3G_A",
+               "width": 3024
+            }
+         ],
+         "place_id": "ChIJO8l0QgVf5kcR4v0syIPSvKg",
+         "plus_code": {
+            "compound_code": "34CX+69 Auvers-sur-Oise",
+            "global_code": "8FX434CX+69"
+         },
+         "price_level": 2,
+         "rating": 4.5,
+         "reference": "ChIJO8l0QgVf5kcR4v0syIPSvKg",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 202
+      },
+      {
+         "formatted_address": "1 Rue de Pontoise, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0696069,
+               "lng": 2.1423581
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07098087989272,
+                  "lng": 2.143710629892722
+               },
+               "southwest": {
+                  "lat": 49.06828122010727,
+                  "lng": 2.141010970107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "3ac23c19460fd78642645886c903ec76869d93b4",
+         "name": "À La Halte de Chaponval",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 2268,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/115218469017481380400\">Jean Pierre CONILL</a>"
+               ],
+               "photo_reference": "CmRaAAAAU6XnYr5X1ssPfcfKE_u0C0kFX208thoXq8XTxpA1F4xtpaUVYOQs0JfwoNSl3tsmsWV7sVOPqH2HXmgxqWzTKT6cdJi0AYOBUxCGUK69fYlBLosZ7JF2ntRP_aDjS7iQEhCUSdQvvOOaR3PD3PL8kNTBGhQkuHML0VcuWmG1DM0GJlyxYxEFBg",
+               "width": 4032
+            }
+         ],
+         "place_id": "ChIJsWMyYw5f5kcRMNyCNvcONeU",
+         "plus_code": {
+            "compound_code": "349R+RW Auvers-sur-Oise",
+            "global_code": "8FX4349R+RW"
+         },
+         "price_level": 2,
+         "rating": 4.6,
+         "reference": "ChIJsWMyYw5f5kcRMNyCNvcONeU",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 185
+      },
+      {
+         "formatted_address": "centre commercial jardin de, 95540 Méry-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0609539,
+               "lng": 2.1687898
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.06227202989272,
+                  "lng": 2.169998329892723
+               },
+               "southwest": {
+                  "lat": 49.05957237010728,
+                  "lng": 2.167298670107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "98c563f9cec42f6a1175d9b2b8b05c35f28969b8",
+         "name": "IMIM DELICE",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 3376,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/104974749672762016794\">A Google User</a>"
+               ],
+               "photo_reference": "CmRaAAAAJmUcVRHi6t91OAIFNYYzmFTMpo7jdbPAcNpw5gawRLiv12-KOK8-cIN_vat1Hn5gFJ-Z9NGmucjFNWyTFnBm6s0vyKicR7clGY96MpYE-CTJqjBK7ndR0FgqLLdfjiL3EhBvpeGhiw7L9xnr6W8ycFaJGhSXxMJ1_U6iHk-wEUla38stQX68PA",
+               "width": 5984
+            }
+         ],
+         "place_id": "ChIJ5_IvBy5f5kcRe6TZkCPWzxc",
+         "plus_code": {
+            "compound_code": "3569+9G Méry-sur-Oise",
+            "global_code": "8FX43569+9G"
+         },
+         "rating": 4.5,
+         "reference": "ChIJ5_IvBy5f5kcRe6TZkCPWzxc",
+         "types": [
+            "cafe",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 52
+      },
+      {
+         "formatted_address": "11 Rue du Général de Gaulle, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0705408,
+               "lng": 2.1724403
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07193577989272,
+                  "lng": 2.173784329892722
+               },
+               "southwest": {
+                  "lat": 49.06923612010728,
+                  "lng": 2.171084670107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "cbb6826300de22904abb417dbae402246532bf9a",
+         "name": "Café de la Paix - Restaurant à Auvers-sur-Oise dans le Val d'Oise 95",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 1000,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/116121291119170568631\">Anthony VIVIEN - Pixel Diffusion</a>"
+               ],
+               "photo_reference": "CmRaAAAA6nSW1JzBONsJYoA3SfEoUNYUDm-uWslpNxY-NrbBTezhpDRsC7sPRuuafu7t2aEXrkL2Uf0_hS71Q9ZM31zytLChWOM-upwtZMP9ZA6aau2V_Ssx5Mgy5fNZO8NJQAKeEhDvdEQ70SsemfRmuXXVmMstGhT33knBw6Jmy79VJs7e5mOwQNCXag",
+               "width": 1500
+            }
+         ],
+         "place_id": "ChIJ3zyrM_Be5kcRK7540jhfFo8",
+         "plus_code": {
+            "compound_code": "35CC+6X Auvers-sur-Oise",
+            "global_code": "8FX435CC+6X"
+         },
+         "price_level": 2,
+         "rating": 4,
+         "reference": "ChIJ3zyrM_Be5kcRK7540jhfFo8",
+         "types": [
+            "restaurant",
+            "night_club",
+            "cafe",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 269
+      },
+      {
+         "formatted_address": "Château d'Auvers, Chemin des Berthelees, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0719224,
+               "lng": 2.1662653
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07331697989272,
+                  "lng": 2.167561429892723
+               },
+               "southwest": {
+                  "lat": 49.07061732010727,
+                  "lng": 2.164861770107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "c9db91511d7ad6377d1b4628cd4f6084d617854b",
+         "name": "Le Nymphée (anciennement L'Impressionnist' Café)",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 344,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/115978057061297899321\">Del thy</a>"
+               ],
+               "photo_reference": "CmRaAAAA33nCiytfP5knWUJd88c6rZtsHTM4pyjBJk5iVpRSRb0z_g6R_PFvgIFTDX7zdoKxcD7fc6qVOqP19GnF7CJx5mIq1skwdanmznzjLIC6r1X9OmFFESuDhE52HOP1C0evEhD0SkGzZrbohhMHXRd8nVFJGhRqk-M71Lr8mI0D2AzRs8mfkwM8Bw",
+               "width": 612
+            }
+         ],
+         "place_id": "ChIJ01yog8XO5UcRnYdCjm04_ys",
+         "plus_code": {
+            "compound_code": "35C8+QG Auvers-sur-Oise",
+            "global_code": "8FX435C8+QG"
+         },
+         "rating": 3.6,
+         "reference": "ChIJ01yog8XO5UcRnYdCjm04_ys",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 28
+      },
+      {
+         "formatted_address": "2 Rue Montmaur, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.07051149999999,
+               "lng": 2.177617
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07182912989272,
+                  "lng": 2.179006879892723
+               },
+               "southwest": {
+                  "lat": 49.06912947010728,
+                  "lng": 2.176307220107278
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "72384273c3dda86aba6b7afe9b744cdd96ec725b",
+         "name": "Auversnack",
+         "opening_hours": {
+            "open_now": false
+         },
+         "photos": [
+            {
+               "height": 3025,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/104623031957516747786\">A Google User</a>"
+               ],
+               "photo_reference": "CmRaAAAA5YMDQSfixsQiP_m5079mbN9_wTJBnAfaE6DmPX-NZxqGjGN054isuhl7bwWeZEczNkDvblzSF_GR_jx-CswVG_h4wM87X2w61w-i368BPwh4JmSHgHZ9WzJMwSkEJylSEhA3gcU7PySTaTaXv_-pa7jQGhQ_tRu9BfNQWt8AQjwELtzmsMRxjQ",
+               "width": 3024
+            }
+         ],
+         "place_id": "ChIJ087YbvJe5kcRg2tI5_v51r4",
+         "plus_code": {
+            "compound_code": "35CH+62 Auvers-sur-Oise",
+            "global_code": "8FX435CH+62"
+         },
+         "price_level": 1,
+         "rating": 4.4,
+         "reference": "ChIJ087YbvJe5kcRg2tI5_v51r4",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 77
+      },
+      {
+         "formatted_address": "20 Rue du Général de Gaulle, 95430 Auvers-sur-Oise, France",
+         "geometry": {
+            "location": {
+               "lat": 49.0708339,
+               "lng": 2.1750252
+            },
+            "viewport": {
+               "northeast": {
+                  "lat": 49.07214687989271,
+                  "lng": 2.176379229892722
+               },
+               "southwest": {
+                  "lat": 49.06944722010727,
+                  "lng": 2.173679570107277
+               }
+            }
+         },
+         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id": "1f5da8fd3b9e9b5e192ff4b99b2f0279e3bb2aa8",
+         "name": "La Menara",
+         "opening_hours": {
+            "open_now": true
+         },
+         "photos": [
+            {
+               "height": 3024,
+               "html_attributions": [
+                  "<a href=\"https://maps.google.com/maps/contrib/104523316932894185446\">Irina K</a>"
+               ],
+               "photo_reference": "CmRaAAAA81B-33VO4SJgCYQA7wl5TWQll501AGKu-gxQvLIxPejjndPk1hVZ45KOLTpeJcmtlBRcrv3xFaYNOeWw55yYkFlut6K_43_ludUHwUl6oZqvUWgRFWg3JTW68Xa0Kz8hEhBCe3rcJ6ZoNmUpmlC_sii_GhTLzKoiU5jpcZkFVsW-3XoLV8S46A",
+               "width": 4032
+            }
+         ],
+         "place_id": "ChIJnQ1E-vFe5kcRc2EHD1cHbhQ",
+         "plus_code": {
+            "compound_code": "35CG+82 Auvers-sur-Oise",
+            "global_code": "8FX435CG+82"
+         },
+         "rating": 3.9,
+         "reference": "ChIJnQ1E-vFe5kcRc2EHD1cHbhQ",
+         "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total": 161
+      }
+   ],
+   "status": "OK"
+}
