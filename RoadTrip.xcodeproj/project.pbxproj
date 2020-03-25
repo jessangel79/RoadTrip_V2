@@ -23,6 +23,8 @@
 		3A30EA0123F5B9EF00532EDD /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30EA0023F5B9EF00532EDD /* UIImageView.swift */; };
 		3A34E808241F917400237610 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34E807241F917400237610 /* UITextField.swift */; };
 		3A3DAC9A242B736300CB5706 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DAC99242B736300CB5706 /* UIView.swift */; };
+		3A3DAC9F242BABB100CB5706 /* CustomTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DAC9D242BABB100CB5706 /* CustomTableViewHeaderCell.swift */; };
+		3A3DACA0242BABB100CB5706 /* CustomTableViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3DAC9E242BABB100CB5706 /* CustomTableViewHeaderCell.xib */; };
 		3A4D510124293D78008D682F /* PackingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */; };
 		3A4D510224293D78008D682F /* PackingListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4D510024293D78008D682F /* PackingListTableViewCell.xib */; };
 		3A631DBE2428F0D70023BFCA /* ImagesBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A631DBD2428F0D70023BFCA /* ImagesBackground.swift */; };
@@ -92,6 +94,8 @@
 		3A3618FD24059328002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A36190124059795002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3DAC99242B736300CB5706 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3A3DAC9D242BABB100CB5706 /* CustomTableViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewHeaderCell.swift; sourceTree = "<group>"; };
+		3A3DAC9E242BABB100CB5706 /* CustomTableViewHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewHeaderCell.xib; sourceTree = "<group>"; };
 		3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListTableViewCell.swift; sourceTree = "<group>"; };
 		3A4D510024293D78008D682F /* PackingListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackingListTableViewCell.xib; sourceTree = "<group>"; };
 		3A631DBD2428F0D70023BFCA /* ImagesBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesBackground.swift; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 				3ABB99A324194CF8007CE8FA /* DetailsMyTripTableViewCell.swift */,
 				3A4D510024293D78008D682F /* PackingListTableViewCell.xib */,
 				3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */,
+				3A3DAC9E242BABB100CB5706 /* CustomTableViewHeaderCell.xib */,
+				3A3DAC9D242BABB100CB5706 /* CustomTableViewHeaderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 				3A755CE223EDB12600889FA5 /* ApiKeys.plist in Resources */,
 				3A755CC123EDA3E300889FA5 /* Assets.xcassets in Resources */,
 				3ABB99A624194CF8007CE8FA /* DetailsMyTripTableViewCell.xib in Resources */,
+				3A3DACA0242BABB100CB5706 /* CustomTableViewHeaderCell.xib in Resources */,
 				3A755CBC23EDA3DE00889FA5 /* Main.storyboard in Resources */,
 				3A30E9F923F597BC00532EDD /* ListPlacesTableViewCell.xib in Resources */,
 			);
@@ -536,6 +543,7 @@
 				3ABB99A524194CF8007CE8FA /* DetailsMyTripTableViewCell.swift in Sources */,
 				3A34E808241F917400237610 /* UITextField.swift in Sources */,
 				3A30E9FD23F5A21C00532EDD /* Constants.swift in Sources */,
+				3A3DAC9F242BABB100CB5706 /* CustomTableViewHeaderCell.swift in Sources */,
 				3A755CBF23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld in Sources */,
 				3ADD71C6242A339D00CD4081 /* Categories.swift in Sources */,
 				3AFA6202241A66F60055E8E8 /* UIViewController+CustomUI.swift in Sources */,

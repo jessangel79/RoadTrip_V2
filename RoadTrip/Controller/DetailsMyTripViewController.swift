@@ -118,6 +118,7 @@ extension DetailsMyTripViewController: UITableViewDelegate {
 // MARK: - Navigation
 
 extension DetailsMyTripViewController {
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueToAddDetails {
             guard let addDetailsMyTripVC = segue.destination as? AddDetailsMyTripViewController else { return }

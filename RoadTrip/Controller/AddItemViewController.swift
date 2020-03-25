@@ -21,6 +21,7 @@ class AddItemViewController: UIViewController {
     private var coreDataManager: CoreDataManager?
     private var randomImage = String()
     private var itemExist = false
+//    var cellule: ItemEntity?
     
     // MARK: - Actions
     

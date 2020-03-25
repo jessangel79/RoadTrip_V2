@@ -131,9 +131,9 @@ final class CoreDataManager {
         
     func editDetailsTrip(parameters: DetailsTrip, index: Int) {
         let request: NSFetchRequest<DetailsTripEntity> = DetailsTripEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "name == %@", parameters.name)
+//        request.predicate = NSPredicate(format: "name == %@", parameters.name)
 //        request.predicate = NSPredicate(format: "travellerOne == %@", parameters.travellerOne)
-        request.predicate = NSPredicate(format: "startDate == %@", parameters.startDate)
+//        request.predicate = NSPredicate(format: "startDate == %@", parameters.startDate)
 
         if let entity = try? managedObjectContext.fetch(request) {
             let objectUpdate = entity[index] as NSManagedObject

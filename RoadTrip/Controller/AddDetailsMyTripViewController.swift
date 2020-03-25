@@ -97,11 +97,8 @@ final class AddDetailsMyTripViewController: UIViewController {
                     navigationController?.popViewController(animated: true)
                     debugCoreDataDetailsTrip(nameDebug: "Details trip saved", coreDataManager: coreDataManager)
                 } else {
-//                    nameTextField.isUserInteractionEnabled = false
-//                    nameTextField.isEnabled = false
-//                    nameTextField.allowsEditingTextAttributes = false
-//                    let image = cellule?.imageBackground ?? "iles-de-locean_1024x1024.png"
-                    guard let image = cellule?.imageBackground else { return }
+                    let image = cellule?.imageBackground ?? "iles-de-locean_1024x1024.png"
+//                    guard let image = cellule?.imageBackground else { return }
                     coreDataManager?.editDetailsTrip(parameters: DetailsTrip(name: name,
                                                                              startDate: startDate,
                                                                              endDate: endDate,
@@ -120,9 +117,9 @@ final class AddDetailsMyTripViewController: UIViewController {
     
     private func checkIfNameTripExist(name: String) -> Bool {
 //        guard let checkIfNameTripExist = coreDataManager?.checkIfNameTripExist(nameTrip: name.localizedCapitalized) else { return false }
-        let checkIfNameTripExist = coreDataManager?.checkIfNameTripExist(nameTrip: name.localizedCapitalized) ?? false
+        let checkIfNameTripExist = coreDataManager?.checkIfNameTripExist(nameTrip: name) ?? false
         tripExist = checkIfNameTripExist
-        if tripExist && name == cellule?.name?.localizedCapitalized {
+        if tripExist && name == cellule?.name {
             return false
         } else if tripExist {
             presentAlert(typeError: .nameExist)

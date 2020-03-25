@@ -19,6 +19,19 @@ final class PackingListViewController: UIViewController {
     // MARK: - Properties
     
     private var coreDataManager: CoreDataManager?
+    private var tasksBeforeYouGo = [ItemEntity]()
+    private var documents = [ItemEntity]()
+    private var clothes = [ItemEntity]()
+    private var accessories = [ItemEntity]()
+    private var cosmetics = [ItemEntity]()
+    private var health = [ItemEntity]()
+    private var foodAndDrinks = [ItemEntity]()
+    private var gadgets = [ItemEntity]()
+    private var gamesAndRecreation = [ItemEntity]()
+    private var books = [ItemEntity]()
+    private var other = [ItemEntity]()
+//    private var cellSelected: ItemEntity?
+//    private let segueToAddItem = Constants.SegueToAddItem
 
     // MARK: - Actions
     
@@ -32,14 +45,21 @@ final class PackingListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        cleanArrays()
+        array()
         itemTableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        array()
         coreDataFunction()
         let nib = UINib(nibName: Constants.PackingListTableViewCell, bundle: nil)
         itemTableView.register(nib, forCellReuseIdentifier: Constants.PackingListCell)
+        itemTableView.reloadData()
+        
+        let headerNib = UINib(nibName: Constants.CustomTableViewHeaderCell, bundle: nil)
+        itemTableView.register(headerNib, forCellReuseIdentifier: Constants.HeaderCell)
         itemTableView.reloadData()
     }
     
@@ -48,91 +68,171 @@ final class PackingListViewController: UIViewController {
         let coreDataStack = appDelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
     }
+    
+    private func array() {
+        let items = coreDataManager?.item ?? [ItemEntity]()
+        for (index, item) in items.enumerated() {
+            print("Found \(item) at position \(index)")
+            if item.category == "Tasks before you go" {
+                tasksBeforeYouGo.append(item)
+            } else if item.category == "Documents" {
+                documents.append(item)
+            } else if item.category == "Clothes" {
+                clothes.append(item)
+            } else if item.category == "Accessories" {
+                accessories.append(item)
+            } else if item.category == "Cosmetics" {
+                cosmetics.append(item)
+            } else if item.category == "Health" {
+                health.append(item)
+            } else if item.category == "Food & Drinks" {
+                foodAndDrinks.append(item)
+            } else if item.category == "Gadgets" {
+                gadgets.append(item)
+            } else if item.category == "Games & Recreation" {
+                gamesAndRecreation.append(item)
+            } else if item.category == "Books" {
+                books.append(item)
+            } else if item.category == "Other" {
+                other.append(item)
+            }
+        }
+    }
+    
+    private func cleanArrays() {
+        tasksBeforeYouGo = [ItemEntity]()
+        documents = [ItemEntity]()
+        clothes = [ItemEntity]()
+        accessories = [ItemEntity]()
+        cosmetics = [ItemEntity]()
+        health = [ItemEntity]()
+        foodAndDrinks = [ItemEntity]()
+        gadgets = [ItemEntity]()
+        gamesAndRecreation = [ItemEntity]()
+        books = [ItemEntity]()
+        other = [ItemEntity]()
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
 
 extension PackingListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return categoriesList.count
-        return 1
+        return categoriesList.count
+//        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coreDataManager?.item.count ?? 0
+        var rowCount = 0
+        switch section {
+        case 0:
+            rowCount = tasksBeforeYouGo.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 1:
+            rowCount = documents.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 2:
+            rowCount = clothes.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 3:
+            rowCount = accessories.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 4:
+            rowCount = cosmetics.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 5:
+            rowCount = health.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 6:
+            rowCount = foodAndDrinks.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 7:
+            rowCount = gadgets.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 8:
+            rowCount = gamesAndRecreation.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 9:
+            rowCount = books.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        case 10:
+            rowCount = other.count
+//            rowCount = coreDataManager?.item.count ?? 0
+        default:
+            rowCount = 0
+        }
+        return rowCount
+//        return coreDataManager?.item.count ?? 0
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let itemCell = tableView.dequeueReusableCell(withIdentifier: Constants.PackingListCell,
                                                            for: indexPath) as? PackingListTableViewCell else {
             return UITableViewCell()
         }
-
-        let item = coreDataManager?.item[indexPath.row]
-//        let item = coreDataManager?.item[indexPath.section]
-        itemCell.itemEntity = item
+        
+        if indexPath.section < categoriesList.count {
+            let item = coreDataManager?.item[indexPath.row]
+            itemCell.itemEntity = item
+        }
+        
+        switch indexPath.section {
+        case 0:
+            let item = tasksBeforeYouGo[indexPath.row]
+            itemCell.itemEntity = item
+//            cell.textLabel?.text = meat[indexPath.row]
+        case 1:
+            let item = documents[indexPath.row]
+            itemCell.itemEntity = item
+//            cell.textLabel?.text = fruit[indexPath.row]
+        case 2:
+            let item = clothes[indexPath.row]
+            itemCell.itemEntity = item
+//            cell.textLabel?.text = vegetable[indexPath.row]
+        case 3:
+            let item = accessories[indexPath.row]
+            itemCell.itemEntity = item
+        case 4:
+            let item = cosmetics[indexPath.row]
+            itemCell.itemEntity = item
+        case 5:
+            let item = health[indexPath.row]
+            itemCell.itemEntity = item
+        case 6:
+            let item = foodAndDrinks[indexPath.row]
+            itemCell.itemEntity = item
+        case 7:
+            let item = gadgets[indexPath.row]
+            itemCell.itemEntity = item
+        case 8:
+            let item = gamesAndRecreation[indexPath.row]
+            itemCell.itemEntity = item
+        case 9:
+            let item = books[indexPath.row]
+            itemCell.itemEntity = item
+        case 10:
+            let item = other[indexPath.row]
+            itemCell.itemEntity = item
+        default:
+            itemCell.textLabel?.text = "Other"
+        }
+        
+        // before section
+//        let item = coreDataManager?.item[indexPath.row]
+//        itemCell.itemEntity = item
 
         return itemCell
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view = UIView()
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.cellSelected = coreDataManager?.item[indexPath.row]
 //
-//        let label = UILabel()
-//        view.addSubview(label)
-//        label.bindEdgesToSuperview()
-//        label.backgroundColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
-//        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-//        label.textColor = #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1)
-//
-//        if section < categoriesList.count {
-//            switch section {
-//            case 0:
-//                label.text =  "Tasks before you go"
-//            case 1:
-//                label.text =  "Documents"
-//            case 2:
-//                label.text =  "Clothes"
-//            case 3:
-//                label.text =  "Accessories"
-//            case 4:
-//                label.text =  "Cosmetics"
-//            case 5:
-//                label.text =  "Health"
-//            case 6:
-//                label.text =  "Food & Drinks"
-//            case 7:
-//                label.text =  "Gadgets"
-//            case 8:
-//                label.text =  "Games & Recreation"
-//            case 9:
-//                label.text =  "Books"
-//            case 10:
-//                label.text =  "Other"
-//            default:
-//                label.text =  ""
-//            }
-//        }
-//        return view
+////        celluleActive = true
+////        celluleIndex = indexPath.row
+////        performSegue(withIdentifier: self.segueToAddItem, sender: self)
 //    }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        switch section {
-//        case 0: return "Tasks before you go"
-//        case 1: return "Documents"
-//        case 2: return "Clothes"
-//        case 3: return "Accessories"
-//        case 4: return "Cosmetics"
-//        case 5: return "Health"
-//        case 6: return "Food & Drinks"
-//        case 7: return "Gadgets"
-//        case 8: return "Games & Recreation"
-//        case 9: return "Books"
-//        case 10: return "Other"
-//        default: return ""
-//        }
-//    }
-    
+
 }
 
 // MARK: - UITableViewDelegate
@@ -150,19 +250,43 @@ extension PackingListViewController: UITableViewDelegate {
         debugCoreDataItem(nameDebug: "The item is deleted", coreDataManager: coreDataManager)
     }
     
-    // TEST
-//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        guard let header = view as? UITableViewHeaderFooterView else { return }
-//        header.textLabel?.textAlignment = .center
-//
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let  headerCell = tableView.dequeueReusableCell(withIdentifier: Constants.HeaderCell) as? CustomTableViewHeaderCell else {
+            return UITableViewCell()
+        }
+        headerCell.backgroundColor = UIColor.gray
+        
+        if section < categoriesList.count {
+            headerCell.headerLabel.text = categoriesList[section]
+        }
+        
 //        switch section {
-//        case 1:  //only section No.1
-//            header.textLabel?.textColor = .black
-//        case 3:  //only section No.3
-//            header.textLabel?.textColor = .red
-//        default: //
-//            header.textLabel?.textColor = .yellow
+//        case 0:
+//            headerCell.headerLabel.text = categoriesList[section]
+//        case 1:
+//            headerCell.headerLabel.text = "Fruit"
+//        case 2:
+//            headerCell.headerLabel.text = "Vegetable"
+//        default:
+//            headerCell.headerLabel.text = "Other"
 //        }
+        
+        return headerCell
+    }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let view = UIView()
+//        let label = UILabel()
+//        view.addSubview(label)
+//        label.bindEdgesToSuperview()
+//        label.backgroundColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
+//        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+//        label.textColor = #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1)
+//
+//        if section < categoriesList.count {
+//            label.text = categoriesList[section]
+//        }
+//        return view
 //    }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -178,3 +302,24 @@ extension PackingListViewController: UITableViewDelegate {
         return coreDataManager?.item.isEmpty ?? true ? 50 : 0
     }
 }
+
+// MARK: - Navigation
+
+//extension PackingListViewController {
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == segueToAddItem {
+//            guard let addItemVC = segue.destination as? AddItemViewController else { return }
+//            addItemVC.cellule = self.cellSelected
+////            if celluleActive {
+////                addDetailsMyTripVC.celluleActive = true
+////                addDetailsMyTripVC.celluleIndex = celluleIndex
+////            } else {
+////                addDetailsMyTripVC.celluleActive = false
+////            }
+////            print("prepare segue celluleActive : \(celluleActive)")
+////            print("prepare segue celluleIndex : \(celluleIndex)")
+//
+//        }
+//    }
+//}
