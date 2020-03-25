@@ -123,6 +123,9 @@ extension SearchPlacesViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+//        cityTextField.resignFirstResponder()
+//        placeTextField.resignFirstResponder()
         searchPlaces()
         return true
     }

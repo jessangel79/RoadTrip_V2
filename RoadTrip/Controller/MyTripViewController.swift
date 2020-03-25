@@ -17,7 +17,7 @@ final class MytripViewController: UIViewController {
     }
     
     @IBOutlet private weak var shareBarButtonItem: UIBarButtonItem!
-    
+
     // MARK: - Properties
     
     private var coreDataManager: CoreDataManager?
@@ -46,11 +46,16 @@ final class MytripViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        let viewController = UIActivityViewController(activityItems: [shareInfoPlace], applicationActivities: [])
-        present(viewController, animated: true)
-        if let popOver = viewController.popoverPresentationController {
-            popOver.sourceView = self.view
-            popOver.barButtonItem = shareBarButtonItem
+        guard let places = coreDataManager?.places.isEmpty else { return }
+        if places {
+            presentAlert(typeError: .nothingToShare)
+        } else {
+            let viewController = UIActivityViewController(activityItems: [shareInfoPlace], applicationActivities: [])
+            present(viewController, animated: true)
+            if let popOver = viewController.popoverPresentationController {
+                popOver.sourceView = self.view
+                popOver.barButtonItem = shareBarButtonItem
+            }
         }
     }
         
@@ -70,7 +75,6 @@ final class MytripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
-        
         let nib = UINib(nibName: Constants.ListPlacesTableViewCell, bundle: nil)
         myTripTableView.register(nib, forCellReuseIdentifier: Constants.ListPlacesCell)
         myTripTableView.reloadData()
@@ -128,7 +132,7 @@ extension MytripViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Add a place in your trip" // "Click on \"bookmark\" to save a place for your Trip"
+        label.text = "Add a place in your trip"
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         label.textAlignment = .center
         label.textColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)

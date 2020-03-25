@@ -24,6 +24,10 @@ extension UIViewController {
         case noStartDate
         case noEndDate
         case errorDate
+        case nameExist
+        case nothingToShare
+        case noItem
+        case itemExist
     }
 
     /// Alert message to user
@@ -65,6 +69,18 @@ extension UIViewController {
         case .errorDate:
             title = "Error date"
             message = "Please to set correct start and end dates."
+        case .nameExist:
+            title = "This name of trip already exist"
+            message = "Please to set another name for you trip."
+        case .nothingToShare:
+            title = "Nothing to share"
+            message = "Sorry there is nothing to share."
+        case .noItem:
+            title = "No item"
+            message = "Please to set an item."
+        case .itemExist:
+            title = "This item already exist"
+            message = "Please to set another item."
         }
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

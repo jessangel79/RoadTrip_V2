@@ -22,9 +22,9 @@ extension UIViewController {
     /// custom button
     func customButton(button: UIButton, radius: CGFloat, width: CGFloat, colorBackground: UIColor, colorBorder: UIColor) {
         button.layer.cornerRadius = radius
+        button.layer.borderWidth = width
         button.layer.backgroundColor = colorBackground.cgColor
         button.layer.borderColor = colorBorder.cgColor
-        button.layer.borderWidth = width
     }
     
     /// custom labels collection
@@ -43,8 +43,8 @@ extension UIViewController {
     /// custom views
     func customView(view: UIView, colorBackground: UIColor, colorBorder: UIColor) {
         view.layer.cornerRadius = 4
+        view.layer.borderWidth = 1.0
         view.layer.backgroundColor = colorBackground.cgColor
         view.layer.borderColor = colorBorder.cgColor
-        view.layer.borderWidth = 1.0
     }
 }

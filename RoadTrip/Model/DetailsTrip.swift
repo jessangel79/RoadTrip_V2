@@ -20,4 +20,5 @@ struct DetailsTrip {
     let travellerThree: String
     let travellerFour: String
     let notes: String
+    let imageBackground: String
 }

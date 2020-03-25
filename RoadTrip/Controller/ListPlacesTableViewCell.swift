@@ -13,7 +13,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
 
-    @IBOutlet weak var placeImageView: UIImageView!
+    @IBOutlet private weak var placeImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
     @IBOutlet private weak var openLabel: UILabel!
@@ -27,7 +27,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        customLabelsCell(labels: allLabels)
+        customLabelsCell(labels: allLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
         customViewCell(view: ratingView)
     }
     

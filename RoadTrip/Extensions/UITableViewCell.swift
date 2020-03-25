@@ -11,21 +11,27 @@ import UIKit
 // MARK: - Extension to custom views of TableViewCell
 
 extension UITableViewCell {
+    
     /// custom label
-    func customLabelsCell(labels: [UILabel]) {
+    func customLabelCell(label: UILabel, radius: CGFloat, width: CGFloat, colorBackground: UIColor, colorBorder: UIColor) {
+        label.layer.cornerRadius = radius
+        label.layer.borderWidth = width
+        label.layer.backgroundColor = colorBackground.cgColor
+        label.layer.borderColor = colorBorder.cgColor
+    }
+    
+    /// custom labels collection
+    func customLabelsCell(labels: [UILabel], radius: CGFloat, width: CGFloat, colorBackground: UIColor, colorBorder: UIColor) {
         for label in labels {
-            label.layer.cornerRadius = 5
-            label.layer.backgroundColor = #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884)
-            label.layer.borderColor = UIColor.gray.cgColor
-            label.layer.borderWidth = 1.0
+            customLabelCell(label: label, radius: radius, width: width, colorBackground: colorBackground, colorBorder: colorBorder)
         }
     }
     
     /// custom view
     func customViewCell(view: UIView) {
         view.layer.cornerRadius = 5
+        view.layer.borderWidth = 1.0
         view.layer.backgroundColor = #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884)
         view.layer.borderColor = UIColor.gray.cgColor
-        view.layer.borderWidth = 1.0
     }
 }

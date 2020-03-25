@@ -2,6 +2,8 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DetailsTripEntity" representedClassName=".DetailsTripEntity" syncable="YES" codeGenerationType="class">
         <attribute name="endDate" optional="YES" attributeType="String"/>
+        <attribute name="imageBackground" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="numberDays" optional="YES" attributeType="String"/>
@@ -10,6 +12,11 @@
         <attribute name="travellerOne" optional="YES" attributeType="String"/>
         <attribute name="travellerThree" optional="YES" attributeType="String"/>
         <attribute name="travellerTwo" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ItemEntity" representedClassName=".ItemEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="imageBackground" optional="YES" attributeType="String"/>
+        <attribute name="itemName" optional="YES" attributeType="String"/>
     </entity>
     <entity name="PlaceEntity" representedClassName=".PlaceEntity" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String"/>
@@ -29,7 +36,8 @@
         <attribute name="website" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="DetailsTripEntity" positionX="-63" positionY="99" width="128" height="178"/>
+        <element name="DetailsTripEntity" positionX="-63" positionY="99" width="128" height="208"/>
+        <element name="ItemEntity" positionX="-63" positionY="126" width="128" height="88"/>
         <element name="PlaceEntity" positionX="-63" positionY="-18" width="128" height="268"/>
     </elements>
 </model>

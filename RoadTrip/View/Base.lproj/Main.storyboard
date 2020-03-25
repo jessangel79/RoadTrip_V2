@@ -732,21 +732,148 @@
             </objects>
             <point key="canvasLocation" x="2505" y="-1419.7183098591549"/>
         </scene>
-        <!--Packing List-->
+        <!--Packing List View Controller-->
         <scene sceneID="pcv-lm-N8R">
             <objects>
-                <viewController id="pBa-fz-1QP" sceneMemberID="viewController">
+                <viewController id="pBa-fz-1QP" userLabel="Packing List View Controller" customClass="PackingListViewController" customModule="RoadTrip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vfs-fq-5o4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IJO-d1-IGI">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pBa-fz-1QP" id="E5B-P3-e2e"/>
+                                    <outlet property="delegate" destination="pBa-fz-1QP" id="aUP-lc-qRb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IJO-d1-IGI" firstAttribute="top" secondItem="Vog-t2-eVL" secondAttribute="top" id="6dl-Z7-zNM"/>
+                            <constraint firstAttribute="bottom" secondItem="IJO-d1-IGI" secondAttribute="bottom" constant="49" id="6qW-Tx-dza"/>
+                            <constraint firstItem="IJO-d1-IGI" firstAttribute="trailing" secondItem="Vog-t2-eVL" secondAttribute="trailing" id="90g-rH-DA1"/>
+                            <constraint firstItem="IJO-d1-IGI" firstAttribute="leading" secondItem="Vog-t2-eVL" secondAttribute="leading" id="Brd-Uq-y0L"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Vog-t2-eVL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Packing List" id="6uo-Ag-m3L"/>
+                    <navigationItem key="navigationItem" title="Packing List" id="6uo-Ag-m3L">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="aKc-hG-57x">
+                                <connections>
+                                    <segue destination="zQd-qi-cJP" kind="show" identifier="segueToAddItem" id="6NS-cc-ubx"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Reset" id="Z7L-YP-0K2">
+                                <connections>
+                                    <action selector="resetBarButtonItemTapped:" destination="pBa-fz-1QP" id="k1B-AS-2uV"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="itemTableView" destination="IJO-d1-IGI" id="Tmg-fc-EcL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIS-VP-87A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1727" y="-2787"/>
+        </scene>
+        <!--Add Item View Controller-->
+        <scene sceneID="E4V-aF-6UK">
+            <objects>
+                <viewController id="zQd-qi-cJP" userLabel="Add Item View Controller" customClass="AddItemViewController" customModule="RoadTrip" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gww-va-bC4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arbre-solitaire_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="fTz-lr-fk0">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="9eL-lx-x7G">
+                                <rect key="frame" x="15" y="64" width="290" height="93"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item to add :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbD-M3-mek">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="29"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
+                                        <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="T-Shirt" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0vb-ve-NCY">
+                                        <rect key="frame" x="0.0" y="59" width="290" height="34"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" returnKeyType="continue"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="zQd-qi-cJP" id="RGb-xZ-oGB"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6UT-gY-npH">
+                                <rect key="frame" x="0.0" y="222" width="320" height="200"/>
+                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="7gh-zA-d7G"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="zQd-qi-cJP" id="hsz-SD-kJr"/>
+                                    <outlet property="delegate" destination="zQd-qi-cJP" id="iBj-Vg-cFQ"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYn-ui-wkj">
+                                <rect key="frame" x="110" y="474" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="0.75163206339999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ik3-BK-VuN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="19"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="zQd-qi-cJP" eventType="touchUpInside" id="jcA-NY-Qt0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6UT-gY-npH" firstAttribute="leading" secondItem="ew7-b3-iic" secondAttribute="leading" id="AKg-n6-fN3"/>
+                            <constraint firstItem="ew7-b3-iic" firstAttribute="bottom" secondItem="tYn-ui-wkj" secondAttribute="bottom" constant="5" id="CE7-tW-naF"/>
+                            <constraint firstItem="9eL-lx-x7G" firstAttribute="top" secondItem="ew7-b3-iic" secondAttribute="top" constant="20" id="EIR-sn-mq6"/>
+                            <constraint firstItem="ew7-b3-iic" firstAttribute="bottom" secondItem="fTz-lr-fk0" secondAttribute="bottom" id="Hjs-co-fhJ"/>
+                            <constraint firstItem="tYn-ui-wkj" firstAttribute="leading" secondItem="ew7-b3-iic" secondAttribute="leading" constant="110" id="K3F-z3-CBh"/>
+                            <constraint firstItem="fTz-lr-fk0" firstAttribute="top" secondItem="ew7-b3-iic" secondAttribute="top" id="LQF-MG-T4c"/>
+                            <constraint firstItem="ew7-b3-iic" firstAttribute="trailing" secondItem="fTz-lr-fk0" secondAttribute="trailing" id="V0p-Mh-czl"/>
+                            <constraint firstItem="9eL-lx-x7G" firstAttribute="leading" secondItem="ew7-b3-iic" secondAttribute="leading" constant="15" id="WXS-Be-Yhk"/>
+                            <constraint firstItem="ew7-b3-iic" firstAttribute="trailing" secondItem="9eL-lx-x7G" secondAttribute="trailing" constant="15" id="ZSZ-QG-sM2"/>
+                            <constraint firstItem="fTz-lr-fk0" firstAttribute="leading" secondItem="ew7-b3-iic" secondAttribute="leading" id="bOo-mk-6Fj"/>
+                            <constraint firstItem="6UT-gY-npH" firstAttribute="trailing" secondItem="ew7-b3-iic" secondAttribute="trailing" id="ftg-qR-scg"/>
+                            <constraint firstItem="6UT-gY-npH" firstAttribute="top" secondItem="9eL-lx-x7G" secondAttribute="bottom" constant="65" id="rE9-nD-Wsg"/>
+                            <constraint firstItem="ew7-b3-iic" firstAttribute="trailing" secondItem="tYn-ui-wkj" secondAttribute="trailing" constant="110" id="z2A-2M-6eX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ew7-b3-iic"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wlL-hq-oR9" appends="YES" id="yXB-TJ-s3x"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Item" id="V1z-DT-LHc"/>
+                    <connections>
+                        <outlet property="categoryPickerView" destination="6UT-gY-npH" id="xwp-Eb-B1R"/>
+                        <outlet property="itemImageView" destination="fTz-lr-fk0" id="92r-qL-ocB"/>
+                        <outlet property="itemTextField" destination="0vb-ve-NCY" id="igw-m4-ND9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bq7-QL-NIg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wlL-hq-oR9">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="zQd-qi-cJP" id="mR6-UQ-cfa"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2495.625" y="-2787.676056338028"/>
         </scene>
         <!--Search Places-->
         <scene sceneID="mJp-ga-qoN">
@@ -937,155 +1064,183 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green-island_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-ff-zgk">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXA-0C-wRD">
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OXF-N4-IMi">
-                                <rect key="frame" x="10" y="54" width="300" height="114"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of trip" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="E2A-Fg-6c0">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="73Z-u0-mdS" id="Op4-Qx-zP4"/>
-                                        </connections>
-                                    </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="iKV-z0-C5s">
-                                        <rect key="frame" x="0.0" y="40" width="300" height="34"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98o-tN-b0s" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ui4-dg-ERd">
-                                                <rect key="frame" x="0.0" y="0.0" width="82.5" height="34"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                                <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10/10/2020" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bJb-vA-1kU">
-                                                <rect key="frame" x="88.5" y="0.0" width="211.5" height="34"/>
-                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="continue"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green-island_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-ff-zgk">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OXF-N4-IMi">
+                                                <rect key="frame" x="10" y="10" width="300" height="118"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of trip" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="E2A-Fg-6c0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
+                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="73Z-u0-mdS" id="Op4-Qx-zP4"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="iKV-z0-C5s">
+                                                        <rect key="frame" x="0.0" y="42" width="300" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ui4-dg-ERd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="82.5" height="34"/>
+                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                                <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10/10/2020" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bJb-vA-1kU">
+                                                                <rect key="frame" x="88.5" y="0.0" width="211.5" height="34"/>
+                                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="73Z-u0-mdS" id="Qjc-8n-Ary"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="trK-MA-NiL">
+                                                        <rect key="frame" x="0.0" y="84" width="300" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End date :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKZ-FV-xVP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="34"/>
+                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                                <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20/10/2020" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mRO-Yw-Tsg">
+                                                                <rect key="frame" x="88" y="0.0" width="212" height="34"/>
+                                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="73Z-u0-mdS" id="jos-Zr-qLc"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-5V-2fO">
+                                                <rect key="frame" x="10" y="138" width="300" height="189"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travellers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LZ-7G-WRt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
+                                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
+                                                        <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Traveller 1" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FNx-OS-xyY">
+                                                        <rect key="frame" x="0.0" y="29" width="300" height="34"/>
+                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="73Z-u0-mdS" id="s5D-72-ts2"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Traveller 2" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="E3j-9H-jaf">
+                                                        <rect key="frame" x="0.0" y="71" width="300" height="34"/>
+                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="73Z-u0-mdS" id="yOn-hn-9b7"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Traveller 3" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="clH-UZ-Qk0">
+                                                        <rect key="frame" x="0.0" y="113" width="300" height="34"/>
+                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="73Z-u0-mdS" id="B14-EZ-FeY"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Traveller 4" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ztV-3d-O8E">
+                                                        <rect key="frame" x="0.0" y="155" width="300" height="34"/>
+                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="73Z-u0-mdS" id="TB9-bB-jBR"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BZv-3P-eYN">
+                                                <rect key="frame" x="10" y="337" width="300" height="63"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKo-G1-ZuI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
+                                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
+                                                        <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zur-vV-30D">
+                                                        <rect key="frame" x="0.0" y="29" width="300" height="34"/>
+                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="73Z-u0-mdS" id="yxr-SH-Rco"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqi-NE-28u">
+                                                <rect key="frame" x="110" y="435" width="100" height="40"/>
+                                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="NDK-Fz-9Yz"/>
+                                                    <constraint firstAttribute="height" constant="40" id="icR-IE-AAI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="19"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
-                                                    <outlet property="delegate" destination="73Z-u0-mdS" id="Qjc-8n-Ary"/>
+                                                    <action selector="saveButtonTapped:" destination="73Z-u0-mdS" eventType="touchUpInside" id="lPq-QW-FbE"/>
                                                 </connections>
-                                            </textField>
+                                            </button>
                                         </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="trK-MA-NiL">
-                                        <rect key="frame" x="0.0" y="80" width="300" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End date :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKZ-FV-xVP">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="34"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                                <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20/10/2020" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mRO-Yw-Tsg">
-                                                <rect key="frame" x="88" y="0.0" width="212" height="34"/>
-                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="73Z-u0-mdS" id="jos-Zr-qLc"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OXF-N4-IMi" secondAttribute="trailing" constant="10" id="7Pi-eO-KIa"/>
+                                            <constraint firstItem="Kqi-NE-28u" firstAttribute="centerX" secondItem="98o-tN-b0s" secondAttribute="centerX" id="DB2-dW-EjR"/>
+                                            <constraint firstAttribute="trailing" secondItem="BZv-3P-eYN" secondAttribute="trailing" constant="10" id="FHl-o4-EhA"/>
+                                            <constraint firstAttribute="trailing" secondItem="k7c-ff-zgk" secondAttribute="trailing" id="J6P-TZ-61k"/>
+                                            <constraint firstItem="BZv-3P-eYN" firstAttribute="leading" secondItem="98o-tN-b0s" secondAttribute="leading" constant="10" id="JRz-bf-u7d"/>
+                                            <constraint firstItem="BZv-3P-eYN" firstAttribute="top" secondItem="4Ic-5V-2fO" secondAttribute="bottom" constant="10" id="JXg-8J-PYr"/>
+                                            <constraint firstItem="OXF-N4-IMi" firstAttribute="top" secondItem="98o-tN-b0s" secondAttribute="top" constant="10" id="Lqk-E8-9Yx"/>
+                                            <constraint firstItem="4Ic-5V-2fO" firstAttribute="top" secondItem="OXF-N4-IMi" secondAttribute="bottom" constant="10" id="ONM-jj-QUW"/>
+                                            <constraint firstAttribute="trailing" secondItem="4Ic-5V-2fO" secondAttribute="trailing" constant="10" id="cIi-nm-JcC"/>
+                                            <constraint firstItem="OXF-N4-IMi" firstAttribute="leading" secondItem="98o-tN-b0s" secondAttribute="leading" constant="10" id="fga-in-Tq7"/>
+                                            <constraint firstItem="BZv-3P-eYN" firstAttribute="top" secondItem="4Ic-5V-2fO" secondAttribute="bottom" constant="10" id="gpc-2t-gqJ"/>
+                                            <constraint firstItem="4Ic-5V-2fO" firstAttribute="leading" secondItem="98o-tN-b0s" secondAttribute="leading" constant="10" id="hBh-13-Mp5"/>
+                                            <constraint firstItem="4Ic-5V-2fO" firstAttribute="top" secondItem="OXF-N4-IMi" secondAttribute="bottom" constant="10" id="nBo-bF-G9X"/>
+                                            <constraint firstAttribute="bottom" secondItem="k7c-ff-zgk" secondAttribute="bottom" id="pEI-nx-uZw"/>
+                                            <constraint firstItem="k7c-ff-zgk" firstAttribute="leading" secondItem="98o-tN-b0s" secondAttribute="leading" id="vPI-Y0-UW5"/>
+                                            <constraint firstItem="k7c-ff-zgk" firstAttribute="top" secondItem="98o-tN-b0s" secondAttribute="top" id="yvD-Va-p67"/>
+                                            <constraint firstItem="Kqi-NE-28u" firstAttribute="top" secondItem="BZv-3P-eYN" secondAttribute="bottom" constant="35" id="zJi-oT-M9n"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-5V-2fO">
-                                <rect key="frame" x="10" y="178" width="300" height="181"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travellers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LZ-7G-WRt">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
-                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
-                                        <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Traveller 1" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FNx-OS-xyY">
-                                        <rect key="frame" x="0.0" y="27" width="300" height="34"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="73Z-u0-mdS" id="s5D-72-ts2"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Traveller 2" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="E3j-9H-jaf">
-                                        <rect key="frame" x="0.0" y="67" width="300" height="34"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="73Z-u0-mdS" id="yOn-hn-9b7"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Traveller 3" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="clH-UZ-Qk0">
-                                        <rect key="frame" x="0.0" y="107" width="300" height="34"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="73Z-u0-mdS" id="B14-EZ-FeY"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Traveller 4" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ztV-3d-O8E">
-                                        <rect key="frame" x="0.0" y="147" width="300" height="34"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="73Z-u0-mdS" id="TB9-bB-jBR"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="BZv-3P-eYN">
-                                <rect key="frame" x="10" y="369" width="300" height="61"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKo-G1-ZuI">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
-                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
-                                        <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zur-vV-30D">
-                                        <rect key="frame" x="0.0" y="27" width="300" height="34"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="73Z-u0-mdS" id="yxr-SH-Rco"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqi-NE-28u">
-                                <rect key="frame" x="115" y="471" width="90" height="40"/>
-                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="cGg-Sh-Ca0"/>
-                                    <constraint firstAttribute="height" constant="40" id="icR-IE-AAI"/>
+                                    <constraint firstItem="JuZ-fM-D6E" firstAttribute="width" secondItem="98o-tN-b0s" secondAttribute="width" id="NrU-Kd-S9A"/>
+                                    <constraint firstItem="98o-tN-b0s" firstAttribute="leading" secondItem="53K-e1-J6u" secondAttribute="leading" id="a5t-DC-Ngg"/>
+                                    <constraint firstItem="98o-tN-b0s" firstAttribute="top" secondItem="53K-e1-J6u" secondAttribute="top" id="bwt-Gj-kYK"/>
+                                    <constraint firstItem="98o-tN-b0s" firstAttribute="bottom" secondItem="53K-e1-J6u" secondAttribute="bottom" id="uDW-9M-AcB"/>
+                                    <constraint firstItem="98o-tN-b0s" firstAttribute="trailing" secondItem="53K-e1-J6u" secondAttribute="trailing" id="y0Q-3j-ULB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="19"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonTapped:" destination="73Z-u0-mdS" eventType="touchUpInside" id="lPq-QW-FbE"/>
-                                </connections>
-                            </button>
+                                <viewLayoutGuide key="contentLayoutGuide" id="53K-e1-J6u"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="JuZ-fM-D6E"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="k7c-ff-zgk" firstAttribute="bottom" secondItem="8Jg-UZ-Wiu" secondAttribute="bottom" id="3zf-bZ-22K"/>
-                            <constraint firstItem="BZv-3P-eYN" firstAttribute="top" secondItem="4Ic-5V-2fO" secondAttribute="bottom" constant="10" id="4Uj-xP-wZh"/>
-                            <constraint firstItem="8Jg-UZ-Wiu" firstAttribute="trailing" secondItem="OXF-N4-IMi" secondAttribute="trailing" constant="10" id="HSs-mf-82N"/>
-                            <constraint firstItem="k7c-ff-zgk" firstAttribute="top" secondItem="8Jg-UZ-Wiu" secondAttribute="top" id="Iwp-Cv-1FL"/>
-                            <constraint firstItem="8Jg-UZ-Wiu" firstAttribute="trailing" secondItem="4Ic-5V-2fO" secondAttribute="trailing" constant="10" id="JgV-5C-IV3"/>
-                            <constraint firstItem="OXF-N4-IMi" firstAttribute="leading" secondItem="8Jg-UZ-Wiu" secondAttribute="leading" constant="10" id="NKa-Ob-vGU"/>
-                            <constraint firstItem="k7c-ff-zgk" firstAttribute="trailing" secondItem="8Jg-UZ-Wiu" secondAttribute="trailing" id="NKa-ub-jr5"/>
-                            <constraint firstItem="OXF-N4-IMi" firstAttribute="top" secondItem="8Jg-UZ-Wiu" secondAttribute="top" constant="10" id="S81-mg-QsT"/>
-                            <constraint firstItem="k7c-ff-zgk" firstAttribute="leading" secondItem="8Jg-UZ-Wiu" secondAttribute="leading" id="U0k-G9-Cx3"/>
-                            <constraint firstItem="4Ic-5V-2fO" firstAttribute="leading" secondItem="8Jg-UZ-Wiu" secondAttribute="leading" constant="10" id="V44-Kf-8qJ"/>
-                            <constraint firstItem="Kqi-NE-28u" firstAttribute="centerX" secondItem="1Qn-E5-y64" secondAttribute="centerX" id="Xww-cw-vzC"/>
-                            <constraint firstItem="4Ic-5V-2fO" firstAttribute="top" secondItem="OXF-N4-IMi" secondAttribute="bottom" constant="10" id="ZSQ-bk-mrM"/>
-                            <constraint firstItem="BZv-3P-eYN" firstAttribute="leading" secondItem="8Jg-UZ-Wiu" secondAttribute="leading" constant="10" id="fJI-9u-5eu"/>
-                            <constraint firstItem="8Jg-UZ-Wiu" firstAttribute="bottom" secondItem="Kqi-NE-28u" secondAttribute="bottom" constant="8" id="pHs-aw-6SH"/>
-                            <constraint firstItem="8Jg-UZ-Wiu" firstAttribute="trailing" secondItem="BZv-3P-eYN" secondAttribute="trailing" constant="10" id="tul-Q1-y2o"/>
+                            <constraint firstItem="RXA-0C-wRD" firstAttribute="leading" secondItem="8Jg-UZ-Wiu" secondAttribute="leading" id="WvE-Zj-9Pz"/>
+                            <constraint firstItem="RXA-0C-wRD" firstAttribute="trailing" secondItem="8Jg-UZ-Wiu" secondAttribute="trailing" id="cYl-gm-VZT"/>
+                            <constraint firstItem="RXA-0C-wRD" firstAttribute="top" secondItem="8Jg-UZ-Wiu" secondAttribute="top" id="md4-mW-O5i"/>
+                            <constraint firstItem="RXA-0C-wRD" firstAttribute="bottom" secondItem="8Jg-UZ-Wiu" secondAttribute="bottom" id="rqA-O2-gbj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Jg-UZ-Wiu"/>
                         <connections>
@@ -1098,11 +1253,17 @@
                         <outlet property="nameTextField" destination="E2A-Fg-6c0" id="juA-8I-c1e"/>
                         <outlet property="notesTextField" destination="zur-vV-30D" id="uaf-BO-ewu"/>
                         <outlet property="saveButton" destination="Kqi-NE-28u" id="SR7-oL-zA8"/>
+                        <outlet property="scrollView" destination="RXA-0C-wRD" id="7cK-F2-3wj"/>
                         <outlet property="startDateTextField" destination="bJb-vA-1kU" id="uow-EA-LJ6"/>
                         <outlet property="travellerFourTextField" destination="ztV-3d-O8E" id="1hx-B9-myb"/>
                         <outlet property="travellerOneTextField" destination="FNx-OS-xyY" id="Ep6-Mv-VnO"/>
                         <outlet property="travellerThreeTextField" destination="clH-UZ-Qk0" id="Tdl-gY-0el"/>
                         <outlet property="travellerTwoTextField" destination="E3j-9H-jaf" id="dFt-lv-7Hs"/>
+                        <outlet property="tripImageView" destination="k7c-ff-zgk" id="RN8-pQ-RNW"/>
+                        <outletCollection property="allLabels" destination="Ui4-dg-ERd" collectionClass="NSMutableArray" id="d5i-H1-5nR"/>
+                        <outletCollection property="allLabels" destination="vKZ-FV-xVP" collectionClass="NSMutableArray" id="gyk-Bf-AHj"/>
+                        <outletCollection property="allLabels" destination="9LZ-7G-WRt" collectionClass="NSMutableArray" id="8bJ-4c-GFh"/>
+                        <outletCollection property="allLabels" destination="yKo-G1-ZuI" collectionClass="NSMutableArray" id="Ab3-oQ-Zyy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7P-I2-LaT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1112,10 +1273,11 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2505" y="-2087.323943661972"/>
+            <point key="canvasLocation" x="2504" y="-2088"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arbre-solitaire_1024x1024" width="1024" height="1024"/>
         <image name="baggage" width="25" height="25"/>
         <image name="bookmark_fill" width="25" height="25"/>
         <image name="coucher-du-soleil_1024x1024" width="1024" height="1024"/>

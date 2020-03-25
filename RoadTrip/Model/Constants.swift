@@ -20,4 +20,6 @@ struct Constants {
     static let SegueToAddDetails = "segueToAddDetails"
     static let DetailsMyTripCell = "DetailsMyTripCell"
     static let DetailsMyTripTableViewCell = "DetailsMyTripTableViewCell"
+    static let PackingListCell = "PackingListCell"
+    static let PackingListTableViewCell = "PackingListTableViewCell"
 }

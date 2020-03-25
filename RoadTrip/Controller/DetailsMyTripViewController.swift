@@ -17,10 +17,12 @@ final class DetailsMyTripViewController: UIViewController {
     }
     
     // MARK: - Properties
-//    private var detailsMyTripList = [DetailsTrip]()
+    
     private var coreDataManager: CoreDataManager?
     private var cellSelected: DetailsTripEntity?
-//    private let segueToMyTrip = Constants.SegueToMyTrip
+    private let segueToAddDetails = Constants.SegueToAddDetails
+    private var celluleActive = false
+    private var celluleIndex = 0
 
     // MARK: - Actions
 
@@ -34,17 +36,15 @@ final class DetailsMyTripViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        celluleActive = false
         detailsMyTripTableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
-//        detailsMyTripList += ["test", "retour"]
-        
         let nib = UINib(nibName: Constants.DetailsMyTripTableViewCell, bundle: nil)
         detailsMyTripTableView.register(nib, forCellReuseIdentifier: Constants.DetailsMyTripCell)
-
         detailsMyTripTableView.reloadData()
     }
     
@@ -78,10 +78,10 @@ extension DetailsMyTripViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.cellSelected = placesList[indexPath.row]
-//        self.photoOfCellSelected = photosList[indexPath.row]
-//        self.placeIdCellSelected = placeIDsList[indexPath.row]
-//        performSegue(withIdentifier: self.segueToPlaceDetails, sender: self)
+        self.cellSelected = coreDataManager?.detailsTrip[indexPath.row]
+        celluleActive = true
+        celluleIndex = indexPath.row
+        performSegue(withIdentifier: self.segueToAddDetails, sender: self)
     }
 }
 
@@ -94,12 +94,11 @@ extension DetailsMyTripViewController: UITableViewDelegate {
         if editingStyle == .delete {
             let detailsTrip = coreDataManager?.detailsTrip[indexPath.row]
             coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "",
-                                               startDate: detailsTrip?.startDate ?? "",
-                                               endDate: detailsTrip?.endDate ?? "")
-            tableView.deleteRows(at: [indexPath], with: .fade)
+                                               travellerOne: detailsTrip?.travellerOne ?? "")
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         detailsMyTripTableView.reloadData()
-        debugCoreDataPlace(nameDebug: "The trip is deleted", coreDataManager: coreDataManager)
+        debugCoreDataDetailsTrip(nameDebug: "The trip is deleted", coreDataManager: coreDataManager)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -119,12 +118,19 @@ extension DetailsMyTripViewController: UITableViewDelegate {
 // MARK: - Navigation
 
 extension DetailsMyTripViewController {
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == segueToMyPlace {
-//            guard let myPlacePlaceVC = segue.destination as? MyPlaceViewController else { return }
-//            myPlacePlaceVC.cellule = self.cellSelected
-//        }
-//    }
-}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueToAddDetails {
+            guard let addDetailsMyTripVC = segue.destination as? AddDetailsMyTripViewController else { return }
+            addDetailsMyTripVC.cellule = self.cellSelected
+            if celluleActive {
+                addDetailsMyTripVC.celluleActive = true
+                addDetailsMyTripVC.celluleIndex = celluleIndex
+            } else {
+                addDetailsMyTripVC.celluleActive = false
+            }
+            print("prepare segue celluleActive : \(celluleActive)")
+            print("prepare segue celluleIndex : \(celluleIndex)")
 
-// MARK: - Extension
+        }
+    }
+}

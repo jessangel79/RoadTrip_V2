@@ -86,34 +86,29 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tcG-No-yW4">
-                                <rect key="frame" x="5" y="3.5" width="240" height="113"/>
+                                <rect key="frame" x="5" y="2" width="240" height="116"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ykF-hq-FGJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="85"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-lh-LxE">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="lnd-zd-63A"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
-                                                <color key="textColor" red="0.25324180374290739" green="0.056585675930053571" blue="0.20743085771534514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-rb-GcO">
-                                                <rect key="frame" x="0.0" y="45" width="240" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="Pyi-cZ-lCf"/>
-                                                    <constraint firstAttribute="width" constant="240" id="XOE-Wq-q0U"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                <color key="textColor" red="0.25324180374290739" green="0.056585675930053571" blue="0.20743085771534514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-lh-LxE">
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lnd-zd-63A"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
+                                        <color key="textColor" red="0.25324180374290739" green="0.056585675930053571" blue="0.20743085771534514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-rb-GcO">
+                                        <rect key="frame" x="0.0" y="48" width="240" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Pyi-cZ-lCf"/>
+                                            <constraint firstAttribute="width" constant="240" id="XOE-Wq-q0U"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                        <color key="textColor" red="0.25324180374290739" green="0.056585675930053571" blue="0.20743085771534514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNu-uK-sJf">
-                                        <rect key="frame" x="0.0" y="93" width="39.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="96" width="39.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="0wK-f7-QlJ"/>
                                         </constraints>
@@ -154,10 +149,10 @@
                 <outlet property="priceLevelLabel" destination="dea-Zc-961" id="AvI-PF-8cZ"/>
                 <outlet property="ratingLabel" destination="eKX-uY-OLF" id="zQH-Nm-0Dw"/>
                 <outlet property="ratingView" destination="bxf-er-auI" id="e4M-3Z-Auh"/>
-                <outletCollection property="allLabels" destination="lxi-rb-GcO" collectionClass="NSMutableArray" id="DAZ-1r-JON"/>
                 <outletCollection property="allLabels" destination="eNu-uK-sJf" collectionClass="NSMutableArray" id="QGX-TP-ubE"/>
                 <outletCollection property="allLabels" destination="dea-Zc-961" collectionClass="NSMutableArray" id="rCx-NB-aZR"/>
                 <outletCollection property="allLabels" destination="3r6-lh-LxE" collectionClass="NSMutableArray" id="8n6-Md-EOc"/>
+                <outletCollection property="allLabels" destination="lxi-rb-GcO" collectionClass="NSMutableArray" id="DAZ-1r-JON"/>
             </connections>
             <point key="canvasLocation" x="131.25" y="125.70422535211267"/>
         </tableViewCell>

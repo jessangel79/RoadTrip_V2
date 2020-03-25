@@ -12,20 +12,27 @@ class DetailsMyTripTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var setStartDateLabel: UILabel!
-    @IBOutlet weak var setEndDateLabel: UILabel!
-    @IBOutlet weak var setNumberDaysLabel: UILabel!
-    @IBOutlet weak var travellerOneLabel: UILabel!
-    @IBOutlet weak var travellerTwoLabel: UILabel!
-    @IBOutlet weak var travellerThreeLabel: UILabel!
-    @IBOutlet weak var travellerFourLabel: UILabel!
-    @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var setStartDateLabel: UILabel!
+    @IBOutlet private weak var setEndDateLabel: UILabel!
+    @IBOutlet private weak var setNumberDaysLabel: UILabel!
+    @IBOutlet private weak var travellerOneLabel: UILabel!
+    @IBOutlet private weak var travellerTwoLabel: UILabel!
+    @IBOutlet private weak var travellerThreeLabel: UILabel!
+    @IBOutlet private weak var travellerFourLabel: UILabel!
+    @IBOutlet private weak var notesTextView: UITextView!
+    @IBOutlet private weak var tripImageView: UIImageView!
+    @IBOutlet private var allInfoLabels: [UILabel]!
+    @IBOutlet private var allMainLabels: [UILabel]!
+    @IBOutlet private var allSetLabels: [UILabel]!
     
     // MARK: - Methods
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        customLabelsCell(labels: allInfoLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
+        customLabelsCell(labels: allMainLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884))
+        customLabelsCell(labels: allSetLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.7516320634), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.7516320634))        
     }
     
    var detailsTripEntity: DetailsTripEntity? {
@@ -39,13 +46,8 @@ class DetailsMyTripTableViewCell: UITableViewCell {
             travellerThreeLabel.text = detailsTripEntity?.travellerThree
             travellerFourLabel.text = detailsTripEntity?.travellerFour
             notesTextView.text = detailsTripEntity?.notes
-            
-//            startDateLabel.text = "Start date of trip :"
-//            endDateLabel.text = "End date of trip :"
-//            numberDaysLabel.text = "Number of days :"
-//            print("photoReference in place => \(photo)")
-//            print("listPlacesCell.placeImageView.image in listTVCell => \(String(describing: placeImageView.image)))")
+            tripImageView.image = UIImage(named: detailsTripEntity?.imageBackground ?? "iles-de-locean_1024x1024.png")
+//            print("notes in detailsTrip => \(String(describing: detailsTripEntity?.notes))")
         }
     }
-
 }

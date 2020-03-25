@@ -89,14 +89,17 @@ extension Date {
         let components: DateComponents = Calendar.current.dateComponents([.day], from: earliest, to: latest)
         let day = components.day ?? 0
         let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
         dateFormatter.dateFormat = "dd/MM/yyyy"
+//        dateFormatter.dateFormat = "MM/dd/yyyy"
         let fromDateSring = dateFormatter.string(from: fromDate)
         if day >= 2 {
             return "\(day) days"
         } else if day >= 1 {
             return "1 day"
         } else {
-            return "Just the \(fromDateSring)"
+            return "The \(fromDateSring)"
+//            return "Just the \(fromDateSring)"
         }
     }
 }

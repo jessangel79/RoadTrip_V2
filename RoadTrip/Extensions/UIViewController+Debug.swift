@@ -52,7 +52,6 @@ extension UIViewController {
     
     /// function to debug CoreData
     func debugCoreDataPlace(nameDebug: String, coreDataManager: CoreDataManager?) {
-        // priceLevel: Int16, rating: Double, types: String, userRatingTotal: Int16
         print(nameDebug)
         print("-----------------------")
         var index = 0
@@ -73,13 +72,13 @@ extension UIViewController {
             print("PhoneNumber : \(place.phoneNumber ?? "phoneNumber error")")
             print("Url : \(place.url ?? "url error")")
             print("Website : \(place.website ?? "website error")")
+            print("index : \(index)")
             print("\n")
             index += 1
         }
     }
     
     func debugCoreDataDetailsTrip(nameDebug: String, coreDataManager: CoreDataManager?) {
-        // priceLevel: Int16, rating: Double, types: String, userRatingTotal: Int16
         print(nameDebug)
         print("-----------------------")
         var index = 0
@@ -94,6 +93,37 @@ extension UIViewController {
             print("travellerThree : \(detailsTrip.travellerThree ?? "travellerThree error")")
             print("travellerFour : \(detailsTrip.travellerFour ?? "travellerFour error")")
             print("notes : \(detailsTrip.notes ?? "notes error")")
+            print("imageBackground : \(detailsTrip.imageBackground ?? "imageBackground error")")
+            print("\n")
+            index += 1
+        }
+    }
+    
+//    func debugCoreDataItem(nameDebug: String, coreDataManager: CoreDataManager?) {
+//        print(nameDebug)
+//        print("-----------------------")
+//        var index = 0
+//        for item in coreDataManager?.item ?? [[ItemEntity]()] {
+//            for ite in item {
+//                print("Trip N° \(index + 1) :")
+//                print("itemName : \(ite.itemName ?? "itemName error")")
+//                print("imageBackground : \(ite.imageBackground ?? "imageBackground error")")
+//                print("category : \(ite.category ?? "category error")")
+//                print("\n")
+//                index += 1
+//            }
+//        }
+//    }
+    
+    func debugCoreDataItem(nameDebug: String, coreDataManager: CoreDataManager?) {
+        print(nameDebug)
+        print("-----------------------")
+        var index = 0
+        for item in coreDataManager?.item ?? [ItemEntity]() {
+            print("Item N° \(index + 1) :")
+            print("itemName : \(item.itemName ?? "itemName error")")
+            print("imageBackground : \(item.imageBackground ?? "imageBackground error")")
+            print("category : \(item.category ?? "category error")")
             print("\n")
             index += 1
         }

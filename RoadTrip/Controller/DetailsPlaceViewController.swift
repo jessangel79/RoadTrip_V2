@@ -28,7 +28,7 @@ final class DetailsPlaceViewController: UIViewController {
     @IBOutlet private weak var addressTextView: UITextView!
     @IBOutlet private weak var typesTextView: UITextView!
     @IBOutlet private weak var bookmarkBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
+    @IBOutlet private weak var shareBarButtonItem: UIBarButtonItem!
     @IBOutlet private var allLabels: [UILabel]!
     @IBOutlet private var allButtons: [UIButton]!
     
