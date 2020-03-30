@@ -34,4 +34,18 @@ extension UITableViewCell {
         view.layer.backgroundColor = #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884)
         view.layer.borderColor = UIColor.gray.cgColor
     }
+    
+    /// custom button circle
+    func circleButton(button: UIButton) {
+        button.layer.cornerRadius = button.bounds.width / 2
+        button.layer.borderColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
+        button.layer.borderWidth = 1.0
+    }
+    
+    /// custom imageView
+    func customImageViewCell(imageView: UIImageView) {
+        imageView.layer.cornerRadius = 4
+        imageView.layer.borderWidth = 0.4
+        imageView.layer.borderColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1) // #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1)
+    }
 }

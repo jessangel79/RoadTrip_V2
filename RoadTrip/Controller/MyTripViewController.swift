@@ -60,9 +60,9 @@ final class MytripViewController: UIViewController {
     }
         
     @IBAction func deleteMyTripBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        coreDataManager?.deleteAllPlaces()
-        myTripTableView.reloadData()
-        debugCoreDataPlace(nameDebug: "All places deleted", coreDataManager: coreDataManager)
+        if !(coreDataManager?.places.isEmpty ?? false) {
+            showAlertResetAll()
+        }
     }
 
     // MARK: - Methods
@@ -84,6 +84,19 @@ final class MytripViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataStack = appDelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
+    }
+    
+    private func resetAll() {
+        coreDataManager?.deleteAllPlaces()
+        myTripTableView.reloadData()
+        debugCoreDataPlace(nameDebug: "All places deleted", coreDataManager: coreDataManager)
+    }
+    
+    private func showAlertResetAll() {
+        let destructiveAction = UIAlertAction(title: "Reset all", style: .destructive, handler: { action in
+            self.resetAll()
+        })
+        showResetAlert(destructiveAction: destructiveAction)
     }
 }
 

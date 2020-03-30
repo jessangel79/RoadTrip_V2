@@ -30,6 +30,10 @@ final class CoreDataManager {
     
     var item: [ItemEntity] {
         let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "category", ascending: true),
+            NSSortDescriptor(key: "itemName", ascending: true)
+        ]
         guard let item = try? managedObjectContext.fetch(request) else { return [] }
         return item
     }
@@ -108,7 +112,6 @@ final class CoreDataManager {
     func deleteDetailsTrip(nameTrip: String, travellerOne: String) {
         let request: NSFetchRequest<DetailsTripEntity> = DetailsTripEntity.fetchRequest()
         request.predicate = NSPredicate(format: "name == %@", nameTrip)
-//        request.predicate = NSPredicate(format: "travellerOne == %@", travellerOne)
         
         if let entity = try? managedObjectContext.fetch(request) {
             entity.forEach { managedObjectContext.delete($0) }
@@ -131,10 +134,6 @@ final class CoreDataManager {
         
     func editDetailsTrip(parameters: DetailsTrip, index: Int) {
         let request: NSFetchRequest<DetailsTripEntity> = DetailsTripEntity.fetchRequest()
-//        request.predicate = NSPredicate(format: "name == %@", parameters.name)
-//        request.predicate = NSPredicate(format: "travellerOne == %@", parameters.travellerOne)
-//        request.predicate = NSPredicate(format: "startDate == %@", parameters.startDate)
-
         if let entity = try? managedObjectContext.fetch(request) {
             let objectUpdate = entity[index] as NSManagedObject
             objectUpdate.setValue(parameters.name, forKey: "name")
@@ -152,11 +151,13 @@ final class CoreDataManager {
     
     // MARK: - Manage ItemEntity
     
-    func createItem(itemName: String, imageBackground: String, category: String) {
+    func createItem(itemName: String, imageBackground: String, category: String, itemIsCheck: Bool, categoryImage: String) {
         let item = ItemEntity(context: managedObjectContext)
         item.itemName = itemName
         item.imageBackground = imageBackground
         item.category = category
+        item.itemIsCheck = itemIsCheck
+        item.categoryImage = categoryImage
         coreDataStack.saveContext()
     }
     
@@ -181,5 +182,15 @@ final class CoreDataManager {
         
         guard let counter = try? managedObjectContext.count(for: request) else { return false }
         return counter == 0 ? false : true
+    }
+    
+    func editItemToCheckButton(itemName: String, itemIsCheck: Bool) {
+        let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "itemName == %@", itemName)
+        if let entity = try? managedObjectContext.fetch(request) {
+            let objectUpdate = entity[0] as NSManagedObject
+            objectUpdate.setValue(itemIsCheck, forKey: "itemIsCheck")
+        }
+        coreDataStack.saveContext()
     }
 }

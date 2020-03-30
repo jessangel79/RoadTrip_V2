@@ -124,6 +124,8 @@ extension UIViewController {
             print("itemName : \(item.itemName ?? "itemName error")")
             print("imageBackground : \(item.imageBackground ?? "imageBackground error")")
             print("category : \(item.category ?? "category error")")
+            print("itemIsCheck : \(item.itemIsCheck)")
+            print("categoryImage : \(item.categoryImage ?? "categoryImage error")")
             print("\n")
             index += 1
         }

@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RoadTrip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNI-jg-dYI">
-                                <rect key="frame" x="98" y="229.5" width="124" height="38.5"/>
+                                <rect key="frame" x="98" y="230" width="124" height="38"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
                             <constraint firstItem="vur-0h-Ih3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="De5-rX-Aed"/>
                             <constraint firstItem="vur-0h-Ih3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IE7-lP-WG9"/>
                             <constraint firstItem="vNI-jg-dYI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UgH-zM-VOb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vNI-jg-dYI" secondAttribute="bottom" constant="300" id="XVr-df-TQ3"/>
+                            <constraint firstItem="vNI-jg-dYI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="bcZ-OJ-MRG"/>
                             <constraint firstItem="vur-0h-Ih3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mz2-HE-J6A"/>
                             <constraint firstItem="vur-0h-Ih3" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="vAm-7a-eKe"/>
                         </constraints>

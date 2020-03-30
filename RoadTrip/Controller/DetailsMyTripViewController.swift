@@ -25,11 +25,11 @@ final class DetailsMyTripViewController: UIViewController {
     private var celluleIndex = 0
 
     // MARK: - Actions
-
+    
     @IBAction private func resetBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        coreDataManager?.deleteAllDetailsTrip()
-        detailsMyTripTableView.reloadData()
-        debugCoreDataDetailsTrip(nameDebug: "All details trip deleted", coreDataManager: coreDataManager)
+        if !(coreDataManager?.detailsTrip.isEmpty ?? false) {
+            showAlertResetAll()
+        }
     }
     
     // MARK: - Methods
@@ -52,6 +52,19 @@ final class DetailsMyTripViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataStack = appDelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
+    }
+    
+    private func resetAll() {
+        coreDataManager?.deleteAllDetailsTrip()
+        detailsMyTripTableView.reloadData()
+        debugCoreDataDetailsTrip(nameDebug: "All details trip deleted", coreDataManager: coreDataManager)
+    }
+    
+    private func showAlertResetAll() {
+        let destructiveAction = UIAlertAction(title: "Reset all", style: .destructive, handler: { action in
+            self.resetAll()
+        })
+        showResetAlert(destructiveAction: destructiveAction)
     }
 
 }

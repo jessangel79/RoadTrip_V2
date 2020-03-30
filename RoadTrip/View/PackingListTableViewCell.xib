@@ -23,22 +23,45 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piha-beach-nouvelle-zelande_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="zAR-IT-ghB">
                                 <rect key="frame" x="5" y="5" width="310" height="40"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-Ui-GEr">
+                                <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Yho-Ui-GEr" secondAttribute="height" multiplier="1:1" id="nWe-gh-unj"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="itemCheckButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BOL-ex-qsO"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQw-Xc-1q9">
-                                <rect key="frame" x="10" y="13" width="42" height="24"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <rect key="frame" x="55" y="13" width="44.5" height="24"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                 <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tasksbeforeyougo" translatesAutoresizingMaskIntoConstraints="NO" id="SGX-c2-AS6">
+                                <rect key="frame" x="278" y="8" width="34" height="34"/>
+                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SGX-c2-AS6" secondAttribute="height" multiplier="1:1" id="y6y-kJ-HQM"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Yho-Ui-GEr" firstAttribute="top" secondItem="Dmt-1C-ZWm" secondAttribute="top" constant="10" id="0oD-Ky-95c"/>
+                            <constraint firstAttribute="trailing" secondItem="SGX-c2-AS6" secondAttribute="trailing" constant="8" id="KLo-Ba-84g"/>
                             <constraint firstAttribute="bottom" secondItem="BQw-Xc-1q9" secondAttribute="bottom" constant="13" id="KWo-7M-a9h"/>
                             <constraint firstAttribute="bottom" secondItem="zAR-IT-ghB" secondAttribute="bottom" constant="5" id="Oii-s2-HW2"/>
                             <constraint firstAttribute="height" constant="50" id="ZtQ-XN-4Ir"/>
+                            <constraint firstAttribute="bottom" secondItem="Yho-Ui-GEr" secondAttribute="bottom" constant="10" id="bnH-m2-KZr"/>
                             <constraint firstItem="zAR-IT-ghB" firstAttribute="top" secondItem="Dmt-1C-ZWm" secondAttribute="top" constant="5" id="gf4-Ng-cFv"/>
-                            <constraint firstItem="BQw-Xc-1q9" firstAttribute="leading" secondItem="Dmt-1C-ZWm" secondAttribute="leading" constant="10" id="hPs-l7-3BL"/>
                             <constraint firstItem="zAR-IT-ghB" firstAttribute="leading" secondItem="Dmt-1C-ZWm" secondAttribute="leading" constant="5" id="jDj-e1-GOY"/>
+                            <constraint firstAttribute="bottom" secondItem="SGX-c2-AS6" secondAttribute="bottom" constant="8" id="jdA-Tp-JbE"/>
+                            <constraint firstItem="BQw-Xc-1q9" firstAttribute="leading" secondItem="Yho-Ui-GEr" secondAttribute="trailing" constant="15" id="kXU-mQ-njo"/>
+                            <constraint firstItem="Yho-Ui-GEr" firstAttribute="leading" secondItem="Dmt-1C-ZWm" secondAttribute="leading" constant="10" id="oOl-r5-lUa"/>
                             <constraint firstItem="BQw-Xc-1q9" firstAttribute="top" secondItem="Dmt-1C-ZWm" secondAttribute="top" constant="13" id="sBW-8Z-5UE"/>
+                            <constraint firstItem="SGX-c2-AS6" firstAttribute="top" secondItem="Dmt-1C-ZWm" secondAttribute="top" constant="8" id="v67-Ue-mxg"/>
                             <constraint firstAttribute="trailing" secondItem="zAR-IT-ghB" secondAttribute="trailing" constant="5" id="wnH-M9-Qzz"/>
                         </constraints>
                     </view>
@@ -53,6 +76,8 @@
             <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="categoryImageView" destination="SGX-c2-AS6" id="Z67-ag-mb9"/>
+                <outlet property="itemCheckButton" destination="Yho-Ui-GEr" id="ml4-zW-dtO"/>
                 <outlet property="itemImageView" destination="zAR-IT-ghB" id="8WI-j8-iar"/>
                 <outlet property="itemLabel" destination="BQw-Xc-1q9" id="3U4-ua-iEL"/>
             </connections>
@@ -61,5 +86,6 @@
     </objects>
     <resources>
         <image name="piha-beach-nouvelle-zelande_1024x1024" width="1024" height="1024"/>
+        <image name="tasksbeforeyougo" width="75" height="75"/>
     </resources>
 </document>

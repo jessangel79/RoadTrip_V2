@@ -26,6 +26,12 @@ extension String {
         return dashChanged
     }
     
+    /// delete blank
+    var deleteBlank: String {
+        let blankDeleted = self.replacingOccurrences(of: " ", with: "")
+        return blankDeleted
+    }
+    
     /// format type string in type date
     func toDate(format: String = "dd/MM/yyyy") -> Date {
         let formatter = DateFormatter()

@@ -30,7 +30,7 @@ extension UIViewController {
         case itemExist
     }
 
-    /// Alert message to user
+    /// Alert message for user
     func presentAlert(typeError: AlertError) {
         var message: String
         var title: String
@@ -87,5 +87,14 @@ extension UIViewController {
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+    }
+    
+    /// Alert message for user to confirm all reset
+    func showResetAlert(destructiveAction: UIAlertAction) {
+        let alertVC = UIAlertController(title: "Warning Reset All", message: "Are you sure to reset all ?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertVC.addAction(destructiveAction)
+        alertVC.addAction(cancelAction)
+        present(alertVC, animated: true, completion: nil)
     }
 }
