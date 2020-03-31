@@ -11,6 +11,7 @@ import UIKit
 // MARK: - Extension to debug
 
 extension UIViewController {
+    
     /// function to debug Get Places
     func debugGetPlaces(_ placesSearch: PlacesSearch, _ placesList: [Result], _ photosList: [String], _ placeIDsList: [String]) {
         let name = placesSearch.results[0].name
@@ -98,22 +99,6 @@ extension UIViewController {
             index += 1
         }
     }
-    
-//    func debugCoreDataItem(nameDebug: String, coreDataManager: CoreDataManager?) {
-//        print(nameDebug)
-//        print("-----------------------")
-//        var index = 0
-//        for item in coreDataManager?.item ?? [[ItemEntity]()] {
-//            for ite in item {
-//                print("Trip N° \(index + 1) :")
-//                print("itemName : \(ite.itemName ?? "itemName error")")
-//                print("imageBackground : \(ite.imageBackground ?? "imageBackground error")")
-//                print("category : \(ite.category ?? "category error")")
-//                print("\n")
-//                index += 1
-//            }
-//        }
-//    }
     
     func debugCoreDataItem(nameDebug: String, coreDataManager: CoreDataManager?) {
         print(nameDebug)

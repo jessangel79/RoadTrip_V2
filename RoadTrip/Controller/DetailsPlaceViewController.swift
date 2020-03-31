@@ -107,7 +107,6 @@ final class DetailsPlaceViewController: UIViewController {
         customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
         customAllButtons(allButtons: allButtons, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: .clear)
         configurePlace()
-        
         debugPlaceDetails(placeDetailsResultsList)
     }
     

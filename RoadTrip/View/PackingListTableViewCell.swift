@@ -8,23 +8,23 @@
 
 import UIKit
 
-class PackingListTableViewCell: UITableViewCell {
+final class PackingListTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
 
-    @IBOutlet weak var itemLabel: UILabel!
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemCheckButton: UIButton!
-    @IBOutlet weak var categoryImageView: UIImageView!
+    @IBOutlet private weak var itemLabel: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var itemCheckButton: UIButton!
+    @IBOutlet private weak var categoryImageView: UIImageView!
     
     // MARK: - Properties
 
     private var coreDataManager: CoreDataManager?
-    var itemIsCheck = false
+    private var itemIsCheck = false
 
     // MARK: - Actions
     
-    @IBAction func itemCheckButtonTapped(_ sender: UIButton) {
+    @IBAction private func itemCheckButtonTapped(_ sender: UIButton) {
         itemCheckButton.showsTouchWhenHighlighted = true
         editItemCheckButton()
         print("itemEntity?.itemIsCheck in itemCheckButtonTapped() : \(String(describing: itemEntity?.itemIsCheck))")
@@ -53,7 +53,6 @@ class PackingListTableViewCell: UITableViewCell {
             itemImageView.image = UIImage(named: itemEntity?.imageBackground ?? "piha-beach-nouvelle-zelande_1024x1024.jpg")
             checkIfItemIsChecked()
             categoryImageView.image = UIImage(named: itemEntity?.categoryImage ?? "tasksBeforeYouGo.png")
-//            print("packingListCell.itemCheckButton.imageView?.image in packingListTVCell => \(String(describing: itemCheckButton.imageView?.image)))")
 //            print("packingListCell.categoryImageView.image in packingListTVCell => \(String(describing: categoryImageView.image)))")
 
         }

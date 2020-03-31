@@ -20,10 +20,7 @@
 		3A30E9FB23F5990100532EDD /* ListPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30E9FA23F5990100532EDD /* ListPlacesViewController.swift */; };
 		3A30E9FD23F5A21C00532EDD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30E9FC23F5A21C00532EDD /* Constants.swift */; };
 		3A30E9FF23F5AA6000532EDD /* PlacesSearch.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A30E9FE23F5AA6000532EDD /* PlacesSearch.json */; };
-		3A30EA0123F5B9EF00532EDD /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30EA0023F5B9EF00532EDD /* UIImageView.swift */; };
 		3A34E808241F917400237610 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34E807241F917400237610 /* UITextField.swift */; };
-		3A3DAC9F242BABB100CB5706 /* CustomTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DAC9D242BABB100CB5706 /* CustomTableViewHeaderCell.swift */; };
-		3A3DACA0242BABB100CB5706 /* CustomTableViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3DAC9E242BABB100CB5706 /* CustomTableViewHeaderCell.xib */; };
 		3A4D510124293D78008D682F /* PackingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */; };
 		3A4D510224293D78008D682F /* PackingListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4D510024293D78008D682F /* PackingListTableViewCell.xib */; };
 		3A631DBE2428F0D70023BFCA /* ImagesBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A631DBD2428F0D70023BFCA /* ImagesBackground.swift */; };
@@ -50,7 +47,6 @@
 		3ADD71C6242A339D00CD4081 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD71C5242A339D00CD4081 /* Categories.swift */; };
 		3ADD71C9242A365A00CD4081 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD71C8242A365A00CD4081 /* AddItemViewController.swift */; };
 		3AE7F570241A944300751764 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE7F56F241A944300751764 /* Date.swift */; };
-		3AEF8D6F240973A200472989 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF8D6E240973A200472989 /* Optional.swift */; };
 		3AF881BA23F16A19005F64ED /* PlaceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881B923F16A19005F64ED /* PlaceSession.swift */; };
 		3AF881BC23F16A46005F64ED /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BB23F16A46005F64ED /* PlaceService.swift */; };
 		3AF881BE23F16B2B005F64ED /* PlacesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BD23F16B2B005F64ED /* PlacesSearch.swift */; };
@@ -89,12 +85,9 @@
 		3A30E9FA23F5990100532EDD /* ListPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlacesViewController.swift; sourceTree = "<group>"; };
 		3A30E9FC23F5A21C00532EDD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A30E9FE23F5AA6000532EDD /* PlacesSearch.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlacesSearch.json; sourceTree = "<group>"; };
-		3A30EA0023F5B9EF00532EDD /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		3A34E807241F917400237610 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		3A3618FD24059328002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A36190124059795002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A3DAC9D242BABB100CB5706 /* CustomTableViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewHeaderCell.swift; sourceTree = "<group>"; };
-		3A3DAC9E242BABB100CB5706 /* CustomTableViewHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewHeaderCell.xib; sourceTree = "<group>"; };
 		3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListTableViewCell.swift; sourceTree = "<group>"; };
 		3A4D510024293D78008D682F /* PackingListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackingListTableViewCell.xib; sourceTree = "<group>"; };
 		3A631DBD2428F0D70023BFCA /* ImagesBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesBackground.swift; sourceTree = "<group>"; };
@@ -125,7 +118,6 @@
 		3ADD71C5242A339D00CD4081 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		3ADD71C8242A365A00CD4081 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		3AE7F56F241A944300751764 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		3AEF8D6E240973A200472989 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		3AF881B923F16A19005F64ED /* PlaceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSession.swift; sourceTree = "<group>"; };
 		3AF881BB23F16A46005F64ED /* PlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
 		3AF881BD23F16B2B005F64ED /* PlacesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearch.swift; sourceTree = "<group>"; };
@@ -246,8 +238,6 @@
 				3ABB99A324194CF8007CE8FA /* DetailsMyTripTableViewCell.swift */,
 				3A4D510024293D78008D682F /* PackingListTableViewCell.xib */,
 				3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */,
-				3A3DAC9E242BABB100CB5706 /* CustomTableViewHeaderCell.xib */,
-				3A3DAC9D242BABB100CB5706 /* CustomTableViewHeaderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -290,9 +280,7 @@
 				3A0E376C2412A9E200039FD3 /* UIViewController+EventKit.swift */,
 				3AFA6207241A67B60055E8E8 /* UIViewController+Debug.swift */,
 				3A02015D23F4788300CDDEED /* String.swift */,
-				3A30EA0023F5B9EF00532EDD /* UIImageView.swift */,
 				3A832AB123FEC049008E7237 /* UITableViewCell.swift */,
-				3AEF8D6E240973A200472989 /* Optional.swift */,
 				3AE7F56F241A944300751764 /* Date.swift */,
 				3A34E807241F917400237610 /* UITextField.swift */,
 				3A9E371D242CDE1D0080524B /* Array.swift */,
@@ -402,7 +390,6 @@
 				3A755CE223EDB12600889FA5 /* ApiKeys.plist in Resources */,
 				3A755CC123EDA3E300889FA5 /* Assets.xcassets in Resources */,
 				3ABB99A624194CF8007CE8FA /* DetailsMyTripTableViewCell.xib in Resources */,
-				3A3DACA0242BABB100CB5706 /* CustomTableViewHeaderCell.xib in Resources */,
 				3A755CBC23EDA3DE00889FA5 /* Main.storyboard in Resources */,
 				3A30E9F923F597BC00532EDD /* ListPlacesTableViewCell.xib in Resources */,
 			);
@@ -522,7 +509,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AA339EE23FDA21B00356B6B /* DetailsPlaceViewController.swift in Sources */,
-				3AEF8D6F240973A200472989 /* Optional.swift in Sources */,
 				3A2DB4B324003D9500709183 /* PlaceDetails.swift in Sources */,
 				3A755CB523EDA3DE00889FA5 /* AppDelegate.swift in Sources */,
 				3ABB99AA241963B8007CE8FA /* AddDetailsMyTripViewController.swift in Sources */,
@@ -543,7 +529,6 @@
 				3ABB99A524194CF8007CE8FA /* DetailsMyTripTableViewCell.swift in Sources */,
 				3A34E808241F917400237610 /* UITextField.swift in Sources */,
 				3A30E9FD23F5A21C00532EDD /* Constants.swift in Sources */,
-				3A3DAC9F242BABB100CB5706 /* CustomTableViewHeaderCell.swift in Sources */,
 				3A755CBF23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld in Sources */,
 				3ADD71C6242A339D00CD4081 /* Categories.swift in Sources */,
 				3AFA6202241A66F60055E8E8 /* UIViewController+CustomUI.swift in Sources */,
@@ -558,7 +543,6 @@
 				3A755CE623EDB2FE00889FA5 /* CoreDataManager.swift in Sources */,
 				3AF881BA23F16A19005F64ED /* PlaceSession.swift in Sources */,
 				3A755CE023EDB10600889FA5 /* ApiKeys.swift in Sources */,
-				3A30EA0123F5B9EF00532EDD /* UIImageView.swift in Sources */,
 				3AFA6204241A67430055E8E8 /* UIViewController+ActivityIndicator.swift in Sources */,
 				3AF881BE23F16B2B005F64ED /* PlacesSearch.swift in Sources */,
 				3AFA6208241A67B60055E8E8 /* UIViewController+Debug.swift in Sources */,

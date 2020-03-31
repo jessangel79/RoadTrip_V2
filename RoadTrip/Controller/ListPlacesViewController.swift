@@ -29,12 +29,7 @@ final class ListPlacesViewController: UIViewController {
     private let segueToPlaceDetails = Constants.SegueToPlaceDetails
 
     // MARK: - Methods
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        placesTableView.reloadData()
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +42,11 @@ final class ListPlacesViewController: UIViewController {
         
         debugListPlaces(placesList, photosList, placeIDsList, placeDetailsResultsList)
         
+        placesTableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         placesTableView.reloadData()
     }
     

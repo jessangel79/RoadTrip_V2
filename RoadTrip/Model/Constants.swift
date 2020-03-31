@@ -22,7 +22,4 @@ struct Constants {
     static let DetailsMyTripTableViewCell = "DetailsMyTripTableViewCell"
     static let PackingListCell = "PackingListCell"
     static let PackingListTableViewCell = "PackingListTableViewCell"
-    static let SegueToAddItem = "segueToAddItem"
-    static let HeaderCell = "HeaderCell"
-    static let CustomTableViewHeaderCell = "CustomTableViewHeaderCell"
 }

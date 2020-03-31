@@ -8,14 +8,14 @@
 
 import UIKit
 
-class AddItemViewController: UIViewController {
+final class AddItemViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var itemTextField: UITextField!
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var categoryPickerView: UIPickerView!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet private weak var itemTextField: UITextField!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var categoryPickerView: UIPickerView!
+    @IBOutlet private weak var saveButton: UIButton!
     
     // MARK: - Properties
     
@@ -45,25 +45,6 @@ class AddItemViewController: UIViewController {
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
     }
     
-//    private func saveItem() {
-//        guard let itemName = itemTextField.text, !itemName.isBlank else { return presentAlert(typeError: .noItem) }
-//        let categoryIndex = categoryPickerView.selectedRow(inComponent: 0)
-//        let category = categoriesList[categoryIndex]
-//        if !checkIfItemExist(item: itemName) {
-//            if !celluleActive {
-//                coreDataManager?.createItem(itemName: itemName, imageBackground: randomImage, category: category, itemIsCheck: false)
-//                navigationController?.popViewController(animated: true)
-//                debugCoreDataItem(nameDebug: "Item saved", coreDataManager: coreDataManager)
-//            } else {
-//                let image = cellule?.imageBackground ?? "piha-beach-nouvelle-zelande_1024x1024.jpg"
-//                let itemIsCheck = cellule?.itemIsCheck ?? false
-//                coreDataManager?.editItem(itemName: itemName, imageBackground: image, category: category, itemIsCheck: itemIsCheck)
-//                navigationController?.popViewController(animated: true)
-//                debugCoreDataItem(nameDebug: "Item changed", coreDataManager: coreDataManager)
-//            }
-//        }
-//    }
-    
     private func saveItem() {
         guard let itemName = itemTextField.text, !itemName.isBlank else { return presentAlert(typeError: .noItem) }
         let categoryIndex = categoryPickerView.selectedRow(inComponent: 0)
@@ -71,7 +52,7 @@ class AddItemViewController: UIViewController {
         if !checkIfItemExist(item: itemName) {
             coreDataManager?.createItem(itemName: itemName, imageBackground: randomImage,
                                         category: category, itemIsCheck: false,
-                                        categoryImage: category.lowercased().deleteBlank)
+                                        categoryImage: category.deleteWhitespaces.lowercased())
             navigationController?.popViewController(animated: true)
             debugCoreDataItem(nameDebug: "Item saved", coreDataManager: coreDataManager)
         }
@@ -87,37 +68,11 @@ class AddItemViewController: UIViewController {
         return false
     }
     
-//    private func checkIfItemExist(item: String) -> Bool {
-//        let checkIfItemExist = coreDataManager?.checkIfItemExist(itemName: item) ?? false
-//        itemExist = checkIfItemExist
-//        if itemExist && item == cellule?.itemName {
-//            return false
-//        } else if itemExist {
-//            presentAlert(typeError: .itemExist)
-//            return true
-//        }
-//        return false
-//    }
-    
     private func setImagebackground() {
         randomImage = imagesBackgroundList.shuffled().randomElement() ?? "piha-beach-nouvelle-zelande_1024x1024.jpg"
         itemImageView.image = UIImage(named: randomImage)
         itemTextField.text = String()
     }
-    
-//    private func displayItem() {
-//        itemTextField.text = cellule?.itemName
-//    }
-    
-//    private func checkIfCelluleActive() {
-//        if celluleActive {
-//            displayItem()
-//        } else {
-//            setImagebackground()
-//        }
-//        print("viewDidload celluleActive : \(celluleActive)")
-//        print("viewDidload celluleIndex : \(celluleIndex)")
-//    }
 }
 
 // MARK: - PickerView

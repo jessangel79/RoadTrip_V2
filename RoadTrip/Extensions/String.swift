@@ -20,16 +20,22 @@ extension String {
         return string
     }
     
-    /// replace dash by blank
+    /// replace dash by whitespace
     var changeDash: String {
         let dashChanged = self.replacingOccurrences(of: "_", with: " ")
         return dashChanged
     }
     
-    /// delete blank
-    var deleteBlank: String {
-        let blankDeleted = self.replacingOccurrences(of: " ", with: "")
-        return blankDeleted
+    /// delete whitespaces
+    var deleteWhitespaces: String {
+        let whitespacesDeleted = self.replacingOccurrences(of: " ", with: "")
+        return whitespacesDeleted
+    }
+    
+    /// delete whitespace to trailing and leading of string
+    var trimWhitespaces: String {
+        let trimmed = self.trimmingCharacters(in: .whitespaces)
+        return trimmed
     }
     
     /// format type string in type date

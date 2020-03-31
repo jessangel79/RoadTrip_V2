@@ -24,7 +24,7 @@ final class MytripViewController: UIViewController {
     private var cellSelected: PlaceEntity?
     private let segueToMyPlace = Constants.SegueToMyPlace
     
-    var shareInfoPlace: String {
+    var shareInfoTrip: String {
         var tripToShare = String()
         var index = 0
         for place in coreDataManager?.places ?? [PlaceEntity]() {
@@ -39,7 +39,7 @@ final class MytripViewController: UIViewController {
             tripToShare += "💬 Place \(index + 1) " + placeToShare
             index += 1
         }
-        print("tripToShare \(tripToShare)")
+        print("tripToShare => \(tripToShare)")
         return tripToShare
     }
     
@@ -50,7 +50,7 @@ final class MytripViewController: UIViewController {
         if places {
             presentAlert(typeError: .nothingToShare)
         } else {
-            let viewController = UIActivityViewController(activityItems: [shareInfoPlace], applicationActivities: [])
+            let viewController = UIActivityViewController(activityItems: [shareInfoTrip], applicationActivities: [])
             present(viewController, animated: true)
             if let popOver = viewController.popoverPresentationController {
                 popOver.sourceView = self.view
@@ -66,17 +66,17 @@ final class MytripViewController: UIViewController {
     }
 
     // MARK: - Methods
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        myTripTableView.reloadData()
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
         let nib = UINib(nibName: Constants.ListPlacesTableViewCell, bundle: nil)
         myTripTableView.register(nib, forCellReuseIdentifier: Constants.ListPlacesCell)
+        myTripTableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         myTripTableView.reloadData()
     }
     

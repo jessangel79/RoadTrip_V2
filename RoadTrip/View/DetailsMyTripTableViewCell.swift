@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsMyTripTableViewCell: UITableViewCell {
+final class DetailsMyTripTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     

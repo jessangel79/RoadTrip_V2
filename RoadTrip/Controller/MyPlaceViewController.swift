@@ -45,9 +45,10 @@ final class MyPlaceViewController: UIViewController {
         guard let typePlace = cellule?.types?.changeDash.capitalized else { return "" }
         guard let websiteUrl = URL(string: cellule?.website ?? "") else { return ""}
         guard let mapUrl = URL(string: cellule?.url ?? "") else { return "" }
-        var textToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
-        textToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl)"
-        return textToShare
+        var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
+        placeToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl)"
+        print("textToShare => \(placeToShare)")
+        return placeToShare
     }
 
     // MARK: - Actions
@@ -90,7 +91,7 @@ final class MyPlaceViewController: UIViewController {
     }
 
     // MARK: - Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
@@ -99,7 +100,6 @@ final class MyPlaceViewController: UIViewController {
         customAllButtons(allButtons: allButtons, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: .clear)
         configurePlace()
         checkIfPlaceIsSaved()
-        
     }
     
     private func coreDataFunction() {

@@ -11,6 +11,7 @@ import UIKit
 // MARK: - Extension to manage the ActivityIndicator
 
 extension UIViewController {
+    
     func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, validateButton: UIButton) {
         activityIndicator.isHidden = !shown
         validateButton.isHidden = shown
@@ -20,11 +21,4 @@ extension UIViewController {
         activityIndicator.isHidden = !shown
         tableview.isHidden = shown
     }
-    
-//    func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, view: UIView, textView1: UITextView, textView2: UITextView) {
-//        activityIndicator.isHidden = !shown
-//        view.isHidden = shown
-//        textView1.isHidden = shown
-//        textView2.isHidden = shown
-//    }
 }

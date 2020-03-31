@@ -35,16 +35,16 @@ final class SearchPlacesViewController: UIViewController {
     }
     
     // MARK: - Methods
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        customButton(button: searchPlacesButton, radius: 30, width: 0.8, colorBackground: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         queriesList = [String]()
         photosList = [String]()
         placeIDsList = [String]()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        customButton(button: searchPlacesButton, radius: 30, width: 0.8, colorBackground: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
     }
     
     private func setQuery() {

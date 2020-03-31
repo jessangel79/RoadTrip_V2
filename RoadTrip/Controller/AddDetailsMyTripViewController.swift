@@ -33,7 +33,7 @@ final class AddDetailsMyTripViewController: UIViewController {
     private var tripExist = false
     var cellule: DetailsTripEntity?
     var celluleActive = false
-    var celluleIndex = 0
+    var celluleIndex: Int?
     private var randomImage = String()
     
     // MARK: - Actions
@@ -60,9 +60,14 @@ final class AddDetailsMyTripViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
                                                name: UIResponder.keyboardWillHideNotification, object: nil)
-        checkIfCelluleActive()
+//        checkIfCelluleActive()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkIfCelluleActive()
+    }
+
     private func coreDataFunction() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataStack = appDelegate.coreDataStack
@@ -70,14 +75,18 @@ final class AddDetailsMyTripViewController: UIViewController {
     }
     
     private func saveDetailsTrip() {
-        guard let name = nameTextField.text, !name.isBlank else { return presentAlert(typeError: .noNameTrip) }
+        guard let name = nameTextField.text?.trimWhitespaces, !name.isBlank else {
+            return presentAlert(typeError: .noNameTrip)
+        }
         guard let startDate = startDateTextField.text, !startDate.isBlank else { return presentAlert(typeError: .noStartDate) }
         guard let endDate = endDateTextField.text, !endDate.isBlank else { return presentAlert(typeError: .noEndDate)}
-        guard let travellerOne = travellerOneTextField.text, !travellerOne.isBlank else { return presentAlert(typeError: .noTraveller)}
-        guard let travellerTwo = travellerTwoTextField.text else { return }
-        guard let travellerThree = travellerThreeTextField.text else { return }
-        guard let travellerFour = travellerFourTextField.text  else { return }
-        guard let notes = notesTextField.text else { return }
+        guard let travellerOne = travellerOneTextField.text?.trimWhitespaces, !travellerOne.isBlank else {
+            return presentAlert(typeError: .noTraveller)
+        }
+        guard let travellerTwo = travellerTwoTextField.text?.trimWhitespaces else { return }
+        guard let travellerThree = travellerThreeTextField.text?.trimWhitespaces else { return }
+        guard let travellerFour = travellerFourTextField.text?.trimWhitespaces  else { return }
+        guard let notes = notesTextField.text?.trimWhitespaces else { return }
         startDateString = startDate
         endDateString = endDate
         let numberDays = calculateDays()
@@ -107,7 +116,7 @@ final class AddDetailsMyTripViewController: UIViewController {
                                                                              travellerTwo: travellerTwo,
                                                                              travellerThree: travellerThree,
                                                                              travellerFour: travellerFour,
-                                                                             notes: notes, imageBackground: image), index: celluleIndex)
+                                                                             notes: notes, imageBackground: image), index: celluleIndex ?? 0)
                     navigationController?.popViewController(animated: true)
                     debugCoreDataDetailsTrip(nameDebug: "Details trip changed", coreDataManager: coreDataManager)
                 }
@@ -116,10 +125,10 @@ final class AddDetailsMyTripViewController: UIViewController {
     }
     
     private func checkIfNameTripExist(name: String) -> Bool {
-//        guard let checkIfNameTripExist = coreDataManager?.checkIfNameTripExist(nameTrip: name.localizedCapitalized) else { return false }
+//        guard let checkIfNameTripExist = coreDataManager?.checkIfNameTripExist(nameTrip: name) else { return false }
         let checkIfNameTripExist = coreDataManager?.checkIfNameTripExist(nameTrip: name) ?? false
         tripExist = checkIfNameTripExist
-        if tripExist && name == cellule?.name {
+        if tripExist && celluleActive == true && name == cellule?.name {
             return false
         } else if tripExist {
             presentAlert(typeError: .nameExist)
@@ -152,8 +161,8 @@ final class AddDetailsMyTripViewController: UIViewController {
             tripImageView.image = UIImage(named: randomImage)
             cleanTextField()
         }
-        print("viewDidload celluleActive : \(celluleActive)")
-        print("viewDidload celluleIndex : \(celluleIndex)")
+        print("celluleActive : \(celluleActive)")
+        print("celluleIndex : \(String(describing: celluleIndex))")
     }
         
     private func cleanTextField() {
@@ -218,8 +227,8 @@ extension AddDetailsMyTripViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         saveDetailsTrip()
-        textField.resignFirstResponder()
 //        textFieldResignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
     

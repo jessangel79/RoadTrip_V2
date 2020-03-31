@@ -9,14 +9,10 @@
 import Foundation
 
 extension Array where Element: Equatable {
-
+    
     mutating func remove(_ element: Element) {
         _ = firstIndex(of: element).flatMap {
             self.remove(at: $0)
         }
     }
-    
-//    func removing(_ obj: Element) -> [Element] {
-//        return filter { $0 != obj }
-//    }
 }

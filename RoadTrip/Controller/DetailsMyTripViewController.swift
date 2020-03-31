@@ -33,18 +33,18 @@ final class DetailsMyTripViewController: UIViewController {
     }
     
     // MARK: - Methods
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        celluleActive = false
-        detailsMyTripTableView.reloadData()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
         let nib = UINib(nibName: Constants.DetailsMyTripTableViewCell, bundle: nil)
         detailsMyTripTableView.register(nib, forCellReuseIdentifier: Constants.DetailsMyTripCell)
+        detailsMyTripTableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        celluleActive = false
         detailsMyTripTableView.reloadData()
     }
     
@@ -142,8 +142,8 @@ extension DetailsMyTripViewController {
             } else {
                 addDetailsMyTripVC.celluleActive = false
             }
-            print("prepare segue celluleActive : \(celluleActive)")
-            print("prepare segue celluleIndex : \(celluleIndex)")
+//            print("celluleActive : \(celluleActive)")
+//            print("celluleIndex : \(celluleIndex)")
 
         }
     }
