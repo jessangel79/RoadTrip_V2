@@ -1,0 +1,66 @@
+{
+   "html_attributions": [],
+   "result": {
+      "address_components": [
+         {
+            "long_name": "31",
+            "short_name": "31",
+            "types": [
+               "street_number"
+            ]
+         },
+         {
+            "long_name": "Avenue George V",
+            "short_name": "Avenue George V",
+            "types": [
+               "route"
+            ]
+         },
+         {
+            "long_name": "Paris",
+            "short_name": "Paris",
+            "types": [
+               "locality",
+               "political"
+            ]
+         },
+         {
+            "long_name": "Arrondissement de Paris",
+            "short_name": "Arrondissement de Paris",
+            "types": [
+               "administrative_area_level_2",
+               "political"
+            ]
+         },
+         {
+            "long_name": "Île-de-France",
+            "short_name": "IDF",
+            "types": [
+               "administrative_area_level_1",
+               "political"
+            ]
+         },
+         {
+            "long_name": "France",
+            "short_name": "FR",
+            "types": [
+               "country",
+               "political"
+            ]
+         },
+         {
+            "long_name": "75008",
+            "short_name": "75008",
+            "types": [
+               "postal_code"
+            ]
+         }
+      ],
+      "international_phone_number": "+33 1 49 52 71 54",
+      "name": "Le Cinq",
+      "place_id": "ChIJqTQzIehv5kcRaF3hD1SzX5A",
+      "url": "https://maps.google.com/?cid=10403230837874187624",
+      "website": "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea"
+   },
+   "status": "OK"
+}
