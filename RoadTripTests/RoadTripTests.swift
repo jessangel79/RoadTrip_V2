@@ -9,7 +9,7 @@
 import XCTest
 @testable import RoadTrip
 
-class RoadTripTests: XCTestCase {
+final class RoadTripTests: XCTestCase {
     
     // MARK: - Properties
 

@@ -24,14 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-## GoogleMaps
-
-Copyright 2019 Google
-
-## GooglePlaces
-
-Copyright 2019 Google
-
 ## SDWebImage
 
 Copyright (c) 2009-2018 Olivier Poitrey rs@dailymotion.com

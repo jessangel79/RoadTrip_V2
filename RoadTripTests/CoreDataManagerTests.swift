@@ -15,6 +15,7 @@ final class CoreDataManagerTests: XCTestCase {
 
     var coreDataStack: MockCoreDataStack!
     var coreDataManager: CoreDataManager!
+    
     var addressOne: String!
     var addressTwo: String!
     var country: String!
@@ -35,6 +36,7 @@ final class CoreDataManagerTests: XCTestCase {
     var website: String!
     var placeParametersOne: PlaceParameters!
     var placeParametersTwo: PlaceParameters!
+    
     var nameTripOne: String!
     var nameTripTwo: String!
     var startDate: String!
@@ -90,6 +92,7 @@ final class CoreDataManagerTests: XCTestCase {
                                              placeID: placeID, priceLevel: priceLevel, rating: rating,
                                              types: types, url: url, userRatingsTotal: userRatingsTotal,
                                              website: website)
+        
         nameTripOne = "Trip to London"
         nameTripTwo = "Trip to Paris"
         startDate = "01/04/2020"
@@ -245,7 +248,7 @@ final class CoreDataManagerTests: XCTestCase {
                                    categoryImage: "clothes")
         XCTAssertTrue(!coreDataManager.item.isEmpty)
         XCTAssertTrue(coreDataManager.item.count == 1)
-        XCTAssertTrue(coreDataManager?.item[0].itemName == "Pull")
+        XCTAssertTrue(coreDataManager.item[0].itemName == "Pull")
         XCTAssertTrue(coreDataManager.item[0].imageBackground == "lac-en-suisse_1024x1024.jpg")
         XCTAssertTrue(coreDataManager.item[0].category == "Clothes")
         XCTAssertTrue(coreDataManager.item[0].itemIsCheck == false)
