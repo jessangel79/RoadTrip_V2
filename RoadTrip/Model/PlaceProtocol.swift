@@ -24,6 +24,6 @@ extension PlaceProtocol {
     }
 
     var urlStringDetailsApi: String {
-        return "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyDS5dWh8Hii-EiiNfaCucQPi_HDYc4Su2w&fields=place_id,name,address_components,international_phone_number,opening_hours/weekday_text,url,website&place_id="
+        return "https://maps.googleapis.com/maps/api/place/details/json?key=\(keyPlaceSearch)&fields=place_id,name,address_components,international_phone_number,opening_hours/weekday_text,url,website&place_id="
     }
 }
