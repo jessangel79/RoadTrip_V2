@@ -19,7 +19,7 @@ final class ListPlacesViewController: UIViewController {
     
     private let placeService = PlaceService()
     var placesList = [Result]()
-    var photosList = [String]() // array with all the references in string photos
+    var photosList = [String]()
     var placeIDsList = [String]()
     private var cellSelected: Result?
     private var placeDetailsResult: ResultDetails?
@@ -32,16 +32,12 @@ final class ListPlacesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let nib = UINib(nibName: Constants.ListPlacesTableViewCell, bundle: nil)
         placesTableView.register(nib, forCellReuseIdentifier: Constants.ListPlacesCell)
         
         for placeId in placeIDsList {
             getPlaceDetails(placeId: placeId)
         }
-        
-        debugListPlaces(placesList, photosList, placeIDsList, placeDetailsResultsList)
-        
         placesTableView.reloadData()
     }
     

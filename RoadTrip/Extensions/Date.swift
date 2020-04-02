@@ -10,6 +10,7 @@ import Foundation
 
 extension Date {
     
+    /// calculate number of days between a start date and an end date
     func timeSinceDateInDays(fromDate: Date) -> String {
         let earliest = self < fromDate ? self  : fromDate
         let latest = earliest == self ? fromDate : self

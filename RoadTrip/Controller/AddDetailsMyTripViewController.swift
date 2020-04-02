@@ -54,18 +54,17 @@ final class AddDetailsMyTripViewController: UIViewController {
         self.startDateTextField.setInputViewDatePicker(target: self, selector: #selector(tapDoneStartDate))
         self.endDateTextField.setInputViewDatePicker(target: self, selector: #selector(tapDoneEndDate))
         
-        // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
                                                name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
                                                name: UIResponder.keyboardWillHideNotification, object: nil)
-//        checkIfCelluleActive()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkIfCelluleActive()
+        debugCellule(celluleActive: celluleActive, celluleIndex: celluleIndex)
     }
 
     private func coreDataFunction() {
@@ -107,7 +106,6 @@ final class AddDetailsMyTripViewController: UIViewController {
                     debugCoreDataDetailsTrip(nameDebug: "Details trip saved", coreDataManager: coreDataManager)
                 } else {
                     let image = cellule?.imageBackground ?? "iles-de-locean_1024x1024.png"
-//                    guard let image = cellule?.imageBackground else { return }
                     coreDataManager?.editDetailsTrip(parameters: DetailsTrip(name: name,
                                                                              startDate: startDate,
                                                                              endDate: endDate,
@@ -125,7 +123,6 @@ final class AddDetailsMyTripViewController: UIViewController {
     }
     
     private func checkIfNameTripExist(name: String) -> Bool {
-//        guard let checkIfNameTripExist = coreDataManager?.checkIfNameTripExist(nameTrip: name) else { return false }
         let checkIfNameTripExist = coreDataManager?.checkIfNameTripExist(nameTrip: name) ?? false
         tripExist = checkIfNameTripExist
         if tripExist && celluleActive == true && name == cellule?.name {
@@ -161,8 +158,6 @@ final class AddDetailsMyTripViewController: UIViewController {
             tripImageView.image = UIImage(named: randomImage)
             cleanTextField()
         }
-        print("celluleActive : \(celluleActive)")
-        print("celluleIndex : \(String(describing: celluleIndex))")
     }
         
     private func cleanTextField() {
@@ -227,7 +222,6 @@ extension AddDetailsMyTripViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         saveDetailsTrip()
-//        textFieldResignFirstResponder()
         textField.resignFirstResponder()
         return true
     }
@@ -239,9 +233,9 @@ extension AddDetailsMyTripViewController: UITextFieldDelegate {
       scrollView.scrollIndicatorInsets = contentInsets
     }
 
+    /// reset back the content inset to zero after keyboard is gone
     @objc func keyboardWillHide(notification: NSNotification) {
       let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
-      // reset back the content inset to zero after keyboard is gone
       scrollView.contentInset = contentInsets
       scrollView.scrollIndicatorInsets = contentInsets
     }

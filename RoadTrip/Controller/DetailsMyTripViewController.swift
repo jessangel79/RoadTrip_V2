@@ -27,7 +27,7 @@ final class DetailsMyTripViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func resetBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        if !(coreDataManager?.detailsTrip.isEmpty ?? false) {
+        if !(coreDataManager?.detailsTrips.isEmpty ?? false) {
             showAlertResetAll()
         }
     }
@@ -77,7 +77,7 @@ extension DetailsMyTripViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coreDataManager?.detailsTrip.count ?? 0
+        return coreDataManager?.detailsTrips.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,13 +85,13 @@ extension DetailsMyTripViewController: UITableViewDataSource {
                                                                     for: indexPath) as? DetailsMyTripTableViewCell else {
             return UITableViewCell()
         }
-        let detailsTrip = coreDataManager?.detailsTrip[indexPath.row]
+        let detailsTrip = coreDataManager?.detailsTrips[indexPath.row]
         detailsMyTripCell.detailsTripEntity = detailsTrip
         return detailsMyTripCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.cellSelected = coreDataManager?.detailsTrip[indexPath.row]
+        self.cellSelected = coreDataManager?.detailsTrips[indexPath.row]
         celluleActive = true
         celluleIndex = indexPath.row
         performSegue(withIdentifier: self.segueToAddDetails, sender: self)
@@ -105,7 +105,7 @@ extension DetailsMyTripViewController: UITableViewDelegate {
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let detailsTrip = coreDataManager?.detailsTrip[indexPath.row]
+            let detailsTrip = coreDataManager?.detailsTrips[indexPath.row]
             coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "",
                                                travellerOne: detailsTrip?.travellerOne ?? "")
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -124,7 +124,7 @@ extension DetailsMyTripViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return coreDataManager?.detailsTrip.isEmpty ?? true ? 300 : 0
+        return coreDataManager?.detailsTrips.isEmpty ?? true ? 300 : 0
     }
 }
 
@@ -142,9 +142,6 @@ extension DetailsMyTripViewController {
             } else {
                 addDetailsMyTripVC.celluleActive = false
             }
-//            print("celluleActive : \(celluleActive)")
-//            print("celluleIndex : \(celluleIndex)")
-
         }
     }
 }

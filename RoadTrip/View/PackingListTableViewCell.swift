@@ -27,7 +27,6 @@ final class PackingListTableViewCell: UITableViewCell {
     @IBAction private func itemCheckButtonTapped(_ sender: UIButton) {
         itemCheckButton.showsTouchWhenHighlighted = true
         editItemCheckButton()
-        print("itemEntity?.itemIsCheck in itemCheckButtonTapped() : \(String(describing: itemEntity?.itemIsCheck))")
     }
     
     // MARK: - Methods
@@ -53,8 +52,6 @@ final class PackingListTableViewCell: UITableViewCell {
             itemImageView.image = UIImage(named: itemEntity?.imageBackground ?? "piha-beach-nouvelle-zelande_1024x1024.jpg")
             checkIfItemIsChecked()
             categoryImageView.image = UIImage(named: itemEntity?.categoryImage ?? "tasksBeforeYouGo.png")
-//            print("packingListCell.categoryImageView.image in packingListTVCell => \(String(describing: categoryImageView.image)))")
-
         }
     }
     
@@ -67,7 +64,6 @@ final class PackingListTableViewCell: UITableViewCell {
             let itemIsCheck = true
             coreDataManager?.editItemToCheckButton(itemName: itemName, itemIsCheck: itemIsCheck)
         }
-        print("itemEntity?.itemIsCheck in editItem() in Cell => \(String(describing: itemEntity?.itemIsCheck)))")
     }
     
     func setButton() {
@@ -88,7 +84,6 @@ final class PackingListTableViewCell: UITableViewCell {
             itemIsCheck = false
             setButtonWhenCheck()
         }
-        print("itemIsCheck in ifCheckItemIsTrue : \(String(describing: itemEntity?.itemIsCheck))")
         return itemIsCheck
     }
     
@@ -99,6 +94,5 @@ final class PackingListTableViewCell: UITableViewCell {
         } else {
             setButton()
         }
-        print("itemIsCheck in checkIfItemIsCheck : \(String(describing: itemIsCheckEntity))")
     }
 }

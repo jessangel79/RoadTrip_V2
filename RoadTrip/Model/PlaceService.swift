@@ -52,7 +52,6 @@ final class PlaceService {
     /// network call to get the details of place
     func getPlaceDetails(placeId: String, completionHandler: @escaping (Bool, PlaceDetails?) -> Void) {
         guard let url = createPlaceDetailsUrl(placeId: placeId) else { return }
-//        print("getPlaceDetails \(url)")
         
         placeSession.request(url: url) { responseData in
             guard responseData.response?.statusCode == 200 else {

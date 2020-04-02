@@ -47,7 +47,7 @@ final class MyPlaceViewController: UIViewController {
         guard let mapUrl = URL(string: cellule?.url ?? "") else { return "" }
         var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
         placeToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl)"
-        print("textToShare => \(placeToShare)")
+        print("placeToShare => \(placeToShare)")
         return placeToShare
     }
 
@@ -69,14 +69,12 @@ final class MyPlaceViewController: UIViewController {
             } else {
                 openSafari(urlString: websiteUrl)
             }
-            print("websiteUrl => \(websiteUrl)")
         }
     }
 
     @IBAction private func placeMarkerTappedButton(_ sender: UIButton) {
         guard let placeMarkerUrl = cellule?.url else { return }
         openSafari(urlString: placeMarkerUrl)
-        print("placeMarkerUrl => \(placeMarkerUrl)")
     }
 
     @IBAction private func calendarTappedButton(_ sender: UIButton) {
@@ -153,7 +151,6 @@ final class MyPlaceViewController: UIViewController {
     private func checkIfPlaceIsSaved() {
         guard let placeName = cellule?.name else { return }
         guard let address = cellule?.address else { return }
-
         guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
         placeIsSaved = checkIfPlaceIsSaved
 

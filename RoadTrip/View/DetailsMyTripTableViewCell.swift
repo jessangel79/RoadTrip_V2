@@ -47,7 +47,6 @@ final class DetailsMyTripTableViewCell: UITableViewCell {
             travellerFourLabel.text = detailsTripEntity?.travellerFour
             notesTextView.text = detailsTripEntity?.notes
             tripImageView.image = UIImage(named: detailsTripEntity?.imageBackground ?? "iles-de-locean_1024x1024.png")
-//            print("notes in detailsTrip => \(String(describing: detailsTripEntity?.notes))")
         }
     }
 }

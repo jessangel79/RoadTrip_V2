@@ -54,7 +54,6 @@ extension UIViewController: EKEventEditViewDelegate {
         let event = EKEvent(eventStore: eventStore)
         eventVC.event = event
         eventVC.editViewDelegate = self
-//        eventVC.eventStore = EKEventStore()
         eventVC.eventStore = eventStore
         event.calendar = eventVC.eventStore.defaultCalendarForNewEvents
         setEvent(event, title: title, location: location)

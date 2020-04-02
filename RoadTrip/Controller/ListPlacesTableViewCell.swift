@@ -41,9 +41,6 @@ final class ListPlacesTableViewCell: UITableViewCell {
             ratingLabel.text = String(place?.rating ?? 0.0)
             let photo = place?.photos ?? [Photo]()
             configPhoto(photo)
-            
-//            print("photoReference in place => \(photo)")
-//            print("listPlacesCell.placeImageView.image in listTVCell => \(String(describing: placeImageView.image)))")
         }
     }
     
@@ -57,10 +54,6 @@ final class ListPlacesTableViewCell: UITableViewCell {
             ratingLabel.text = String(placeEntity?.rating ?? 0.0)
             let photo = placeEntity?.photo
             getPhotos(photoReference: photo)
-            
-//            print("photoReference in placeEntity => \(String(describing: photo))")
-//            print("listPlacesCell.placeImageView.image in listTVCell => \(String(describing: placeImageView.image)))")
-
         }
     }
     

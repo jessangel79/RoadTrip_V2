@@ -21,6 +21,7 @@ extension UIViewController {
 // MARK: - Extension to delete favorites and manage the button of favorites
 
 extension UIViewController {
+    
     /// Delete place
     func deletePlace(placeName: String?, address: String?, coreDataManager: CoreDataManager?, barButtonItem: UIBarButtonItem) {
         coreDataManager?.deletePlace(placeName: placeName ?? "", address: address ?? "")

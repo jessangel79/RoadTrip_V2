@@ -18,40 +18,15 @@ extension UIViewController {
         let formattedAddress = placesSearch.results[0].formattedAddress
         let typesElement = placesSearch.results[0].types
         guard let icon = placesSearch.results[0].icon else { return }
-        print("Name => \(name)")
+        print("name => \(name)")
+        print("icon => \(icon)")
         print("formattedAddress => \(formattedAddress)")
         for types in typesElement {
             print(types)
         }
-        print("icon => \(icon)")
-//        print("ARRAY placesList in SearchVC : \(placesList)")
-        print("COUNT placesList in SearchVC : \(placesList.count)")
-        print("COUNT photosList in SearchVC  : \(photosList.count)")
-        print("COUNT placeIDsList in SearchVC : \(placeIDsList.count)")
-//        print("array placeIDsList in SearchVC : \(placeIDsList)")
     }
     
-    /// function to debug List Places
-    func debugListPlaces(_ placesList: [Result], _ photosList: [String], _ placeIDsList: [String], _ placeDetailsResultsList: [ResultDetails]) {
-        print("COUNT placesList in ListPlaces : \(placesList.count)")
-//        print("ARRAY placesList in ListPlaces : \(placesList)")
-        print("COUNT photosList in ListPlaces : \(photosList.count)")
-//        print("ARRAY photosList in ListPlaces : \(photosList)")
-        print("COUNT placeIDsList in ListPlaces : \(placeIDsList.count)")
-        print("COUNT placeDetailsResultsList in ListPlaces : \(placeDetailsResultsList.count)")
-//        print("ARRAY placeDetailsResultsList in ListPlaces : \(placeDetailsResultsList)")
-    }
-    
-    /// function to debug Place Details
-    func debugPlaceDetails(_ placeDetailsResultsList: [ResultDetails]) {
-//        print("cellule in PlaceDetails => \(String(describing: cellule))")
-//        print("photoOfCellule in PlaceDetails => \(String(describing: photoOfCellule))")
-//        print("placeIdCellule in PlaceDetails => \(String(describing: placeIdCellule))")
-        print("COUNT placeDetailsResultsList in PlaceDetails : \(placeDetailsResultsList.count)")
-//        print("ARRAY placeDetailsResultsList in PlaceDetails : \(placeDetailsResultsList)")
-    }
-    
-    /// function to debug CoreData
+    /// function to debug CoreData for PlaceEntity
     func debugCoreDataPlace(nameDebug: String, coreDataManager: CoreDataManager?) {
         print(nameDebug)
         print("-----------------------")
@@ -79,11 +54,12 @@ extension UIViewController {
         }
     }
     
+    /// function to debug CoreData for DetailsTripEntity
     func debugCoreDataDetailsTrip(nameDebug: String, coreDataManager: CoreDataManager?) {
         print(nameDebug)
         print("-----------------------")
         var index = 0
-        for detailsTrip in coreDataManager?.detailsTrip ?? [DetailsTripEntity]() {
+        for detailsTrip in coreDataManager?.detailsTrips ?? [DetailsTripEntity]() {
             print("Trip N° \(index + 1) :")
             print("name : \(detailsTrip.name ?? "name error")")
             print("startDate : \(detailsTrip.startDate ?? "startDate error")")
@@ -100,11 +76,12 @@ extension UIViewController {
         }
     }
     
+    /// function to debug CoreData for ItemEntity
     func debugCoreDataItem(nameDebug: String, coreDataManager: CoreDataManager?) {
         print(nameDebug)
         print("-----------------------")
         var index = 0
-        for item in coreDataManager?.item ?? [ItemEntity]() {
+        for item in coreDataManager?.items ?? [ItemEntity]() {
             print("Item N° \(index + 1) :")
             print("itemName : \(item.itemName ?? "itemName error")")
             print("imageBackground : \(item.imageBackground ?? "imageBackground error")")
@@ -115,4 +92,11 @@ extension UIViewController {
             index += 1
         }
     }
+    
+    /// function to debug if cellule is selected and check the index of cellule selected
+    func debugCellule(celluleActive: Bool, celluleIndex: Int?) {
+        print("celluleActive : \(celluleActive)")
+        print("celluleIndex : \(String(describing: celluleIndex))")
+    }
+
 }

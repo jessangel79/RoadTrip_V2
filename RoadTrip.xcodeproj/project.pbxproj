@@ -45,7 +45,6 @@
 		3A755CE623EDB2FE00889FA5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CE523EDB2FE00889FA5 /* CoreDataManager.swift */; };
 		3A755CEA23EDD63200889FA5 /* PlaceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CE923EDD63200889FA5 /* PlaceProtocol.swift */; };
 		3A832AB223FEC049008E7237 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A832AB123FEC049008E7237 /* UITableViewCell.swift */; };
-		3A9E371E242CDE1D0080524B /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9E371D242CDE1D0080524B /* Array.swift */; };
 		3AA339EE23FDA21B00356B6B /* DetailsPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */; };
 		3ABB99A024190D66007CE8FA /* DetailsMyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */; };
 		3ABB99A224194757007CE8FA /* PackingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB99A124194757007CE8FA /* PackingListViewController.swift */; };
@@ -136,7 +135,6 @@
 		3A755CE523EDB2FE00889FA5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3A755CE923EDD63200889FA5 /* PlaceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceProtocol.swift; sourceTree = "<group>"; };
 		3A832AB123FEC049008E7237 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
-		3A9E371D242CDE1D0080524B /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlaceViewController.swift; sourceTree = "<group>"; };
 		3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMyTripViewController.swift; sourceTree = "<group>"; };
 		3ABB99A124194757007CE8FA /* PackingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListViewController.swift; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 				3A832AB123FEC049008E7237 /* UITableViewCell.swift */,
 				3AE7F56F241A944300751764 /* Date.swift */,
 				3A34E807241F917400237610 /* UITextField.swift */,
-				3A9E371D242CDE1D0080524B /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -561,7 +558,6 @@
 				3ADD71C9242A365A00CD4081 /* AddItemViewController.swift in Sources */,
 				3ABB99A024190D66007CE8FA /* DetailsMyTripViewController.swift in Sources */,
 				3A02015E23F4788300CDDEED /* String.swift in Sources */,
-				3A9E371E242CDE1D0080524B /* Array.swift in Sources */,
 				3A4D510124293D78008D682F /* PackingListTableViewCell.swift in Sources */,
 				3AFA620A241A67FB0055E8E8 /* UIViewController+CommonFunctions.swift in Sources */,
 				3AF881C223F175CC005F64ED /* UIViewController+Alert.swift in Sources */,

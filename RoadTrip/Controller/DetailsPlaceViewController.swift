@@ -52,9 +52,10 @@ final class DetailsPlaceViewController: UIViewController {
         detailsPlaceToShare(&website, &map, &country)
         guard let websiteUrl = URL(string: website) else { return "" }
         guard let mapUrl = URL(string: map) else { return "" }
-        var textToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
-        textToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl)"
-        return textToShare
+        var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
+        placeToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl)"
+        print("placeToShare => \(placeToShare)")
+        return placeToShare
     }
     
     // MARK: - Actions
@@ -74,7 +75,6 @@ final class DetailsPlaceViewController: UIViewController {
                 presentAlert(typeError: .noWebsite)
             }
             openSafari(urlString: placeId.website ?? "")
-            print("websiteUrl => \(String(describing: placeId.website))")
         }
     }
     
@@ -82,7 +82,6 @@ final class DetailsPlaceViewController: UIViewController {
         for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
             guard let placeMarkerUrl = placeId.url else { return }
             openSafari(urlString: placeMarkerUrl)
-            print("placeMarkerUrl => \(placeMarkerUrl)")
         }
     }
     
@@ -107,7 +106,6 @@ final class DetailsPlaceViewController: UIViewController {
         customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
         customAllButtons(allButtons: allButtons, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: .clear)
         configurePlace()
-        debugPlaceDetails(placeDetailsResultsList)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,7 +130,6 @@ final class DetailsPlaceViewController: UIViewController {
         typesTextView.text += "Activities : " + typesList.changeDash.capitalized
         iconImageView.sd_setImage(with: URL(string: cellule?.icon ?? ""), placeholderImage: UIImage(named: "europe.png"))
         userRatingsLabel.text = String(cellule?.userRatingsTotal ?? 0)
-        
         getPhotoPlace()
     }
     
@@ -186,7 +183,6 @@ final class DetailsPlaceViewController: UIViewController {
     private func checkIfPlaceIsSaved() {
         guard let placeName = cellule?.name else { return }
         guard let address = cellule?.formattedAddress else { return }
-        
         guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
         placeIsSaved = checkIfPlaceIsSaved
         
@@ -203,7 +199,6 @@ final class DetailsPlaceViewController: UIViewController {
             for type in addressComponents {
                 for typeCountry in type.types where typeCountry == "country" {
                     country = type.longName
-                    print("country => \(country)")
                 }
             }
             openDays = placeId.openingHours?.weekdayText.joined(separator: "\n") ?? "N/A"

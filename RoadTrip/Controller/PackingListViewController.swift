@@ -23,7 +23,7 @@ final class PackingListViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func resetBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        if !(coreDataManager?.item.isEmpty ?? false) {
+        if !(coreDataManager?.items.isEmpty ?? false) {
             showAlertResetAll()
         }
     }
@@ -71,7 +71,7 @@ extension PackingListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coreDataManager?.item.count ?? 0
+        return coreDataManager?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,7 +79,7 @@ extension PackingListViewController: UITableViewDataSource {
                                                            for: indexPath) as? PackingListTableViewCell else {
             return UITableViewCell()
         }
-        let item = coreDataManager?.item[indexPath.row]
+        let item = coreDataManager?.items[indexPath.row]
         itemCell.itemEntity = item
         return itemCell
     }
@@ -92,7 +92,7 @@ extension PackingListViewController: UITableViewDelegate {
     /// delete a row in tableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let item = coreDataManager?.item[indexPath.row] else { return }
+            guard let item = coreDataManager?.items[indexPath.row] else { return }
             coreDataManager?.deleteItem(itemName: item.itemName ?? "")
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -115,6 +115,6 @@ extension PackingListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return coreDataManager?.item.isEmpty ?? true ? 300 : 0
+        return coreDataManager?.items.isEmpty ?? true ? 300 : 0
     }
 }

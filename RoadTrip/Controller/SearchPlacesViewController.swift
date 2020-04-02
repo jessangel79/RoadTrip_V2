@@ -23,7 +23,7 @@ final class SearchPlacesViewController: UIViewController {
     
     private let placeService = PlaceService()
     private var placesList = [Result]()
-    private var photosList = [String]() // array to get photos references in string
+    private var photosList = [String]()
     private var placeIDsList = [String]()
     private var queriesList = [String]()
     private let segueToPlacesList = Constants.SegueToPlacesList
@@ -124,8 +124,6 @@ extension SearchPlacesViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-//        cityTextField.resignFirstResponder()
-//        placeTextField.resignFirstResponder()
         searchPlaces()
         return true
     }

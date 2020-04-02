@@ -9,8 +9,10 @@
 import UIKit
 
 extension UITextField {
-
+    
+    /// Create a UIDatePicker object and create a toolbar to set date
     func setInputViewDatePicker(target: Any, selector: Selector) {
+        
         // Create a UIDatePicker object and assign to inputView
         let screenWidth = UIScreen.main.bounds.width
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))

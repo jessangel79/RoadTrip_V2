@@ -19,7 +19,7 @@ struct PlaceDetails: Decodable {
     }
 }
 
-// MARK: - Result
+// MARK: - ResultDetails
 
 struct ResultDetails: Decodable {
     let addressComponents: [AddressComponent]?
@@ -40,20 +40,19 @@ struct ResultDetails: Decodable {
     }
 }
 
-// MARK: - AddressComponent // voir si garder shortName ???
+// MARK: - AddressComponent
 
 struct AddressComponent: Codable {
-    let longName, shortName: String
+    let longName: String
     let types: [String]
 
     enum CodingKeys: String, CodingKey {
         case longName = "long_name"
-        case shortName = "short_name"
         case types
     }
 }
 
-// MARK: - OpeningHours
+// MARK: - OpeningHoursDetails
 
 struct OpeningHoursDetails: Decodable {
     let weekdayText: [String]

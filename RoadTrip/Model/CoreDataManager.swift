@@ -22,13 +22,13 @@ final class CoreDataManager {
         return places
     }
     
-    var detailsTrip: [DetailsTripEntity] {
+    var detailsTrips: [DetailsTripEntity] {
         let request: NSFetchRequest<DetailsTripEntity> = DetailsTripEntity.fetchRequest()
         guard let detailsTrip = try? managedObjectContext.fetch(request) else { return [] }
         return detailsTrip
     }
     
-    var item: [ItemEntity] {
+    var items: [ItemEntity] {
         let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
         request.sortDescriptors = [
             NSSortDescriptor(key: "category", ascending: true),
@@ -120,7 +120,7 @@ final class CoreDataManager {
     }
     
     func deleteAllDetailsTrip() {
-        detailsTrip.forEach { managedObjectContext.delete($0) }
+        detailsTrips.forEach { managedObjectContext.delete($0) }
         coreDataStack.saveContext()
     }
     
@@ -172,7 +172,7 @@ final class CoreDataManager {
     }
     
     func deleteAllItems() {
-        item.forEach { managedObjectContext.delete($0) }
+        items.forEach { managedObjectContext.delete($0) }
         coreDataStack.saveContext()
     }
     

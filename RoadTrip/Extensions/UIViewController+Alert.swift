@@ -8,9 +8,10 @@
 
 import UIKit
 
-// MARK: - Extension to display a alert message to the user
+// MARK: - Extension to display an alert message to the user
 
 extension UIViewController {
+    
     /// Enumeration of the error
     enum AlertError {
         case isEmpty
