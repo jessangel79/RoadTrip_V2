@@ -46,7 +46,7 @@ final class AddItemViewController: UIViewController {
     }
     
     private func saveItem() {
-        guard let itemName = itemTextField.text, !itemName.isBlank else { return presentAlert(typeError: .noItem) }
+        guard let itemName = itemTextField.text?.trimWhitespaces, !itemName.isBlank else { return presentAlert(typeError: .noItem) }
         let categoryIndex = categoryPickerView.selectedRow(inComponent: 0)
         let category = categoriesList[categoryIndex]
         if !checkIfItemExist(item: itemName) {
