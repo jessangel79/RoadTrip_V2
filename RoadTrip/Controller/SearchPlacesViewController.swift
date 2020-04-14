@@ -95,9 +95,6 @@ final class SearchPlacesViewController: UIViewController {
                     self.placesList = placesSearch.results
                     self.createPhotosAndIDsList()
                     self.performSegue(withIdentifier: self.segueToPlacesList, sender: self)
-
-                    // print in consol result of callback and list of photos references
-                    self.debugGetPlaces(placesSearch, self.placesList, self.photosList, self.placeIDsList)
                 } else {
                     self.presentAlert(typeError: .zeroResult)
                     self.toggleActivityIndicator(shown: false,

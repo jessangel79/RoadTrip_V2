@@ -12,20 +12,6 @@ import UIKit
 
 extension UIViewController {
     
-    /// function to debug Get Places
-    func debugGetPlaces(_ placesSearch: PlacesSearch, _ placesList: [Result], _ photosList: [String], _ placeIDsList: [String]) {
-        let name = placesSearch.results[0].name
-        let formattedAddress = placesSearch.results[0].formattedAddress
-        let typesElement = placesSearch.results[0].types
-        guard let icon = placesSearch.results[0].icon else { return }
-        print("name => \(name)")
-        print("icon => \(icon)")
-        print("formattedAddress => \(formattedAddress)")
-        for types in typesElement {
-            print(types)
-        }
-    }
-    
     /// function to debug CoreData for PlaceEntity
     func debugCoreDataPlace(nameDebug: String, coreDataManager: CoreDataManager?) {
         print(nameDebug)

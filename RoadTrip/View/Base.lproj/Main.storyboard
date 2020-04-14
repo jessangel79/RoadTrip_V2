@@ -370,7 +370,7 @@
                                         </constraints>
                                         <state key="normal" image="placemarker-url"/>
                                         <connections>
-                                            <action selector="placeMarkerTappedButton:" destination="OBO-B1-kEG" eventType="touchUpInside" id="vfO-Kq-HR7"/>
+                                            <action selector="placeMarkerButtonTapped:" destination="OBO-B1-kEG" eventType="touchUpInside" id="vfO-Kq-HR7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wJ-87-haS">
@@ -380,7 +380,7 @@
                                         </constraints>
                                         <state key="normal" image="schedule"/>
                                         <connections>
-                                            <action selector="calendarTappedButton:" destination="OBO-B1-kEG" eventType="touchUpInside" id="B1z-XP-Cdb"/>
+                                            <action selector="calendarButtonTapped:" destination="OBO-B1-kEG" eventType="touchUpInside" id="B1z-XP-Cdb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -618,7 +618,7 @@
                                         </constraints>
                                         <state key="normal" image="placemarker-url"/>
                                         <connections>
-                                            <action selector="placeMarkerTappedButton:" destination="zbi-FX-lzK" eventType="touchUpInside" id="oOs-HM-TtT"/>
+                                            <action selector="placeMarkerButtonTapped:" destination="zbi-FX-lzK" eventType="touchUpInside" id="oOs-HM-TtT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRA-tN-spn">
@@ -628,7 +628,7 @@
                                         </constraints>
                                         <state key="normal" image="schedule"/>
                                         <connections>
-                                            <action selector="calendarTappedButton:" destination="zbi-FX-lzK" eventType="touchUpInside" id="IwV-g7-mST"/>
+                                            <action selector="calendarButtonTapped:" destination="zbi-FX-lzK" eventType="touchUpInside" id="IwV-g7-mST"/>
                                         </connections>
                                     </button>
                                 </subviews>

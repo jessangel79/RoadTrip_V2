@@ -72,12 +72,12 @@ final class MyPlaceViewController: UIViewController {
         }
     }
 
-    @IBAction private func placeMarkerTappedButton(_ sender: UIButton) {
+    @IBAction private func placeMarkerButtonTapped(_ sender: UIButton) {
         guard let placeMarkerUrl = cellule?.url else { return }
         openSafari(urlString: placeMarkerUrl)
     }
 
-    @IBAction private func calendarTappedButton(_ sender: UIButton) {
+    @IBAction private func calendarButtonTapped(_ sender: UIButton) {
         generateEvent(title: cellule?.name ?? "", location: cellule?.address ?? "")
     }
 

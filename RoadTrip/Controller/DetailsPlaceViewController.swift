@@ -78,14 +78,14 @@ final class DetailsPlaceViewController: UIViewController {
         }
     }
     
-    @IBAction func placeMarkerTappedButton(_ sender: UIButton) {
+    @IBAction func placeMarkerButtonTapped(_ sender: UIButton) {
         for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
             guard let placeMarkerUrl = placeId.url else { return }
             openSafari(urlString: placeMarkerUrl)
         }
     }
     
-    @IBAction func calendarTappedButton(_ sender: UIButton) {
+    @IBAction func calendarButtonTapped(_ sender: UIButton) {
         generateEvent(title: cellule?.name ?? "", location: cellule?.formattedAddress ?? "")
     }
     
