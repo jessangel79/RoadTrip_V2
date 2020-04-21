@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8O4-1d-l1L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bruges-maison-blanche-belgique_1024x768" translatesAutoresizingMaskIntoConstraints="NO" id="Jex-Ze-gDX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bruges-maison-blanche-belgique_1024x768" translatesAutoresizingMaskIntoConstraints="NO" id="Jex-Ze-gDX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="0gt-69-sWw"/>
