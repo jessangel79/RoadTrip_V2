@@ -7,8 +7,8 @@ target 'RoadTrip' do
   use_frameworks!
   
   pod 'Alamofire', '4.9'
-  pod 'SDWebImage', '5.6.1'
-  pod 'SDWebImage/MapKit', '5.6.1'
+  pod 'SDWebImage', '5.6'
+  pod 'SDWebImage/MapKit', '5.6'
 
   target 'RoadTripTests' do
     inherit! :search_paths

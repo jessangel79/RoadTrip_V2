@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "SDWebImageCompat.h"
 
-@interface SDWeakProxy : NSProxy
+/// This is used for operation management, but not for operation queue execute
+@interface SDImageCachesManagerOperation : NSOperation
 
-@property (nonatomic, weak, readonly, nullable) id target;
+@property (nonatomic, assign, readonly) NSUInteger pendingCount;
 
-- (nonnull instancetype)initWithTarget:(nonnull id)target;
-+ (nonnull instancetype)proxyWithTarget:(nonnull id)target;
+- (void)beginWithTotalCount:(NSUInteger)totalCount;
+- (void)completeOne;
+- (void)done;
 
 @end
