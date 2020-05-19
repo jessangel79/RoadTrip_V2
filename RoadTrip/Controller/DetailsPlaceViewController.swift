@@ -153,7 +153,9 @@ final class DetailsPlaceViewController: UIViewController {
         let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
         let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
         let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(photoOfCellule ?? "")"
-        placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+        DispatchQueue.main.async {
+            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+        }
     }
     
     private func detailsPlaceToShare(_ website: inout String, _ map: inout String, _ country: inout String) {

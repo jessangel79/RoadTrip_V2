@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWy-Gg-cSa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iles-de-locean_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-4B-KA4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iles-de-locean_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-4B-KA4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="320" id="swc-vD-Xky"/>

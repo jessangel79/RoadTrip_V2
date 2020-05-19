@@ -75,7 +75,9 @@ final class ListPlacesTableViewCell: UITableViewCell {
         let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
         guard let photoReference = photoReference else { return }
         let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(photoReference)"
-        placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+        DispatchQueue.main.async {
+            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+        }
     }
     
     private func openResult(_ openNow: Bool?) -> String {
