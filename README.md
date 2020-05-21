@@ -24,4 +24,4 @@
 
 | Search Places | My Trip | Details | Packing List |
 | ------------- | ------- | ------- | ------------ |
-| ![Search Places](source/images/searchplaces.gif) | ![My Trip](source/images/mytrip.gif) | ![Details](source/images/details.gif) | ![Packing List](source/images/packinglist.gif) |
+| ![](source/images/searchplaces.gif) | ![My Trip](source/images/mytrip.gif) | ![Details](source/images/details.gif) | ![Packing List](source/images/packinglist.gif) |
