@@ -21,8 +21,8 @@
 - EventKit, Core Data, POO, POP, Alamofire, Rest API, UIKit, CocoaPods, Unit Testing, Xcode 11, Swift 5, iOS 11.
 
 
-![RoadTrip](https://github.com/jessangel79/RoadTrip/blob/master/source/images/launchscreen.png)
+![RoadTrip](https://github.com/jessangel79/RoadTrip/blob/master/source/images/launchscreen.png =115x206)
 
 | Search Places | My Trip | Details | Packing List |
 | ------------- | ------- | ------- | ------------ |
-| ![Search Places](source/images/searchplaces.gif) | ![My Trip](source/images/mytrip.gif) | ![Details](source/images/details.gif) | ![Packing List](source/images/packinglist.gif) |
+| ![Search Places](source/images/searchplaces.gif =165x294) | ![My Trip](source/images/mytrip.gif) | ![Details](source/images/details.gif) | ![Packing List](source/images/packinglist.gif) |
