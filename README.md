@@ -20,8 +20,6 @@
 - Communicate with a database to store and request information
 - EventKit, Core Data, POO, POP, Alamofire, Rest API, UIKit, CocoaPods, Unit Testing, Xcode 11, Swift 5, iOS 11.
 
-<img src="source/images/launchscreen.png" alt="RoadTrip" height="441" width="247"/>
-
-| Search Places | My Trip | Details | Packing List |
-| ------------- | ------- | ------- | ------------ |
-| ![](source/images/searchplaces.gif) | ![My Trip](source/images/mytrip.gif) | ![Details](source/images/details.gif) | ![Packing List](source/images/packinglist.gif) |
+| RoadTrip | Search Places | My Trip | Details | Packing List |
+| -------- | ------------- | ------- | ------- | ------------ |
+| <img src="source/images/launchscreen.png" alt="RoadTrip" height="441" width="247"/> | ![Search Places](source/images/searchplaces.gif) | ![My Trip](source/images/mytrip.gif) | ![Details](source/images/details.gif) | ![Packing List](source/images/packinglist.gif) |
