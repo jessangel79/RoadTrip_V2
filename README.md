@@ -20,8 +20,7 @@
 - Communicate with a database to store and request information
 - EventKit, Core Data, POO, POP, Alamofire, Rest API, UIKit, CocoaPods, Unit Testing, Xcode 11, Swift 5, iOS 11.
 
-
-![RoadTrip](https://github.com/jessangel79/RoadTrip/blob/master/source/images/launchscreen.png)
+<img src="launchscreen.png" alt="RoadTrip" height="220" width="124"/>
 
 | Search Places | My Trip | Details | Packing List |
 | ------------- | ------- | ------- | ------------ |
