@@ -1,6 +1,9 @@
 # Projet : Réalisez un projet libre à impact social
 ## RoadTrip
 
+
+![platform-ios](https://img.shields.io/badge/platform-ios-lightgrey.svg) ![swift-version](https://img.shields.io/badge/swift-5.0-red.svg) ![device](https://img.shields.io/badge/Device-iPhone--iPad-green)
+
 **Compétences évaluées**
 -
 
@@ -16,3 +19,8 @@
 - Mobilize skills for project delivery
 - Communicate with a database to store and request information
 - EventKit, Core Data, POO, POP, Alamofire, Rest API, UIKit, CocoaPods, Unit Testing, Xcode 11, Swift 5, iOS 11.
+
+
+| Search Places | My Trip 2 | Details 3 | Packing List 4 |
+| ------------- | --------- | --------- | -------------- |
+| ![Search Places](source/images/searchplaces.gif) | ![My Trip](source/images/mytrip.gif) | ![Details](source/images/details.gif) | ![Packing List](source/images/packinglist.gif) |
