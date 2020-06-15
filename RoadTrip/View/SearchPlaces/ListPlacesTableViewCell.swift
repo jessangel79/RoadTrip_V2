@@ -22,6 +22,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var ratingView: UIView!
     @IBOutlet private var allLabels: [UILabel]!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Methods
 
@@ -36,7 +37,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
             nameLabel.text = place?.name
             addressLabel.text = place?.formattedAddress
             openLabel.text = openResult(place?.openingHours?.openNow)
-            iconImageView.sd_setImage(with: URL(string: place?.icon ?? ""), placeholderImage: UIImage(named: "europe.png"))
+            loadIcon(imageString: place?.icon)
             priceLevelLabel.text = priceLevelString(place?.priceLevel ?? 0)
             ratingLabel.text = String(place?.rating ?? 0.0)
             let photo = place?.photos ?? [Photo]()
@@ -49,7 +50,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
             nameLabel.text = placeEntity?.name
             addressLabel.text = placeEntity?.address
             openLabel.text = openEntity(placeEntity?.openNow ?? false, placeEntity?.openDays ?? "")
-            iconImageView.sd_setImage(with: URL(string: placeEntity?.icon ?? ""), placeholderImage: UIImage(named: "europe.png"))
+            loadIcon(imageString: placeEntity?.icon)
             priceLevelLabel.text = priceLevelString(Int(placeEntity?.priceLevel ?? 0))
             ratingLabel.text = String(placeEntity?.rating ?? 0.0)
             let photo = placeEntity?.photo
@@ -69,50 +70,60 @@ final class ListPlacesTableViewCell: UITableViewCell {
         getPhotos(photoReference: photoReference)
     }
     
+    private func loadIcon(imageString: String?) {
+        guard let url = URL(string: imageString ?? "") else { return }
+        DispatchQueue.main.async {
+            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
+        }
+    }
+    
     /// get photos with SDWebimage to load photos of places
     private func getPhotos(photoReference: String?) {
         let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
         let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
         guard let photoReference = photoReference else { return }
         let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(photoReference)"
+        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, imageView: placeImageView)
         DispatchQueue.main.async {
+            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, imageView: self.placeImageView)
             self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
         }
     }
     
-    private func openResult(_ openNow: Bool?) -> String {
+    private func openResult(_ openNow: Bool?) -> String? {
         switch openNow {
         case true:
-            return "Open"
+            return Constants.open
         case false:
-            return "Closed"
+            return Constants.closed
         default:
-            return "n/a"
+            return Constants.noa
         }
     }
     
-    private func openEntity(_ openNow: Bool, _ openDays: String) -> String {
+    private func openEntity(_ openNow: Bool, _ openDays: String) -> String? {
          if openNow {
-             return "Open"
+            return Constants.open
          } else if !openNow && openDays != "N/A" {
-             return "Closed"
+            return Constants.closed
          } else {
-             return "n/a"
+            return Constants.noa
          }
      }
     
-    private func priceLevelString(_ priceLevel: Int) -> String {
+    private func priceLevelString(_ priceLevel: Int) -> String? {
         switch priceLevel {
         case 1:
-            return "€"
+            return PriceLevel.oneE.priceLevel()
         case 2:
-            return "€€"
+            return PriceLevel.twoE.priceLevel()
         case 3:
-            return "€€€"
+            return PriceLevel.threeE.priceLevel()
         case 4:
-            return "€€€€"
+            return PriceLevel.fourE.priceLevel()
         default:
-            return "N/A"
+            return PriceLevel.noa.priceLevel()
         }
     }
+
 }

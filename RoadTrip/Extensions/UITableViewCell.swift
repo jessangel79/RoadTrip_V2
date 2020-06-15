@@ -49,3 +49,13 @@ extension UITableViewCell {
         imageView.layer.borderColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
     }
 }
+
+// MARK: - Extension to manage the ActivityIndicator
+extension UITableViewCell {
+    
+    /// manage the ActivityIndicator with UITableView
+    func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, imageView: UIImageView) {
+        activityIndicator.isHidden = !shown
+        imageView.isHidden = shown
+    }
+}

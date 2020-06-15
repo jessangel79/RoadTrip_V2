@@ -119,7 +119,7 @@ final class MyPlaceViewController: UIViewController {
         openLabel.text = open(cellule?.openNow ?? false, openDaysTemp)
         ratingLabel.text = String(cellule?.rating ?? 0.0)
         priceLevelLabel.text = priceLevelString(Int(cellule?.priceLevel ?? 0))
-        iconImageView.sd_setImage(with: URL(string: cellule?.icon ?? ""), placeholderImage: UIImage(named: "europe.png"))
+        loadIcon()
         userRatingsLabel.text = String(cellule?.userRatingsTotal ?? 0)
         getPhotoPlace()
     }
@@ -130,21 +130,30 @@ final class MyPlaceViewController: UIViewController {
         }
         return "Opening Days : \n" + (openDaysTemp) + "\n"
     }
+    
+    private func loadIcon() {
+        guard let url = URL(string: cellule?.icon ?? "") else { return }
+        DispatchQueue.main.async {
+            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
+        }
+    }
 
     private func getPhotoPlace() {
         let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
         let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
         let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(cellule?.photo ?? "")"
-        placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+        DispatchQueue.main.async {
+            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+        }
     }
     
-    private func open(_ openNow: Bool, _ openDays: String) -> String {
+    private func open(_ openNow: Bool, _ openDays: String) -> String? {
         if openNow {
-            return "Open"
+            return Constants.open
         } else if !openNow && openDays != "N/A" {
-            return "Closed"
+            return Constants.closed
         } else {
-            return "N/A"
+            return Constants.noa
         }
     }
 

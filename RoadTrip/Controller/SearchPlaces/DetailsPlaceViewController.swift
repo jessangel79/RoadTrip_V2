@@ -128,7 +128,7 @@ final class DetailsPlaceViewController: UIViewController {
         ratingLabel.text = String(cellule?.rating ?? 0.0)
         priceLevelLabel.text = priceLevelString(cellule?.priceLevel ?? 0)
         typesTextView.text += "Activities : " + typesList.changeDash.capitalized
-        iconImageView.sd_setImage(with: URL(string: cellule?.icon ?? ""), placeholderImage: UIImage(named: "europe.png"))
+        loadIcon(imageString: cellule?.icon)
         userRatingsLabel.text = String(cellule?.userRatingsTotal ?? 0)
         getPhotoPlace()
     }
@@ -146,6 +146,13 @@ final class DetailsPlaceViewController: UIViewController {
             } else {
                 typesTextView.text = "Opening Days : N/A \n"
             }
+        }
+    }
+    
+    private func loadIcon(imageString: String?) {
+        guard let url = URL(string: imageString ?? "") else { return }
+        DispatchQueue.main.async {
+            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
         }
     }
     
@@ -171,14 +178,14 @@ final class DetailsPlaceViewController: UIViewController {
         }
     }
     
-    private func open(_ openNow: Bool?) -> String {
+    private func open(_ openNow: Bool?) -> String? {
         switch openNow {
         case true:
-            return "Open"
+            return Constants.open
         case false:
-            return "Closed"
+            return Constants.closed
         default:
-            return "N/A"
+            return Constants.noa
         }
     }
     

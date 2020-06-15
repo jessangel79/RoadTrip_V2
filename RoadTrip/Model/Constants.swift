@@ -22,4 +22,7 @@ struct Constants {
     static let DetailsMyTripTableViewCell = "DetailsMyTripTableViewCell"
     static let PackingListCell = "PackingListCell"
     static let PackingListTableViewCell = "PackingListTableViewCell"
+    static let open = OpenNow.open.openNow()
+    static let closed = OpenNow.closed.openNow()
+    static let noa = OpenNow.noa.openNow()
 }
