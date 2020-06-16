@@ -257,11 +257,11 @@
 			isa = PBXGroup;
 			children = (
 				3A8E22A92497D5AC00A66792 /* SearchPlaces */,
-				3A8E22B62497DB1C00A66792 /* Details */,
 				3A8E22B72497DB5800A66792 /* PackingList */,
 				3A755CBD23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld */,
 				3A755CE323EDB2D100889FA5 /* CoreDataStack.swift */,
 				3A755CE523EDB2FE00889FA5 /* CoreDataManager.swift */,
+				3ABB99A7241961CD007CE8FA /* DetailsTrip.swift */,
 				3A30E9FC23F5A21C00532EDD /* Constants.swift */,
 				3A631DBD2428F0D70023BFCA /* ImagesBackground.swift */,
 			);
@@ -397,14 +397,6 @@
 				3ADD71C8242A365A00CD4081 /* AddItemViewController.swift */,
 			);
 			path = PackingList;
-			sourceTree = "<group>";
-		};
-		3A8E22B62497DB1C00A66792 /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				3ABB99A7241961CD007CE8FA /* DetailsTrip.swift */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		3A8E22B72497DB5800A66792 /* PackingList */ = {
