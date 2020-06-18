@@ -46,4 +46,24 @@ extension String {
         formatter.dateFormat = format
         return formatter.date(from: self) ?? Date()
     }
+    
+    func cutEndString() -> String {
+        guard let endOfSentence = self.firstIndex(of: ",") else { return "" }
+//        let endOfSentence = self.firstIndex(of: ",")!
+        var firstSentence = self[...endOfSentence]
+        firstSentence.removeLast()
+        return String(firstSentence)
+    }
+    
+    func cutStartString() -> String {
+        guard let endOfSentence = self.firstIndex(of: ",") else { return "" }
+        var firstSentence = self[endOfSentence...]
+        firstSentence.removeFirst(2)
+        return String(firstSentence)
+     }
+//            let length = 20
+//            if placeName.count > length {
+//                var shortName = Substring(placeName)
+//                return String(shortName)
+//            }
 }

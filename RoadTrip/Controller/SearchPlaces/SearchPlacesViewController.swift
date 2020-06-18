@@ -24,7 +24,8 @@ final class SearchPlacesViewController: UIViewController {
     private let placeService = PlaceService()
     private var placesList = [PlacesSearchElement]()
 //    private var placesList = [Result]()
-    private var photosList = [String]()
+//    private var photosList = [String]()
+    private var placesTypeList = [String]()
     private var placeIDsList = [String]()
     private var queriesList = [String]()
     private let segueToPlacesList = Constants.SegueToPlacesList
@@ -44,7 +45,7 @@ final class SearchPlacesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         queriesList = [String]()
-        photosList = [String]()
+//        photosList = [String]()
         placeIDsList = [String]()
     }
     
@@ -79,6 +80,12 @@ final class SearchPlacesViewController: UIViewController {
 //            }
 //        }
 //    }
+    
+    private func createPlacesTypeList() {
+        for place in placesList {
+            self.placesTypeList.append(place.type)
+        }
+    }
 
     private func getPlaces() {
         guard !queriesList.isEmpty else {
@@ -92,45 +99,20 @@ final class SearchPlacesViewController: UIViewController {
                                          activityIndicator: self.activityIndicator,
                                          validateButton: self.searchPlacesButton)
             if success {
-//                if placesSearch?.status == "OK" {
                 guard let placesSearch = placesSearch else { return }
-                self.placesList = placesSearch
-                
-                // debug
-                print("type : \(self.placesList[0].type)")
-                print("displayName : \(self.placesList[0].displayName)")
-                print("extratags : \(self.placesList[0].extratags)")
-                print("phone : \(String(describing: self.placesList[0].extratags.phone))")
-                print("website : \(String(describing: self.placesList[0].extratags.website))")
-
-                print("address : \(self.placesList[0].address)")
-                print("boundingbox : \(self.placesList[0].boundingbox)")
-                print("icon : \(self.placesList[0].icon)")
-                print("importance : \(self.placesList[0].importance)")
-                print("licence : \(self.placesList[0].licence)")
-                print("namedetails : \(self.placesList[0].namedetails)")
-                print("osmID : \(self.placesList[0].osmID)")
-                print("osmType : \(self.placesList[0].osmType)")
-                print("placeID : \(self.placesList[0].placeID)")
-                
-//                var index = 0
-//                for place in self.placesList {
-//                    print("Place N° \(index + 1) :")
-//                    print("Address : \(place.address)")
-//                    print("Type : \(place.type)")
-//                    print("Name : \(place.displayName)")
-//                    index += 1
-//                }
-
-//                    self.placesList = placesSearch.results
-//                    self.createPhotosAndIDsList()
+                if !placesSearch.isEmpty {
+                    self.placesList = placesSearch
+    //                    self.placesList = placesSearch.results
+                    self.createPlacesTypeList()
+    //                    self.createPhotosAndIDsList()
+                    self.debugGetPlaces(nameDebug: "debug getPlaces", placesList: self.placesList)
                     self.performSegue(withIdentifier: self.segueToPlacesList, sender: self)
-//                } else {
-//                    self.presentAlert(typeError: .zeroResult)
-//                    self.toggleActivityIndicator(shown: false,
-//                                                 activityIndicator: self.activityIndicator,
-//                                                 validateButton: self.searchPlacesButton)
-//                }
+                } else {
+                    self.presentAlert(typeError: .zeroResult)
+                    self.toggleActivityIndicator(shown: false,
+                                                 activityIndicator: self.activityIndicator,
+                                                 validateButton: self.searchPlacesButton)
+                }
             } else {
                 self.presentAlert(typeError: .noPlace)
                 self.toggleActivityIndicator(shown: false,
@@ -163,6 +145,8 @@ extension SearchPlacesViewController {
         if segue.identifier == segueToPlacesList {
             guard let listPlacesVC = segue.destination as? ListPlacesViewController else { return }
             listPlacesVC.placesList = placesList
+//            listPlacesVC.imagesList = imagesList
+            listPlacesVC.placesTypeList = placesTypeList
 //            listPlacesVC.photosList = photosList
 //            listPlacesVC.placeIDsList = placeIDsList
         }

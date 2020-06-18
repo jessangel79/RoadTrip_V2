@@ -13,7 +13,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
 
-    @IBOutlet private weak var placeImageView: UIImageView!
+    @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
     @IBOutlet private weak var openLabel: UILabel!
@@ -23,11 +23,6 @@ final class ListPlacesTableViewCell: UITableViewCell {
     @IBOutlet private weak var ratingView: UIView!
     @IBOutlet private var allLabels: [UILabel]!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-    
-    // MARK: - Properties
-    
-    private let placeService = PlaceService()
-    private var imagePlace = Data()
 
     // MARK: - Methods
 
@@ -39,16 +34,18 @@ final class ListPlacesTableViewCell: UITableViewCell {
     
     var place: PlacesSearchElement? {
         didSet {
-            nameLabel.text = place?.address.amenity
-            addressLabel.text = place?.displayName
+            nameLabel.text = place?.displayName.cutEndString()
+            addressLabel.text = place?.displayName.cutStartString()
+            openLabel.text = place?.extratags.openingHours ?? ""
 //            openLabel.text = openResult(place?.openingHours?.openNow)
             loadIcon(imageString: place?.icon)
 //            priceLevelLabel.text = priceLevelString(place?.priceLevel ?? 0)
-//            ratingLabel.text = String(place?.rating ?? 0.0)
-            let typePlace = place?.type ?? ""
-            configPhoto(typePlace)
+            ratingLabel.text = String(place?.importance ?? 0.0)
 
-//            configPhoto(typePlace)
+//            ratingLabel.text = String(place?.rating ?? 0.0)
+            
+            let placeType = place?.type.capitalized ?? ""
+            getPhotos(placeType)
 //            let photo = place?.photos ?? [Photo]()
 //            configPhoto(photo)
         }
@@ -79,20 +76,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
 //            getPhotos(photoReference: photo)
         }
     }
-    
-    private func configPhoto(_ place: String) {
-        placeService.getImage(place: place) { (succes, data) in
-            if succes {
-                guard let data = data else { return }
-                self.imagePlace = data
-                // debug
-                print("imagePlace Data : \(self.imagePlace)")
-//                self.performSegue(withIdentifier: self.segueToPlacesList, sender: self)
-            }
-        }
-        getPhotos(place)
-    }
-    
+
 //    private func configPhoto(_ photo: [Photo]) {
 //        var photoReference = String()
 //        if !photo.isEmpty {
@@ -112,23 +96,19 @@ final class ListPlacesTableViewCell: UITableViewCell {
         }
     }
     
-//    private func loadIcon(imageString: String?) {
-//        guard let url = URL(string: imageString ?? "") else { return }
-//        DispatchQueue.main.async {
-//            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
-//        }
-//    }
-    
-    /// get photos with SDWebimage to load photos of places
-    private func getPhotos(_ place: String?) {
+    /// get photos with SDWebimage to load images of places
+    private func getPhotos(_ placeType: String?) {
         let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
-//        guard let place = place else { return }
-        guard let url = URL(string: place ?? "") else { return }
-        print("url getPhotos : \(url)")
-        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, imageView: placeImageView)
+        guard let placeType = placeType else { return }
+//        guard let url = URL(string: place ?? "") else { return }
+        let stringUrl = "https://source.unsplash.com/800x600/?\(placeType)"
+//        print("url getPhotos : \(url)")
+        print("url getPhotos : \(stringUrl)")
+        
+//        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, imageView: placeImageView)
         DispatchQueue.main.async {
-            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, imageView: self.placeImageView)
-            self.placeImageView.sd_setImage(with: url, placeholderImage: placeholderImage)
+//            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, imageView: self.placeImageView)
+            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
         }
     }
     

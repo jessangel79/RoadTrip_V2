@@ -84,5 +84,31 @@ extension UIViewController {
         print("celluleActive : \(celluleActive)")
         print("celluleIndex : \(String(describing: celluleIndex))")
     }
-
+    
+    func debugGetPlaces(nameDebug: String, placesList: [PlacesSearchElement]) {
+        print("type : \(placesList[0].type)")
+        print("displayName : \(placesList[0].displayName)")
+        print("extratags : \(placesList[0].extratags)")
+        print("phone : \(String(describing: placesList[0].extratags.phone))")
+        print("website : \(String(describing: placesList[0].extratags.website))")
+        
+        print("address : \(placesList[0].address)")
+        print("boundingbox : \(placesList[0].boundingbox)")
+        print("icon : \(placesList[0].icon)")
+        print("importance : \(placesList[0].importance)")
+        print("licence : \(placesList[0].licence)")
+        print("namedetails : \(placesList[0].namedetails)")
+        print("osmID : \(placesList[0].osmID)")
+        print("osmType : \(placesList[0].osmType)")
+        print("placeID : \(placesList[0].placeID)")
+        
+//        var index = 0
+//        for place in placesList {
+//            print("Place N° \(index + 1) :")
+//            print("Address : \(place.address)")
+//            print("Type : \(place.type)")
+//            print("Name : \(place.displayName)")
+//            index += 1
+//        }
+    }
 }

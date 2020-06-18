@@ -80,7 +80,7 @@ final class PlaceService {
     /// network call to get image of place
     func getImage(place: String, completionHandler: @escaping (Bool, Data?) -> Void ) {
         guard let url = createImageUrl(place: place) else { return }
-        print("getImage : \(url)")
+//        print("getImage : \(url)")
         
         placeSession.request(url: url) { responseData in
             guard responseData.response?.statusCode == 200 else {

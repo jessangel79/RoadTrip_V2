@@ -38,6 +38,7 @@ final class DetailsPlaceViewController: UIViewController {
     var cellule: PlacesSearchElement?
 //    var cellule: Result?
     var photoOfCellule: String?
+    var imageOfCellule: String?
     var placeIdCellule: String?
     var placeDetailsResultsList = [ResultDetails]()
     private var coreDataManager: CoreDataManager?
@@ -71,12 +72,17 @@ final class DetailsPlaceViewController: UIViewController {
     }
     
     @IBAction func websiteButtonTapped(_ sender: UIButton) {
-        for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
-            if placeId.website == nil {
-                presentAlert(typeError: .noWebsite)
-            }
-            openSafari(urlString: placeId.website ?? "")
+        if cellule?.extratags.website == nil {
+            presentAlert(typeError: .noWebsite)
         }
+        openSafari(urlString: cellule?.extratags.website ?? "")
+        
+//        for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
+//            if placeId.website == nil {
+//                presentAlert(typeError: .noWebsite)
+//            }
+//            openSafari(urlString: placeId.website ?? "")
+//        }
     }
     
     @IBAction func placeMarkerButtonTapped(_ sender: UIButton) {
@@ -106,7 +112,7 @@ final class DetailsPlaceViewController: UIViewController {
         customView(view: violetView, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1))
         customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
         customAllButtons(allButtons: allButtons, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: .clear)
-//        configurePlace()
+        configurePlace()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,6 +124,57 @@ final class DetailsPlaceViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataStack = appDelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
+    }
+    
+    private func configurePlace() {
+        configureDetailsPlace()
+        nameLabel.text = cellule?.displayName.cutEndString()
+        addressTextView.text += "Address : \(cellule?.displayName.cutStartString() ?? "N/A")"
+        openLabel.text = cellule?.extratags.openingHours
+//        openLabel.text = open(cellule?.openingHours?.openNow)
+        
+        // Revoir l'affichage du double
+//        ratingLabel.text = String(cellule?.importance ?? 0.0)
+        
+//        priceLevelLabel.text = priceLevelString(cellule?.priceLevel ?? 0)
+        let type = cellule?.type ?? "N/A"
+        typesTextView.text += "\n Activities : " + type.capitalized
+        loadIcon(imageString: cellule?.icon)
+//        userRatingsLabel.text = String(cellule?.userRatingsTotal ?? 0)
+        getPhotoPlace()
+    }
+    
+    private func configureDetailsPlace() {
+        let phoneNumber = cellule?.extratags.phone ?? "N/A"
+        addressTextView.text = "Phone : \(phoneNumber) \n"
+        let openDays = "- Opening Hours : " + (cellule?.extratags.openingHours ?? "N/A")
+        let smoking = "- Smoking : " + (cellule?.extratags.smoking?.capitalized ?? "N/A")
+        let wheelchair = "- Wheelchair : " + (cellule?.extratags.wheelchair?.capitalized ?? "N/A")
+        let toiletsWheelchair = "- Toilets Wheelchair : " + (cellule?.extratags.toiletsWheelchair?.capitalized ?? "N/A")
+        let layer = "- Layer : " + (cellule?.extratags.layer?.capitalized ?? "N/A")
+        let brewery = "- Brewery : " + (cellule?.extratags.brewery?.capitalized ?? "N/A")
+        let outdoorSeating = "- Outdoor Seating : " + (cellule?.extratags.outdoorSeating?.capitalized ?? "N/A")
+        let wifi = "- Wifi : " + (cellule?.extratags.wifi?.capitalized ?? "N/A")
+        let tobacco = "- Tobacco : " + (cellule?.extratags.tobacco?.capitalized ?? "N/A")
+        typesTextView.text = """
+        Informations : \n \(openDays) \n \(smoking)
+         \(wheelchair) \n \(toiletsWheelchair) \n \(layer)
+         \(brewery) \n \(outdoorSeating) \n \(wifi) \n \(tobacco)
+        """
+        
+//        for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
+//            if let phoneNumber = placeId.internationalPhoneNumber {
+//                addressTextView.text = "Phone : \(phoneNumber) \n"
+//            } else {
+//                addressTextView.text = "Phone : N/A \n"
+//            }
+//
+//            if let openDays = placeId.openingHours?.weekdayText.joined(separator: "\n") {
+//                typesTextView.text = "Opening Days : \n" + (openDays) + "\n"
+//            } else {
+//                typesTextView.text = "Opening Days : N/A \n"
+//            }
+//        }
     }
     
 //    private func configurePlace() {
@@ -134,21 +191,21 @@ final class DetailsPlaceViewController: UIViewController {
 //        getPhotoPlace()
 //    }
     
-    private func configureDetailsPlace() {
-        for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
-            if let phoneNumber = placeId.internationalPhoneNumber {
-                addressTextView.text = "Phone : \(phoneNumber) \n"
-            } else {
-                addressTextView.text = "Phone : N/A \n"
-            }
-        
-            if let openDays = placeId.openingHours?.weekdayText.joined(separator: "\n") {
-                typesTextView.text = "Opening Days : \n" + (openDays) + "\n"
-            } else {
-                typesTextView.text = "Opening Days : N/A \n"
-            }
-        }
-    }
+//    private func configureDetailsPlace() {
+//        for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
+//            if let phoneNumber = placeId.internationalPhoneNumber {
+//                addressTextView.text = "Phone : \(phoneNumber) \n"
+//            } else {
+//                addressTextView.text = "Phone : N/A \n"
+//            }
+//
+//            if let openDays = placeId.openingHours?.weekdayText.joined(separator: "\n") {
+//                typesTextView.text = "Opening Days : \n" + (openDays) + "\n"
+//            } else {
+//                typesTextView.text = "Opening Days : N/A \n"
+//            }
+//        }
+//    }
     
     private func loadIcon(imageString: String?) {
         guard let url = URL(string: imageString ?? "") else { return }
@@ -159,12 +216,20 @@ final class DetailsPlaceViewController: UIViewController {
     
     private func getPhotoPlace() {
         let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
-        let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
-        let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(photoOfCellule ?? "")"
+        let stringUrl = "https://source.unsplash.com/800x600/?\(cellule?.type ?? "")"
         DispatchQueue.main.async {
             self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
         }
     }
+    
+//    private func getPhotoPlace() {
+//        let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
+//        let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
+//        let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(photoOfCellule ?? "")"
+//        DispatchQueue.main.async {
+//            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+//        }
+//    }
     
     private func detailsPlaceToShare(_ website: inout String, _ map: inout String, _ country: inout String) {
         for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
