@@ -1,0 +1,38 @@
+[
+    {
+        "place_id": 109797634,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 102978626,
+        "boundingbox": [
+            "49.04445",
+            "49.044776",
+            "2.071789",
+            "2.072476"
+        ],
+        "lat": "49.0446015",
+        "lon": "2.07207341165825",
+        "display_name": "Pacific Rock, 13, Rue Francis Combe, Cité Artisanale Francis Combe, Cergy Préfecture, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0,
+        "address": {
+            "amenity": "Pacific Rock",
+            "house_number": "13",
+            "road": "Rue Francis Combe",
+            "industrial": "Cité Artisanale Francis Combe",
+            "suburb": "Cergy Préfecture",
+            "town": "Cergy",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95000",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "phone": "+33 1 30 38 51 05",
+            "website": "http://www.pacificrock.fr"
+        }
+    }
+]

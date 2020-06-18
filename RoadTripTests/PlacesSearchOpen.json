@@ -1,0 +1,521 @@
+[
+    {
+        "place_id": 4742126,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 546845316,
+        "boundingbox": [
+            "49.0317509",
+            "49.0318509",
+            "2.060998",
+            "2.061098"
+        ],
+        "lat": "49.0318009",
+        "lon": "2.061048",
+        "display_name": "Crêperie du Port, Avenue Jean Bart, L Isle, Port-Cergy, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.30100000000000005,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Crêperie du Port",
+            "road": "Avenue Jean Bart",
+            "neighbourhood": "L Isle",
+            "suburb": "Port-Cergy",
+            "town": "Cergy",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95000",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "Crêperie du Port"
+        }
+    },
+    {
+        "place_id": 109797634,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 102978626,
+        "boundingbox": [
+            "49.04445",
+            "49.044776",
+            "2.071789",
+            "2.072476"
+        ],
+        "lat": "49.0446015",
+        "lon": "2.07207341165825",
+        "display_name": "Pacific Rock, 13, Rue Francis Combe, Cité Artisanale Francis Combe, Cergy Préfecture, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Pacific Rock",
+            "house_number": "13",
+            "road": "Rue Francis Combe",
+            "industrial": "Cité Artisanale Francis Combe",
+            "suburb": "Cergy Préfecture",
+            "town": "Cergy",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95000",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "phone": "+33 1 30 38 51 05",
+            "website": "http://www.pacificrock.fr"
+        },
+        "namedetails": {
+            "name": "Pacific Rock"
+        }
+    },
+    {
+        "place_id": 71736430,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 6260715279,
+        "boundingbox": [
+            "49.0363253",
+            "49.0364253",
+            "2.0782029",
+            "2.0783029"
+        ],
+        "lat": "49.0363753",
+        "lon": "2.0782529",
+        "display_name": "O’Sullivans, Voie Privée, Vc Qua Nouvelle Prefecture, Cergy Préfecture, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "O’Sullivans",
+            "road": "Voie Privée",
+            "neighbourhood": "Vc Qua Nouvelle Prefecture",
+            "suburb": "Cergy Préfecture",
+            "town": "Cergy",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95000",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "smoking": "outside"
+        },
+        "namedetails": {
+            "name": "O’Sullivans"
+        }
+    },
+    {
+        "place_id": 18261587,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 1786735481,
+        "boundingbox": [
+            "49.0481435",
+            "49.0482435",
+            "2.0338472",
+            "2.0339472"
+        ],
+        "lat": "49.0481935",
+        "lon": "2.0338972",
+        "display_name": "Le Forum, Place du Marché, La Fosse Aux Chats, Cergy Saint-Christophe, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95800, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Le Forum",
+            "road": "Place du Marché",
+            "neighbourhood": "La Fosse Aux Chats",
+            "suburb": "Cergy Saint-Christophe",
+            "town": "Cergy",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95800",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "Le Forum"
+        }
+    },
+    {
+        "place_id": 4750752,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 546845329,
+        "boundingbox": [
+            "49.0312336",
+            "49.0313336",
+            "2.0599527",
+            "2.0600527"
+        ],
+        "lat": "49.0312836",
+        "lon": "2.0600027",
+        "display_name": "La Taverne des Rois, Quai de la Tourelle, L Isle, Port-Cergy, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "La Taverne des Rois",
+            "road": "Quai de la Tourelle",
+            "neighbourhood": "L Isle",
+            "suburb": "Port-Cergy",
+            "town": "Cergy",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95000",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "website": "http://latavernedesrois.fr/",
+            "wheelchair": "yes",
+            "toilets:wheelchair": "yes"
+        },
+        "namedetails": {
+            "name": "La Taverne des Rois"
+        }
+    },
+    {
+        "place_id": 1271105,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 305380188,
+        "boundingbox": [
+            "49.0369516",
+            "49.0370516",
+            "2.0788972",
+            "2.0789972"
+        ],
+        "lat": "49.0370016",
+        "lon": "2.0789472",
+        "display_name": "Place de la Fontaine, Vc Qua Nouvelle Prefecture, Cergy Préfecture, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "road": "Place de la Fontaine",
+            "neighbourhood": "Vc Qua Nouvelle Prefecture",
+            "suburb": "Cergy Préfecture",
+            "town": "Cergy",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95000",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "layer": "1"
+        },
+        "namedetails": {}
+    },
+    {
+        "place_id": 69792432,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 6140167073,
+        "boundingbox": [
+            "49.0442865",
+            "49.0443865",
+            "2.0732724",
+            "2.0733724"
+        ],
+        "lat": "49.0443365",
+        "lon": "2.0733224",
+        "display_name": "La Porte Ouverte, 16, Rue Francis Combe, Cité Artisanale Francis Combe, Cergy Préfecture, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "La Porte Ouverte",
+            "house_number": "16",
+            "road": "Rue Francis Combe",
+            "industrial": "Cité Artisanale Francis Combe",
+            "suburb": "Cergy Préfecture",
+            "town": "Cergy",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95000",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "phone": "+33 1 34 24 10 40",
+            "brewery": "various",
+            "smoking": "outside",
+            "opening_hours": "Tu-Sa 17:00-00:30",
+            "outdoor_seating": "yes"
+        },
+        "namedetails": {
+            "name": "La Porte Ouverte"
+        }
+    },
+    {
+        "place_id": 18040169,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 1786718206,
+        "boundingbox": [
+            "49.0469772",
+            "49.0470772",
+            "2.0335229",
+            "2.0336229"
+        ],
+        "lat": "49.0470272",
+        "lon": "2.0335729",
+        "display_name": "Brasserie 2000, Avenue Mondétour, Les Genottes, Cergy Saint-Christophe, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95800, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "Brasserie 2000",
+            "road": "Avenue Mondétour",
+            "neighbourhood": "Les Genottes",
+            "suburb": "Cergy Saint-Christophe",
+            "town": "Cergy",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95800",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "Brasserie 2000"
+        }
+    },
+    {
+        "place_id": 24840333,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 2432255116,
+        "boundingbox": [
+            "49.0765904",
+            "49.0766904",
+            "2.0290647",
+            "2.0291647"
+        ],
+        "lat": "49.0766404",
+        "lon": "2.0291147",
+        "display_name": "Bar Tabac de la Mairie, Impasse du Four à Ban, Le Bourg, Boissy-l'Aillerie, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95650, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "Bar Tabac de la Mairie",
+            "road": "Impasse du Four à Ban",
+            "neighbourhood": "Le Bourg",
+            "village": "Boissy-l'Aillerie",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95650",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "wifi": "yes"
+        },
+        "namedetails": {
+            "name": "Bar Tabac de la Mairie"
+        }
+    },
+    {
+        "place_id": 46134694,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 3515397525,
+        "boundingbox": [
+            "49.0606425",
+            "49.0607425",
+            "2.0593985",
+            "2.0594985"
+        ],
+        "lat": "49.0606925",
+        "lon": "2.0594485",
+        "display_name": "Bar du Centre, Rue Aristide Briand, Le Village, Immarmont, Osny, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95520, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "Bar du Centre",
+            "road": "Rue Aristide Briand",
+            "neighbourhood": "Le Village",
+            "hamlet": "Immarmont",
+            "town": "Osny",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95520",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "Bar du Centre"
+        }
+    },
+    {
+        "place_id": 59916058,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 5034697269,
+        "boundingbox": [
+            "49.0354898",
+            "49.0355898",
+            "2.0001202",
+            "2.0002202"
+        ],
+        "lat": "49.0355398",
+        "lon": "2.0001702",
+        "display_name": "La Renaissance, Rue Raymond Berivin, Le Village, Courdimanche, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95800, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.101,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "La Renaissance",
+            "road": "Rue Raymond Berivin",
+            "neighbourhood": "Le Village",
+            "village": "Courdimanche",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95800",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "La Renaissance"
+        }
+    },
+    {
+        "place_id": 4257778,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 477197159,
+        "boundingbox": [
+            "49.0105761",
+            "49.0106761",
+            "2.0285726",
+            "2.0286726"
+        ],
+        "lat": "49.0106261",
+        "lon": "2.0286226",
+        "display_name": "Les Merisiers, 2, Rue Maurice Ravel, La Croix Villecoq, Écancourt, Jouy-le-Moutier, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95280, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.101,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Les Merisiers",
+            "house_number": "2",
+            "road": "Rue Maurice Ravel",
+            "neighbourhood": "La Croix Villecoq",
+            "hamlet": "Écancourt",
+            "town": "Jouy-le-Moutier",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95280",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "tobacco": "yes"
+        },
+        "namedetails": {
+            "name": "Les Merisiers"
+        }
+    },
+    {
+        "place_id": 46001855,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 3515431494,
+        "boundingbox": [
+            "49.060418",
+            "49.060518",
+            "2.0645753",
+            "2.0646753"
+        ],
+        "lat": "49.060468",
+        "lon": "2.0646253",
+        "display_name": "Café des Sports, Rue Aristide Briand, Le Village, Immarmont, Osny, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95520, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.101,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "Café des Sports",
+            "road": "Rue Aristide Briand",
+            "neighbourhood": "Le Village",
+            "hamlet": "Immarmont",
+            "town": "Osny",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95520",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "Café des Sports"
+        }
+    },
+    {
+        "place_id": 1305586,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 307762079,
+        "boundingbox": [
+            "49.0332223",
+            "49.0333223",
+            "2.0195782",
+            "2.0196782"
+        ],
+        "lat": "49.0332723",
+        "lon": "2.0196282",
+        "display_name": "Boulevard de l'Oise, La Bussie, Vauréal, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95490, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.101,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "road": "Boulevard de l'Oise",
+            "neighbourhood": "La Bussie",
+            "town": "Vauréal",
+            "municipality": "Pontoise",
+            "county": "Val-d'Oise",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "95490",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {}
+    }
+]

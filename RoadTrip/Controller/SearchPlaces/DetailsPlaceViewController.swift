@@ -35,38 +35,39 @@ final class DetailsPlaceViewController: UIViewController {
     // MARK: - Properties
 
     private let placeService = PlaceService()
-    var cellule: Result?
+    var cellule: PlacesSearchElement?
+//    var cellule: Result?
     var photoOfCellule: String?
     var placeIdCellule: String?
     var placeDetailsResultsList = [ResultDetails]()
     private var coreDataManager: CoreDataManager?
     private var placeIsSaved = false
     
-    var shareInfoPlace: String {
-        guard let namePlace = cellule?.name else { return "" }
-        guard let addressPlace = cellule?.formattedAddress else { return "" }
-        guard let typePlace = cellule?.types.joined(separator: ", ").changeDash.capitalized else { return "" }
-        var website = ""
-        var map = ""
-        var country = ""
-        detailsPlaceToShare(&website, &map, &country)
-        guard let websiteUrl = URL(string: website) else { return "" }
-        guard let mapUrl = URL(string: map) else { return "" }
-        var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
-        placeToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl)"
-        print("placeToShare => \(placeToShare)")
-        return placeToShare
-    }
+//    var shareInfoPlace: String {
+//        guard let namePlace = cellule?.name else { return "" }
+//        guard let addressPlace = cellule?.formattedAddress else { return "" }
+//        guard let typePlace = cellule?.types.joined(separator: ", ").changeDash.capitalized else { return "" }
+//        var website = ""
+//        var map = ""
+//        var country = ""
+//        detailsPlaceToShare(&website, &map, &country)
+//        guard let websiteUrl = URL(string: website) else { return "" }
+//        guard let mapUrl = URL(string: map) else { return "" }
+//        var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
+//        placeToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl)"
+//        print("placeToShare => \(placeToShare)")
+//        return placeToShare
+//    }
     
     // MARK: - Actions
     
     @IBAction func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        let viewController = UIActivityViewController(activityItems: [shareInfoPlace], applicationActivities: [])
-        present(viewController, animated: true)
-        if let popOver = viewController.popoverPresentationController {
-            popOver.sourceView = self.view
-            popOver.barButtonItem = shareBarButtonItem
-        }
+//        let viewController = UIActivityViewController(activityItems: [shareInfoPlace], applicationActivities: [])
+//        present(viewController, animated: true)
+//        if let popOver = viewController.popoverPresentationController {
+//            popOver.sourceView = self.view
+//            popOver.barButtonItem = shareBarButtonItem
+//        }
     }
     
     @IBAction func websiteButtonTapped(_ sender: UIButton) {
@@ -85,17 +86,17 @@ final class DetailsPlaceViewController: UIViewController {
         }
     }
     
-    @IBAction func calendarButtonTapped(_ sender: UIButton) {
-        generateEvent(title: cellule?.name ?? "", location: cellule?.formattedAddress ?? "")
-    }
+//    @IBAction func calendarButtonTapped(_ sender: UIButton) {
+//        generateEvent(title: cellule?.name ?? "", location: cellule?.formattedAddress ?? "")
+//    }
     
-    @IBAction func saveBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        checkIfPlaceIsSaved()
-        !placeIsSaved ? savePlace() : deletePlace(placeName: cellule?.name,
-                                                  address: cellule?.formattedAddress,
-                                                  coreDataManager: coreDataManager,
-                                                  barButtonItem: bookmarkBarButtonItem)
-    }
+//    @IBAction func saveBarButtonItemTapped(_ sender: UIBarButtonItem) {
+//        checkIfPlaceIsSaved()
+//        !placeIsSaved ? savePlace() : deletePlace(placeName: cellule?.name,
+//                                                  address: cellule?.formattedAddress,
+//                                                  coreDataManager: coreDataManager,
+//                                                  barButtonItem: bookmarkBarButtonItem)
+//    }
     
     // MARK: - Methods
     
@@ -105,12 +106,12 @@ final class DetailsPlaceViewController: UIViewController {
         customView(view: violetView, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1))
         customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
         customAllButtons(allButtons: allButtons, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: .clear)
-        configurePlace()
+//        configurePlace()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        checkIfPlaceIsSaved()
+//        checkIfPlaceIsSaved()
     }
     
     private func coreDataFunction() {
@@ -119,19 +120,19 @@ final class DetailsPlaceViewController: UIViewController {
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
     }
     
-    private func configurePlace() {
-        configureDetailsPlace()
-        let typesList = cellule?.types.joined(separator: ", ") ?? ""
-        nameLabel.text = cellule?.name
-        addressTextView.text += "Address : \(cellule?.formattedAddress ?? "")"
-        openLabel.text = open(cellule?.openingHours?.openNow)
-        ratingLabel.text = String(cellule?.rating ?? 0.0)
-        priceLevelLabel.text = priceLevelString(cellule?.priceLevel ?? 0)
-        typesTextView.text += "Activities : " + typesList.changeDash.capitalized
-        loadIcon(imageString: cellule?.icon)
-        userRatingsLabel.text = String(cellule?.userRatingsTotal ?? 0)
-        getPhotoPlace()
-    }
+//    private func configurePlace() {
+//        configureDetailsPlace()
+//        let typesList = cellule?.types.joined(separator: ", ") ?? ""
+//        nameLabel.text = cellule?.name
+//        addressTextView.text += "Address : \(cellule?.formattedAddress ?? "")"
+//        openLabel.text = open(cellule?.openingHours?.openNow)
+//        ratingLabel.text = String(cellule?.rating ?? 0.0)
+//        priceLevelLabel.text = priceLevelString(cellule?.priceLevel ?? 0)
+//        typesTextView.text += "Activities : " + typesList.changeDash.capitalized
+//        loadIcon(imageString: cellule?.icon)
+//        userRatingsLabel.text = String(cellule?.userRatingsTotal ?? 0)
+//        getPhotoPlace()
+//    }
     
     private func configureDetailsPlace() {
         for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
@@ -189,18 +190,18 @@ final class DetailsPlaceViewController: UIViewController {
         }
     }
     
-    private func checkIfPlaceIsSaved() {
-        guard let placeName = cellule?.name else { return }
-        guard let address = cellule?.formattedAddress else { return }
-        guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
-        placeIsSaved = checkIfPlaceIsSaved
-        
-        if placeIsSaved {
-            bookmarkBarButtonItem.tintColor = #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)
-        } else {
-            bookmarkBarButtonItem.tintColor = .none
-        }
-    }
+//    private func checkIfPlaceIsSaved() {
+//        guard let placeName = cellule?.name else { return }
+//        guard let address = cellule?.formattedAddress else { return }
+//        guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
+//        placeIsSaved = checkIfPlaceIsSaved
+//
+//        if placeIsSaved {
+//            bookmarkBarButtonItem.tintColor = #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)
+//        } else {
+//            bookmarkBarButtonItem.tintColor = .none
+//        }
+//    }
     
     private func setDetails(_ country: inout String, _ openDays: inout String, _ phoneNumber: inout String, _ url: inout String, _ website: inout String) {
         for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
@@ -217,29 +218,29 @@ final class DetailsPlaceViewController: UIViewController {
         }
     }
     
-    private func savePlace() {
-        let address = cellule?.formattedAddress ?? ""
-        let icon = cellule?.icon ?? ""
-        let name = cellule?.name ?? ""
-        let openNow = cellule?.openingHours?.openNow ?? false
-        let photo = photoOfCellule ?? ""
-        let placeID = cellule?.placeID ?? ""
-        let priceLevel = cellule?.priceLevel ?? 0
-        let rating = cellule?.rating ?? 0.0
-        let types = cellule?.types.joined(separator: ", ").changeDash.capitalized ?? ""
-        let userRatingsTotal = cellule?.userRatingsTotal ?? 0
-        var country = String()
-        var openDays = String()
-        var phoneNumber = String()
-        var url = String()
-        var website = String()
-        setDetails(&country, &openDays, &phoneNumber, &url, &website)
-        coreDataManager?.createPlace(parameters: PlaceParameters(address: address, country: country, icon: icon,
-                                                                 name: name, openDays: openDays, openNow: openNow,
-                                                                 phoneNumber: phoneNumber, photo: photo, placeID: placeID,
-                                                                 priceLevel: Int16(priceLevel), rating: rating, types: types,
-                                                                 url: url, userRatingsTotal: Int64(userRatingsTotal), website: website))
-        setupBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1), barButtonItem: bookmarkBarButtonItem)
-        debugCoreDataPlace(nameDebug: "Places saved", coreDataManager: coreDataManager)
-    }
+//    private func savePlace() {
+//        let address = cellule?.formattedAddress ?? ""
+//        let icon = cellule?.icon ?? ""
+//        let name = cellule?.name ?? ""
+//        let openNow = cellule?.openingHours?.openNow ?? false
+//        let photo = photoOfCellule ?? ""
+//        let placeID = cellule?.placeID ?? ""
+//        let priceLevel = cellule?.priceLevel ?? 0
+//        let rating = cellule?.rating ?? 0.0
+//        let types = cellule?.types.joined(separator: ", ").changeDash.capitalized ?? ""
+//        let userRatingsTotal = cellule?.userRatingsTotal ?? 0
+//        var country = String()
+//        var openDays = String()
+//        var phoneNumber = String()
+//        var url = String()
+//        var website = String()
+//        setDetails(&country, &openDays, &phoneNumber, &url, &website)
+//        coreDataManager?.createPlace(parameters: PlaceParameters(address: address, country: country, icon: icon,
+//                                                                 name: name, openDays: openDays, openNow: openNow,
+//                                                                 phoneNumber: phoneNumber, photo: photo, placeID: placeID,
+//                                                                 priceLevel: Int16(priceLevel), rating: rating, types: types,
+//                                                                 url: url, userRatingsTotal: Int64(userRatingsTotal), website: website))
+//        setupBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1), barButtonItem: bookmarkBarButtonItem)
+//        debugCoreDataPlace(nameDebug: "Places saved", coreDataManager: coreDataManager)
+//    }
 }

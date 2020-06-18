@@ -47,6 +47,8 @@
 		3A832AB223FEC049008E7237 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A832AB123FEC049008E7237 /* UITableViewCell.swift */; };
 		3A8E22A624979FD900A66792 /* OpenNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E22A524979FD900A66792 /* OpenNow.swift */; };
 		3A8E22A82497B04100A66792 /* PriceLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E22A72497B04100A66792 /* PriceLevel.swift */; };
+		3A959D3524992B7900C27B86 /* PlacesSearchOpen.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */; };
+		3A959D3724992C3600C27B86 /* PlaceDetailsOpen.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A959D3624992C3600C27B86 /* PlaceDetailsOpen.json */; };
 		3AA339EE23FDA21B00356B6B /* DetailsPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */; };
 		3ABB99A024190D66007CE8FA /* DetailsMyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */; };
 		3ABB99A224194757007CE8FA /* PackingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB99A124194757007CE8FA /* PackingListViewController.swift */; };
@@ -139,6 +141,8 @@
 		3A832AB123FEC049008E7237 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		3A8E22A524979FD900A66792 /* OpenNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNow.swift; sourceTree = "<group>"; };
 		3A8E22A72497B04100A66792 /* PriceLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLevel.swift; sourceTree = "<group>"; };
+		3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlacesSearchOpen.json; sourceTree = "<group>"; };
+		3A959D3624992C3600C27B86 /* PlaceDetailsOpen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlaceDetailsOpen.json; sourceTree = "<group>"; };
 		3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlaceViewController.swift; sourceTree = "<group>"; };
 		3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMyTripViewController.swift; sourceTree = "<group>"; };
 		3ABB99A124194757007CE8FA /* PackingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 				3A5FF4EF2434D2AD00C2B395 /* PlaceDetails.json */,
 				3A5FF4F32434D94C00C2B395 /* MockCoreDataStack.swift */,
 				3A5FF4F52434D98A00C2B395 /* CoreDataManagerTests.swift */,
+				3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */,
+				3A959D3624992C3600C27B86 /* PlaceDetailsOpen.json */,
 			);
 			path = RoadTripTests;
 			sourceTree = "<group>";
@@ -521,6 +527,8 @@
 			files = (
 				3A5FF4F02434D2AD00C2B395 /* PlaceDetails.json in Resources */,
 				3A30E9FF23F5AA6000532EDD /* PlacesSearch.json in Resources */,
+				3A959D3724992C3600C27B86 /* PlaceDetailsOpen.json in Resources */,
+				3A959D3524992B7900C27B86 /* PlacesSearchOpen.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

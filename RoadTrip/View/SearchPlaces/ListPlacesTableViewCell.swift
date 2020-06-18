@@ -24,6 +24,11 @@ final class ListPlacesTableViewCell: UITableViewCell {
     @IBOutlet private var allLabels: [UILabel]!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: - Properties
+    
+    private let placeService = PlaceService()
+    private var imagePlace = Data()
+
     // MARK: - Methods
 
     override func awakeFromNib() {
@@ -32,43 +37,73 @@ final class ListPlacesTableViewCell: UITableViewCell {
         customViewCell(view: ratingView)
     }
     
-    var place: Result? {
+    var place: PlacesSearchElement? {
         didSet {
-            nameLabel.text = place?.name
-            addressLabel.text = place?.formattedAddress
-            openLabel.text = openResult(place?.openingHours?.openNow)
+            nameLabel.text = place?.address.amenity
+            addressLabel.text = place?.displayName
+//            openLabel.text = openResult(place?.openingHours?.openNow)
             loadIcon(imageString: place?.icon)
-            priceLevelLabel.text = priceLevelString(place?.priceLevel ?? 0)
-            ratingLabel.text = String(place?.rating ?? 0.0)
-            let photo = place?.photos ?? [Photo]()
-            configPhoto(photo)
+//            priceLevelLabel.text = priceLevelString(place?.priceLevel ?? 0)
+//            ratingLabel.text = String(place?.rating ?? 0.0)
+            let typePlace = place?.type ?? ""
+            configPhoto(typePlace)
+
+//            configPhoto(typePlace)
+//            let photo = place?.photos ?? [Photo]()
+//            configPhoto(photo)
         }
     }
+    
+//    var place: Result? {
+//        didSet {
+//            nameLabel.text = place?.name
+//            addressLabel.text = place?.formattedAddress
+//            openLabel.text = openResult(place?.openingHours?.openNow)
+//            loadIcon(imageString: place?.icon)
+//            priceLevelLabel.text = priceLevelString(place?.priceLevel ?? 0)
+//            ratingLabel.text = String(place?.rating ?? 0.0)
+//            let photo = place?.photos ?? [Photo]()
+//            configPhoto(photo)
+//        }
+//    }
     
     var placeEntity: PlaceEntity? {
         didSet {
             nameLabel.text = placeEntity?.name
             addressLabel.text = placeEntity?.address
-            openLabel.text = openEntity(placeEntity?.openNow ?? false, placeEntity?.openDays ?? "")
+//            openLabel.text = openEntity(placeEntity?.openNow ?? false, placeEntity?.openDays ?? "")
             loadIcon(imageString: placeEntity?.icon)
-            priceLevelLabel.text = priceLevelString(Int(placeEntity?.priceLevel ?? 0))
+//            priceLevelLabel.text = priceLevelString(Int(placeEntity?.priceLevel ?? 0))
             ratingLabel.text = String(placeEntity?.rating ?? 0.0)
-            let photo = placeEntity?.photo
-            getPhotos(photoReference: photo)
+//            let photo = placeEntity?.photo
+//            getPhotos(photoReference: photo)
         }
     }
     
-    private func configPhoto(_ photo: [Photo]) {
-        var photoReference = String()
-        if !photo.isEmpty {
-            for photoRef in photo {
-                photoReference = photoRef.photoReference
+    private func configPhoto(_ place: String) {
+        placeService.getImage(place: place) { (succes, data) in
+            if succes {
+                guard let data = data else { return }
+                self.imagePlace = data
+                // debug
+                print("imagePlace Data : \(self.imagePlace)")
+//                self.performSegue(withIdentifier: self.segueToPlacesList, sender: self)
             }
-        } else {
-            photoReference = String()
         }
-        getPhotos(photoReference: photoReference)
+        getPhotos(place)
     }
+    
+//    private func configPhoto(_ photo: [Photo]) {
+//        var photoReference = String()
+//        if !photo.isEmpty {
+//            for photoRef in photo {
+//                photoReference = photoRef.photoReference
+//            }
+//        } else {
+//            photoReference = String()
+//        }
+//        getPhotos(photoReference: photoReference)
+//    }
     
     private func loadIcon(imageString: String?) {
         guard let url = URL(string: imageString ?? "") else { return }
@@ -77,18 +112,38 @@ final class ListPlacesTableViewCell: UITableViewCell {
         }
     }
     
+//    private func loadIcon(imageString: String?) {
+//        guard let url = URL(string: imageString ?? "") else { return }
+//        DispatchQueue.main.async {
+//            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
+//        }
+//    }
+    
     /// get photos with SDWebimage to load photos of places
-    private func getPhotos(photoReference: String?) {
-        let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
+    private func getPhotos(_ place: String?) {
         let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
-        guard let photoReference = photoReference else { return }
-        let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(photoReference)"
+//        guard let place = place else { return }
+        guard let url = URL(string: place ?? "") else { return }
+        print("url getPhotos : \(url)")
         toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, imageView: placeImageView)
         DispatchQueue.main.async {
             self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, imageView: self.placeImageView)
-            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+            self.placeImageView.sd_setImage(with: url, placeholderImage: placeholderImage)
         }
     }
+    
+    /// get photos with SDWebimage to load photos of places
+//    private func getPhotos(photoReference: String?) {
+//        let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
+//        let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
+//        guard let photoReference = photoReference else { return }
+//        let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(photoReference)"
+//        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, imageView: placeImageView)
+//        DispatchQueue.main.async {
+//            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, imageView: self.placeImageView)
+//            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+//        }
+//    }
     
     private func openResult(_ openNow: Bool?) -> String? {
         switch openNow {

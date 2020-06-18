@@ -18,10 +18,12 @@ final class ListPlacesViewController: UIViewController {
     // MARK: - Properties
     
     private let placeService = PlaceService()
-    var placesList = [Result]()
+    var placesList = [PlacesSearchElement]()
+//    var placesList = [Result]()
     var photosList = [String]()
     var placeIDsList = [String]()
-    private var cellSelected: Result?
+    private var cellSelected: PlacesSearchElement?
+//    private var cellSelected: Result?
     private var placeDetailsResult: ResultDetails?
     private var placeDetailsResultsList = [ResultDetails]()
     private var photoOfCellSelected: String?
