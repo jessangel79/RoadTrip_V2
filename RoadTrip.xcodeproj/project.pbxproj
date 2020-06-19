@@ -15,6 +15,8 @@
 		3A1DA7B5249BA02A00CC0CBA /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DA7B4249BA02A00CC0CBA /* ImageData.swift */; };
 		3A21DC4E240D32A500C6A33A /* MyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21DC4D240D32A500C6A33A /* MyTripViewController.swift */; };
 		3A21DC50240D33F200C6A33A /* MyPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21DC4F240D33F200C6A33A /* MyPlaceViewController.swift */; };
+		3A2932BE249CEFA000F672B8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2932BD249CEFA000F672B8 /* UIImageView.swift */; };
+		3A2932C0249CF98000F672B8 /* ImagesArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2932BF249CF98000F672B8 /* ImagesArray.swift */; };
 		3A2DB4B324003D9500709183 /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DB4B224003D9500709183 /* PlaceDetails.swift */; };
 		3A30E9F823F597BC00532EDD /* ListPlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30E9F623F597BC00532EDD /* ListPlacesTableViewCell.swift */; };
 		3A30E9F923F597BC00532EDD /* ListPlacesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A30E9F723F597BC00532EDD /* ListPlacesTableViewCell.xib */; };
@@ -106,6 +108,8 @@
 		3A1DA7B4249BA02A00CC0CBA /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		3A21DC4D240D32A500C6A33A /* MyTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTripViewController.swift; sourceTree = "<group>"; };
 		3A21DC4F240D33F200C6A33A /* MyPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaceViewController.swift; sourceTree = "<group>"; };
+		3A2932BD249CEFA000F672B8 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		3A2932BF249CF98000F672B8 /* ImagesArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesArray.swift; sourceTree = "<group>"; };
 		3A2DB4B224003D9500709183 /* PlaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
 		3A30E9F623F597BC00532EDD /* ListPlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListPlacesTableViewCell.swift; path = RoadTrip/View/SearchPlaces/ListPlacesTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		3A30E9F723F597BC00532EDD /* ListPlacesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListPlacesTableViewCell.xib; path = RoadTrip/View/SearchPlaces/ListPlacesTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -272,6 +276,7 @@
 				3ABB99A7241961CD007CE8FA /* DetailsTrip.swift */,
 				3A30E9FC23F5A21C00532EDD /* Constants.swift */,
 				3A631DBD2428F0D70023BFCA /* ImagesBackground.swift */,
+				3A2932BF249CF98000F672B8 /* ImagesArray.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				3A832AB123FEC049008E7237 /* UITableViewCell.swift */,
 				3AE7F56F241A944300751764 /* Date.swift */,
 				3A34E807241F917400237610 /* UITextField.swift */,
+				3A2932BD249CEFA000F672B8 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -651,6 +657,7 @@
 				3A4D510124293D78008D682F /* PackingListTableViewCell.swift in Sources */,
 				3AFA620A241A67FB0055E8E8 /* UIViewController+CommonFunctions.swift in Sources */,
 				3AF881C223F175CC005F64ED /* UIViewController+Alert.swift in Sources */,
+				3A2932C0249CF98000F672B8 /* ImagesArray.swift in Sources */,
 				3A832AB223FEC049008E7237 /* UITableViewCell.swift in Sources */,
 				3ABB99A224194757007CE8FA /* PackingListViewController.swift in Sources */,
 				3A30E9F823F597BC00532EDD /* ListPlacesTableViewCell.swift in Sources */,
@@ -667,6 +674,7 @@
 				3AF881BC23F16A46005F64ED /* PlaceService.swift in Sources */,
 				3ABB99A8241961CD007CE8FA /* DetailsTrip.swift in Sources */,
 				3A0E58E724081605000123D5 /* PlaceParameters.swift in Sources */,
+				3A2932BE249CEFA000F672B8 /* UIImageView.swift in Sources */,
 				3A755CE423EDB2D100889FA5 /* CoreDataStack.swift in Sources */,
 				3AE7F570241A944300751764 /* Date.swift in Sources */,
 				3A21DC50240D33F200C6A33A /* MyPlaceViewController.swift in Sources */,

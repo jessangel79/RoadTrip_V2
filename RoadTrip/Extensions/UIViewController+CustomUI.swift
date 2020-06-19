@@ -47,4 +47,12 @@ extension UIViewController {
         view.layer.backgroundColor = colorBackground.cgColor
         view.layer.borderColor = colorBorder.cgColor
     }
+    
+    /// custom imageView for Icon
+    func customImageView(imageView: UIImageView, radius: CGFloat, width: CGFloat, colorBackground: UIColor, colorBorder: UIColor) {
+        imageView.layer.cornerRadius = radius
+        imageView.layer.borderWidth = width
+        imageView.layer.backgroundColor = colorBackground.cgColor
+        imageView.layer.borderColor = colorBorder.cgColor
+    }
 }

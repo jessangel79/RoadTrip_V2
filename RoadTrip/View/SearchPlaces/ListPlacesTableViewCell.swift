@@ -23,6 +23,8 @@ final class ListPlacesTableViewCell: UITableViewCell {
     @IBOutlet private weak var ratingView: UIView!
     @IBOutlet private var allLabels: [UILabel]!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    
+//    var images = [UIImage]()
 
     // MARK: - Methods
 
@@ -30,12 +32,15 @@ final class ListPlacesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         customLabelsCell(labels: allLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
         customViewCell(view: ratingView)
+        customImageViewCell(imageView: iconImageView, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
+//        print("images array : \(imagesArray)")
+//        print("images array COUNT: \(imagesArray.count)")
     }
     
     var place: PlacesSearchElement? {
         didSet {
             nameLabel.text = place?.displayName.cutEndString()
-            addressLabel.text = place?.displayName.cutStartString()
+            addressLabel.text = place?.displayName.cutStartString(2)
             openLabel.text = place?.extratags.openingHours ?? ""
 //            openLabel.text = openResult(place?.openingHours?.openNow)
             loadIcon(imageString: place?.icon)
@@ -44,10 +49,34 @@ final class ListPlacesTableViewCell: UITableViewCell {
 
 //            ratingLabel.text = String(place?.rating ?? 0.0)
             
-            let placeType = place?.type.capitalized ?? ""
-            getPhotos(placeType)
+//            let placeType = place?.type ?? ""
+            
+//            let placeType = place?.type ?? ""
+//            loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)", imageView: placeImageView)
+//            loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+            
+//            print("images array : \(imagesArray)")
+            
+//            setImagesForCell(imageView: placeImageView)
+            
+//            if imagesArray.count < 30 {
+//                setImagesForCell()
+//            }
+            
+            setImagesForCell()
+
+//            DispatchQueue.main.async {
+//                self.placeImageView.image = imagesArray.randomElement()
+//            }
+//            getPhotos(placeType)
+//            placeImageView.load(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+            // https://source.unsplash.com/800x600/?\(placeType)
+
 //            let photo = place?.photos ?? [Photo]()
 //            configPhoto(photo)
+//
+//            print("images array : \(imagesArray)")
+//            print("images array COUNT: \(imagesArray.count)")
         }
     }
     
@@ -76,7 +105,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
 //            getPhotos(photoReference: photo)
         }
     }
-
+    
 //    private func configPhoto(_ photo: [Photo]) {
 //        var photoReference = String()
 //        if !photo.isEmpty {
@@ -96,18 +125,58 @@ final class ListPlacesTableViewCell: UITableViewCell {
         }
     }
     
+    private func setImagesForCell() { // imageView: UIImageView
+        let placeType = place?.type ?? ""
+//        loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)", imageView: placeImageView)
+        loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+//        createImagesArray(imageView)
+
+    }
+    
+    private func loadImages(urlImageString: String?) { // , imageView: UIImageView
+        guard let urlImageString = urlImageString else { return }
+        guard let urlImage = URL(string: urlImageString) else { return }
+//        DispatchQueue.global().async { [weak imageView] in
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: urlImage) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        imagesArray.append(image)
+                        self.placeImageView.image = imagesArray.randomElement()
+//                        imageView?.image = image
+                    }
+                } else {
+                    imagesArray.append(UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")!)
+//                    self.placeImageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
+//                    imageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
+                }
+            }
+        }
+//        createImagesArray(placeImageView)
+
+    }
+    
+    private func createImagesArray(_ imageView: UIImageView) {
+        while imagesArray.count < 100 {
+            guard let imageViewImage = imageView.image else { return }
+            imagesArray.append(imageViewImage)
+//            print("images array : \(imagesArray)")
+//            print("images array COUNT: \(imagesArray.count)")
+        }
+        print("images array : \(imagesArray)")
+        print("images array COUNT: \(imagesArray.count)")
+//        imagesArray = [UIImage]()
+    }
+    
     /// get photos with SDWebimage to load images of places
     private func getPhotos(_ placeType: String?) {
         let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
         guard let placeType = placeType else { return }
 //        guard let url = URL(string: place ?? "") else { return }
         let stringUrl = "https://source.unsplash.com/800x600/?\(placeType)"
-//        print("url getPhotos : \(url)")
         print("url getPhotos : \(stringUrl)")
         
-//        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, imageView: placeImageView)
         DispatchQueue.main.async {
-//            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, imageView: self.placeImageView)
             self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
         }
     }

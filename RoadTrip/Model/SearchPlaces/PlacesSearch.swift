@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - PlacesSearchElement
+
 struct PlacesSearchElement: Decodable {
     let placeID: Int
     let licence: String
@@ -39,6 +40,7 @@ struct PlacesSearchElement: Decodable {
 }
 
 // MARK: - Address
+
 struct Address: Decodable {
     let amenity: String?
     let road: String
@@ -82,6 +84,7 @@ struct Address: Decodable {
 //}
 
 // MARK: - Extratags
+
 struct Extratags: Decodable {
     let phone: String?
     let website: String?
@@ -100,6 +103,7 @@ struct Extratags: Decodable {
 }
 
 // MARK: - Namedetails
+
 struct Namedetails: Decodable {
     let name: String?
 }

@@ -55,10 +55,10 @@ extension String {
         return String(firstSentence)
     }
     
-    func cutStartString() -> String {
+    func cutStartString(_ int: Int) -> String {
         guard let endOfSentence = self.firstIndex(of: ",") else { return "" }
         var firstSentence = self[endOfSentence...]
-        firstSentence.removeFirst(2)
+        firstSentence.removeFirst(int)
         return String(firstSentence)
      }
 //            let length = 20

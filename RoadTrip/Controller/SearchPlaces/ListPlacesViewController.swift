@@ -31,6 +31,7 @@ final class ListPlacesViewController: UIViewController {
     private var imageOfCellSelected: String?
     private var placeIdCellSelected: String?
     private let segueToPlaceDetails = Constants.SegueToPlaceDetails
+    private var celluleIndex = 0
 
     // MARK: - Methods
 
@@ -42,12 +43,45 @@ final class ListPlacesViewController: UIViewController {
 //        for placeId in placeIDsList {
 //            getPlaceDetails(placeId: placeId)
 //        }
+//        createImagesArray()
+//        print("array images : \(imagesArray)")
+        imagesArray = [UIImage]()
         placesTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        placesTableView.reloadData()
+//        imagesArray = [UIImage]()
+
+//        placesTableView.reloadData()
+    }
+    
+    fileprivate func createImagesArray() {
+        let placeType = placesList.first?.type ?? "default"
+        loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+        print("images array : \(imagesArray)")
+    }
+    
+    func loadImages(urlImageString: String?) {
+        let imageView = UIImageView()
+        guard let urlImageString = urlImageString else { return }
+        guard let urlImage = URL(string: urlImageString) else { return }
+        DispatchQueue.global().async { [weak imageView] in
+            if let data = try? Data(contentsOf: urlImage) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        imageView?.image = image
+                    }
+                } else {
+                    imageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
+                }
+            }
+        }
+        for _ in 1...20 {
+            guard let imageViewImage = imageView.image else { return }
+            imagesArray.append(imageViewImage)
+        }
+        print("images array in load test: \(imagesArray)")
     }
     
     // OK mais pas dans cell
@@ -119,6 +153,7 @@ extension ListPlacesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.cellSelected = placesList[indexPath.row]
         self.imageOfCellSelected = placesTypeList[indexPath.row]
+        celluleIndex = indexPath.row
 //        self.photoOfCellSelected = photosList[indexPath.row]
 //        self.placeIdCellSelected = placeIDsList[indexPath.row]
         performSegue(withIdentifier: self.segueToPlaceDetails, sender: self)
@@ -133,6 +168,7 @@ extension ListPlacesViewController {
             guard let detailsPlaceVC = segue.destination as? DetailsPlaceViewController else { return }
             detailsPlaceVC.cellule = self.cellSelected
             detailsPlaceVC.imageOfCellule = self.imageOfCellSelected
+            detailsPlaceVC.celluleIndex = celluleIndex
 //            detailsPlaceVC.photoOfCellule = self.photoOfCellSelected
 //            detailsPlaceVC.placeIdCellule = self.placeIdCellSelected
 //            detailsPlaceVC.placeDetailsResultsList = self.placeDetailsResultsList

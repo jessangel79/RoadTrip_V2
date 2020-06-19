@@ -37,7 +37,7 @@ final class SearchPlacesViewController: UIViewController {
     }
     
     // MARK: - Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customButton(button: searchPlacesButton, radius: 30, width: 0.8, colorBackground: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
@@ -47,6 +47,7 @@ final class SearchPlacesViewController: UIViewController {
         queriesList = [String]()
 //        photosList = [String]()
         placeIDsList = [String]()
+        imagesArray = [UIImage]()
     }
     
     private func setQuery() {
@@ -79,6 +80,34 @@ final class SearchPlacesViewController: UIViewController {
 //                self.photosList.append(photoReference.photoReference)
 //            }
 //        }
+//    }
+    
+//    fileprivate func createImagesArray() {
+//        let placeType = place?.type ?? ""
+//        loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+//        print("images array : \(imagesArray)")
+//    }
+//    
+//    func loadImages(urlImageString: String?) {
+//        let imageView = UIImageView()
+//        guard let urlImageString = urlImageString else { return }
+//        guard let urlImage = URL(string: urlImageString) else { return }
+//        DispatchQueue.global().async { [weak imageView] in
+//            if let data = try? Data(contentsOf: urlImage) {
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.async {
+//                        imageView?.image = image
+//                    }
+//                } else {
+//                    imageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
+//                }
+//            }
+//        }
+//        for _ in 1...20 {
+//            guard let imageViewImage = imageView.image else { return }
+//            imagesArray.append(imageViewImage)
+//        }
+//        print("images array in load test: \(imagesArray)")
 //    }
     
     private func createPlacesTypeList() {

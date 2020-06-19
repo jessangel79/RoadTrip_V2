@@ -48,6 +48,14 @@ extension UITableViewCell {
         imageView.layer.borderWidth = 0.4
         imageView.layer.borderColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
     }
+    
+    /// custom imageView for Icon
+    func customImageViewCell(imageView: UIImageView, radius: CGFloat, width: CGFloat, colorBackground: UIColor, colorBorder: UIColor) {
+        imageView.layer.cornerRadius = radius
+        imageView.layer.borderWidth = width
+        imageView.layer.backgroundColor = colorBackground.cgColor
+        imageView.layer.borderColor = colorBorder.cgColor
+    }
 }
 
 // MARK: - Extension to manage the ActivityIndicator
