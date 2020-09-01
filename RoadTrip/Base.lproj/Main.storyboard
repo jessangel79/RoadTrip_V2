@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aqk-pM-tee">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PackingList-->
+        <scene sceneID="SYI-hA-kLE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PackingList" id="qLx-J9-O96" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Packing List" image="baggage" id="J3t-iA-VzQ">
+                        <color key="badgeColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KmW-em-rdZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="685" y="-1009"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="qIn-P8-LEk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Details" id="tIf-Ei-cpf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Details" image="details" id="Izs-IM-0Li">
+                        <color key="badgeColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DzG-2p-x0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="685" y="-832"/>
+        </scene>
+        <!--MyTrip-->
+        <scene sceneID="Eus-yx-yQP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyTrip" id="gXP-gf-w6n" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Trip" image="trip" id="GNN-xe-48T">
+                        <color key="badgeColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WFJ-5i-SF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="685" y="-622"/>
+        </scene>
+        <!--SearchPlaces-->
+        <scene sceneID="Z52-8P-x9T">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchPlaces" id="RBD-iN-k2V" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search Places" image="placemarker" id="PIx-cA-V3U">
+                        <color key="badgeColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="moX-Ex-ZH4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="-438"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="d70-6f-H8x">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Aqk-pM-tee" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mph-Bf-OXT">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RBD-iN-k2V" kind="relationship" relationship="viewControllers" id="6Q1-cz-d0Q"/>
+                        <segue destination="gXP-gf-w6n" kind="relationship" relationship="viewControllers" id="wkc-37-pcQ"/>
+                        <segue destination="tIf-Ei-cpf" kind="relationship" relationship="viewControllers" id="klm-Qg-XoP"/>
+                        <segue destination="qLx-J9-O96" kind="relationship" relationship="viewControllers" id="0hW-fJ-1lv"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQI-iL-xfO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-24.375" y="-723.59154929577471"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="baggage" width="25" height="25"/>
+        <image name="details" width="25" height="25"/>
+        <image name="placemarker" width="25" height="25"/>
+        <image name="trip" width="25" height="25"/>
+    </resources>
+</document>

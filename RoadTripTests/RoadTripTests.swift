@@ -101,26 +101,26 @@ final class RoadTripTests: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testGetPlacesShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
-        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.correctDataPlaces, error: nil)
-        let placeSessionFake = PlaceSessionFake(fakeResponse: fakeResponse)
-        let placeService = PlaceService(placeSession: placeSessionFake)
-        
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeService.getPlaces(queriesList: queriesList) { (success, placesSearch) in
-            XCTAssertTrue(success)
-            XCTAssertNotNil(placesSearch)
-            XCTAssertEqual(placesSearch?.results[0].name, "Le Cinq")
-            XCTAssertEqual(placesSearch?.results[0].icon, "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png")
-            XCTAssertEqual(placesSearch?.results[0].formattedAddress, "31 Avenue George V, 75008 Paris, France")
-            XCTAssertEqual(placesSearch?.results[0].placeID, "ChIJqTQzIehv5kcRaF3hD1SzX5A")
-            XCTAssertEqual(placesSearch?.results[0].priceLevel, 4)
-            XCTAssertEqual(placesSearch?.results[0].openingHours?.openNow, false)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 0.01)
-    }
+//    func testGetPlacesShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
+//        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.correctDataPlaces, error: nil)
+//        let placeSessionFake = PlaceSessionFake(fakeResponse: fakeResponse)
+//        let placeService = PlaceService(placeSession: placeSessionFake)
+//        
+//        let expectation = XCTestExpectation(description: "Wait for queue change.")
+//        placeService.getPlaces(queriesList: queriesList) { (success, placesSearch) in
+//            XCTAssertTrue(success)
+//            XCTAssertNotNil(placesSearch)
+//            XCTAssertEqual(placesSearch?.results[0].name, "Le Cinq")
+//            XCTAssertEqual(placesSearch?.results[0].icon, "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png")
+//            XCTAssertEqual(placesSearch?.results[0].formattedAddress, "31 Avenue George V, 75008 Paris, France")
+//            XCTAssertEqual(placesSearch?.results[0].placeID, "ChIJqTQzIehv5kcRaF3hD1SzX5A")
+//            XCTAssertEqual(placesSearch?.results[0].priceLevel, 4)
+//            XCTAssertEqual(placesSearch?.results[0].openingHours?.openNow, false)
+//            expectation.fulfill()
+//        }
+//        
+//        wait(for: [expectation], timeout: 0.01)
+//    }
     
     // MARK: - Tests GetPlaceDetails
     
