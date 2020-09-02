@@ -74,7 +74,7 @@ final class DetailsPlaceViewController: UIViewController {
     
     @IBAction func websiteButtonTapped(_ sender: UIButton) {
         if cellule?.extratags.website == nil {
-            presentAlert(typeError: .noWebsite)
+            presentAlert(typeError: .noWebsiteOrUrlFailed)
         }
         openSafari(urlString: cellule?.extratags.website ?? "")
         
@@ -147,17 +147,27 @@ final class DetailsPlaceViewController: UIViewController {
 //        userRatingsLabel.text = String(cellule?.userRatingsTotal ?? 0)
              
         // OK ----
-//        let placeType = cellule?.type ?? "bruges-maison-blanche-belgique_1024x768" + ".jpg"
+        let placeType = cellule?.type ?? "bruges-maison-blanche-belgique_1024x768" + ".jpg"
 //        DispatchQueue.main.async {
-//            self.placeImageView.load(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+            self.placeImageView.load(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
 //        }
 
-        placeImageView.image = imagesArray[celluleIndex ?? 0]
+        self.placeImageView.image = imagesArray.first as? UIImage
+        
+//        guard let celluleId = celluleIndex else { return }
+//        placeImageView.image = imagesArray[celluleId]
+        
+//        let image = "bruges-maison-blanche-belgique_1024x768" + ".jpg"
+//        placeImageView.image = UIImage(named: image)
+        
+//        placeImageView.image = imagesArray.first as? UIImage
+        
+//        placeImageView.image = imagesArray[celluleIndex ?? 0]
         
         // Ok ---
 //        getPhotoPlace()
         // OK ------
-//        placeImageView.image = imagesArray.randomElement()
+//        placeImageView.image = imagesArray.randomElement() as? UIImage
     }
     
     private func configureDetailsPlace() {

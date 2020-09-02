@@ -14,7 +14,7 @@
         "lon": "2.061048",
         "display_name": "Crêperie du Port, Avenue Jean Bart, L Isle, Port-Cergy, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
         "class": "amenity",
-        "type": "pub",
+        : "pub","type"
         "importance": 0.30100000000000005,
         "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
         "address": {

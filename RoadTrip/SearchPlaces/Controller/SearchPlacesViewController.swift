@@ -41,13 +41,14 @@ final class SearchPlacesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customButton(button: searchPlacesButton, radius: 30, width: 0.8, colorBackground: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
+        createImagesArray()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         queriesList = [String]()
 //        photosList = [String]()
         placeIDsList = [String]()
-        imagesArray = [UIImage]()
+//        imagesArray = [UIImage?]()
     }
     
     // MARK: - Methods
@@ -69,6 +70,7 @@ final class SearchPlacesViewController: UIViewController {
         cityTextField.resignFirstResponder()
         toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, validateButton: searchPlacesButton)
         getPlaces()
+//        createImagesArray()
     }
     
     /// get photos references  in string
@@ -136,7 +138,12 @@ final class SearchPlacesViewController: UIViewController {
     //                    self.placesList = placesSearch.results
                     self.createPlacesTypeList()
     //                    self.createPhotosAndIDsList()
+//
+//                    let placeType = placesSearch.first?.type ?? "default"
+//                    self.getImage(place: placeType)
+                    
                     self.debugGetPlaces(nameDebug: "debug getPlaces", placesList: self.placesList)
+                    self.createImagesArray()
                     self.performSegue(withIdentifier: self.segueToPlacesList, sender: self)
                 } else {
                     self.presentAlert(typeError: .zeroResult)
@@ -151,6 +158,73 @@ final class SearchPlacesViewController: UIViewController {
                                              validateButton: self.searchPlacesButton)
             }
         }
+        print("images array : \(imagesArray)")
+//        createImagesArray()
+    }
+    
+    // KO
+//    private func getImage(place: String) {
+//        guard !imagesArray.isEmpty else {
+//            toggleActivityIndicator(shown: false, activityIndicator: activityIndicator, validateButton: searchPlacesButton)
+//            return
+//        }
+//        placeService.getImage(place: place) { (success, data) in
+//            if success {
+//                guard let data = data else { return }
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.async {
+//                        imagesArray.append(image)
+//                        print("images array : \(imagesArray)")
+//                        print("image : \(image)")
+//                    }
+//                } else {
+//                    let imageRequest = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg") ?? UIImage()
+//                    imagesArray.append(imageRequest)
+//                }
+//            }
+//        }
+//        print("images array : \(imagesArray)")
+//    }
+    
+    // test to create image Array
+    private func createImagesArray() {
+        let placeType = placesList.first?.type ?? "default"
+        loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+        print("images array : \(imagesArray)")
+    }
+    
+    private func loadImages(urlImageString: String?) {
+        let imageView = UIImageView()
+        var imageRequest = UIImage()
+        guard let urlImageString = urlImageString else { return }
+        guard let urlImage = URL(string: urlImageString) else { return }
+        DispatchQueue.global().async { [weak imageView] in
+            if let data = try? Data(contentsOf: urlImage) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        imageView?.image = image
+                        imageRequest = image
+                        for _ in 1...20 {
+                            imagesArray.append(imageRequest)
+                        }
+//                        imagesArray.append(imageRequest)
+                    }
+                } else {
+                    imageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
+                    imageRequest = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg") ?? UIImage()
+//                    imagesArray.append(imageRequest)
+                }
+            }
+        }
+//        imagesArray.append(imageRequest)
+        
+//        for _ in 1...20 {
+//            imagesArray.append(imageRequest)
+//            
+////            guard let imageViewImage = imageView.image else { return }
+////            imagesArray.append(imageViewImage)
+//        }
+        print("images array in load test: \(imagesArray)")
     }
 }
 

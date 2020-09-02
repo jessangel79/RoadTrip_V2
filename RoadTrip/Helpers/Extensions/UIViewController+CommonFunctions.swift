@@ -13,8 +13,11 @@ import UIKit
 extension UIViewController {
     func openSafari(urlString: String) {
         guard let url = URL(string: urlString) else { return }
-        guard UIApplication.shared.canOpenURL(url) else { return }
-        UIApplication.shared.open(url)
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            presentAlert(typeError: .noWebsiteOrUrlFailed)
+        }
     }
 }
 

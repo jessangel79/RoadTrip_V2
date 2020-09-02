@@ -65,7 +65,7 @@ final class MyPlaceViewController: UIViewController {
     @IBAction private func websiteButtonTapped(_ sender: UIButton) {
         if let websiteUrl = cellule?.website {
             if websiteUrl == "N/A" {
-                presentAlert(typeError: .noWebsite)
+                presentAlert(typeError: .noWebsiteOrUrlFailed)
             } else {
                 openSafari(urlString: websiteUrl)
             }

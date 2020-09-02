@@ -31,7 +31,7 @@ final class ListPlacesViewController: UIViewController {
     private var imageOfCellSelected: String?
     private var placeIdCellSelected: String?
     private let segueToPlaceDetails = Constants.SegueToPlaceDetails
-    private var celluleIndex = 0
+    private var celluleIndex: Int?
     
     // MARK: - View Life Cycle
 
@@ -44,8 +44,10 @@ final class ListPlacesViewController: UIViewController {
 //            getPlaceDetails(placeId: placeId)
 //        }
 //        createImagesArray()
-//        print("array images : \(imagesArray)")
-        imagesArray = [UIImage]()
+        print("array images : \(imagesArray)")
+        
+//        imagesArray = [UIImage?]() // test => Ok
+        
         placesTableView.reloadData()
     }
     
@@ -57,35 +59,7 @@ final class ListPlacesViewController: UIViewController {
     }
     
     // MARK: - Methods
-    
-    fileprivate func createImagesArray() {
-        let placeType = placesList.first?.type ?? "default"
-        loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
-        print("images array : \(imagesArray)")
-    }
-    
-    func loadImages(urlImageString: String?) {
-        let imageView = UIImageView()
-        guard let urlImageString = urlImageString else { return }
-        guard let urlImage = URL(string: urlImageString) else { return }
-        DispatchQueue.global().async { [weak imageView] in
-            if let data = try? Data(contentsOf: urlImage) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        imageView?.image = image
-                    }
-                } else {
-                    imageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
-                }
-            }
-        }
-        for _ in 1...20 {
-            guard let imageViewImage = imageView.image else { return }
-            imagesArray.append(imageViewImage)
-        }
-        print("images array in load test: \(imagesArray)")
-    }
-    
+
     // OK mais pas dans cell
 //    private func getPhotos(_ placeType: String?, placeImageView: UIImageView) {
 //        let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")

@@ -16,7 +16,7 @@ extension UIViewController {
     enum AlertError {
         case isEmpty
         case noPlace
-        case noWebsite
+        case noWebsiteOrUrlFailed
         case noDetail
         case zeroResult
         case errorAccess
@@ -43,9 +43,9 @@ extension UIViewController {
         case .noPlace:
             title = "No place"
             message = "Sorry there is no place."
-        case .noWebsite:
-            title = "No website"
-            message = "Sorry there is no website for this place"
+        case .noWebsiteOrUrlFailed:
+            title = "No website or invalid URL"
+            message = "Sorry there is no website for this place or the URL is invalid"
         case .noDetail:
             title = "No detail"
             message = "Sorry there is no detail for this place."

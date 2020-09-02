@@ -38,6 +38,7 @@ final class PlaceService {
                 completionHandler(false, nil)
                 return
             }
+//            let placeType = placesSearch.first?.type
             completionHandler(true, placesSearch)
            
         }

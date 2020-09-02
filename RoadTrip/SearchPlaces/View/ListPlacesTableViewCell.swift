@@ -64,6 +64,8 @@ final class ListPlacesTableViewCell: UITableViewCell {
 //            }
             
             setImagesForCell()
+            
+//            getPhotos(place?.type ?? "")
 
 //            DispatchQueue.main.async {
 //                self.placeImageView.image = imagesArray.randomElement()
@@ -128,7 +130,12 @@ final class ListPlacesTableViewCell: UITableViewCell {
     private func setImagesForCell() { // imageView: UIImageView
         let placeType = place?.type ?? ""
 //        loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)", imageView: placeImageView)
+        
         loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+//        print("images array : \(imagesArray)")
+
+//        placeImageView.image = imagesArray.randomElement() as? UIImage
+
 //        createImagesArray(imageView)
 
     }
@@ -140,14 +147,25 @@ final class ListPlacesTableViewCell: UITableViewCell {
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: urlImage) {
                 if let image = UIImage(data: data) {
-                    imagesArray.append(image)
+//                    imagesArray.append(image)
                     DispatchQueue.main.async {
 //                        imagesArray.append(image)
-                        self.placeImageView.image = imagesArray.randomElement()
+//                        self.placeImageView.image = imagesArray.first as? UIImage
+                        
+                        self.placeImageView.image = image
+
+//                        self.placeImageView.image = imagesArray.randomElement() as? UIImage
+                        
+//                        print("image in cell : \(String(describing: self.placeImageView.image))")
+//                        self.placeImageView.image = imagesArray.randomElement()
 //                        imageView?.image = image
                     }
                 } else {
-                    imagesArray.append(UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")!)
+                    guard let image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg") else { return }
+                    imagesArray.append(image)
+                    
+//                    imagesArray.append(UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")!)
+                    
 //                    self.placeImageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
 //                    imageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
                 }
@@ -177,6 +195,8 @@ final class ListPlacesTableViewCell: UITableViewCell {
         let stringUrl = "https://source.unsplash.com/800x600/?\(placeType)"
         print("url getPhotos : \(stringUrl)")
         
+//        self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+
         DispatchQueue.main.async {
             self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
         }
