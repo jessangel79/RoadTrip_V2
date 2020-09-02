@@ -63,7 +63,11 @@ final class ListPlacesTableViewCell: UITableViewCell {
 //                setImagesForCell()
 //            }
             
-            setImagesForCell()
+//            setImagesForCell() // ok
+            
+//            let image = imagesArray.randomElement()
+//            placeImageView.image = imagesArray.randomElement()
+            placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
             
 //            getPhotos(place?.type ?? "")
 
@@ -160,15 +164,15 @@ final class ListPlacesTableViewCell: UITableViewCell {
 //                        self.placeImageView.image = imagesArray.randomElement()
 //                        imageView?.image = image
                     }
-                } else {
-                    guard let image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg") else { return }
-                    imagesArray.append(image)
+                } //else {
+//                    guard let image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg") else { return }
+//                    imagesArray.append(image)
                     
 //                    imagesArray.append(UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")!)
                     
 //                    self.placeImageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
 //                    imageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
-                }
+                // }
             }
         }
 //        createImagesArray(placeImageView)

@@ -28,6 +28,10 @@ final class SearchPlacesViewController: UIViewController {
     private var placesTypeList = [String]()
     private var placeIDsList = [String]()
     private var queriesList = [String]()
+    
+//    var urlsList = [String]()
+    var photosList = [PhotosResult]()
+    
     private let segueToPlacesList = Constants.SegueToPlacesList
 
     // MARK: - Actions
@@ -41,7 +45,11 @@ final class SearchPlacesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customButton(button: searchPlacesButton, radius: 30, width: 0.8, colorBackground: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
-        createImagesArray()
+//        let placeType = placesList.first?.type ?? "default"
+        
+//        createImagesArray()
+        print("urls array in getphotos : \(urlsList)")
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,7 +78,7 @@ final class SearchPlacesViewController: UIViewController {
         cityTextField.resignFirstResponder()
         toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, validateButton: searchPlacesButton)
         getPlaces()
-//        createImagesArray()
+//        createUrlsArray()
     }
     
     /// get photos references  in string
@@ -138,12 +146,14 @@ final class SearchPlacesViewController: UIViewController {
     //                    self.placesList = placesSearch.results
                     self.createPlacesTypeList()
     //                    self.createPhotosAndIDsList()
-//
-//                    let placeType = placesSearch.first?.type ?? "default"
-//                    self.getImage(place: placeType)
-                    
                     self.debugGetPlaces(nameDebug: "debug getPlaces", placesList: self.placesList)
-                    self.createImagesArray()
+                    
+//                    guard let placeType = placesSearch.first?.type else { return }
+                    
+//                    self.createImagesArray()
+                    
+                    self.getPhotos()
+                    
                     self.performSegue(withIdentifier: self.segueToPlacesList, sender: self)
                 } else {
                     self.presentAlert(typeError: .zeroResult)
@@ -158,39 +168,71 @@ final class SearchPlacesViewController: UIViewController {
                                              validateButton: self.searchPlacesButton)
             }
         }
-        print("images array : \(imagesArray)")
-//        createImagesArray()
+        print("images array in getplaces : \(imagesArray)")
     }
     
-    // KO
-//    private func getImage(place: String) {
-//        guard !imagesArray.isEmpty else {
+    private func createPlacesTypeList_Copy() {
+        for place in placesList {
+            self.placesTypeList.append(place.type)
+        }
+    }
+    
+    // create urlsArray with API unsplash
+    private func createUrlsList() {
+        for url in photosList {
+//            print("url regular :\(url.urls.regular)")
+            urlsList.append(url.urls.regular)
+        }
+    }
+    
+    private func getPhotos() {
+//        guard !urlsList.isEmpty else {
+//            presentAlert(typeError: .isEmpty)
 //            toggleActivityIndicator(shown: false, activityIndicator: activityIndicator, validateButton: searchPlacesButton)
 //            return
 //        }
-//        placeService.getImage(place: place) { (success, data) in
-//            if success {
-//                guard let data = data else { return }
-//                if let image = UIImage(data: data) {
-//                    DispatchQueue.main.async {
-//                        imagesArray.append(image)
-//                        print("images array : \(imagesArray)")
-//                        print("image : \(image)")
-//                    }
-//                } else {
-//                    let imageRequest = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg") ?? UIImage()
-//                    imagesArray.append(imageRequest)
+        guard let placeType = placesList.first?.type else { return }
+        placeService.getPhotos(query: placeType) { (success, photos) in
+//            self.toggleActivityIndicator(shown: false,
+//                                         activityIndicator: self.activityIndicator,
+//                                         validateButton: self.searchPlacesButton)
+            if success {
+                guard let photos = photos else { return }
+                if !photos.results.isEmpty {
+                    self.photosList = photos.results
+                    print("photosList count : \(self.photosList.count)")
+                    print("photosList : \(self.photosList)")
+                }
+                self.createUrlsList()
+                print("urls array in getphotos : \(urlsList)")
+            //    } // else {
+//                    self.presentAlert(typeError: .zeroResult)
+//                    self.toggleActivityIndicator(shown: false,
+//                                                 activityIndicator: self.activityIndicator,
+//                                                 validateButton: self.searchPlacesButton)
 //                }
-//            }
-//        }
-//        print("images array : \(imagesArray)")
-//    }
+          //  } // else {
+//                self.presentAlert(typeError: .noPlace)
+//                self.toggleActivityIndicator(shown: false,
+//                                             activityIndicator: self.activityIndicator,
+//                                             validateButton: self.searchPlacesButton)
+            }
+        }
+        print("urls array in getphotos : \(urlsList)")
+    }
     
-    // test to create image Array
+    // create imagesArray
     private func createImagesArray() {
-        let placeType = placesList.first?.type ?? "default"
-        loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
-        print("images array : \(imagesArray)")
+        if let placeType = placesList.first?.type {
+            loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+        } else {
+            guard let imageTypeRandom = typesArray.randomElement() else { return }
+            loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(imageTypeRandom)")
+        }
+        
+//        let placeType = placesList.first?.type ?? "default"
+//        loadImages(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+        print("images array in createImagesArray : \(imagesArray)")
     }
     
     private func loadImages(urlImageString: String?) {
@@ -204,27 +246,17 @@ final class SearchPlacesViewController: UIViewController {
                     DispatchQueue.main.async {
                         imageView?.image = image
                         imageRequest = image
-                        for _ in 1...20 {
+                        for _ in 1...40 {
                             imagesArray.append(imageRequest)
                         }
-//                        imagesArray.append(imageRequest)
                     }
-                } else {
-                    imageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
-                    imageRequest = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg") ?? UIImage()
+                } //else {
+//                    imageView?.image = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg")
+//                    imageRequest = UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg") ?? UIImage()
 //                    imagesArray.append(imageRequest)
-                }
+//                }
             }
         }
-//        imagesArray.append(imageRequest)
-        
-//        for _ in 1...20 {
-//            imagesArray.append(imageRequest)
-//            
-////            guard let imageViewImage = imageView.image else { return }
-////            imagesArray.append(imageViewImage)
-//        }
-        print("images array in load test: \(imagesArray)")
     }
 }
 

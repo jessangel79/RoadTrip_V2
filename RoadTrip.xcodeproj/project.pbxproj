@@ -59,6 +59,8 @@
 		3ABB99A624194CF8007CE8FA /* DetailsMyTripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABB99A424194CF8007CE8FA /* DetailsMyTripTableViewCell.xib */; };
 		3ABB99A8241961CD007CE8FA /* DetailsTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB99A7241961CD007CE8FA /* DetailsTrip.swift */; };
 		3ABB99AA241963B8007CE8FA /* AddDetailsMyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB99A9241963B8007CE8FA /* AddDetailsMyTripViewController.swift */; };
+		3ABBA05224FFAEE9007E80DB /* typesArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABBA05124FFAEE9007E80DB /* typesArray.swift */; };
+		3ABBA05424FFC52B007E80DB /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABBA05324FFC52B007E80DB /* Photos.swift */; };
 		3AC005F924FE79DC008CD822 /* SearchPlaces.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC005F824FE79DC008CD822 /* SearchPlaces.storyboard */; };
 		3AC005FB24FE7E33008CD822 /* MyTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC005FA24FE7E33008CD822 /* MyTrip.storyboard */; };
 		3AC005FD24FE7E43008CD822 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC005FC24FE7E43008CD822 /* Details.storyboard */; };
@@ -160,6 +162,8 @@
 		3ABB99A424194CF8007CE8FA /* DetailsMyTripTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsMyTripTableViewCell.xib; sourceTree = "<group>"; };
 		3ABB99A7241961CD007CE8FA /* DetailsTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTrip.swift; sourceTree = "<group>"; };
 		3ABB99A9241963B8007CE8FA /* AddDetailsMyTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsMyTripViewController.swift; sourceTree = "<group>"; };
+		3ABBA05124FFAEE9007E80DB /* typesArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typesArray.swift; sourceTree = "<group>"; };
+		3ABBA05324FFC52B007E80DB /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		3AC005F824FE79DC008CD822 /* SearchPlaces.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPlaces.storyboard; sourceTree = "<group>"; };
 		3AC005FA24FE7E33008CD822 /* MyTrip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTrip.storyboard; sourceTree = "<group>"; };
 		3AC005FC24FE7E43008CD822 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				3AF881BD23F16B2B005F64ED /* PlacesSearch.swift */,
+				3ABBA05324FFC52B007E80DB /* Photos.swift */,
 				3AF881BB23F16A46005F64ED /* PlaceService.swift */,
 				3A755CE923EDD63200889FA5 /* PlaceProtocol.swift */,
 				3AF881B923F16A19005F64ED /* PlaceSession.swift */,
@@ -470,6 +475,7 @@
 				3A30E9FC23F5A21C00532EDD /* Constants.swift */,
 				3A631DBD2428F0D70023BFCA /* ImagesBackground.swift */,
 				3A2932BF249CF98000F672B8 /* ImagesArray.swift */,
+				3ABBA05124FFAEE9007E80DB /* typesArray.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -718,6 +724,7 @@
 				3ABB99A224194757007CE8FA /* PackingListViewController.swift in Sources */,
 				3A30E9F823F597BC00532EDD /* ListPlacesTableViewCell.swift in Sources */,
 				3A755CEA23EDD63200889FA5 /* PlaceProtocol.swift in Sources */,
+				3ABBA05424FFC52B007E80DB /* Photos.swift in Sources */,
 				3A631DBE2428F0D70023BFCA /* ImagesBackground.swift in Sources */,
 				3A0E376D2412A9E200039FD3 /* UIViewController+EventKit.swift in Sources */,
 				3A30E9FB23F5990100532EDD /* ListPlacesViewController.swift in Sources */,
@@ -728,6 +735,7 @@
 				3ADD71C6242A339D00CD4081 /* Categories.swift in Sources */,
 				3AFA6202241A66F60055E8E8 /* UIViewController+CustomUI.swift in Sources */,
 				3AF881BC23F16A46005F64ED /* PlaceService.swift in Sources */,
+				3ABBA05224FFAEE9007E80DB /* typesArray.swift in Sources */,
 				3ABB99A8241961CD007CE8FA /* DetailsTrip.swift in Sources */,
 				3A0E58E724081605000123D5 /* PlaceParameters.swift in Sources */,
 				3A2932BE249CEFA000F672B8 /* UIImageView.swift in Sources */,

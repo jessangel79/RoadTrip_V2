@@ -57,6 +57,19 @@ extension PlaceProtocol {
         return "https://source.unsplash.com/800x600/?"
     }
     
+    // API unsplash
+    var urlBasePhotoAPI: String {
+        return "https://api.unsplash.com/search/photos?"
+    }
+    
+    var urlPhotoAPI: String {
+        return "\(urlBasePhotoAPI)client_id=\(keyPhotoApi)&query="
+    }
+    
+    var keyPhotoApi: String {
+        return valueForAPIKey(named: Constants.PhotosAPIKey)
+    }
+
     // Unsplash get image with keyword
     // https://source.unsplash.com/800x450/?hotel
     

@@ -147,13 +147,14 @@ final class DetailsPlaceViewController: UIViewController {
 //        userRatingsLabel.text = String(cellule?.userRatingsTotal ?? 0)
              
         // OK ----
-        let placeType = cellule?.type ?? "bruges-maison-blanche-belgique_1024x768" + ".jpg"
+//        let placeType = cellule?.type ?? "bruges-maison-blanche-belgique_1024x768" + ".jpg"
 //        DispatchQueue.main.async {
-            self.placeImageView.load(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
+//            self.placeImageView.load(urlImageString: "https://source.unsplash.com/800x600/?\(placeType)")
 //        }
 
-        self.placeImageView.image = imagesArray.first as? UIImage
-        
+//        self.placeImageView.image = imagesArray.randomElement()
+        self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
+
 //        guard let celluleId = celluleIndex else { return }
 //        placeImageView.image = imagesArray[celluleId]
         

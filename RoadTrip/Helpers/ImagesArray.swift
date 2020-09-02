@@ -9,7 +9,7 @@
 import UIKit
 
 //var imagesArray = [UIImage]()
-var imagesArray = [UIImage?]()
+var imagesArray = [UIImage]()
 
 let image1 = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
 let image2 = UIImage(named: "calanque-de-port-miou-cassis-france_1024x1024.jpg")
@@ -31,3 +31,5 @@ let image17 = UIImage(named: "arbre-solitaire_1024x1024.jpg")
 let image18 = UIImage(named: "palm-island_1024x768.jpg")
 
 //var imagesArray = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18, image1, image2]
+
+var urlsList = [String]()

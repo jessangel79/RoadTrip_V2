@@ -78,11 +78,11 @@ final class PlaceService {
            return url
     }
     
-    /// network call to get image of place
-    func getImage(place: String, completionHandler: @escaping (Bool, Data?) -> Void ) {
-        guard let url = createImageUrl(place: place) else { return }
-//        print("getImage : \(url)")
-        
+    /// network call to get photos with unsplash API
+    func getPhotos(query: String, completionHandler: @escaping (Bool, Photos?) -> Void) {
+        guard let url = createPhotosUrl(query: query) else { return }
+        print("getPhotos \(url)")
+
         placeSession.request(url: url) { responseData in
             guard responseData.response?.statusCode == 200 else {
                 completionHandler(false, nil)
@@ -92,17 +92,44 @@ final class PlaceService {
                 completionHandler(false, nil)
                 return
             }
-            guard let data = try? JSONDecoder().decode(Data.self, from: jsonData) else {
+            guard let photos = try? JSONDecoder().decode(Photos.self, from: jsonData) else {
                 completionHandler(false, nil)
                 return
             }
-            completionHandler(true, data)
+            completionHandler(true, photos)
         }
     }
     
-    private func createImageUrl(place: String) -> URL? {
-        guard let url = URL(string: placeSession.urlStringImage + place) else { return nil }
+    private func createPhotosUrl(query: String) -> URL? {
+        guard let url = URL(string: placeSession.urlPhotoAPI + query) else { return nil }
         return url
     }
+    
+    /// network call to get image of place
+//    func getImage(place: String, completionHandler: @escaping (Bool, Data?) -> Void ) {
+//        guard let url = createImageUrl(place: place) else { return }
+////        print("getImage : \(url)")
+//
+//        placeSession.request(url: url) { responseData in
+//            guard responseData.response?.statusCode == 200 else {
+//                completionHandler(false, nil)
+//                return
+//            }
+//            guard let jsonData = responseData.data else {
+//                completionHandler(false, nil)
+//                return
+//            }
+//            guard let data = try? JSONDecoder().decode(Data.self, from: jsonData) else {
+//                completionHandler(false, nil)
+//                return
+//            }
+//            completionHandler(true, data)
+//        }
+//    }
+    
+//    private func createImageUrl(place: String) -> URL? {
+//        guard let url = URL(string: placeSession.urlStringImage + place) else { return nil }
+//        return url
+//    }
        
 }
