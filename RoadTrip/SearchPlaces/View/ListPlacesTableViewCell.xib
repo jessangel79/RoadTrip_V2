@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -27,39 +27,30 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mfo-Yd-KxN">
-                                <rect key="frame" x="266" y="10.5" width="49" height="99"/>
+                                <rect key="frame" x="266" y="28.5" width="49" height="63"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="europe" translatesAutoresizingMaskIntoConstraints="NO" id="gRY-mS-yHf">
-                                        <rect key="frame" x="0.0" y="0.0" width="49" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="eP2-ZV-kdp"/>
+                                            <constraint firstAttribute="height" constant="35" id="eP2-ZV-kdp"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jPa-cm-Wgw">
-                                        <rect key="frame" x="0.0" y="53" width="49" height="46"/>
+                                        <rect key="frame" x="0.0" y="43" width="49" height="20"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€€€€" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dea-Zc-961">
-                                                <rect key="frame" x="0.0" y="0.0" width="49" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="xzB-Sb-mmE"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                                                <color key="textColor" red="0.25324180374290739" green="0.056585675930053571" blue="0.20743085771534514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxf-er-auI">
-                                                <rect key="frame" x="0.0" y="26" width="49" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="20"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="b63-pm-Vbd">
                                                         <rect key="frame" x="4" y="0.0" width="41" height="20"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.7" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKX-uY-OLF">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKX-uY-OLF">
                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                                                                 <color key="textColor" red="0.25324180374290739" green="0.056585675930053571" blue="0.20743085771534514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rating" translatesAutoresizingMaskIntoConstraints="NO" id="4Oz-Bh-MJR">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="4Oz-Bh-MJR">
                                                                 <rect key="frame" x="21" y="0.0" width="20" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="0hB-UQ-pVN"/>
@@ -68,7 +59,6 @@
                                                             </imageView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="4Oz-Bh-MJR" firstAttribute="width" secondItem="eKX-uY-OLF" secondAttribute="width" id="GXJ-6S-elf"/>
                                                             <constraint firstItem="4Oz-Bh-MJR" firstAttribute="height" secondItem="eKX-uY-OLF" secondAttribute="height" id="pbP-YH-oqV"/>
                                                         </constraints>
                                                     </stackView>
@@ -86,7 +76,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tcG-No-yW4">
-                                <rect key="frame" x="5" y="2" width="240" height="116"/>
+                                <rect key="frame" x="5" y="2" width="260" height="116"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-lh-LxE">
                                         <rect key="frame" x="0.0" y="0.0" width="49" height="40"/>
@@ -98,19 +88,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-rb-GcO">
-                                        <rect key="frame" x="0.0" y="48" width="240" height="40"/>
+                                        <rect key="frame" x="0.0" y="48" width="260" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Pyi-cZ-lCf"/>
-                                            <constraint firstAttribute="width" constant="240" id="XOE-Wq-q0U"/>
+                                            <constraint firstAttribute="width" constant="260" id="XOE-Wq-q0U"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <color key="textColor" red="0.25324180374290739" green="0.056585675930053571" blue="0.20743085771534514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNu-uK-sJf">
-                                        <rect key="frame" x="0.0" y="96" width="39.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="96" width="260" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="0wK-f7-QlJ"/>
+                                            <constraint firstAttribute="width" constant="260" id="GrY-32-YZJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="15"/>
                                         <color key="textColor" red="0.25324180374290739" green="0.056585675930053571" blue="0.20743085771534514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -153,11 +144,9 @@
                 <outlet property="nameLabel" destination="3r6-lh-LxE" id="YOG-x1-yUK"/>
                 <outlet property="openLabel" destination="eNu-uK-sJf" id="7bn-g5-Udb"/>
                 <outlet property="placeImageView" destination="Jex-Ze-gDX" id="C5C-ca-UCi"/>
-                <outlet property="priceLevelLabel" destination="dea-Zc-961" id="AvI-PF-8cZ"/>
                 <outlet property="ratingLabel" destination="eKX-uY-OLF" id="zQH-Nm-0Dw"/>
                 <outlet property="ratingView" destination="bxf-er-auI" id="e4M-3Z-Auh"/>
                 <outletCollection property="allLabels" destination="eNu-uK-sJf" collectionClass="NSMutableArray" id="QGX-TP-ubE"/>
-                <outletCollection property="allLabels" destination="dea-Zc-961" collectionClass="NSMutableArray" id="rCx-NB-aZR"/>
                 <outletCollection property="allLabels" destination="3r6-lh-LxE" collectionClass="NSMutableArray" id="8n6-Md-EOc"/>
                 <outletCollection property="allLabels" destination="lxi-rb-GcO" collectionClass="NSMutableArray" id="DAZ-1r-JON"/>
             </connections>
@@ -167,6 +156,6 @@
     <resources>
         <image name="bruges-maison-blanche-belgique_1024x768" width="1024" height="768"/>
         <image name="europe" width="25" height="25"/>
-        <image name="rating" width="25" height="25"/>
+        <image name="star" width="25" height="25"/>
     </resources>
 </document>

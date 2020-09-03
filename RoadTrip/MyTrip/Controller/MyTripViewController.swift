@@ -24,39 +24,39 @@ final class MytripViewController: UIViewController {
     private var cellSelected: PlaceEntity?
     private let segueToMyPlace = Constants.SegueToMyPlace
     
-    var shareInfoTrip: String {
-        var tripToShare = String()
-        var index = 0
-        for place in coreDataManager?.places ?? [PlaceEntity]() {
-            guard let namePlace = place.name else { return "" }
-            guard let addressPlace = place.address else { return "" }
-            guard let country = place.country else { return "" }
-            guard let typePlace = place.types?.changeDash.capitalized else { return "" }
-            guard let websiteUrl = URL(string: place.website ?? "") else { return "" }
-            guard let mapUrl = URL(string: place.url ?? "") else { return "" }
-            var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
-                   placeToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl) \n \n"
-            tripToShare += "💬 Place \(index + 1) " + placeToShare
-            index += 1
-        }
-        print("tripToShare => \(tripToShare)")
-        return tripToShare
-    }
+//    var shareInfoTrip: String {
+//        var tripToShare = String()
+//        var index = 0
+//        for place in coreDataManager?.places ?? [PlaceEntity]() {
+//            guard let namePlace = place.name else { return "" }
+//            guard let addressPlace = place.address else { return "" }
+//            guard let country = place.country else { return "" }
+//            guard let typePlace = place.types?.changeDash.capitalized else { return "" }
+//            guard let websiteUrl = URL(string: place.website ?? "") else { return "" }
+//            guard let mapUrl = URL(string: place.url ?? "") else { return "" }
+//            var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
+//                   placeToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl) \n \n"
+//            tripToShare += "💬 Place \(index + 1) " + placeToShare
+//            index += 1
+//        }
+//        print("tripToShare => \(tripToShare)")
+//        return tripToShare
+//    }
     
     // MARK: - Actions
     
     @IBAction func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        guard let places = coreDataManager?.places.isEmpty else { return }
-        if places {
-            presentAlert(typeError: .nothingToShare)
-        } else {
-            let viewController = UIActivityViewController(activityItems: [shareInfoTrip], applicationActivities: [])
-            present(viewController, animated: true)
-            if let popOver = viewController.popoverPresentationController {
-                popOver.sourceView = self.view
-                popOver.barButtonItem = shareBarButtonItem
-            }
-        }
+//        guard let places = coreDataManager?.places.isEmpty else { return }
+//        if places {
+//            presentAlert(typeError: .nothingToShare)
+//        } else {
+//            let viewController = UIActivityViewController(activityItems: [shareInfoTrip], applicationActivities: [])
+//            present(viewController, animated: true)
+//            if let popOver = viewController.popoverPresentationController {
+//                popOver.sourceView = self.view
+//                popOver.barButtonItem = shareBarButtonItem
+//            }
+//        }
     }
         
     @IBAction func deleteMyTripBarButtonItemTapped(_ sender: UIBarButtonItem) {

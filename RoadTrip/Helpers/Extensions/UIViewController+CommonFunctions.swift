@@ -16,7 +16,7 @@ extension UIViewController {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         } else {
-            presentAlert(typeError: .noWebsiteOrUrlFailed)
+            presentAlert(typeError: .noWebsite)
         }
     }
 }
@@ -55,6 +55,33 @@ extension UIViewController {
             return "€€€€"
         default:
             return "N/A"
+        }
+    }
+}
+
+extension UIViewController {
+    func importanceString(_ importance: String) -> String? {
+        switch importance {
+        case "0.1":
+            return Importance.one.importanceFunc()
+        case "0.2":
+            return Importance.two.importanceFunc()
+        case "0.3":
+            return Importance.three.importanceFunc()
+        case "0.4":
+            return Importance.four.importanceFunc()
+        case "0.5":
+             return Importance.five.importanceFunc()
+        case "0.6":
+             return Importance.six.importanceFunc()
+        case "0.7":
+             return Importance.seven.importanceFunc()
+        case "0.8":
+             return Importance.eight.importanceFunc()
+        case "0.9":
+             return Importance.nine.importanceFunc()
+        default:
+            return Importance.noa.importanceFunc()
         }
     }
 }

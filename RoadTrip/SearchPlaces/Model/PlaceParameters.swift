@@ -16,14 +16,15 @@ struct PlaceParameters {
     let icon: String
     let name: String
     let openDays: String
-    let openNow: Bool
+//    let openNow: Bool //
     let phoneNumber: String
     let photo: String
-    let placeID: String
-    let priceLevel: Int16
-    let rating: Double
+//    let placeID: String //
+//    let priceLevel: Int16 //
+    let rating: String
     let types: String
-    let url: String
-    let userRatingsTotal: Int64
+//    let url: String //
+//    let userRatingsTotal: Int64 //
     let website: String
+    let informations: String
 }

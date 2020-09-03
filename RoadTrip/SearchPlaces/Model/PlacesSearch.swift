@@ -48,14 +48,15 @@ struct Address: Decodable {
 //    let municipality: Municipality
 //    let county: County
 //    let state: State
-//    let country: Country
+    let country: String
     let postcode: String
 //    let countryCode: CountryCode
     let houseNumber, industrial, village, hamlet: String?
 
     enum CodingKeys: String, CodingKey {
         case amenity, road, neighbourhood, suburb, town
-//        case municipality, county, state, country
+//        case municipality, county, state
+        case country
         case postcode
 //        case countryCode = "country_code"
         case houseNumber = "house_number"
@@ -66,6 +67,7 @@ struct Address: Decodable {
 //enum Country: String, Decodable {
 //    case france = "France"
 //}
+
 //
 //enum CountryCode: String, Decodable {
 //    case fr = "fr"

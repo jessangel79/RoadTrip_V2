@@ -15,9 +15,7 @@ final class MyPlaceViewController: UIViewController {
     
     @IBOutlet private weak var baseView: UIView!
     @IBOutlet private weak var violetView: UIView!
-    @IBOutlet private weak var priceLevelLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!
-    @IBOutlet private weak var userRatingsLabel: UILabel!
     @IBOutlet private weak var placeImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var openLabel: UILabel!
@@ -44,9 +42,9 @@ final class MyPlaceViewController: UIViewController {
         guard let country = cellule?.country else { return "" }
         guard let typePlace = cellule?.types?.changeDash.capitalized else { return "" }
         guard let websiteUrl = URL(string: cellule?.website ?? "") else { return ""}
-        guard let mapUrl = URL(string: cellule?.url ?? "") else { return "" }
+//        guard let mapUrl = URL(string: cellule?.url ?? "") else { return "" }
         var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
-        placeToShare += "✨ Activities ✨ \(typePlace). \n🌐 \(websiteUrl) \n🗺 \(mapUrl)"
+        placeToShare += "✨ Activities ✨ \(typePlace)✨ \n🌐 \(websiteUrl)"
         print("placeToShare => \(placeToShare)")
         return placeToShare
     }
@@ -65,7 +63,7 @@ final class MyPlaceViewController: UIViewController {
     @IBAction private func websiteButtonTapped(_ sender: UIButton) {
         if let websiteUrl = cellule?.website {
             if websiteUrl == "N/A" {
-                presentAlert(typeError: .noWebsiteOrUrlFailed)
+                presentAlert(typeError: .noWebsite)
             } else {
                 openSafari(urlString: websiteUrl)
             }
@@ -73,8 +71,8 @@ final class MyPlaceViewController: UIViewController {
     }
 
     @IBAction private func placeMarkerButtonTapped(_ sender: UIButton) {
-        guard let placeMarkerUrl = cellule?.url else { return }
-        openSafari(urlString: placeMarkerUrl)
+//        guard let placeMarkerUrl = cellule?.url else { return }
+//        openSafari(urlString: placeMarkerUrl)
     }
 
     @IBAction private func calendarButtonTapped(_ sender: UIButton) {
@@ -109,28 +107,48 @@ final class MyPlaceViewController: UIViewController {
     }
     
     private func configurePlace() {
-        var openDaysTemp = ""
-        typesTextView.text = setOpenDaysPlace(&openDaysTemp)
+//        var openDaysTemp = ""
+//        typesTextView.text = setOpenDaysPlace(&openDaysTemp)
+        typesTextView.text = cellule?.informations ?? ""
         let typesList = cellule?.types ?? ""
-        typesTextView.text += "Activities : " + typesList
+        typesTextView.text += "\n Activities : " + typesList
         guard let phoneNumber = cellule?.phoneNumber else { return }
-        
         nameLabel.text = cellule?.name
         addressTextView.text = "Phone : \(phoneNumber) \n"
         addressTextView.text += "Address : \(cellule?.address ?? "")"
-        openLabel.text = open(cellule?.openNow ?? false, openDaysTemp)
-        ratingLabel.text = String(cellule?.rating ?? 0.0)
-        priceLevelLabel.text = priceLevelString(Int(cellule?.priceLevel ?? 0))
+        openLabel.text = setOpeningHours()
+        ratingLabel.text = cellule?.rating
         loadIcon()
-        userRatingsLabel.text = String(cellule?.userRatingsTotal ?? 0)
-        getPhotoPlace()
+        
+//        urlPhoto = urlsList.randomElement()
+//        loadPhoto(urlString: urlPhoto)
+        
+        loadPhoto(urlString: cellule?.photo)
     }
     
-    private func setOpenDaysPlace(_ openDaysTemp: inout String) -> String {
-        if let openDays = cellule?.openDays {
-            openDaysTemp = openDays
+//    private func setOpenDaysPlace(_ openDaysTemp: inout String) -> String {
+//        if let openDays = cellule?.openDays {
+//            openDaysTemp = openDays
+//        }
+//        return "Opening Days : \n" + (openDaysTemp) + "\n"
+//    }
+    
+//    private func setOpeningHours() {
+//        if let openingHours = cellule?.openDays {
+//            openLabel.text = openingHours
+//        } else {
+//            openLabel.text = "Opening Hours : N/A"
+//        }
+//    }
+    
+    private func setOpeningHours() -> String {
+        var openDays = ""
+        if let openingHours = cellule?.openDays {
+            openDays = openingHours
+        } else {
+            openDays = "Opening Hours : N/A"
         }
-        return "Opening Days : \n" + (openDaysTemp) + "\n"
+        return openDays
     }
     
     private func loadIcon() {
@@ -139,25 +157,35 @@ final class MyPlaceViewController: UIViewController {
             self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
         }
     }
-
-    private func getPhotoPlace() {
-        let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
-        let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
-        let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(cellule?.photo ?? "")"
-        DispatchQueue.main.async {
-            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
-        }
-    }
     
-    private func open(_ openNow: Bool, _ openDays: String) -> String? {
-        if openNow {
-            return Constants.Open
-        } else if !openNow && openDays != "N/A" {
-            return Constants.Closed
+    private func loadPhoto(urlString: String?) {
+        if let url = URL(string: urlString ?? "") {
+            DispatchQueue.main.async {
+            self.placeImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg"))
+            }
         } else {
-            return Constants.Noa
+            self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
         }
     }
+
+//    private func getPhotoPlace() {
+//        let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
+//        let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
+//        let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(cellule?.photo ?? "")"
+//        DispatchQueue.main.async {
+//            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
+//        }
+//    }
+    
+//    private func open(_ openNow: Bool, _ openDays: String) -> String? {
+//        if openNow {
+//            return Constants.Open
+//        } else if !openNow && openDays != "N/A" {
+//            return Constants.Closed
+//        } else {
+//            return Constants.Noa
+//        }
+//    }
 
     private func checkIfPlaceIsSaved() {
         guard let placeName = cellule?.name else { return }

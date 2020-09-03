@@ -61,6 +61,7 @@ extension String {
         firstSentence.removeFirst(int)
         return String(firstSentence)
      }
+    
 //            let length = 20
 //            if placeName.count > length {
 //                var shortName = Substring(placeName)
