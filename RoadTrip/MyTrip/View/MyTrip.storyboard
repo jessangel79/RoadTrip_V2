@@ -74,14 +74,14 @@
                             <barButtonItem title="Item" image="share-app" id="0tm-KG-gAn">
                                 <color key="tintColor" red="0.31668460370000001" green="0.084017805759999994" blue="0.18824046850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <action selector="shareBarButtonItemTapped:" destination="2Qe-JH-YaY" id="WvP-j6-kVw"/>
+                                    <action selector="shareBarButtonItemTapped:" destination="2Qe-JH-YaY" id="oQ0-52-T9n"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="myTripTableView" destination="HIx-V1-v7r" id="RjN-93-wPU"/>
-                        <outlet property="shareBarButtonItem" destination="0tm-KG-gAn" id="vcZ-Ex-QK9"/>
+                        <outlet property="shareBarButtonItem" destination="0tm-KG-gAn" id="Noo-Vj-ljQ"/>
                         <segue destination="wbD-nS-Ugg" kind="show" identifier="segueToMyPlace" id="tOd-Nn-krS"/>
                     </connections>
                 </viewController>
@@ -265,7 +265,7 @@
                             <barButtonItem image="share-app" id="6op-04-UwP">
                                 <color key="tintColor" red="0.31668460370000001" green="0.084017805759999994" blue="0.18824046850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <action selector="shareBarButtonItemTapped:" destination="wbD-nS-Ugg" id="JBh-ec-euu"/>
+                                    <action selector="shareBarButtonItemTapped:" destination="wbD-nS-Ugg" id="WKo-8D-VvE"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -281,7 +281,7 @@
                         <outlet property="placeImageView" destination="TS5-Kh-6jU" id="8MI-2E-MPR"/>
                         <outlet property="placeMarkerButton" destination="azm-Hd-Zao" id="OC0-jl-7UU"/>
                         <outlet property="ratingLabel" destination="DUH-7E-dfy" id="58W-ST-JlV"/>
-                        <outlet property="shareBarButtonItem" destination="6op-04-UwP" id="8st-of-dqz"/>
+                        <outlet property="shareBarButtonItem" destination="6op-04-UwP" id="YI9-12-1YA"/>
                         <outlet property="typesTextView" destination="4Jx-23-T8P" id="A4g-NU-YNc"/>
                         <outlet property="violetView" destination="ox8-yV-A3F" id="OiX-t1-QhE"/>
                         <outlet property="websiteButton" destination="Fvk-Vg-0Cy" id="IdE-f6-QgS"/>

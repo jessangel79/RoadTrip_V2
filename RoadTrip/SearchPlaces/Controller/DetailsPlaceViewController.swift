@@ -43,11 +43,11 @@ final class DetailsPlaceViewController: UIViewController {
     private var informations: String?
     
     var shareInfoPlace: String {
+        guard let country = cellule?.address.country else { return "Pays N/A" }
         guard let namePlace = cellule?.displayName.cutEndString() else { return "" }
         guard let addressPlace = cellule?.displayName.cutStartString(2) else { return "N/A" }
-        guard let typePlace = cellule?.type.capitalized else { return "N/A" }
+        guard let typePlace = cellule?.type.changeDash.capitalized else { return "N/A" }
         guard let websiteUrl = URL(string: cellule?.extratags.website ?? "N/A") else { return "" }
-        guard let country = cellule?.address.country else { return "Pays N/A" }
         var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
         placeToShare += "✨ Activities ✨ \(typePlace) ✨ \n🌐 \(websiteUrl)"
         print("placeToShare => \(placeToShare)")
@@ -212,11 +212,11 @@ final class DetailsPlaceViewController: UIViewController {
         let photo = photoOfCellule ?? ""
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
         let rating = importanceString(importance) ?? ""
-        let types = cellule?.type ?? ""
+        let types = cellule?.type.changeDash.capitalized ?? ""
         let country = cellule?.address.country ?? ""
         let openDays = setOpeningHours() // cellule?.extratags.openingHours ?? ""
         let phoneNumber = cellule?.extratags.phone ?? "N/A"
-        let website = cellule?.extratags.website ?? ""
+        let website = cellule?.extratags.website ?? "N/A"
         coreDataManager?.createPlace(parameters: PlaceParameters(address: address, country: country, icon: icon, name: name,
                                                                  openDays: openDays, phoneNumber: phoneNumber, photo: photo,
                                                                  rating: rating, types: types, website: website, informations: informations ?? ""))

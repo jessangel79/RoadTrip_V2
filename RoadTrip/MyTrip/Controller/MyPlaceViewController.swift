@@ -37,21 +37,20 @@ final class MyPlaceViewController: UIViewController {
     private var placeIsSaved = false
 
     var shareInfoPlace: String {
+        guard let country = cellule?.country else { return "Pays N/A" }
         guard let namePlace = cellule?.name else { return "" }
-        guard let addressPlace = cellule?.address else { return "" }
-        guard let country = cellule?.country else { return "" }
-        guard let typePlace = cellule?.types?.changeDash.capitalized else { return "" }
-        guard let websiteUrl = URL(string: cellule?.website ?? "") else { return ""}
-//        guard let mapUrl = URL(string: cellule?.url ?? "") else { return "" }
+        guard let addressPlace = cellule?.address else { return "N/A" }
+        guard let typePlace = cellule?.types else { return "N/A" }
+        guard let websiteUrl = URL(string: cellule?.website ?? "N/A") else { return ""}
         var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
-        placeToShare += "✨ Activities ✨ \(typePlace)✨ \n🌐 \(websiteUrl)"
+        placeToShare += "✨ Activities ✨ \(typePlace) ✨ \n🌐 \(websiteUrl)"
         print("placeToShare => \(placeToShare)")
         return placeToShare
     }
 
     // MARK: - Actions
     
-    @IBAction private func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
+    @IBAction func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
         let viewController = UIActivityViewController(activityItems: [shareInfoPlace], applicationActivities: [])
         present(viewController, animated: true)
         if let popOver = viewController.popoverPresentationController {
@@ -60,7 +59,7 @@ final class MyPlaceViewController: UIViewController {
         }
     }
     
-    @IBAction private func websiteButtonTapped(_ sender: UIButton) {
+    @IBAction func websiteButtonTapped(_ sender: UIButton) {
         if let websiteUrl = cellule?.website {
             if websiteUrl == "N/A" {
                 presentAlert(typeError: .noWebsite)
@@ -107,8 +106,6 @@ final class MyPlaceViewController: UIViewController {
     }
     
     private func configurePlace() {
-//        var openDaysTemp = ""
-//        typesTextView.text = setOpenDaysPlace(&openDaysTemp)
         typesTextView.text = cellule?.informations ?? ""
         let typesList = cellule?.types ?? ""
         typesTextView.text += "\n Activities : " + typesList
@@ -125,21 +122,6 @@ final class MyPlaceViewController: UIViewController {
         
         loadPhoto(urlString: cellule?.photo)
     }
-    
-//    private func setOpenDaysPlace(_ openDaysTemp: inout String) -> String {
-//        if let openDays = cellule?.openDays {
-//            openDaysTemp = openDays
-//        }
-//        return "Opening Days : \n" + (openDaysTemp) + "\n"
-//    }
-    
-//    private func setOpeningHours() {
-//        if let openingHours = cellule?.openDays {
-//            openLabel.text = openingHours
-//        } else {
-//            openLabel.text = "Opening Hours : N/A"
-//        }
-//    }
     
     private func setOpeningHours() -> String {
         var openDays = ""
@@ -167,25 +149,6 @@ final class MyPlaceViewController: UIViewController {
             self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
         }
     }
-
-//    private func getPhotoPlace() {
-//        let placeholderImage = UIImage(named: "bruges-maison-blanche-belgique_1024x768.jpg")
-//        let apiKey = valueForAPIKey(named: Constants.PlacesAPIKey)
-//        let stringUrl = "https://maps.googleapis.com/maps/api/place/photo?key=\(apiKey)&maxwidth=800&height=600&photoreference=\(cellule?.photo ?? "")"
-//        DispatchQueue.main.async {
-//            self.placeImageView.sd_setImage(with: URL(string: stringUrl), placeholderImage: placeholderImage)
-//        }
-//    }
-    
-//    private func open(_ openNow: Bool, _ openDays: String) -> String? {
-//        if openNow {
-//            return Constants.Open
-//        } else if !openNow && openDays != "N/A" {
-//            return Constants.Closed
-//        } else {
-//            return Constants.Noa
-//        }
-//    }
 
     private func checkIfPlaceIsSaved() {
         guard let placeName = cellule?.name else { return }
