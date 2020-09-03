@@ -259,7 +259,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="bookmark_fill" id="mRM-Vn-DsQ">
                                 <connections>
-                                    <action selector="bookmarkBarButtonItemTapped:" destination="wbD-nS-Ugg" id="DcB-wq-SlC"/>
+                                    <action selector="saveBarButtonItemTapped:" destination="wbD-nS-Ugg" id="DcB-wq-SlC"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="share-app" id="6op-04-UwP">

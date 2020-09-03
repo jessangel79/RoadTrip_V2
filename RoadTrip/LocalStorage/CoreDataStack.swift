@@ -28,10 +28,10 @@ open class CoreDataStack {
         
         /* add necessary support for migration */
         
-//        let description = NSPersistentStoreDescription()
-//        description.shouldMigrateStoreAutomatically = true
-//        description.shouldInferMappingModelAutomatically = true
-//        container.persistentStoreDescriptions =  [description]
+        let description = NSPersistentStoreDescription()
+        description.shouldMigrateStoreAutomatically = true
+        description.shouldInferMappingModelAutomatically = true
+        container.persistentStoreDescriptions =  [description]
         
         /* add necessary support for migration */
         

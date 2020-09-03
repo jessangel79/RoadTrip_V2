@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-final class MyPlaceViewController: UIViewController {
+final class MyPlaceViewController: DetailsPlaceViewController {
     
     // MARK: - Outlets
     
@@ -32,16 +32,16 @@ final class MyPlaceViewController: UIViewController {
     
     // MARK: - Properties
 
-    var cellule: PlaceEntity?
+    var celluleEntity: PlaceEntity?
     private var coreDataManager: CoreDataManager?
     private var placeIsSaved = false
 
-    var shareInfoPlace: String {
-        guard let country = cellule?.country else { return "Pays N/A" }
-        guard let namePlace = cellule?.name else { return "" }
-        guard let addressPlace = cellule?.address else { return "N/A" }
-        guard let typePlace = cellule?.types else { return "N/A" }
-        guard let websiteUrl = URL(string: cellule?.website ?? "N/A") else { return ""}
+    override var shareInfoPlace: String {
+        guard let country = celluleEntity?.country else { return "Pays N/A" }
+        guard let namePlace = celluleEntity?.name else { return "" }
+        guard let addressPlace = celluleEntity?.address else { return "N/A" }
+        guard let typePlace = celluleEntity?.types else { return "N/A" }
+        guard let websiteUrl = URL(string: celluleEntity?.website ?? "N/A") else { return ""}
         var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
         placeToShare += "✨ Activities ✨ \(typePlace) ✨ \n🌐 \(websiteUrl)"
         print("placeToShare => \(placeToShare)")
@@ -50,17 +50,18 @@ final class MyPlaceViewController: UIViewController {
 
     // MARK: - Actions
     
-    @IBAction func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        let viewController = UIActivityViewController(activityItems: [shareInfoPlace], applicationActivities: [])
-        present(viewController, animated: true)
-        if let popOver = viewController.popoverPresentationController {
-            popOver.sourceView = self.view
-            popOver.barButtonItem = shareBarButtonItem
-        }
+    @IBAction override func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        super.shareBarButtonItemTapped(shareBarButtonItem)
+//        let viewController = UIActivityViewController(activityItems: [shareInfoPlace], applicationActivities: [])
+//        present(viewController, animated: true)
+//        if let popOver = viewController.popoverPresentationController {
+//            popOver.sourceView = self.view
+//            popOver.barButtonItem = shareBarButtonItem
+//        }
     }
     
-    @IBAction func websiteButtonTapped(_ sender: UIButton) {
-        if let websiteUrl = cellule?.website {
+    @IBAction override func websiteButtonTapped(_ sender: UIButton) {
+        if let websiteUrl = celluleEntity?.website {
             if websiteUrl == "N/A" {
                 presentAlert(typeError: .noWebsite)
             } else {
@@ -69,18 +70,25 @@ final class MyPlaceViewController: UIViewController {
         }
     }
 
-    @IBAction private func placeMarkerButtonTapped(_ sender: UIButton) {
+    @IBAction override func placeMarkerButtonTapped(_ sender: UIButton) {
 //        guard let placeMarkerUrl = cellule?.url else { return }
 //        openSafari(urlString: placeMarkerUrl)
     }
 
-    @IBAction private func calendarButtonTapped(_ sender: UIButton) {
-        generateEvent(title: cellule?.name ?? "", location: cellule?.address ?? "")
+    @IBAction override func calendarButtonTapped(_ sender: UIButton) {
+        let title = celluleEntity?.name ?? ""
+        let location = celluleEntity?.address ?? ""
+        super.generateEvent(title: title, location: location)
+//        generateEvent(title: celluleEntity?.name ?? "", location: celluleEntity?.address ?? "")
     }
 
-    @IBAction private func bookmarkBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        checkIfPlaceIsSaved()
-        deletePlace(placeName: cellule?.name, address: cellule?.address, coreDataManager: coreDataManager, barButtonItem: bookmarkBarButtonItem)
+    @IBAction override func saveBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        guard let placeName = celluleEntity?.name else { return }
+        guard let address = celluleEntity?.address else { return }
+        checkIfPlaceIsSaved(placeName: placeName, address: address)
+//        checkIfPlaceIsSaved()
+        deletePlace(placeName: placeName, address: address, coreDataManager: coreDataManager, barButtonItem: bookmarkBarButtonItem)
+//        deletePlace(placeName: celluleEntity?.name, address: celluleEntity?.address, coreDataManager: coreDataManager, barButtonItem: bookmarkBarButtonItem)
         navigationController?.popViewController(animated: true)
 
     }
@@ -90,42 +98,58 @@ final class MyPlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
-        customView(view: violetView, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1))
-        customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
-        customAllButtons(allButtons: allButtons, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: .clear)
+//        customUI()
+        
         configurePlace()
-        checkIfPlaceIsSaved()
+        
+//        guard let placeName = celluleEntity?.name else { return }
+//        guard let address = celluleEntity?.address else { return }
+//        checkIfPlaceIsSaved(placeName: placeName, address: address)
+        
+//        checkIfPlaceIsSaved()
     }
     
     // MARK: - Methods
 
-    private func coreDataFunction() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let coreDataStack = appDelegate.coreDataStack
-        coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
+    override func coreDataFunction() {
+        super.coreDataFunction()
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let coreDataStack = appDelegate.coreDataStack
+//        coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
     }
     
-    private func configurePlace() {
-        typesTextView.text = cellule?.informations ?? ""
-        let typesList = cellule?.types ?? ""
+    override func customUI() {
+//        super.customUI()
+        customView(view: violetView, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1))
+        customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
+        customAllButtons(allButtons: allButtons, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: .clear)
+        customImageView(imageView: iconImageView, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
+    }
+    
+    override func configurePlace() {
+        typesTextView.text = celluleEntity?.informations ?? ""
+        let typesList = celluleEntity?.types ?? ""
         typesTextView.text += "\n Activities : " + typesList
-        guard let phoneNumber = cellule?.phoneNumber else { return }
-        nameLabel.text = cellule?.name
+        guard let phoneNumber = celluleEntity?.phoneNumber else { return }
+        nameLabel.text = celluleEntity?.name
         addressTextView.text = "Phone : \(phoneNumber) \n"
-        addressTextView.text += "Address : \(cellule?.address ?? "")"
+        addressTextView.text += "Address : \(celluleEntity?.address ?? "")"
+        
+//        let openingHours = celluleEntity?.openDays
+//        openLabel.text = super.setOpeningHours(openingHours: openingHours ?? "")
         openLabel.text = setOpeningHours()
-        ratingLabel.text = cellule?.rating
-        loadIcon()
+        ratingLabel.text = celluleEntity?.rating
         
-//        urlPhoto = urlsList.randomElement()
-//        loadPhoto(urlString: urlPhoto)
-        
-        loadPhoto(urlString: cellule?.photo)
+        loadIcon(imageString: celluleEntity?.icon ?? "", iconImageView: iconImageView)
+//        super.loadIcon(imageString: celluleEntity?.icon ?? "")
+//        loadIcon()
+        loadPhoto(urlString: celluleEntity?.photo ?? "")
+//        super.loadPhoto(urlString: celluleEntity?.photo)
     }
     
     private func setOpeningHours() -> String {
         var openDays = ""
-        if let openingHours = cellule?.openDays {
+        if let openingHours = celluleEntity?.openDays {
             openDays = openingHours
         } else {
             openDays = "Opening Hours : N/A"
@@ -133,14 +157,34 @@ final class MyPlaceViewController: UIViewController {
         return openDays
     }
     
-    private func loadIcon() {
-        guard let url = URL(string: cellule?.icon ?? "") else { return }
-        DispatchQueue.main.async {
-            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
-        }
+//    override func loadIcon(imageString: String?) {
+//        super.loadIcon(imageString: imageString)
+//    }
+    
+    override func configureDetailsPlace() {
+        
     }
     
-    private func loadPhoto(urlString: String?) {
+    override func loadIcon(imageString: String?, iconImageView: UIImageView) {
+        super.loadIcon(imageString: imageString, iconImageView: iconImageView)
+//        guard let url = URL(string: imageString ?? "") else { return }
+//        DispatchQueue.main.async {
+//            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
+//        }
+    }
+    
+//    private func loadIcon() {
+//        guard let url = URL(string: celluleEntity?.icon ?? "") else { return }
+//        DispatchQueue.main.async {
+//            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
+//        }
+//    }
+    
+//    override func loadPhoto(urlString: String?) {
+//        super.loadPhoto(urlString: urlString)
+//    }
+    
+    override func loadPhoto(urlString: String?) {
         if let url = URL(string: urlString ?? "") {
             DispatchQueue.main.async {
             self.placeImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg"))
@@ -149,17 +193,25 @@ final class MyPlaceViewController: UIViewController {
             self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
         }
     }
-
-    private func checkIfPlaceIsSaved() {
-        guard let placeName = cellule?.name else { return }
-        guard let address = cellule?.address else { return }
-        guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
-        placeIsSaved = checkIfPlaceIsSaved
-
-        if placeIsSaved {
-            bookmarkBarButtonItem.tintColor = #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)
-        } else {
-            bookmarkBarButtonItem.tintColor = .none
-        }
+    
+    override func checkIfPlaceIsSaved(placeName: String, address: String) {
+//        super.checkIfPlaceIsSaved(placeName: placeName, address: address)
     }
+    
+    override func deletePlace(placeName: String?, address: String?, coreDataManager: CoreDataManager?, barButtonItem: UIBarButtonItem) {
+        super.deletePlace(placeName: placeName, address: address, coreDataManager: coreDataManager, barButtonItem: barButtonItem)
+    }
+
+//    func checkIfPlaceIsSaved() {
+//        guard let placeName = celluleEntity?.name else { return }
+//        guard let address = celluleEntity?.address else { return }
+//        guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
+//        placeIsSaved = checkIfPlaceIsSaved
+//
+//        if placeIsSaved {
+//            bookmarkBarButtonItem.tintColor = #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)
+//        } else {
+//            bookmarkBarButtonItem.tintColor = .none
+//        }
+//    }
 }

@@ -164,7 +164,7 @@ extension MytripViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueToMyPlace {
             guard let myPlacePlaceVC = segue.destination as? MyPlaceViewController else { return }
-            myPlacePlaceVC.cellule = self.cellSelected
+            myPlacePlaceVC.celluleEntity = self.cellSelected
         }
     }
 }

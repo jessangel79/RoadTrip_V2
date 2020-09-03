@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-final class DetailsPlaceViewController: UIViewController {
+class DetailsPlaceViewController: UIViewController { // final - test
     
     // MARK: - Outlets
     
@@ -80,11 +80,16 @@ final class DetailsPlaceViewController: UIViewController {
     }
     
     @IBAction func calendarButtonTapped(_ sender: UIButton) {
-        generateEvent(title: cellule?.displayName.cutEndString() ?? "", location: cellule?.displayName.cutStartString(2) ?? "")
+        let title = cellule?.displayName.cutEndString() ?? ""
+        let location = cellule?.displayName.cutStartString(2) ?? ""
+        generateEvent(title: title, location: location)
     }
 
     @IBAction func saveBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        checkIfPlaceIsSaved()
+        guard let placeName = cellule?.displayName.cutEndString() else { return }
+        guard let address = cellule?.displayName.cutStartString(2) else { return }
+        checkIfPlaceIsSaved(placeName: placeName, address: address)
+//        checkIfPlaceIsSaved()
         !placeIsSaved ? savePlace() : deletePlace(placeName: cellule?.displayName.cutEndString(),
                                                   address: cellule?.displayName.cutStartString(2),
                                                   coreDataManager: coreDataManager,
@@ -96,36 +101,46 @@ final class DetailsPlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
-        customView(view: violetView, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1))
-        customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
-        customAllButtons(allButtons: allButtons, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: .clear)
-        customImageView(imageView: iconImageView, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
+        customUI()
         configurePlace()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        checkIfPlaceIsSaved()
+        guard let placeName = cellule?.displayName.cutEndString() else { return }
+        guard let address = cellule?.displayName.cutStartString(2) else { return }
+        checkIfPlaceIsSaved(placeName: placeName, address: address)
+//        checkIfPlaceIsSaved()
     }
     
     // MARK: - Methods
     
-    private func coreDataFunction() {
+    func coreDataFunction() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataStack = appDelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
     }
     
-    private func configurePlace() {
+    func customUI() {
+        customView(view: violetView, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1))
+        customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
+        customAllButtons(allButtons: allButtons, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5), colorBorder: .clear)
+        customImageView(imageView: iconImageView, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
+    }
+    
+    func configurePlace() {
         configureDetailsPlace()
         nameLabel.text = cellule?.displayName.cutEndString()
         addressTextView.text += "Address : \(cellule?.displayName.cutStartString(2) ?? "N/A")"
+        
+//        let openingHours = cellule?.extratags.openingHours
         openLabel.text = setOpeningHours()
+        
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
         ratingLabel.text = importanceString(importance)
         let type = cellule?.type ?? "N/A"
         typesTextView.text += "\n Activities : " + type.capitalized
-        loadIcon(imageString: cellule?.icon)
+        loadIcon(imageString: cellule?.icon ?? "", iconImageView: iconImageView)
         
         // OK /// TEST Offline ///
         self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
@@ -135,6 +150,14 @@ final class DetailsPlaceViewController: UIViewController {
     }
     
     private func setOpeningHours() -> String {
+//        var openDays = ""
+//        if let openingHours = openingHours {
+//            openDays = openingHours
+//        } else {
+//            openDays = "Opening Hours : N/A"
+//        }
+//        return openDays
+        
         var openDays = ""
         if let openingHours = cellule?.extratags.openingHours {
             openDays = openingHours
@@ -144,7 +167,7 @@ final class DetailsPlaceViewController: UIViewController {
         return openDays
     }
     
-    private func configureDetailsPlace() {
+    func configureDetailsPlace() {
         let phoneNumber = cellule?.extratags.phone ?? "N/A"
         addressTextView.text = "Phone : \(phoneNumber) \n"
         let openDays = "- Opening Hours : " + (cellule?.extratags.openingHours ?? "N/A")
@@ -164,14 +187,14 @@ final class DetailsPlaceViewController: UIViewController {
         typesTextView.text = informations
     }
     
-    private func loadIcon(imageString: String?) {
+    func loadIcon(imageString: String?, iconImageView: UIImageView) {
         guard let url = URL(string: imageString ?? "") else { return }
         DispatchQueue.main.async {
-            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
+            iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
         }
     }
     
-    private func loadPhoto(urlString: String?) {
+    func loadPhoto(urlString: String?) {
         if let url = URL(string: urlString ?? "") {
             DispatchQueue.main.async {
             self.placeImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg"))
@@ -192,9 +215,9 @@ final class DetailsPlaceViewController: UIViewController {
 //        }
 //    }
     
-    private func checkIfPlaceIsSaved() {
-        guard let placeName = cellule?.displayName.cutEndString() else { return }
-        guard let address = cellule?.displayName.cutStartString(2) else { return }
+    func checkIfPlaceIsSaved(placeName: String, address: String) {
+//        guard let placeName = cellule?.displayName.cutEndString() else { return }
+//        guard let address = cellule?.displayName.cutStartString(2) else { return }
         guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
         placeIsSaved = checkIfPlaceIsSaved
 
@@ -205,7 +228,7 @@ final class DetailsPlaceViewController: UIViewController {
         }
     }
     
-    private func savePlace() {
+    func savePlace() {
         let address = cellule?.displayName.cutStartString(2) ?? ""
         let icon = cellule?.icon ?? ""
         let name = cellule?.displayName.cutEndString() ?? ""
@@ -214,7 +237,10 @@ final class DetailsPlaceViewController: UIViewController {
         let rating = importanceString(importance) ?? ""
         let types = cellule?.type.changeDash.capitalized ?? ""
         let country = cellule?.address.country ?? ""
-        let openDays = setOpeningHours() // cellule?.extratags.openingHours ?? ""
+        
+//        let openingHours = cellule?.extratags.openingHours
+//        let openDays = setOpeningHours(openingHours: openingHours ?? "") // cellule?.extratags.openingHours ?? ""
+        let openDays = setOpeningHours()
         let phoneNumber = cellule?.extratags.phone ?? "N/A"
         let website = cellule?.extratags.website ?? "N/A"
         coreDataManager?.createPlace(parameters: PlaceParameters(address: address, country: country, icon: icon, name: name,
@@ -222,6 +248,20 @@ final class DetailsPlaceViewController: UIViewController {
                                                                  rating: rating, types: types, website: website, informations: informations ?? ""))
         setupBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1), barButtonItem: bookmarkBarButtonItem)
         debugCoreDataPlace(nameDebug: "Places saved", coreDataManager: coreDataManager)
+    }
+    
+    /// Delete place
+    func deletePlace(placeName: String?, address: String?, coreDataManager: CoreDataManager?, barButtonItem: UIBarButtonItem) {
+        coreDataManager?.deletePlace(placeName: placeName ?? "", address: address ?? "")
+        setupBarButtonItem(color: #colorLiteral(red: 0.2532418037, green: 0.05658567593, blue: 0.2074308577, alpha: 1), barButtonItem: barButtonItem)
+
+        debugCoreDataPlace(nameDebug: "Place deleted", coreDataManager: coreDataManager)
+    }
+
+    /// Manage the button bookmark of places saved
+    private func setupBarButtonItem(color: UIColor, barButtonItem: UIBarButtonItem) {
+        barButtonItem.tintColor = color
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
 //    private func savePlace() {

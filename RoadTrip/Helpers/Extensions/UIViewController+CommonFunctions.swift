@@ -25,19 +25,19 @@ extension UIViewController {
 
 extension UIViewController {
     
-    /// Delete place
-    func deletePlace(placeName: String?, address: String?, coreDataManager: CoreDataManager?, barButtonItem: UIBarButtonItem) {
-        coreDataManager?.deletePlace(placeName: placeName ?? "", address: address ?? "")
-        setupBarButtonItem(color: #colorLiteral(red: 0.2532418037, green: 0.05658567593, blue: 0.2074308577, alpha: 1), barButtonItem: barButtonItem)
-
-        debugCoreDataPlace(nameDebug: "Place deleted", coreDataManager: coreDataManager)
-    }
-
-    /// Manage the button bookmark of places saved
-    func setupBarButtonItem(color: UIColor, barButtonItem: UIBarButtonItem) {
-        barButtonItem.tintColor = color
-        navigationItem.rightBarButtonItem = barButtonItem
-    }
+//    /// Delete place
+//    func deletePlace(placeName: String?, address: String?, coreDataManager: CoreDataManager?, barButtonItem: UIBarButtonItem) {
+//        coreDataManager?.deletePlace(placeName: placeName ?? "", address: address ?? "")
+//        setupBarButtonItem(color: #colorLiteral(red: 0.2532418037, green: 0.05658567593, blue: 0.2074308577, alpha: 1), barButtonItem: barButtonItem)
+//
+//        debugCoreDataPlace(nameDebug: "Place deleted", coreDataManager: coreDataManager)
+//    }
+//
+//    /// Manage the button bookmark of places saved
+//    func setupBarButtonItem(color: UIColor, barButtonItem: UIBarButtonItem) {
+//        barButtonItem.tintColor = color
+//        navigationItem.rightBarButtonItem = barButtonItem
+//    }
 }
 
 // MARK: - Extension to set priceLevel in String
