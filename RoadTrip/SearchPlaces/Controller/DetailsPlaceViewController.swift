@@ -9,26 +9,26 @@
 import UIKit
 import SDWebImage
 
-class DetailsPlaceViewController: UIViewController { // final - test
+class DetailsPlaceViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var baseView: UIView!
-    @IBOutlet private weak var violetView: UIView!
-    @IBOutlet private weak var ratingLabel: UILabel!
-    @IBOutlet private weak var placeImageView: UIImageView!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var openLabel: UILabel!
-    @IBOutlet private weak var iconImageView: UIImageView!
-    @IBOutlet private weak var websiteButton: UIButton!
-    @IBOutlet private weak var placeMarkerButton: UIButton!
-    @IBOutlet private weak var calendarButton: UIButton!
-    @IBOutlet private weak var addressTextView: UITextView!
-    @IBOutlet private weak var typesTextView: UITextView!
-    @IBOutlet private weak var bookmarkBarButtonItem: UIBarButtonItem!
-    @IBOutlet private weak var shareBarButtonItem: UIBarButtonItem!
-    @IBOutlet private var allLabels: [UILabel]!
-    @IBOutlet private var allButtons: [UIButton]!
+    @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var violetView: UIView!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var placeImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var openLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var websiteButton: UIButton!
+    @IBOutlet weak var placeMarkerButton: UIButton!
+    @IBOutlet weak var calendarButton: UIButton!
+    @IBOutlet weak var addressTextView: UITextView!
+    @IBOutlet weak var typesTextView: UITextView!
+    @IBOutlet weak var bookmarkBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
+    @IBOutlet var allLabels: [UILabel]!
+    @IBOutlet var allButtons: [UIButton]!
     
     // MARK: - Properties
 
@@ -38,8 +38,8 @@ class DetailsPlaceViewController: UIViewController { // final - test
     var imageOfCellule: String?
     var placeIdCellule: String?
     var placeDetailsResultsList = [ResultDetails]()
-    private var coreDataManager: CoreDataManager?
-    private var placeIsSaved = false
+    var coreDataManager: CoreDataManager?
+    var placeIsSaved = false
     private var informations: String?
     
     var shareInfoPlace: String {
@@ -48,10 +48,7 @@ class DetailsPlaceViewController: UIViewController { // final - test
         guard let addressPlace = cellule?.displayName.cutStartString(2) else { return "N/A" }
         guard let typePlace = cellule?.type.changeDash.capitalized else { return "N/A" }
         guard let websiteUrl = URL(string: cellule?.extratags.website ?? "N/A") else { return "" }
-        var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
-        placeToShare += "✨ Activities ✨ \(typePlace) ✨ \n🌐 \(websiteUrl)"
-        print("placeToShare => \(placeToShare)")
-        return placeToShare
+        return placeToShare(country, namePlace, addressPlace, typePlace, websiteUrl)
     }
     
     // MARK: - Actions
@@ -80,20 +77,16 @@ class DetailsPlaceViewController: UIViewController { // final - test
     }
     
     @IBAction func calendarButtonTapped(_ sender: UIButton) {
-        let title = cellule?.displayName.cutEndString() ?? ""
-        let location = cellule?.displayName.cutStartString(2) ?? ""
-        generateEvent(title: title, location: location)
+        let placeName = cellule?.displayName.cutEndString() ?? ""
+        let address = cellule?.displayName.cutStartString(2) ?? ""
+        generateEvent(title: placeName, location: address)
     }
 
     @IBAction func saveBarButtonItemTapped(_ sender: UIBarButtonItem) {
         guard let placeName = cellule?.displayName.cutEndString() else { return }
         guard let address = cellule?.displayName.cutStartString(2) else { return }
         checkIfPlaceIsSaved(placeName: placeName, address: address)
-//        checkIfPlaceIsSaved()
-        !placeIsSaved ? savePlace() : deletePlace(placeName: cellule?.displayName.cutEndString(),
-                                                  address: cellule?.displayName.cutStartString(2),
-                                                  coreDataManager: coreDataManager,
-                                                  barButtonItem: bookmarkBarButtonItem)
+        !placeIsSaved ? savePlace() : deletePlace(placeName: placeName, address: address)
     }
     
     // MARK: - View Life Cycle
@@ -102,7 +95,9 @@ class DetailsPlaceViewController: UIViewController { // final - test
         super.viewDidLoad()
         coreDataFunction()
         customUI()
-        configurePlace()
+        configureDetailsPlace()
+//        configurePlace()
+        setCelluleData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,7 +105,6 @@ class DetailsPlaceViewController: UIViewController { // final - test
         guard let placeName = cellule?.displayName.cutEndString() else { return }
         guard let address = cellule?.displayName.cutStartString(2) else { return }
         checkIfPlaceIsSaved(placeName: placeName, address: address)
-//        checkIfPlaceIsSaved()
     }
     
     // MARK: - Methods
@@ -128,48 +122,55 @@ class DetailsPlaceViewController: UIViewController { // final - test
         customImageView(imageView: iconImageView, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
     }
     
-    func configurePlace() {
-        configureDetailsPlace()
-        nameLabel.text = cellule?.displayName.cutEndString()
-        addressTextView.text += "Address : \(cellule?.displayName.cutStartString(2) ?? "N/A")"
-        
-//        let openingHours = cellule?.extratags.openingHours
-        openLabel.text = setOpeningHours()
-        
+    func placeToShare(_ country: String, _ namePlace: String, _ addressPlace: String, _ typePlace: String, _ websiteUrl: URL) -> String {
+        var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
+        placeToShare += "✨ Activities ✨ \(typePlace) ✨ \n🌐 \(websiteUrl)"
+        print("placeToShare => \(placeToShare)")
+        return placeToShare
+    }
+    
+    private func setCelluleData() {
+        let name = cellule?.displayName.cutEndString() ?? ""
+        let phoneNumber = cellule?.extratags.phone ?? "N/A"
+        let address = cellule?.displayName.cutStartString(2) ?? "N/A"
+        let openHours = setOpeningHours(openingHours: cellule?.extratags.openingHours)
+        let types = "\n Activities : " + (cellule?.type ?? "N/A").capitalized
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
-        ratingLabel.text = importanceString(importance)
-        let type = cellule?.type ?? "N/A"
-        typesTextView.text += "\n Activities : " + type.capitalized
-        loadIcon(imageString: cellule?.icon ?? "", iconImageView: iconImageView)
+        let rating = importance.importanceString() ?? ""
+        let icon = cellule?.icon ?? ""
+        
+        let country = cellule?.address.country ?? ""
+        let website = cellule?.extratags.website ?? ""
+        
+        // test unsplash
+        let photo = photoOfCellule ?? ""
+        
+        let informations = self.informations ?? ""
+        
+        configurePlace(parameters: PlaceParameters(
+            address: address, country: country, icon: icon,
+            name: name, openDays: openHours, phoneNumber: phoneNumber,
+            photo: photo, rating: rating, types: types,
+            website: website, informations: informations))
+    }
+        
+    func configurePlace(parameters: PlaceParameters) {
+        nameLabel.text = parameters.name
+        addressTextView.text = "Phone : \(parameters.phoneNumber) \n"
+        addressTextView.text += "Address : \(parameters.address)"
+        openLabel.text = parameters.openDays
+        typesTextView.text = parameters.informations + parameters.types
+        ratingLabel.text = parameters.rating
+        loadIcon(imageString: parameters.icon)
         
         // OK /// TEST Offline ///
         self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
         
         // OK => Désactivé pour test
-//        loadPhoto(urlString: photoOfCellule)
+//        loadPhoto(urlString: parameters.photo)
     }
     
-    private func setOpeningHours() -> String {
-//        var openDays = ""
-//        if let openingHours = openingHours {
-//            openDays = openingHours
-//        } else {
-//            openDays = "Opening Hours : N/A"
-//        }
-//        return openDays
-        
-        var openDays = ""
-        if let openingHours = cellule?.extratags.openingHours {
-            openDays = openingHours
-        } else {
-            openDays = "Opening Hours : N/A"
-        }
-        return openDays
-    }
-    
-    func configureDetailsPlace() {
-        let phoneNumber = cellule?.extratags.phone ?? "N/A"
-        addressTextView.text = "Phone : \(phoneNumber) \n"
+    private func configureDetailsPlace() {
         let openDays = "- Opening Hours : " + (cellule?.extratags.openingHours ?? "N/A")
         let smoking = "- Smoking : " + (cellule?.extratags.smoking?.capitalized ?? "N/A")
         let wheelchair = "- Wheelchair : " + (cellule?.extratags.wheelchair?.capitalized ?? "N/A")
@@ -179,18 +180,37 @@ class DetailsPlaceViewController: UIViewController { // final - test
         let outdoorSeating = "- Outdoor Seating : " + (cellule?.extratags.outdoorSeating?.capitalized ?? "N/A")
         let wifi = "- Wifi : " + (cellule?.extratags.wifi?.capitalized ?? "N/A")
         let tobacco = "- Tobacco : " + (cellule?.extratags.tobacco?.capitalized ?? "N/A")
-        informations = """
-        Informations : \n \(openDays) \n \(smoking)
-         \(wheelchair) \n \(toiletsWheelchair) \n \(layer)
-         \(brewery) \n \(outdoorSeating) \n \(wifi) \n \(tobacco)
-        """
-        typesTextView.text = informations
+        informations = setInformations(parameters: DetailsPlaceParameters(
+            openDays: openDays, smoking: smoking, wheelchair: wheelchair,
+            toiletsWheelchair: toiletsWheelchair, layer: layer,
+            brewery: brewery, outdoorSeating: outdoorSeating,
+            wifi: wifi, tobacco: tobacco))
+
     }
     
-    func loadIcon(imageString: String?, iconImageView: UIImageView) {
+    private func setInformations(parameters: DetailsPlaceParameters) -> String? {
+        informations = """
+        Informations : \n \(parameters.openDays) \n \(parameters.smoking)
+        \(parameters.wheelchair) \n \(parameters.toiletsWheelchair) \n \(parameters.layer)
+        \(parameters.brewery) \n \(parameters.outdoorSeating) \n \(parameters.wifi) \n \(parameters.tobacco)
+        """
+        return informations
+    }
+    
+    func setOpeningHours(openingHours: String?) -> String {
+        var openDays = ""
+        if let openingHours = openingHours {
+            openDays = openingHours
+        } else {
+            openDays = "Opening Hours : N/A"
+        }
+        return openDays
+    }
+    
+    func loadIcon(imageString: String?) {
         guard let url = URL(string: imageString ?? "") else { return }
         DispatchQueue.main.async {
-            iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
+            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
         }
     }
     
@@ -204,89 +224,44 @@ class DetailsPlaceViewController: UIViewController { // final - test
         }
     }
     
-//    private func open(_ openNow: Bool?) -> String? {
-//        switch openNow {
-//        case true:
-//            return Constants.Open
-//        case false:
-//            return Constants.Closed
-//        default:
-//            return Constants.Noa
-//        }
-//    }
-    
     func checkIfPlaceIsSaved(placeName: String, address: String) {
-//        guard let placeName = cellule?.displayName.cutEndString() else { return }
-//        guard let address = cellule?.displayName.cutStartString(2) else { return }
         guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
         placeIsSaved = checkIfPlaceIsSaved
+        placeIsSaved ? setBookmarkBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)) : setBookmarkBarButtonItem(color: .none)
 
-        if placeIsSaved {
-            bookmarkBarButtonItem.tintColor = #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)
-        } else {
-            bookmarkBarButtonItem.tintColor = .none
-        }
     }
-    
-    func savePlace() {
+
+    private func savePlace() {
         let address = cellule?.displayName.cutStartString(2) ?? ""
         let icon = cellule?.icon ?? ""
         let name = cellule?.displayName.cutEndString() ?? ""
         let photo = photoOfCellule ?? ""
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
-        let rating = importanceString(importance) ?? ""
-        let types = cellule?.type.changeDash.capitalized ?? ""
+        let rating = importance.importanceString() ?? ""
+        let types = "\n Activities : " + (cellule?.type.changeDash ?? "N/A").capitalized
         let country = cellule?.address.country ?? ""
-        
-//        let openingHours = cellule?.extratags.openingHours
-//        let openDays = setOpeningHours(openingHours: openingHours ?? "") // cellule?.extratags.openingHours ?? ""
-        let openDays = setOpeningHours()
+        let openDays = setOpeningHours(openingHours: cellule?.extratags.openingHours)
         let phoneNumber = cellule?.extratags.phone ?? "N/A"
         let website = cellule?.extratags.website ?? "N/A"
+        let informations = self.informations ?? ""
         coreDataManager?.createPlace(parameters: PlaceParameters(address: address, country: country, icon: icon, name: name,
                                                                  openDays: openDays, phoneNumber: phoneNumber, photo: photo,
-                                                                 rating: rating, types: types, website: website, informations: informations ?? ""))
-        setupBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1), barButtonItem: bookmarkBarButtonItem)
+                                                                 rating: rating, types: types, website: website, informations: informations))
+        setBookmarkBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1))
         debugCoreDataPlace(nameDebug: "Places saved", coreDataManager: coreDataManager)
     }
-    
-    /// Delete place
-    func deletePlace(placeName: String?, address: String?, coreDataManager: CoreDataManager?, barButtonItem: UIBarButtonItem) {
-        coreDataManager?.deletePlace(placeName: placeName ?? "", address: address ?? "")
-        setupBarButtonItem(color: #colorLiteral(red: 0.2532418037, green: 0.05658567593, blue: 0.2074308577, alpha: 1), barButtonItem: barButtonItem)
 
+    /// Delete place
+    func deletePlace(placeName: String?, address: String?) {
+        coreDataManager?.deletePlace(placeName: placeName ?? "", address: address ?? "")
+        setBookmarkBarButtonItem(color: .none)
         debugCoreDataPlace(nameDebug: "Place deleted", coreDataManager: coreDataManager)
     }
-
-    /// Manage the button bookmark of places saved
-    private func setupBarButtonItem(color: UIColor, barButtonItem: UIBarButtonItem) {
-        barButtonItem.tintColor = color
-        navigationItem.rightBarButtonItem = barButtonItem
-    }
     
-//    private func savePlace() {
-//        let address = cellule?.formattedAddress ?? ""
-//        let icon = cellule?.icon ?? ""
-//        let name = cellule?.name ?? ""
-//        let openNow = cellule?.openingHours?.openNow ?? false
-//        let photo = photoOfCellule ?? ""
-//        let placeID = cellule?.placeID ?? ""
-//        let priceLevel = cellule?.priceLevel ?? 0
-//        let rating = cellule?.rating ?? 0.0
-//        let types = cellule?.types.joined(separator: ", ").changeDash.capitalized ?? ""
-//        let userRatingsTotal = cellule?.userRatingsTotal ?? 0
-//        var country = String()
-//        var openDays = String()
-//        var phoneNumber = String()
-//        var url = String()
-//        var website = String()
-//        setDetails(&country, &openDays, &phoneNumber, &url, &website)
-//        coreDataManager?.createPlace(parameters: PlaceParameters(address: address, country: country, icon: icon,
-//                                                                 name: name, openDays: openDays, openNow: openNow,
-//                                                                 phoneNumber: phoneNumber, photo: photo, placeID: placeID,
-//                                                                 priceLevel: Int16(priceLevel), rating: rating, types: types,
-//                                                                 url: url, userRatingsTotal: Int64(userRatingsTotal), website: website))
-//        setupBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1), barButtonItem: bookmarkBarButtonItem)
-//        debugCoreDataPlace(nameDebug: "Places saved", coreDataManager: coreDataManager)
-//    }
+    /// Manage the button bookmark of places saved
+    private func setBookmarkBarButtonItem(color: UIColor?) {
+        bookmarkBarButtonItem.tintColor = color
+//        navigationItem.rightBarButtonItem = barButtonItem
+
+    }
 }

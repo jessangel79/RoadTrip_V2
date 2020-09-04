@@ -43,8 +43,8 @@ final class ListPlacesTableViewCell: UITableViewCell {
             openLabel.text = place?.extratags.openingHours ?? "Opening Hours : N/A"
             loadIcon(imageString: place?.icon)
             let importance = String(format: "%.1f", place?.importance ?? 0.0)
-            ratingLabel.text = importanceString(importance)
-                        
+            ratingLabel.text = importance.importanceString() ?? ""
+            
             // OK /// TEST Offline ///
             placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
 
@@ -107,29 +107,29 @@ final class ListPlacesTableViewCell: UITableViewCell {
 //         }
 //     }
     
-    private func importanceString(_ importance: String) -> String? {
-        switch importance {
-        case "0.1":
-            return Importance.one.importanceFunc()
-        case "0.2":
-            return Importance.two.importanceFunc()
-        case "0.3":
-            return Importance.three.importanceFunc()
-        case "0.4":
-            return Importance.four.importanceFunc()
-        case "0.5":
-             return Importance.five.importanceFunc()
-        case "0.6":
-             return Importance.six.importanceFunc()
-        case "0.7":
-             return Importance.seven.importanceFunc()
-        case "0.8":
-             return Importance.eight.importanceFunc()
-        case "0.9":
-             return Importance.nine.importanceFunc()
-        default:
-            return Importance.noa.importanceFunc()
-        }
-    }
+//    private func importanceString(_ importance: String) -> String? {
+//        switch importance {
+//        case "0.1":
+//            return Importance.one.importanceFunc()
+//        case "0.2":
+//            return Importance.two.importanceFunc()
+//        case "0.3":
+//            return Importance.three.importanceFunc()
+//        case "0.4":
+//            return Importance.four.importanceFunc()
+//        case "0.5":
+//             return Importance.five.importanceFunc()
+//        case "0.6":
+//             return Importance.six.importanceFunc()
+//        case "0.7":
+//             return Importance.seven.importanceFunc()
+//        case "0.8":
+//             return Importance.eight.importanceFunc()
+//        case "0.9":
+//             return Importance.nine.importanceFunc()
+//        default:
+//            return Importance.noa.importanceFunc()
+//        }
+//    }
 
 }
