@@ -36,16 +36,25 @@ final class CoreDataManagerTests: XCTestCase {
         coreDataManager.createPlace(parameters: PlaceParameters(
             address: address, country: "France",
             icon: "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
-            name: placeName, openDays: "N/A", openNow: false,
+            name: placeName, openDays: "N/A",
             phoneNumber: "+33 1 49 52 71 54", photo: "",
-            placeID: "ChIJqTQzIehv5kcRaF3hD1SzX5A",
-            priceLevel: 4, rating: 4.6,
-            types: "Bar, Restaurant, Food, Point Of Interest, Establishment",
-            url: "https://maps.google.com/?cid=10403230837874187624",
-            userRatingsTotal: 1107,
-            website: "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
+            rating: "", types: "4",
+            website: "Bar, Restaurant, Food, Point Of Interest, Establishment",
+            informations: "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
         )
     }
+    
+//    private func createPlace(placeName: String, address: String) {
+//        coreDataManager.createPlace(parameters: PlaceParameters(
+//            address: address, country: "France",
+//            icon: "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+//            name: placeName, openDays: "N/A",
+//            phoneNumber: "+33 1 49 52 71 54", photo: "",
+//            informations: "", rating: "4",
+//            types: "Bar, Restaurant, Food, Point Of Interest, Establishment",
+//            website: "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
+//        )
+//    }
     
     private func createPlaces() {
         createPlace(placeName: "Le Cinq", address: "31 Avenue George V, 75008 Paris, France")
@@ -93,14 +102,14 @@ final class CoreDataManagerTests: XCTestCase {
         XCTAssertTrue(coreDataManager.places[0].icon == "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png")
         XCTAssertTrue(coreDataManager.places[0].name == "Le Cinq")
         XCTAssertTrue(coreDataManager.places[0].openDays == "N/A")
-        XCTAssertTrue(coreDataManager.places[0].openNow == false)
+//        XCTAssertTrue(coreDataManager.places[0].openNow == false)
         XCTAssertTrue(coreDataManager.places[0].phoneNumber == "+33 1 49 52 71 54")
-        XCTAssertTrue(coreDataManager.places[0].placeID == "ChIJqTQzIehv5kcRaF3hD1SzX5A")
-        XCTAssertTrue(coreDataManager.places[0].priceLevel == 4)
-        XCTAssertTrue(coreDataManager.places[0].rating == 4.6)
+//        XCTAssertTrue(coreDataManager.places[0].placeID == "ChIJqTQzIehv5kcRaF3hD1SzX5A")
+//        XCTAssertTrue(coreDataManager.places[0].priceLevel == 4)
+        XCTAssertTrue(coreDataManager.places[0].rating == "4")
         XCTAssertTrue(coreDataManager.places[0].types == "Bar, Restaurant, Food, Point Of Interest, Establishment")
-        XCTAssertTrue(coreDataManager.places[0].url == "https://maps.google.com/?cid=10403230837874187624")
-        XCTAssertTrue(coreDataManager.places[0].userRatingsTotal == 1107)
+//        XCTAssertTrue(coreDataManager.places[0].url == "https://maps.google.com/?cid=10403230837874187624")
+//        XCTAssertTrue(coreDataManager.places[0].userRatingsTotal == 1107)
         XCTAssertTrue(coreDataManager.places[0].website == "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
         
         let placeIsSaved = coreDataManager.checkIfPlaceIsSaved(placeName: "Le Cinq", address: "31 Avenue George V, 75008 Paris, France")

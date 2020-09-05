@@ -8,13 +8,7 @@
 
 import UIKit
 
-final class MytripViewController: UIViewController {
-    
-    // MARK: - Outlets
-
-    @IBOutlet private weak var myTripTableView: UITableView! {
-        didSet { myTripTableView.tableFooterView = UIView() }
-    }
+final class MytripViewController: ListPlacesViewController {
     
     @IBOutlet private weak var shareBarButtonItem: UIBarButtonItem!
 
@@ -33,9 +27,10 @@ final class MytripViewController: UIViewController {
             guard let addressPlace = place.address else { return "N/A" }
             guard let typePlace = place.types else { return "N/A" }
             guard let websiteUrl = URL(string: place.website ?? "N/A") else { return "" }
-            var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
-            placeToShare += "✨ Activities ✨ \(typePlace) ✨ \n🌐 \(websiteUrl) \n \n"
-            tripToShare += "💬 Place \(index + 1) " + placeToShare
+            placeToShare(parameters: PlaceToShareParameters(
+                country: country, namePlace: namePlace,
+                addressPlace: addressPlace, typePlace: typePlace,
+                websiteUrl: websiteUrl, index: index), tripToShare: &tripToShare)
             index += 1
         }
         print("tripToShare => \(tripToShare)")
@@ -44,7 +39,7 @@ final class MytripViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
+    @IBAction private func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
         guard let places = coreDataManager?.places.isEmpty else { return }
         if places {
             presentAlert(typeError: .nothingToShare)
@@ -58,7 +53,7 @@ final class MytripViewController: UIViewController {
         }
     }
         
-    @IBAction func deleteMyTripBarButtonItemTapped(_ sender: UIBarButtonItem) {
+    @IBAction private func deleteMyTripBarButtonItemTapped(_ sender: UIBarButtonItem) {
         if !(coreDataManager?.places.isEmpty ?? false) {
             showAlertResetAll()
         }
@@ -69,16 +64,8 @@ final class MytripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
-        let nib = UINib(nibName: Constants.ListPlacesTableViewCell, bundle: nil)
-        myTripTableView.register(nib, forCellReuseIdentifier: Constants.ListPlacesCell)
-        myTripTableView.reloadData()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        myTripTableView.reloadData()
-    }
-    
+        
     // MARK: - Methods
     
     private func coreDataFunction() {
@@ -87,9 +74,15 @@ final class MytripViewController: UIViewController {
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
     }
     
+    private func placeToShare(parameters: PlaceToShareParameters, tripToShare: inout String) {
+        var placeToShare = "🛣 Trip in \(parameters.country) 🧳 ! Hello, here is a place I want to visit : \(parameters.namePlace) to \(parameters.addressPlace) ! \n"
+        placeToShare += "✨ Activities ✨ \(parameters.typePlace) ✨ \n🌐 \(parameters.websiteUrl) \n \n"
+        tripToShare += "💬 Place \(parameters.index + 1) " + placeToShare
+    }
+    
     private func resetAll() {
         coreDataManager?.deleteAllPlaces()
-        myTripTableView.reloadData()
+        placesTableView.reloadData()
         debugCoreDataPlace(nameDebug: "All places deleted", coreDataManager: coreDataManager)
     }
     
@@ -103,16 +96,13 @@ final class MytripViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension MytripViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+extension MytripViewController {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return coreDataManager?.places.count ?? 0
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let listPlacesCell = tableView.dequeueReusableCell(withIdentifier: Constants.ListPlacesCell,
                                                                  for: indexPath) as? ListPlacesTableViewCell else {
             return UITableViewCell()
@@ -122,7 +112,7 @@ extension MytripViewController: UITableViewDataSource {
         return listPlacesCell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.cellSelected = coreDataManager?.places[indexPath.row]
         performSegue(withIdentifier: self.segueToMyPlace, sender: self)
     }
@@ -131,7 +121,7 @@ extension MytripViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension MytripViewController: UITableViewDelegate {
+extension MytripViewController {
     
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -140,7 +130,7 @@ extension MytripViewController: UITableViewDelegate {
             coreDataManager?.deletePlace(placeName: place?.name ?? "", address: place?.address ?? "")
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        myTripTableView.reloadData()
+        placesTableView.reloadData()
         debugCoreDataPlace(nameDebug: "The place is deleted", coreDataManager: coreDataManager)
     }
     

@@ -173,10 +173,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="VLz-Ol-g1B">
-                                <rect key="frame" x="150" y="271.5" width="20" height="20"/>
-                                <color key="color" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ssd-4V-oao">
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -189,8 +185,6 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="VLz-Ol-g1B" firstAttribute="centerX" secondItem="ssd-4V-oao" secondAttribute="centerX" id="P7T-gl-1Za"/>
-                            <constraint firstItem="VLz-Ol-g1B" firstAttribute="centerY" secondItem="ssd-4V-oao" secondAttribute="centerY" id="arX-NE-FAC"/>
                             <constraint firstItem="ssd-4V-oao" firstAttribute="trailing" secondItem="7Xy-X2-CIa" secondAttribute="trailing" id="cLN-Zi-7qs"/>
                             <constraint firstAttribute="bottom" secondItem="ssd-4V-oao" secondAttribute="bottom" constant="49" id="cSc-ID-2j9"/>
                             <constraint firstItem="ssd-4V-oao" firstAttribute="leading" secondItem="7Xy-X2-CIa" secondAttribute="leading" id="qil-yz-x0f"/>
@@ -202,7 +196,6 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Zmi-7d-yey"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="VLz-Ol-g1B" id="4Xr-hi-vY2"/>
                         <outlet property="placesTableView" destination="ssd-4V-oao" id="mlp-ll-E8t"/>
                         <segue destination="AIV-AQ-NdW" kind="show" identifier="segueToPlaceDetails" id="cKs-hP-u3s"/>
                     </connections>

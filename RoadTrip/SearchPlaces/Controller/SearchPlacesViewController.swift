@@ -24,7 +24,6 @@ final class SearchPlacesViewController: UIViewController {
     private let placeService = PlaceService()
     private var placesList = [PlacesSearchElement]()
     private var photosList = [PhotosResult]()
-    private var placesTypeList = [String]()
     private var queriesList = [String]()
     private let segueToPlacesList = Constants.SegueToPlacesList
 
@@ -43,6 +42,7 @@ final class SearchPlacesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         queriesList = [String]()
+        urlsList = [String]()
     }
     
     // MARK: - Methods
@@ -65,12 +65,6 @@ final class SearchPlacesViewController: UIViewController {
         toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, validateButton: searchPlacesButton)
         getPlaces()
     }
-    
-    private func createPlacesTypeList() {
-        for place in placesList {
-            self.placesTypeList.append(place.type)
-        }
-    }
 
     private func getPlaces() {
         guard !queriesList.isEmpty else {
@@ -87,13 +81,7 @@ final class SearchPlacesViewController: UIViewController {
                 guard let placesSearch = placesSearch else { return }
                 if !placesSearch.isEmpty {
                     self.placesList = placesSearch
-                    self.createPlacesTypeList()
-                    
-                    // OK => Désactivé pour test
-//                    self.getPhotos()
-                    
-                    // OK => Réactivé pour test - A desactiver pour getPhotos()
-                    self.performSegue(withIdentifier: self.segueToPlacesList, sender: self)
+                    self.getPhotos()
                     self.debugGetPlaces(nameDebug: "debug getPlaces", placesList: self.placesList, photosList: self.photosList)
                 } else {
                     self.presentAlert(typeError: .zeroResult)
@@ -120,8 +108,8 @@ final class SearchPlacesViewController: UIViewController {
                     self.photosList = photos.results
                 }
                 self.createUrlsList()
-                self.performSegue(withIdentifier: self.segueToPlacesList, sender: self)
             }
+            self.performSegue(withIdentifier: self.segueToPlacesList, sender: self)
         }
     }
     
@@ -155,9 +143,6 @@ extension SearchPlacesViewController {
         if segue.identifier == segueToPlacesList {
             guard let listPlacesVC = segue.destination as? ListPlacesViewController else { return }
             listPlacesVC.placesList = placesList
-            listPlacesVC.placesTypeList = placesTypeList
-//            listPlacesVC.urlsList = urlsList
-
         }
     }
 }

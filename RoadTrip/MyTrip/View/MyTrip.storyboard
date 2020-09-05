@@ -80,7 +80,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="myTripTableView" destination="HIx-V1-v7r" id="RjN-93-wPU"/>
+                        <outlet property="placesTableView" destination="HIx-V1-v7r" id="RjN-93-wPU"/>
                         <outlet property="shareBarButtonItem" destination="0tm-KG-gAn" id="Noo-Vj-ljQ"/>
                         <segue destination="wbD-nS-Ugg" kind="show" identifier="segueToMyPlace" id="tOd-Nn-krS"/>
                     </connections>

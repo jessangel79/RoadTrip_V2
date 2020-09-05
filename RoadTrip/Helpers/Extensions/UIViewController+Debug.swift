@@ -88,18 +88,18 @@ extension UIViewController {
         print("phone : \(String(describing: placesList.first?.extratags.phone))")
         print("website : \(String(describing: placesList.first?.extratags.website))")
         
-        print("address : \(String(describing: placesList.first?.address))")
+//        print("address : \(String(describing: placesList.first?.address))")
         print("boundingbox : \(String(describing: placesList.first?.boundingbox))")
         print("icon : \(String(describing: placesList.first?.icon))")
         print("importance : \(String(describing: placesList.first?.importance))")
         print("licence : \(String(describing: placesList.first?.licence))")
-        print("namedetails : \(String(describing: placesList.first?.namedetails))")
+//        print("namedetails : \(String(describing: placesList.first?.namedetails))")
         print("osmID : \(String(describing: placesList.first?.osmID))")
         print("osmType : \(String(describing: placesList.first?.osmType))")
         print("placeID : \(String(describing: placesList.first?.placeID))")
-        print("urlsList : \(String(describing: urlsList))")
+//        print("urlsList : \(String(describing: urlsList))")
         print("urlsList count : \(String(describing: urlsList.count))")
-        print("photosList : \(String(describing: photosList))")
+//        print("photosList : \(String(describing: photosList))")
         print("photosList count : \(String(describing: photosList.count))")
         
 //        var index = 0

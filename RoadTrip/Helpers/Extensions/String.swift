@@ -62,30 +62,69 @@ extension String {
         return String(firstSentence)
      }
     
+    enum Importance: String {
+        case one = "1"
+        case two = "2"
+        case three = "3"
+        case four = "4"
+        case five = "5"
+        case six = "6"
+        case seven = "7"
+        case eight = "8"
+        case nine = "9"
+        case noa = "N/A"
+    }
+    
     func importanceString() -> String? {
+        
         switch self {
         case "0.1":
-            return Importance.one.importanceFunc()
+            return Importance.one.rawValue
         case "0.2":
-            return Importance.two.importanceFunc()
+            return Importance.two.rawValue
         case "0.3":
-            return Importance.three.importanceFunc()
+            return Importance.three.rawValue
         case "0.4":
-            return Importance.four.importanceFunc()
+            return Importance.four.rawValue
         case "0.5":
-             return Importance.five.importanceFunc()
+             return Importance.five.rawValue
         case "0.6":
-             return Importance.six.importanceFunc()
+             return Importance.six.rawValue
         case "0.7":
-             return Importance.seven.importanceFunc()
+             return Importance.seven.rawValue
         case "0.8":
-             return Importance.eight.importanceFunc()
+             return Importance.eight.rawValue
         case "0.9":
-             return Importance.nine.importanceFunc()
+             return Importance.nine.rawValue
         default:
-            return Importance.noa.importanceFunc()
+            return Importance.noa.rawValue
         }
     }
+    
+//    func importanceString() -> String? {
+//        switch self {
+//        case "0.1":
+//            return Importance.one.importanceFunc()
+//        case "0.2":
+//            return Importance.two.importanceFunc()
+//        case "0.3":
+//            return Importance.three.importanceFunc()
+//        case "0.4":
+//            return Importance.four.importanceFunc()
+//        case "0.5":
+//             return Importance.five.importanceFunc()
+//        case "0.6":
+//             return Importance.six.importanceFunc()
+//        case "0.7":
+//             return Importance.seven.importanceFunc()
+//        case "0.8":
+//             return Importance.eight.importanceFunc()
+//        case "0.9":
+//             return Importance.nine.importanceFunc()
+//        default:
+//            return Importance.noa.importanceFunc()
+//        }
+//    }
     
 //            let length = 20
 //            if placeName.count > length {

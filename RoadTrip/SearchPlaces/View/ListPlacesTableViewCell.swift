@@ -45,12 +45,12 @@ final class ListPlacesTableViewCell: UITableViewCell {
             let importance = String(format: "%.1f", place?.importance ?? 0.0)
             ratingLabel.text = importance.importanceString() ?? ""
             
-            // OK /// TEST Offline ///
-            placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
-
-            // OK => Désactivé pour test
-//            urlPhoto = urlsList.randomElement()
-//            loadPhoto(urlString: urlPhoto)
+            if !urlsList.isEmpty {
+                urlPhoto = urlsList.randomElement()
+                loadPhoto(urlString: urlPhoto)
+            } else {
+                self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
+            }
         }
     }
     
@@ -75,7 +75,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
             loadIcon(imageString: placeEntity?.icon)
             ratingLabel.text = placeEntity?.rating ?? ""
             let photo = placeEntity?.photo ?? ""
-            loadPhoto(urlString: photo)
+            setPhoto(photo)
         }
     }
     
@@ -86,50 +86,21 @@ final class ListPlacesTableViewCell: UITableViewCell {
         }
     }
     
+    private func setPhoto(_ photo: String) {
+        if !photo.isEmpty {
+            urlPhoto = urlsList.randomElement()
+            loadPhoto(urlString: photo)
+        } else {
+            self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
+        }
+    }
+    
     /// get photos with SDWebimage to load images of places
     private func loadPhoto(urlString: String?) {
         if let url = URL(string: urlString ?? "") {
             DispatchQueue.main.async {
             self.placeImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg"))
             }
-        } else {
-            self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
         }
     }
-    
-//    private func openEntity(_ openNow: Bool, _ openDays: String) -> String? {
-//         if openNow {
-//            return Constants.Open
-//         } else if !openNow && openDays != "N/A" {
-//            return Constants.Closed
-//         } else {
-//            return Constants.Noa
-//         }
-//     }
-    
-//    private func importanceString(_ importance: String) -> String? {
-//        switch importance {
-//        case "0.1":
-//            return Importance.one.importanceFunc()
-//        case "0.2":
-//            return Importance.two.importanceFunc()
-//        case "0.3":
-//            return Importance.three.importanceFunc()
-//        case "0.4":
-//            return Importance.four.importanceFunc()
-//        case "0.5":
-//             return Importance.five.importanceFunc()
-//        case "0.6":
-//             return Importance.six.importanceFunc()
-//        case "0.7":
-//             return Importance.seven.importanceFunc()
-//        case "0.8":
-//             return Importance.eight.importanceFunc()
-//        case "0.9":
-//             return Importance.nine.importanceFunc()
-//        default:
-//            return Importance.noa.importanceFunc()
-//        }
-//    }
-
 }

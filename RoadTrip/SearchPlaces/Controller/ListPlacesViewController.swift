@@ -8,25 +8,19 @@
 
 import UIKit
 
-final class ListPlacesViewController: UIViewController {
+class ListPlacesViewController: UIViewController {
     
     // MARK: - Outlets
 
-    @IBOutlet private weak var placesTableView: UITableView!
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var placesTableView: UITableView! {
+        didSet { placesTableView.tableFooterView = UIView() }
+    }
     
     // MARK: - Properties
     
-    private let placeService = PlaceService()
     var placesList = [PlacesSearchElement]()
-    var placesTypeList = [String]()
-    var placeIDsList = [String]()
     private var cellSelected: PlacesSearchElement?
-    private var placeDetailsResult: ResultDetails?
-    private var placeDetailsResultsList = [ResultDetails]()
     private var photoOfCellSelected: String?
-    private var imageOfCellSelected: String?
-    private var placeIdCellSelected: String?
     private let segueToPlaceDetails = Constants.SegueToPlaceDetails
     
     // MARK: - View Life Cycle
@@ -67,7 +61,6 @@ extension ListPlacesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.cellSelected = placesList[indexPath.row]
-        self.imageOfCellSelected = placesTypeList[indexPath.row]
         self.photoOfCellSelected = urlsList.randomElement()
         performSegue(withIdentifier: self.segueToPlaceDetails, sender: self)
     }
@@ -80,7 +73,6 @@ extension ListPlacesViewController {
         if segue.identifier == segueToPlaceDetails {
             guard let detailsPlaceVC = segue.destination as? DetailsPlaceViewController else { return }
             detailsPlaceVC.cellule = self.cellSelected
-            detailsPlaceVC.imageOfCellule = self.imageOfCellSelected
             detailsPlaceVC.photoOfCellule = self.photoOfCellSelected
         }
     }

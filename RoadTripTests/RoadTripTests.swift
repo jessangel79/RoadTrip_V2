@@ -124,99 +124,99 @@ final class RoadTripTests: XCTestCase {
     
     // MARK: - Tests GetPlaceDetails
     
-    func testGetPlaceDetailsShouldPostFailedCallback() {
-        let fakeResponse = FakeResponse(response: nil, data: nil, error: FakeResponseData.networkError)
-        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-            XCTAssertFalse(success)
-            XCTAssertNil(placesDetails)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 0.01)
-    }
+//    func testGetPlaceDetailsShouldPostFailedCallback() {
+//        let fakeResponse = FakeResponse(response: nil, data: nil, error: FakeResponseData.networkError)
+//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
+//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
+//
+//        let expectation = XCTestExpectation(description: "Wait for queue change.")
+//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
+//            XCTAssertFalse(success)
+//            XCTAssertNil(placesDetails)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 0.01)
+//    }
     
-    func testGetPlaceDetailsShouldPostFailedCallbackIfNoData() {
-        let fakeResponse = FakeResponse(response: nil, data: FakeResponseData.incorrectData, error: nil)
-        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-            XCTAssertFalse(success)
-            XCTAssertNil(placesDetails)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 0.01)
-    }
+//    func testGetPlaceDetailsShouldPostFailedCallbackIfNoData() {
+//        let fakeResponse = FakeResponse(response: nil, data: FakeResponseData.incorrectData, error: nil)
+//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
+//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
+//
+//        let expectation = XCTestExpectation(description: "Wait for queue change.")
+//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
+//            XCTAssertFalse(success)
+//            XCTAssertNil(placesDetails)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 0.01)
+//    }
     
-    func testGetPlaceDetailsShouldPostFailedCallbackIfIncorrectResponse() {
-        let fakeResponse = FakeResponse(response: FakeResponseData.responseKO, data: FakeResponseData.correctDataPlaceDetails, error: nil)
-        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-            XCTAssertFalse(success)
-            XCTAssertNil(placesDetails)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 0.01)
-    }
+//    func testGetPlaceDetailsShouldPostFailedCallbackIfIncorrectResponse() {
+//        let fakeResponse = FakeResponse(response: FakeResponseData.responseKO, data: FakeResponseData.correctDataPlaceDetails, error: nil)
+//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
+//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
+//
+//        let expectation = XCTestExpectation(description: "Wait for queue change.")
+//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
+//            XCTAssertFalse(success)
+//            XCTAssertNil(placesDetails)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 0.01)
+//    }
     
-    func testGetPlaceDetailsShouldPostFailedCallbackIfResponseCorrectAndDataNil() {
-        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: nil, error: nil)
-        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-            XCTAssertFalse(success)
-            XCTAssertNil(placesDetails)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 0.01)
-    }
+//    func testGetPlaceDetailsShouldPostFailedCallbackIfResponseCorrectAndDataNil() {
+//        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: nil, error: nil)
+//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
+//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
+//
+//        let expectation = XCTestExpectation(description: "Wait for queue change.")
+//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
+//            XCTAssertFalse(success)
+//            XCTAssertNil(placesDetails)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 0.01)
+//    }
     
-    func testGetPlaceDetailsShouldPostFailedCallbackIfIncorrectData() {
-        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.incorrectData, error: nil)
-        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-            XCTAssertFalse(success)
-            XCTAssertNil(placesDetails)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 0.01)
-    }
+//    func testGetPlaceDetailsShouldPostFailedCallbackIfIncorrectData() {
+//        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.incorrectData, error: nil)
+//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
+//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
+//
+//        let expectation = XCTestExpectation(description: "Wait for queue change.")
+//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
+//            XCTAssertFalse(success)
+//            XCTAssertNil(placesDetails)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 0.01)
+//    }
     
-    func testGetPlaceDetailsShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
-        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.correctDataPlaceDetails, error: nil)
-        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-            XCTAssertTrue(success)
-            XCTAssertNotNil(placesDetails)
-            XCTAssertEqual(placesDetails?.result.name, "Le Cinq")
-            XCTAssertEqual(placesDetails?.result.url, "https://maps.google.com/?cid=10403230837874187624")
-            XCTAssertEqual(placesDetails?.result.website, "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
-            XCTAssertEqual(placesDetails?.result.openingHours?.weekdayText, nil)
-            XCTAssertEqual(placesDetails?.result.internationalPhoneNumber, "+33 1 49 52 71 54")
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 0.01)
-    }
+//    func testGetPlaceDetailsShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
+//        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.correctDataPlaceDetails, error: nil)
+//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
+//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
+//
+//        let expectation = XCTestExpectation(description: "Wait for queue change.")
+//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
+//            XCTAssertTrue(success)
+//            XCTAssertNotNil(placesDetails)
+//            XCTAssertEqual(placesDetails?.result.name, "Le Cinq")
+//            XCTAssertEqual(placesDetails?.result.url, "https://maps.google.com/?cid=10403230837874187624")
+//            XCTAssertEqual(placesDetails?.result.website, "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
+//            XCTAssertEqual(placesDetails?.result.openingHours?.weekdayText, nil)
+//            XCTAssertEqual(placesDetails?.result.internationalPhoneNumber, "+33 1 49 52 71 54")
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 0.01)
+//    }
 
 }

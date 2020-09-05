@@ -32,12 +32,8 @@ class DetailsPlaceViewController: UIViewController {
     
     // MARK: - Properties
 
-    private let placeService = PlaceService()
     var cellule: PlacesSearchElement?
     var photoOfCellule: String?
-    var imageOfCellule: String?
-    var placeIdCellule: String?
-    var placeDetailsResultsList = [ResultDetails]()
     var coreDataManager: CoreDataManager?
     var placeIsSaved = false
     private var informations: String?
@@ -96,7 +92,6 @@ class DetailsPlaceViewController: UIViewController {
         coreDataFunction()
         customUI()
         configureDetailsPlace()
-//        configurePlace()
         setCelluleData()
     }
     
@@ -129,47 +124,6 @@ class DetailsPlaceViewController: UIViewController {
         return placeToShare
     }
     
-    private func setCelluleData() {
-        let name = cellule?.displayName.cutEndString() ?? ""
-        let phoneNumber = cellule?.extratags.phone ?? "N/A"
-        let address = cellule?.displayName.cutStartString(2) ?? "N/A"
-        let openHours = setOpeningHours(openingHours: cellule?.extratags.openingHours)
-        let types = "\n Activities : " + (cellule?.type ?? "N/A").capitalized
-        let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
-        let rating = importance.importanceString() ?? ""
-        let icon = cellule?.icon ?? ""
-        
-        let country = cellule?.address.country ?? ""
-        let website = cellule?.extratags.website ?? ""
-        
-        // test unsplash
-        let photo = photoOfCellule ?? ""
-        
-        let informations = self.informations ?? ""
-        
-        configurePlace(parameters: PlaceParameters(
-            address: address, country: country, icon: icon,
-            name: name, openDays: openHours, phoneNumber: phoneNumber,
-            photo: photo, rating: rating, types: types,
-            website: website, informations: informations))
-    }
-        
-    func configurePlace(parameters: PlaceParameters) {
-        nameLabel.text = parameters.name
-        addressTextView.text = "Phone : \(parameters.phoneNumber) \n"
-        addressTextView.text += "Address : \(parameters.address)"
-        openLabel.text = parameters.openDays
-        typesTextView.text = parameters.informations + parameters.types
-        ratingLabel.text = parameters.rating
-        loadIcon(imageString: parameters.icon)
-        
-        // OK /// TEST Offline ///
-        self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
-        
-        // OK => Désactivé pour test
-//        loadPhoto(urlString: parameters.photo)
-    }
-    
     private func configureDetailsPlace() {
         let openDays = "- Opening Hours : " + (cellule?.extratags.openingHours ?? "N/A")
         let smoking = "- Smoking : " + (cellule?.extratags.smoking?.capitalized ?? "N/A")
@@ -180,12 +134,44 @@ class DetailsPlaceViewController: UIViewController {
         let outdoorSeating = "- Outdoor Seating : " + (cellule?.extratags.outdoorSeating?.capitalized ?? "N/A")
         let wifi = "- Wifi : " + (cellule?.extratags.wifi?.capitalized ?? "N/A")
         let tobacco = "- Tobacco : " + (cellule?.extratags.tobacco?.capitalized ?? "N/A")
+        
         informations = setInformations(parameters: DetailsPlaceParameters(
             openDays: openDays, smoking: smoking, wheelchair: wheelchair,
             toiletsWheelchair: toiletsWheelchair, layer: layer,
             brewery: brewery, outdoorSeating: outdoorSeating,
             wifi: wifi, tobacco: tobacco))
-
+    }
+    
+    private func setCelluleData() {
+        let name = cellule?.displayName.cutEndString() ?? ""
+        let phoneNumber = cellule?.extratags.phone ?? "N/A"
+        let address = cellule?.displayName.cutStartString(2) ?? "N/A"
+        let openHours = setOpeningHours(openingHours: cellule?.extratags.openingHours)
+        let types = "\n Activities : " + (cellule?.type ?? "N/A").capitalized
+        let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
+        let rating = importance.importanceString() ?? ""
+        let icon = cellule?.icon ?? ""
+        let country = cellule?.address.country ?? ""
+        let website = cellule?.extratags.website ?? ""
+        let photo = photoOfCellule ?? ""
+        let informations = self.informations ?? ""
+        
+        configurePlace(parameters: PlaceParameters(
+            address: address, country: country, icon: icon,
+            name: name, openDays: openHours, phoneNumber: phoneNumber,
+            photo: photo, rating: rating, types: types,
+            website: website, informations: informations))
+    }
+    
+    func configurePlace(parameters: PlaceParameters) {
+        nameLabel.text = parameters.name
+        addressTextView.text = "Phone : \(parameters.phoneNumber) \n"
+        addressTextView.text += "Address : \(parameters.address)"
+        openLabel.text = parameters.openDays
+        typesTextView.text = parameters.informations + parameters.types
+        ratingLabel.text = parameters.rating
+        loadIcon(imageString: parameters.icon)
+        setPhoto(parameters)
     }
     
     private func setInformations(parameters: DetailsPlaceParameters) -> String? {
@@ -214,13 +200,19 @@ class DetailsPlaceViewController: UIViewController {
         }
     }
     
+    private func setPhoto(_ parameters: PlaceParameters) {
+        if !parameters.photo.isEmpty {
+            loadPhoto(urlString: parameters.photo)
+        } else {
+            self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
+        }
+    }
+    
     func loadPhoto(urlString: String?) {
         if let url = URL(string: urlString ?? "") {
             DispatchQueue.main.async {
             self.placeImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg"))
             }
-        } else {
-            self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
         }
     }
     
@@ -262,6 +254,5 @@ class DetailsPlaceViewController: UIViewController {
     private func setBookmarkBarButtonItem(color: UIColor?) {
         bookmarkBarButtonItem.tintColor = color
 //        navigationItem.rightBarButtonItem = barButtonItem
-
     }
 }

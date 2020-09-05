@@ -24,9 +24,9 @@ extension PlaceProtocol {
         return "nominatim.openstreetmap.org"
     }
     
-    var pathDetails: String {
-        return "lookup"
-    }
+//    var pathDetails: String {
+//        return "lookup"
+//    }
     
     var format: String {
         return "json"
@@ -44,32 +44,30 @@ extension PlaceProtocol {
         return "20"
     }
     
+    /// url  for API to get places
     var urlStringApi: String {
         return "\(scheme)://\(host)/?format=\(format)&\(detailsAdressName)&extratags=\(extratags)&limit=\(limitResults)&q="
     }
-
-    var urlStringDetailsApi: String {
-        return "\(scheme)://\(host)/\(pathDetails)\(pathDetails)?format=\(format)&extratags=\(extratags)&osm_ids="
+    
+    var hostPhoto: String {
+        return "api.unsplash.com"
     }
     
-    // 800x600
-    var urlStringImage: String {
-        return "https://source.unsplash.com/800x600/?"
-    }
-    
-    // API unsplash
-    var urlBasePhotoAPI: String {
-        return "https://api.unsplash.com/search/photos?"
-    }
-    
-    var urlPhotoAPI: String {
-        return "\(urlBasePhotoAPI)client_id=\(keyPhotoApi)&query="
+    var pathDetailsPhoto: String {
+        return "/search/photos?"
     }
     
     var keyPhotoApi: String {
         return valueForAPIKey(named: Constants.PhotosAPIKey)
     }
-
+    
+    /// url  for API to get photos
+    var urlPhotoAPI: String {
+        // for test without API unsplash
+        return ""
+//        return "\(scheme)://\(hostPhoto)\(pathDetailsPhoto)client_id=\(keyPhotoApi)&query="
+    }
+    
     // Unsplash get image with keyword
     // https://source.unsplash.com/800x450/?hotel
     
@@ -79,48 +77,3 @@ extension PlaceProtocol {
     // Details of place
 //    https://nominatim.openstreetmap.org/lookup?format=json&extratags=1&osm_ids=W102978626
 }
-
-//extension PlaceProtocol {
-//
-//    var scheme: String {
-//        return "https"
-//    }
-//
-//    var host: String {
-//        return "maps.googleapis.com"
-//    }
-//
-//    var pathTextsearch: String {
-//        return "maps/api/place/textsearch/json"
-//    }
-//
-//    var pathDetails: String {
-//        return "maps/api/place/details/json"
-//    }
-//    var keyPlaceSearch: String {
-//        return valueForAPIKey(named: Constants.PlacesAPIKey)
-//    }
-//
-//    var radius: String {
-//        return "10000"
-//    }
-//
-//    var location: String {
-//        return "49.051111,2.206869"
-//    }
-//
-//    var fields: String {
-//        return "place_id,name,address_components,international_phone_number,opening_hours/weekday_text,url,website"
-//    }
-//
-//    var urlStringApi: String {
-//        return "\(scheme)://\(host)/\(pathTextsearch)?key=\(keyPlaceSearch)&radius=\(radius)&location=\(location)&query="
-//    }
-//
-//    var urlStringDetailsApi: String {
-//        return "\(scheme)://\(host)/\(pathDetails)?key=\(keyPlaceSearch)&fields=\(fields)&place_id="
-//    }
-
-//    // "https://maps.googleapis.com/maps/api/place/textsearch/json?key=\(keyPlaceSearch)&radius=10000&location=49.051111,2.206869&query="
-//    // "https://maps.googleapis.com/maps/api/place/details/json?key=\(keyPlaceSearch)&fields=place_id,name,address_components,international_phone_number,opening_hours/weekday_text,url,website&place_id="
-//}
