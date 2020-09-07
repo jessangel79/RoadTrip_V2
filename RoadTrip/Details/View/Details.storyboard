@@ -79,7 +79,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="detailsMyTripTableView" destination="FXg-Tp-GyU" id="1fc-KB-tYB"/>
+                        <outlet property="myTripTableView" destination="FXg-Tp-GyU" id="1fc-KB-tYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZl-yw-DsN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

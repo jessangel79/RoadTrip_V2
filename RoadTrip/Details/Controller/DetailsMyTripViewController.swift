@@ -8,25 +8,26 @@
 
 import UIKit
 
-final class DetailsMyTripViewController: UIViewController {
+class DetailsMyTripViewController: UIViewController {
     
     // MARK: - Outlets
 
-    @IBOutlet private weak var detailsMyTripTableView: UITableView! {
-        didSet { detailsMyTripTableView.tableFooterView = UIView() }
+    @IBOutlet weak var myTripTableView: UITableView! {
+        didSet { myTripTableView.tableFooterView = UIView() }
     }
     
     // MARK: - Properties
     
-    private var coreDataManager: CoreDataManager?
+    var coreDataManager: CoreDataManager?
     private var cellSelected: DetailsTripEntity?
     private let segueToAddDetails = Constants.SegueToAddDetails
     private var celluleActive = false
     private var celluleIndex = 0
+    var tabType = Constants.Trip
 
     // MARK: - Actions
     
-    @IBAction private func resetBarButtonItemTapped(_ sender: UIBarButtonItem) {
+    @IBAction func resetBarButtonItemTapped(_ sender: UIBarButtonItem) {
         if !(coreDataManager?.detailsTrips.isEmpty ?? false) {
             showAlertResetAll()
         }
@@ -38,14 +39,14 @@ final class DetailsMyTripViewController: UIViewController {
         super.viewDidLoad()
         coreDataFunction()
         let nib = UINib(nibName: Constants.DetailsMyTripTableViewCell, bundle: nil)
-        detailsMyTripTableView.register(nib, forCellReuseIdentifier: Constants.DetailsMyTripCell)
-        detailsMyTripTableView.reloadData()
+        myTripTableView.register(nib, forCellReuseIdentifier: Constants.DetailsMyTripCell)
+        myTripTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         celluleActive = false
-        detailsMyTripTableView.reloadData()
+        myTripTableView.reloadData()
     }
     
     // MARK: - Methods
@@ -56,19 +57,18 @@ final class DetailsMyTripViewController: UIViewController {
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
     }
     
-    private func resetAll() {
+    func resetAll() {
         coreDataManager?.deleteAllDetailsTrip()
-        detailsMyTripTableView.reloadData()
-        debugCoreDataDetailsTrip(nameDebug: "All details trip deleted", coreDataManager: coreDataManager)
+        myTripTableView.reloadData()
+        debugCoreDataDetailsTrip(nameDebug: "All details \(tabType) deleted", coreDataManager: coreDataManager)
     }
     
-    private func showAlertResetAll() {
+    func showAlertResetAll() {
         let destructiveAction = UIAlertAction(title: "Reset all", style: .destructive, handler: { action in
             self.resetAll()
         })
         showResetAlert(destructiveAction: destructiveAction)
     }
-
 }
 
 // MARK: - UITableViewDataSource
@@ -112,13 +112,14 @@ extension DetailsMyTripViewController: UITableViewDelegate {
                                                travellerOne: detailsTrip?.travellerOne ?? "")
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        detailsMyTripTableView.reloadData()
-        debugCoreDataDetailsTrip(nameDebug: "The trip is deleted", coreDataManager: coreDataManager)
+        myTripTableView.reloadData()
+        debugCoreDataDetailsTrip(nameDebug: "The \(tabType) is deleted", coreDataManager: coreDataManager)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Click on ➕ to add a trip"
+        label.text = "Click on ➕ to add a \(tabType)"
+//        label.text = "Click on ➕ to add a trip"
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         label.textAlignment = .center
         label.textColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)

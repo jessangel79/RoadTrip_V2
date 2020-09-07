@@ -72,13 +72,13 @@
                             </barButtonItem>
                             <barButtonItem title="Reset" id="eyt-6I-UjJ">
                                 <connections>
-                                    <action selector="resetBarButtonItemTapped:" destination="y0H-NL-oZK" id="TBn-yf-ir3"/>
+                                    <action selector="resetBarButtonItemTapped:" destination="y0H-NL-oZK" id="oZY-ZM-SXI"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="itemTableView" destination="ULV-ty-aj1" id="VyP-ay-tAK"/>
+                        <outlet property="myTripTableView" destination="ULV-ty-aj1" id="VyP-ay-tAK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hak-wc-y2G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

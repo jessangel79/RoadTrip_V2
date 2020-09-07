@@ -30,6 +30,7 @@ class ListPlacesViewController: UIViewController {
         let nib = UINib(nibName: Constants.ListPlacesTableViewCell, bundle: nil)
         placesTableView.register(nib, forCellReuseIdentifier: Constants.ListPlacesCell)
         placesTableView.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
