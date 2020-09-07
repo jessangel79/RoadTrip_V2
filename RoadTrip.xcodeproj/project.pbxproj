@@ -16,6 +16,9 @@
 		3A21DC50240D33F200C6A33A /* MyPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21DC4F240D33F200C6A33A /* MyPlaceViewController.swift */; };
 		3A2932BE249CEFA000F672B8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2932BD249CEFA000F672B8 /* UIImageView.swift */; };
 		3A2932C0249CF98000F672B8 /* UrlsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2932BF249CF98000F672B8 /* UrlsList.swift */; };
+		3A2A7F5A25067F3400C06D8B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A7F5925067F3400C06D8B /* MapViewController.swift */; };
+		3A2A7F5C250684C000C06D8B /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A7F5B250684C000C06D8B /* Poi.swift */; };
+		3A2A7F5E2506AB5A00C06D8B /* MapOfMyPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A7F5D2506AB5A00C06D8B /* MapOfMyPlaceViewController.swift */; };
 		3A2DB4B324003D9500709183 /* PlaceToShareParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DB4B224003D9500709183 /* PlaceToShareParameters.swift */; };
 		3A30E9F823F597BC00532EDD /* ListPlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30E9F623F597BC00532EDD /* ListPlacesTableViewCell.swift */; };
 		3A30E9F923F597BC00532EDD /* ListPlacesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A30E9F723F597BC00532EDD /* ListPlacesTableViewCell.xib */; };
@@ -112,6 +115,9 @@
 		3A21DC4F240D33F200C6A33A /* MyPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaceViewController.swift; sourceTree = "<group>"; };
 		3A2932BD249CEFA000F672B8 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		3A2932BF249CF98000F672B8 /* UrlsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlsList.swift; sourceTree = "<group>"; };
+		3A2A7F5925067F3400C06D8B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3A2A7F5B250684C000C06D8B /* Poi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
+		3A2A7F5D2506AB5A00C06D8B /* MapOfMyPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOfMyPlaceViewController.swift; sourceTree = "<group>"; };
 		3A2DB4B224003D9500709183 /* PlaceToShareParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceToShareParameters.swift; sourceTree = "<group>"; };
 		3A30E9F623F597BC00532EDD /* ListPlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListPlacesTableViewCell.swift; path = RoadTrip/SearchPlaces/View/ListPlacesTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		3A30E9F723F597BC00532EDD /* ListPlacesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListPlacesTableViewCell.xib; path = RoadTrip/SearchPlaces/View/ListPlacesTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -336,6 +342,7 @@
 				3A0E58E624081605000123D5 /* PlaceParameters.swift */,
 				3AD895E725028B5200E8902F /* DetailsPlaceParameters.swift */,
 				3ABB99A7241961CD007CE8FA /* DetailsTrip.swift */,
+				3A2A7F5B250684C000C06D8B /* Poi.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,6 +363,7 @@
 				3AF881BF23F17005005F64ED /* SearchPlacesViewController.swift */,
 				3A30E9FA23F5990100532EDD /* ListPlacesViewController.swift */,
 				3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */,
+				3A2A7F5925067F3400C06D8B /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -456,6 +464,7 @@
 			children = (
 				3A21DC4D240D32A500C6A33A /* MyTripViewController.swift */,
 				3A21DC4F240D33F200C6A33A /* MyPlaceViewController.swift */,
+				3A2A7F5D2506AB5A00C06D8B /* MapOfMyPlaceViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -707,6 +716,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2A7F5E2506AB5A00C06D8B /* MapOfMyPlaceViewController.swift in Sources */,
 				3AA339EE23FDA21B00356B6B /* DetailsPlaceViewController.swift in Sources */,
 				3A2DB4B324003D9500709183 /* PlaceToShareParameters.swift in Sources */,
 				3A755CB523EDA3DE00889FA5 /* AppDelegate.swift in Sources */,
@@ -720,6 +730,7 @@
 				3A2932C0249CF98000F672B8 /* UrlsList.swift in Sources */,
 				3A832AB223FEC049008E7237 /* UITableViewCell.swift in Sources */,
 				3ABB99A224194757007CE8FA /* PackingListViewController.swift in Sources */,
+				3A2A7F5A25067F3400C06D8B /* MapViewController.swift in Sources */,
 				3A30E9F823F597BC00532EDD /* ListPlacesTableViewCell.swift in Sources */,
 				3A755CEA23EDD63200889FA5 /* PlaceProtocol.swift in Sources */,
 				3ABBA05424FFC52B007E80DB /* Photos.swift in Sources */,
@@ -740,6 +751,7 @@
 				3AE7F570241A944300751764 /* Date.swift in Sources */,
 				3A21DC50240D33F200C6A33A /* MyPlaceViewController.swift in Sources */,
 				3AF881C023F17005005F64ED /* SearchPlacesViewController.swift in Sources */,
+				3A2A7F5C250684C000C06D8B /* Poi.swift in Sources */,
 				3A21DC4E240D32A500C6A33A /* MyTripViewController.swift in Sources */,
 				3A755CE623EDB2FE00889FA5 /* CoreDataManager.swift in Sources */,
 				3AF881BA23F16A19005F64ED /* PlaceSession.swift in Sources */,

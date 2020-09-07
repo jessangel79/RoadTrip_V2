@@ -60,6 +60,8 @@ final class CoreDataManager {
         place.phoneNumber = parameters.phoneNumber
         place.website = parameters.website
         place.informations = parameters.informations
+        place.lat = parameters.lat
+        place.lon = parameters.lon
         coreDataStack.saveContext()
     }
     

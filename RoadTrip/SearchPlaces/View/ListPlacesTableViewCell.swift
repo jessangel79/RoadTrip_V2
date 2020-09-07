@@ -28,9 +28,13 @@ final class ListPlacesTableViewCell: UITableViewCell {
     private var urlPhoto: String?
 
     // MARK: - Methods
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        customCell()
+    }
+    
+    private func customCell() {
         customLabelsCell(labels: allLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
         customViewCell(view: ratingView)
         customImageViewCell(imageView: iconImageView, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)

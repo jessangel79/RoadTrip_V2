@@ -182,7 +182,7 @@
                                         </constraints>
                                         <state key="normal" image="placemarker-url"/>
                                         <connections>
-                                            <action selector="placeMarkerButtonTapped:" destination="wbD-nS-Ugg" eventType="touchUpInside" id="lFJ-tD-Tfd"/>
+                                            <segue destination="dPP-9i-SHt" kind="show" identifier="segueToMap" id="8hE-fR-FGw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yvb-UT-fjw">
@@ -295,6 +295,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEv-OM-bKt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2514" y="-1419"/>
+        </scene>
+        <!--Map Of My Place View Controller-->
+        <scene sceneID="JfR-md-PAq">
+            <objects>
+                <viewController id="dPP-9i-SHt" customClass="MapOfMyPlaceViewController" customModule="RoadTrip" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l7F-02-pHZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pAx-Os-N4P">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dPP-9i-SHt" id="H8I-Hk-WzL"/>
+                                </connections>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bsC-Xd-0i9">
+                                <rect key="frame" x="88" y="483" width="227" height="32"/>
+                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybride"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="changeMapTypeButtonTapped:" destination="dPP-9i-SHt" eventType="valueChanged" id="bFt-ug-5AA"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPb-w6-puo">
+                                <rect key="frame" x="5" y="483" width="75" height="31"/>
+                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="O3e-eB-Juw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                <state key="normal" title="Locate Me">
+                                    <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="getPosition:" destination="dPP-9i-SHt" eventType="touchUpInside" id="cY0-mE-nYw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bsC-Xd-0i9" firstAttribute="bottom" secondItem="cPb-w6-puo" secondAttribute="bottom" id="GfS-Z0-aG6"/>
+                            <constraint firstItem="Oiw-ub-nwX" firstAttribute="bottom" secondItem="pAx-Os-N4P" secondAttribute="bottom" id="TrP-Kf-ptO"/>
+                            <constraint firstItem="pAx-Os-N4P" firstAttribute="leading" secondItem="Oiw-ub-nwX" secondAttribute="leading" id="Vm9-Hu-nGA"/>
+                            <constraint firstItem="Oiw-ub-nwX" firstAttribute="bottom" secondItem="bsC-Xd-0i9" secondAttribute="bottom" constant="5" id="XBH-aL-ZLc"/>
+                            <constraint firstItem="Oiw-ub-nwX" firstAttribute="trailing" secondItem="bsC-Xd-0i9" secondAttribute="trailing" constant="5" id="fja-4U-MDK"/>
+                            <constraint firstItem="Oiw-ub-nwX" firstAttribute="trailing" secondItem="pAx-Os-N4P" secondAttribute="trailing" id="hen-p4-3zH"/>
+                            <constraint firstItem="pAx-Os-N4P" firstAttribute="top" secondItem="Oiw-ub-nwX" secondAttribute="top" id="kFs-wt-qPh"/>
+                            <constraint firstItem="cPb-w6-puo" firstAttribute="leading" secondItem="Oiw-ub-nwX" secondAttribute="leading" constant="5" id="zCj-2S-O5G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oiw-ub-nwX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qR9-ZP-ebT"/>
+                    <connections>
+                        <outlet property="changeMapTypeSegmentedControl" destination="bsC-Xd-0i9" id="OLL-Np-OHI"/>
+                        <outlet property="locateMeButton" destination="cPb-w6-puo" id="7Pq-5E-3Er"/>
+                        <outlet property="mapView" destination="pAx-Os-N4P" id="DD5-8c-fWc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RMt-LF-yqD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3285" y="-1419"/>
         </scene>
     </scenes>
     <resources>

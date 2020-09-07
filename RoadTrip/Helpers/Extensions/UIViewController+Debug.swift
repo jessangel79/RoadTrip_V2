@@ -30,6 +30,8 @@ extension UIViewController {
             print("PhoneNumber : \(place.phoneNumber ?? "phoneNumber error")")
             print("Website : \(place.website ?? "website error")")
             print("Informations : \(place.informations ?? "informations error")")
+            print("Informations : \(place.lat ?? "latitude error")")
+            print("Informations : \(place.lon ?? "longitude error")")
             print("index : \(index)")
             print("\n")
             index += 1
@@ -83,6 +85,8 @@ extension UIViewController {
     
     func debugGetPlaces(nameDebug: String, placesList: [PlacesSearchElement], photosList: [PhotosResult]) {
         print("type : \(String(describing: placesList.first?.type))")
+        print("lat : \(String(describing: placesList.first?.lat))")
+        print("lon : \(String(describing: placesList.first?.lon))")
         print("displayName : \(String(describing: placesList.first?.displayName))")
         print("extratags : \(String(describing: placesList.first?.extratags))")
         print("phone : \(String(describing: placesList.first?.extratags.phone))")

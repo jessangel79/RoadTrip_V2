@@ -38,8 +38,7 @@ class DetailsMyTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
-        let nib = UINib(nibName: Constants.DetailsMyTripTableViewCell, bundle: nil)
-        myTripTableView.register(nib, forCellReuseIdentifier: Constants.DetailsMyTripCell)
+        setNib()
         myTripTableView.reloadData()
     }
     
@@ -50,6 +49,11 @@ class DetailsMyTripViewController: UIViewController {
     }
     
     // MARK: - Methods
+    
+    func setNib() {
+        let nib = UINib(nibName: Constants.DetailsMyTripTableViewCell, bundle: nil)
+        myTripTableView.register(nib, forCellReuseIdentifier: Constants.DetailsMyTripCell)
+    }
 
     private func coreDataFunction() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }

@@ -22,4 +22,6 @@ struct PlaceParameters {
     let types: String
     let website: String
     let informations: String
+    let lat: String
+    let lon: String
 }

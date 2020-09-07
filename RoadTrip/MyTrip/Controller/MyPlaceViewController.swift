@@ -36,10 +36,10 @@ final class MyPlaceViewController: DetailsPlaceViewController {
         }
     }
 
-    @IBAction override func placeMarkerButtonTapped(_ sender: UIButton) {
+//    @IBAction override func placeMarkerButtonTapped(_ sender: UIButton) {
 //        guard let placeMarkerUrl = cellule?.url else { return }
 //        openSafari(urlString: placeMarkerUrl)
-    }
+//    }
 
     @IBAction override func calendarButtonTapped(_ sender: UIButton) {
         let title = celluleEntity?.name ?? ""
@@ -66,6 +66,8 @@ final class MyPlaceViewController: DetailsPlaceViewController {
         setCelluleEntityData(address)
     }
     
+    override func viewWillAppear(_ animated: Bool) {}
+    
     // MARK: - Methods
     
     private func setCelluleEntityData(_ address: String) {
@@ -79,11 +81,24 @@ final class MyPlaceViewController: DetailsPlaceViewController {
         let country = celluleEntity?.country ?? ""
         let website = celluleEntity?.website ?? ""
         let photo = celluleEntity?.photo ?? ""
+        let lat = celluleEntity?.lat ?? ""
+        let lon = celluleEntity?.lon ?? ""
         
         configurePlace(parameters: PlaceParameters(
             address: address, country: country, icon: icon,
             name: name, openDays: openHours, phoneNumber: phoneNumber,
             photo: photo, rating: rating, types: types,
-            website: website, informations: informations))
+            website: website, informations: informations, lat: lat, lon: lon))
+    }
+}
+
+// MARK: - Navigation
+
+extension MyPlaceViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueToMap {
+            guard let mapOfMyPlaceVC = segue.destination as? MapOfMyPlaceViewController else { return }
+            mapOfMyPlaceVC.celluleEntity = self.celluleEntity
+        }
     }
 }

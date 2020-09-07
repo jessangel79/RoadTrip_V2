@@ -8,13 +8,13 @@
 
 import UIKit
 
-final class AddDetailsMyTripViewController: UIViewController {
+class AddDetailsMyTripViewController: UIViewController {
     
     // MARK: - Outlets
     
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var tripImageView: UIImageView!
-    @IBOutlet private weak var saveButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var startDateTextField: UITextField!
     @IBOutlet private weak var endDateTextField: UITextField!
@@ -27,38 +27,30 @@ final class AddDetailsMyTripViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var coreDataManager: CoreDataManager?
+    var coreDataManager: CoreDataManager?
     private var startDateString = String()
     private var endDateString = String()
     private var tripExist = false
     var cellule: DetailsTripEntity?
     var celluleActive = false
     var celluleIndex: Int?
-    private var randomImage = String()
+    var randomImage = String()
     
     // MARK: - Actions
 
-    @IBAction private func saveButtonTapped(_ sender: UIButton) {
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
         saveDetailsTrip()
         textFieldResignFirstResponder()
     }
     
     // MARK: - View Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
-        customButton(button: saveButton, radius: 20, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1), colorBorder: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1))
-        customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
-                
-        self.startDateTextField.setInputViewDatePicker(target: self, selector: #selector(tapDoneStartDate))
-        self.endDateTextField.setInputViewDatePicker(target: self, selector: #selector(tapDoneEndDate))
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
-                                               name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        customUI()
+        setDatePicker()
+        keyboardObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,10 +61,27 @@ final class AddDetailsMyTripViewController: UIViewController {
 
     // MARK: - Methods
 
-    private func coreDataFunction() {
+    func coreDataFunction() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataStack = appDelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
+    }
+    
+    func customUI() {
+        customButton(button: saveButton, radius: 20, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1), colorBorder: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1))
+        customAllLabels(allLabels: allLabels, radius: 5, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.5))
+    }
+    
+    private func setDatePicker() {
+        self.startDateTextField.setInputViewDatePicker(target: self, selector: #selector(tapDoneStartDate))
+        self.endDateTextField.setInputViewDatePicker(target: self, selector: #selector(tapDoneEndDate))
+    }
+    
+    private func keyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func saveDetailsTrip() {

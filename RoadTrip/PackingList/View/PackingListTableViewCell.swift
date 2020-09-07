@@ -30,13 +30,17 @@ final class PackingListTableViewCell: UITableViewCell {
     }
     
     // MARK: - Methods
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         coreDataFunction()
+        customCell()
+    }
+    
+    private func customCell() {
         customLabelCell(label: itemLabel, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884))
-        circleButton(button: itemCheckButton)
         customImageViewCell(imageView: categoryImageView)
+        circleButton(button: itemCheckButton)
     }
     
     private func coreDataFunction() {

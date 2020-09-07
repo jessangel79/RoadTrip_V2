@@ -21,15 +21,17 @@ final class PackingListViewController: DetailsMyTripViewController {
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         tabType = Constants.Item
-        let nib = UINib(nibName: Constants.PackingListTableViewCell, bundle: nil)
-        myTripTableView.register(nib, forCellReuseIdentifier: Constants.PackingListCell)
-        myTripTableView.reloadData()
+        super.viewDidLoad()
     }
 
     // MARK: - Methods
-
+    
+    override func setNib() {
+        let nib = UINib(nibName: Constants.PackingListTableViewCell, bundle: nil)
+        myTripTableView.register(nib, forCellReuseIdentifier: Constants.PackingListCell)
+    }
+    
     override func resetAll() {
         coreDataManager?.deleteAllItems()
         myTripTableView.reloadData()

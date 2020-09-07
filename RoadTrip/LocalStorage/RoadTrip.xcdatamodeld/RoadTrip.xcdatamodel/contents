@@ -25,6 +25,8 @@
         <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="informations" optional="YES" attributeType="String"/>
+        <attribute name="lat" optional="YES" attributeType="String"/>
+        <attribute name="lon" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="openDays" optional="YES" attributeType="String"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
@@ -36,6 +38,6 @@
     <elements>
         <element name="DetailsTripEntity" positionX="-63" positionY="99" width="128" height="208"/>
         <element name="ItemEntity" positionX="-63" positionY="126" width="128" height="118"/>
-        <element name="PlaceEntity" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="PlaceEntity" positionX="-63" positionY="-18" width="128" height="238"/>
     </elements>
 </model>
