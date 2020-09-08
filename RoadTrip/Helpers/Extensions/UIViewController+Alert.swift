@@ -17,7 +17,7 @@ extension UIViewController {
         case isEmpty
         case noPlace
         case noWebsite
-        case noDetail
+//        case noDetail
         case zeroResult
         case errorAccess
         case noNameTrip
@@ -29,8 +29,9 @@ extension UIViewController {
         case nothingToShare
         case noItem
         case itemExist
+//        case resetAll
     }
-
+    
     /// Alert message for user
     func presentAlert(typeError: AlertError) {
         var message: String
@@ -46,9 +47,9 @@ extension UIViewController {
         case .noWebsite:
             title = "No website"
             message = "Sorry there is no website for this place."
-        case .noDetail:
-            title = "No detail"
-            message = "Sorry there is no detail for this place."
+//        case .noDetail:
+//            title = "No detail"
+//            message = "Sorry there is no detail for this place."
         case .zeroResult:
             title = "No result"
             message = "Sorry there is no result."
@@ -82,20 +83,37 @@ extension UIViewController {
         case .itemExist:
             title = "This item already exist"
             message = "Please to set another item."
+//        case .resetAll:
+//            title = "Warning Reset All"
+//            message = "Are you sure to reset all ?"
         }
         
+        alertError(title, message)
+    }
+    
+    /// Base of alert for custom action
+    private func alertCustomAction(_ title: String, _ message: String, action: UIAlertAction) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
     
+    private func alertError(_ title: String, _ message: String) {
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertCustomAction(title, message, action: action)
+    }
+    
+    func presentAlertMapInfo(_ title: String, _ message: String) {
+        let action = UIAlertAction(title: "OK", style: .default)
+        alertCustomAction(title, message, action: action)
+    }
+    
     /// Alert message for user to confirm all reset
     func showResetAlert(destructiveAction: UIAlertAction) {
-        let alertVC = UIAlertController(title: "Warning Reset All", message: "Are you sure to reset all ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Warning Reset All", message: "Are you sure to reset all ?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertVC.addAction(destructiveAction)
-        alertVC.addAction(cancelAction)
-        present(alertVC, animated: true, completion: nil)
+        alert.addAction(destructiveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }

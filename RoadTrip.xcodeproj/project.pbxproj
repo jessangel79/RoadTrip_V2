@@ -52,6 +52,7 @@
 		3A959D3524992B7900C27B86 /* PlacesSearchOpen.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */; };
 		3A959D3724992C3600C27B86 /* PlaceDetailsOpen.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A959D3624992C3600C27B86 /* PlaceDetailsOpen.json */; };
 		3AA339EE23FDA21B00356B6B /* DetailsPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */; };
+		3AA3A1682507EADC00C0999F /* PoiAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3A1672507EADC00C0999F /* PoiAnnotationView.swift */; };
 		3ABB99A024190D66007CE8FA /* DetailsMyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */; };
 		3ABB99A224194757007CE8FA /* PackingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB99A124194757007CE8FA /* PackingListViewController.swift */; };
 		3ABB99A524194CF8007CE8FA /* DetailsMyTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB99A324194CF8007CE8FA /* DetailsMyTripTableViewCell.swift */; };
@@ -155,6 +156,7 @@
 		3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlacesSearchOpen.json; sourceTree = "<group>"; };
 		3A959D3624992C3600C27B86 /* PlaceDetailsOpen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlaceDetailsOpen.json; sourceTree = "<group>"; };
 		3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlaceViewController.swift; sourceTree = "<group>"; };
+		3AA3A1672507EADC00C0999F /* PoiAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiAnnotationView.swift; sourceTree = "<group>"; };
 		3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMyTripViewController.swift; sourceTree = "<group>"; };
 		3ABB99A124194757007CE8FA /* PackingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListViewController.swift; sourceTree = "<group>"; };
 		3ABB99A324194CF8007CE8FA /* DetailsMyTripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMyTripTableViewCell.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				3AC005F824FE79DC008CD822 /* SearchPlaces.storyboard */,
 				3A30E9F723F597BC00532EDD /* ListPlacesTableViewCell.xib */,
 				3A30E9F623F597BC00532EDD /* ListPlacesTableViewCell.swift */,
+				3AA3A1672507EADC00C0999F /* PoiAnnotationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				3AF881BA23F16A19005F64ED /* PlaceSession.swift in Sources */,
 				3A755CE023EDB10600889FA5 /* ApiKeys.swift in Sources */,
 				3ADF8DDC25010D160011DD77 /* CoreDataStack.swift in Sources */,
+				3AA3A1682507EADC00C0999F /* PoiAnnotationView.swift in Sources */,
 				3AFA6204241A67430055E8E8 /* UIViewController+ActivityIndicator.swift in Sources */,
 				3AF881BE23F16B2B005F64ED /* PlacesSearch.swift in Sources */,
 				3AFA6208241A67B60055E8E8 /* UIViewController+Debug.swift in Sources */,

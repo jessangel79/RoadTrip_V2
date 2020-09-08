@@ -148,7 +148,8 @@ class DetailsPlaceViewController: UIViewController {
         let phoneNumber = cellule?.extratags.phone ?? "N/A"
         let address = cellule?.displayName.cutStartString(2) ?? "N/A"
         let openHours = setOpeningHours(openingHours: cellule?.extratags.openingHours)
-        let types = "\n Activities : " + (cellule?.type ?? "N/A").capitalized
+        let types = cellule?.type.capitalized ?? "N/A"
+//        let types = "\n Activities : " + (cellule?.type ?? "N/A").capitalized
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
         let rating = importance.importanceString() ?? ""
         let icon = cellule?.icon ?? ""
@@ -171,7 +172,7 @@ class DetailsPlaceViewController: UIViewController {
         addressTextView.text = "Phone : \(parameters.phoneNumber) \n"
         addressTextView.text += "Address : \(parameters.address)"
         openLabel.text = parameters.openDays
-        typesTextView.text = parameters.informations + parameters.types
+        typesTextView.text = parameters.informations + "\n Activities : \(parameters.types)"
         ratingLabel.text = parameters.rating
         loadIcon(imageString: parameters.icon)
         setPhoto(parameters)
@@ -233,7 +234,7 @@ class DetailsPlaceViewController: UIViewController {
         let photo = photoOfCellule ?? ""
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
         let rating = importance.importanceString() ?? ""
-        let types = "\n Activities : " + (cellule?.type.changeDash ?? "N/A").capitalized
+        let types = cellule?.type.changeDash.capitalized ?? "N/A"
         let country = cellule?.address.country ?? ""
         let openDays = setOpeningHours(openingHours: cellule?.extratags.openingHours)
         let phoneNumber = cellule?.extratags.phone ?? "N/A"

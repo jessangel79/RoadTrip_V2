@@ -19,11 +19,13 @@ struct Constants {
     static let SegueToPlaceDetails = "segueToPlaceDetails"
     static let SegueToMyPlace = "segueToMyPlace"
     static let SegueToAddDetails = "segueToAddDetails"
-    static let SegueToMap = "segueToMap"
     static let DetailsMyTripCell = "DetailsMyTripCell"
     static let DetailsMyTripTableViewCell = "DetailsMyTripTableViewCell"
     static let PackingListCell = "PackingListCell"
     static let PackingListTableViewCell = "PackingListTableViewCell"
     static var Trip = "trip"
     static var Item = "item"
+    static let SegueToMap = "segueToMap"
+    static let IdentifierPoi = "poi"
+
 }

@@ -22,12 +22,11 @@ class MapOfMyPlaceViewController: MapViewController {
         super.viewDidLoad()
     }
     
-    // TODO
-//    override func setupData() {
-//        guard let latitude = Double(celluleEntity?.lat ?? "48.863581") else { return }
-//        guard let longitude = Double(celluleEntity?.lon ?? "2.344312") else { return }
-//        guard let title = celluleEntity?.name else { return }
-//        guard let subtitle = cellule?.address else { return }
-//        guard let info = cellule?.type else { return }
-//    }
+    override func setupData() {
+        latitude = Double(celluleEntity?.lat ?? "48.863581")
+        longitude = Double(celluleEntity?.lon ?? "2.344312")
+        titleName = celluleEntity?.name
+        subtitle = celluleEntity?.address
+        info = celluleEntity?.types
+    }
 }

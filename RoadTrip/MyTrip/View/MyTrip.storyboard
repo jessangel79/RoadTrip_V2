@@ -334,7 +334,7 @@
                                     <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="getPosition:" destination="dPP-9i-SHt" eventType="touchUpInside" id="cY0-mE-nYw"/>
+                                    <action selector="locateMeButtonTapped:" destination="dPP-9i-SHt" eventType="touchUpInside" id="d6M-BW-bXM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -351,7 +351,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oiw-ub-nwX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qR9-ZP-ebT"/>
+                    <navigationItem key="navigationItem" id="qR9-ZP-ebT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ITW-kb-J9r">
+                            <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="refreshBarButtonItemTapped:" destination="dPP-9i-SHt" id="Id0-KZ-G3F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="changeMapTypeSegmentedControl" destination="bsC-Xd-0i9" id="OLL-Np-OHI"/>
                         <outlet property="locateMeButton" destination="cPb-w6-puo" id="7Pq-5E-3Er"/>

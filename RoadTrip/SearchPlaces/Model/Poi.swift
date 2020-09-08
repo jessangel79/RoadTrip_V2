@@ -9,21 +9,8 @@
 import Foundation
 import MapKit
 
-//open class Poi: NSObject, MKAnnotation {
-//    public var title: String?
-//    public var subtitle: String?
-//    public var coordinate: CLLocationCoordinate2D
-//    var info: String
-//
-//    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D, info: String) {
-//        self.title = title
-//        self.subtitle = subtitle
-//        self.coordinate = coordinate
-//        self.info = info
-//    }
-//}
-
 class Poi: NSObject, MKAnnotation {
+    
     var title: String?
     var subtitle: String?
     var coordinate: CLLocationCoordinate2D
