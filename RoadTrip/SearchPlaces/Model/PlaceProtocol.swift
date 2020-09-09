@@ -23,11 +23,7 @@ extension PlaceProtocol {
     var host: String {
         return "nominatim.openstreetmap.org"
     }
-    
-//    var pathDetails: String {
-//        return "lookup"
-//    }
-    
+
     var format: String {
         return "json"
     }
@@ -64,8 +60,8 @@ extension PlaceProtocol {
     /// url  for API to get photos
     var urlPhotoAPI: String {
         // for test without API unsplash
-        return ""
-//        return "\(scheme)://\(hostPhoto)\(pathDetailsPhoto)client_id=\(keyPhotoApi)&query="
+//        return ""
+        return "\(scheme)://\(hostPhoto)\(pathDetailsPhoto)client_id=\(keyPhotoApi)&query="
     }
     
     // Unsplash get image with keyword

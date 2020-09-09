@@ -335,19 +335,8 @@
                                     <constraint firstItem="Z6A-K3-gBe" firstAttribute="leading" secondItem="brv-Ay-ucx" secondAttribute="leading" constant="3.5" id="vBw-Vj-gWC"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdn-Kh-gLh" userLabel="Address Text View">
-                                <rect key="frame" x="0.0" y="325" width="320" height="110"/>
-                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="uPG-dt-HWO"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fce-BU-Ip6" userLabel="Type Text View">
-                                <rect key="frame" x="0.0" y="437" width="320" height="82"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fce-BU-Ip6" userLabel="Details Text View">
+                                <rect key="frame" x="0.0" y="324" width="320" height="195"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -358,14 +347,11 @@
                         <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Fce-BU-Ip6" firstAttribute="trailing" secondItem="jv1-WK-U78" secondAttribute="trailing" id="7Ya-u8-W8K"/>
-                            <constraint firstItem="Fdn-Kh-gLh" firstAttribute="trailing" secondItem="jv1-WK-U78" secondAttribute="trailing" id="7tM-b1-haJ"/>
-                            <constraint firstItem="Fce-BU-Ip6" firstAttribute="top" secondItem="Fdn-Kh-gLh" secondAttribute="bottom" constant="2" id="DYu-Wt-6FQ"/>
                             <constraint firstItem="Fce-BU-Ip6" firstAttribute="leading" secondItem="jv1-WK-U78" secondAttribute="leading" id="HKS-JA-b9H"/>
                             <constraint firstItem="Fce-BU-Ip6" firstAttribute="bottom" secondItem="jv1-WK-U78" secondAttribute="bottom" id="Hrm-vz-KL0"/>
                             <constraint firstItem="brv-Ay-ucx" firstAttribute="leading" secondItem="jv1-WK-U78" secondAttribute="leading" id="Js4-3e-ZeO"/>
-                            <constraint firstItem="Fdn-Kh-gLh" firstAttribute="leading" secondItem="jv1-WK-U78" secondAttribute="leading" id="Om3-sO-9jO"/>
-                            <constraint firstItem="Fdn-Kh-gLh" firstAttribute="top" secondItem="brv-Ay-ucx" secondAttribute="bottom" constant="1" id="PJK-ux-G2t"/>
                             <constraint firstItem="brv-Ay-ucx" firstAttribute="trailing" secondItem="jv1-WK-U78" secondAttribute="trailing" id="Pcm-Eb-O7G"/>
+                            <constraint firstItem="Fce-BU-Ip6" firstAttribute="top" secondItem="brv-Ay-ucx" secondAttribute="bottom" id="bQe-YW-whg"/>
                             <constraint firstItem="brv-Ay-ucx" firstAttribute="top" secondItem="jv1-WK-U78" secondAttribute="top" id="z7P-Q3-Vzx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jv1-WK-U78"/>
@@ -386,10 +372,10 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="addressTextView" destination="Fdn-Kh-gLh" id="eEU-GH-QIa"/>
                         <outlet property="baseView" destination="brv-Ay-ucx" id="vrD-qd-RhT"/>
                         <outlet property="bookmarkBarButtonItem" destination="DaL-Zc-52j" id="QS8-DR-bXk"/>
                         <outlet property="calendarButton" destination="r2P-Nt-SAb" id="voH-Q1-46Z"/>
+                        <outlet property="detailsTextView" destination="Fce-BU-Ip6" id="H2c-GA-ZTe"/>
                         <outlet property="iconImageView" destination="2yd-5p-K7t" id="0cS-dW-tBH"/>
                         <outlet property="nameLabel" destination="xda-dQ-QP5" id="gR1-f9-Yoa"/>
                         <outlet property="openLabel" destination="tHk-iK-FTK" id="CEr-SV-uuk"/>
@@ -397,7 +383,6 @@
                         <outlet property="placeMarkerButton" destination="f2P-Pz-rRg" id="Q3p-2X-xoL"/>
                         <outlet property="ratingLabel" destination="J01-KE-f8R" id="by4-Ut-zVZ"/>
                         <outlet property="shareBarButtonItem" destination="DgK-YZ-3NM" id="Ktz-84-9aP"/>
-                        <outlet property="typesTextView" destination="Fce-BU-Ip6" id="H2c-GA-ZTe"/>
                         <outlet property="violetView" destination="6T9-6k-hx0" id="KTS-Oe-UJX"/>
                         <outlet property="websiteButton" destination="pUU-Xo-UNO" id="nyL-j2-CVd"/>
                         <outletCollection property="allLabels" destination="xda-dQ-QP5" collectionClass="NSMutableArray" id="ew3-3k-yyn"/>

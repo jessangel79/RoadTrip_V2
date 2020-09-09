@@ -17,7 +17,6 @@ extension UIViewController {
         case isEmpty
         case noPlace
         case noWebsite
-//        case noDetail
         case zeroResult
         case errorAccess
         case noNameTrip
@@ -29,7 +28,6 @@ extension UIViewController {
         case nothingToShare
         case noItem
         case itemExist
-//        case resetAll
     }
     
     /// Alert message for user
@@ -47,9 +45,6 @@ extension UIViewController {
         case .noWebsite:
             title = "No website"
             message = "Sorry there is no website for this place."
-//        case .noDetail:
-//            title = "No detail"
-//            message = "Sorry there is no detail for this place."
         case .zeroResult:
             title = "No result"
             message = "Sorry there is no result."
@@ -83,9 +78,6 @@ extension UIViewController {
         case .itemExist:
             title = "This item already exist"
             message = "Please to set another item."
-//        case .resetAll:
-//            title = "Warning Reset All"
-//            message = "Are you sure to reset all ?"
         }
         
         alertError(title, message)

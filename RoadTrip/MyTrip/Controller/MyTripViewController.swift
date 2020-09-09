@@ -23,13 +23,13 @@ final class MytripViewController: ListPlacesViewController {
         var index = 0
         for place in coreDataManager?.places ?? [PlaceEntity]() {
             guard let country = place.country else { return "Pays N/A" }
-            guard let namePlace = place.name else { return "N/A" }
-            guard let addressPlace = place.address else { return "N/A" }
-            guard let typePlace = place.types else { return "N/A" }
+            guard let placeName = place.name else { return "N/A" }
+            guard let address = place.address else { return "N/A" }
+            guard let types = place.types else { return "N/A" }
             guard let websiteUrl = URL(string: place.website ?? "N/A") else { return "" }
             placeToShare(parameters: PlaceToShareParameters(
-                country: country, namePlace: namePlace,
-                addressPlace: addressPlace, typePlace: typePlace,
+                country: country, placeName: placeName,
+                address: address, types: types,
                 websiteUrl: websiteUrl, index: index), tripToShare: &tripToShare)
             index += 1
         }
@@ -75,9 +75,14 @@ final class MytripViewController: ListPlacesViewController {
     }
     
     private func placeToShare(parameters: PlaceToShareParameters, tripToShare: inout String) {
-        var placeToShare = "🛣 Trip in \(parameters.country) 🧳 ! Hello, here is a place I want to visit : \(parameters.namePlace) to \(parameters.addressPlace) ! \n"
-        placeToShare += "✨ Activities ✨ \(parameters.typePlace) ✨ \n🌐 \(parameters.websiteUrl) \n \n"
-        tripToShare += "💬 Place \(parameters.index + 1) " + placeToShare
+        let country = "🛣 Trip in \(parameters.country) 🧳 ! "
+        let placeName = "Hello, here is a place I want to visit : \(parameters.placeName) "
+        let address = "to \(parameters.address) ! \n"
+        let activities = "✨ Activities ✨ \(parameters.types) ✨ \n🌐 \(parameters.websiteUrl) \n"
+        let placeToShare = country + placeName + address + activities
+        let index = "💬 Place \(parameters.index + 1) "
+        let separator = "〰 〰 〰 〰 〰 〰 〰 〰\n"
+        tripToShare += index + placeToShare + separator
     }
     
     private func resetAll() {

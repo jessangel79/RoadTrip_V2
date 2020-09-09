@@ -1,521 +1,772 @@
 [
     {
-        "place_id": 4742126,
+        "place_id": 681418,
         "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
         "osm_type": "node",
-        "osm_id": 546845316,
+        "osm_id": 251023849,
         "boundingbox": [
-            "49.0317509",
-            "49.0318509",
-            "2.060998",
-            "2.061098"
+            "48.8691442",
+            "48.8692442",
+            "2.3320535",
+            "2.3321535"
         ],
-        "lat": "49.0318009",
-        "lon": "2.061048",
-        "display_name": "Crêperie du Port, Avenue Jean Bart, L Isle, Port-Cergy, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "lat": "48.8691942",
+        "lon": "2.3321035",
+        "display_name": "Harry's Bar, 5, Rue Daunou, Quartier Gaillon, Paris 2e Arrondissement, Paris, Île-de-France, France métropolitaine, 75002, France",
         "class": "amenity",
-        : "pub","type"
+        "type": "bar",
+        "importance": 0.5553513341109714,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "Harry's Bar",
+            "house_number": "5",
+            "road": "Rue Daunou",
+            "suburb": "Quartier Gaillon",
+            "city_district": "Paris 2e Arrondissement",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75002",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "wikidata": "Q1334247",
+            "wheelchair": "no",
+            "toilets:wheelchair": "no",
+            "wheelchair:description": "marche à l'entrée, beaucoup de monde donc impossible de faire passer un fauteuil roulant et toilettes à l'étage."
+        },
+        "namedetails": {
+            "name": "Harry's Bar"
+        }
+    },
+    {
+        "place_id": 709786,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 251652824,
+        "boundingbox": [
+            "48.8537028",
+            "48.8538028",
+            "2.3323605",
+            "2.3324605"
+        ],
+        "lat": "48.8537528",
+        "lon": "2.3324105",
+        "display_name": "Brasserie Lipp, 151, Boulevard Saint-Germain, Quartier de Saint-Germain-des-Prés, Paris, Île-de-France, France métropolitaine, 75006, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.5023238541764916,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Brasserie Lipp",
+            "house_number": "151",
+            "road": "Boulevard Saint-Germain",
+            "suburb": "Quartier de Saint-Germain-des-Prés",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75006",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "ref:mhs": "PA00088494",
+            "heritage": "3",
+            "wikidata": "Q263359",
+            "wikipedia": "fr:Lipp",
+            "opening_hours": "Mo-Su 11:45-00:00",
+            "heritage:operator": "mhs",
+            "mhs:inscription_date": "1989"
+        },
+        "namedetails": {
+            "name": "Brasserie Lipp",
+            "name:en": "Brasserie Lipp",
+            "name:fr": "Brasserie Lipp",
+            "name:ja": "リップ (ブラッスリー)",
+            "name:zh": "著名咖啡馆"
+        }
+    },
+    {
+        "place_id": 3709699,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 428044663,
+        "boundingbox": [
+            "48.8493866",
+            "48.8494866",
+            "2.3743281",
+            "2.3744281"
+        ],
+        "lat": "48.8494366",
+        "lon": "2.3743781",
+        "display_name": "Le Bar à Mine, Rue de Charenton, Quartier des Quinze-Vingts, Paris, Île-de-France, France métropolitaine, 75012, France",
+        "class": "amenity",
+        "type": "pub",
         "importance": 0.30100000000000005,
         "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
         "address": {
-            "amenity": "Crêperie du Port",
-            "road": "Avenue Jean Bart",
-            "neighbourhood": "L Isle",
-            "suburb": "Port-Cergy",
-            "town": "Cergy",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
+            "amenity": "Le Bar à Mine",
+            "road": "Rue de Charenton",
+            "suburb": "Quartier des Quinze-Vingts",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
             "state": "Île-de-France",
             "country": "France",
-            "postcode": "95000",
+            "postcode": "75012",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "sport": "ping_pong",
+            "brewery": "Guinness;Goudale;Saint Landelin;Saint-omer;Belzébuth",
+            "happy_hours": "Mo-Sa 17:00-21:00"
+        },
+        "namedetails": {
+            "name": "Le Bar à Mine",
+            "name:fr": "Le Bar à Mine",
+            "old_name": "La crosse"
+        }
+    },
+    {
+        "place_id": 709914,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 257088173,
+        "boundingbox": [
+            "48.851428",
+            "48.851528",
+            "2.3378565",
+            "2.3379565"
+        ],
+        "lat": "48.851478",
+        "lon": "2.3379065",
+        "display_name": "Fubar, Rue Saint-Sulpice, Quartier de l'Odéon, Paris, Île-de-France, France métropolitaine, 75006, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.30100000000000005,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Fubar",
+            "road": "Rue Saint-Sulpice",
+            "suburb": "Quartier de l'Odéon",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75006",
             "country_code": "fr"
         },
         "extratags": {},
         "namedetails": {
-            "name": "Crêperie du Port"
+            "name": "Fubar"
         }
     },
     {
-        "place_id": 109797634,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 102978626,
-        "boundingbox": [
-            "49.04445",
-            "49.044776",
-            "2.071789",
-            "2.072476"
-        ],
-        "lat": "49.0446015",
-        "lon": "2.07207341165825",
-        "display_name": "Pacific Rock, 13, Rue Francis Combe, Cité Artisanale Francis Combe, Cergy Préfecture, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
-        "class": "amenity",
-        "type": "pub",
-        "importance": 0.201,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
-        "address": {
-            "amenity": "Pacific Rock",
-            "house_number": "13",
-            "road": "Rue Francis Combe",
-            "industrial": "Cité Artisanale Francis Combe",
-            "suburb": "Cergy Préfecture",
-            "town": "Cergy",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
-            "state": "Île-de-France",
-            "country": "France",
-            "postcode": "95000",
-            "country_code": "fr"
-        },
-        "extratags": {
-            "phone": "+33 1 30 38 51 05",
-            "website": "http://www.pacificrock.fr"
-        },
-        "namedetails": {
-            "name": "Pacific Rock"
-        }
-    },
-    {
-        "place_id": 71736430,
+        "place_id": 1427609,
         "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
         "osm_type": "node",
-        "osm_id": 6260715279,
+        "osm_id": 329135152,
         "boundingbox": [
-            "49.0363253",
-            "49.0364253",
-            "2.0782029",
-            "2.0783029"
+            "48.8521994",
+            "48.8522994",
+            "2.3344008",
+            "2.3345008"
         ],
-        "lat": "49.0363753",
-        "lon": "2.0782529",
-        "display_name": "O’Sullivans, Voie Privée, Vc Qua Nouvelle Prefecture, Cergy Préfecture, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "lat": "48.8522494",
+        "lon": "2.3344508",
+        "display_name": "Little Temple Bar, Rue Princesse, Quartier de Saint-Germain-des-Prés, Paris, Île-de-France, France métropolitaine, 75006, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.30100000000000005,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Little Temple Bar",
+            "road": "Rue Princesse",
+            "suburb": "Quartier de Saint-Germain-des-Prés",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75006",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "brewery": "Delirium Tremens;Pelforth;Kilkenny",
+            "cuisine": "irish",
+            "wheelchair": "limited"
+        },
+        "namedetails": {
+            "name": "Little Temple Bar"
+        }
+    },
+    {
+        "place_id": 662613,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 247439149,
+        "boundingbox": [
+            "48.8687661",
+            "48.8688661",
+            "2.3275203",
+            "2.3276203"
+        ],
+        "lat": "48.8688161",
+        "lon": "2.3275703",
+        "display_name": "Bar Hemingway, Rue Cambon, Quartier Vendôme, Paris, Île-de-France, France métropolitaine, 75001, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.30100000000000005,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "Bar Hemingway",
+            "road": "Rue Cambon",
+            "neighbourhood": "Quartier Vendôme",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75001",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "Bar Hemingway"
+        }
+    },
+    {
+        "place_id": 3731806,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 418065632,
+        "boundingbox": [
+            "48.8638911",
+            "48.8639911",
+            "2.3866885",
+            "2.3867885"
+        ],
+        "lat": "48.8639411",
+        "lon": "2.3867385",
+        "display_name": "Bar du Lycée, Boulevard de Ménilmontant, Quartier du Père-Lachaise, Paris, Île-de-France, France métropolitaine, 75020, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.30100000000000005,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "Bar du Lycée",
+            "road": "Boulevard de Ménilmontant",
+            "suburb": "Quartier du Père-Lachaise",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75020",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "Bar du Lycée"
+        }
+    },
+    {
+        "place_id": 719885,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 251758249,
+        "boundingbox": [
+            "48.8680299",
+            "48.8681299",
+            "2.3215188",
+            "2.3216188"
+        ],
+        "lat": "48.8680799",
+        "lon": "2.3215688",
+        "display_name": "Buddha Bar, Rue Boissy d'Anglas, Quartier de la Madeleine, Paris, Île-de-France, France métropolitaine, 75008, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.30100000000000005,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "Buddha Bar",
+            "road": "Rue Boissy d'Anglas",
+            "suburb": "Quartier de la Madeleine",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75008",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "bar": "cocktail",
+            "wikidata": "Q851372"
+        },
+        "namedetails": {
+            "name": "Buddha Bar"
+        }
+    },
+    {
+        "place_id": 662703,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 247467737,
+        "boundingbox": [
+            "48.8662949",
+            "48.8663949",
+            "2.3382402",
+            "2.3383402"
+        ],
+        "lat": "48.8663449",
+        "lon": "2.3382902",
+        "display_name": "Willi's Wine Bar, Rue des Petits Champs, Quartier du Palais Royal, Paris 2e Arrondissement, Paris, Île-de-France, France métropolitaine, 75001, France",
+        "class": "amenity",
+        "type": "bar",
+        "importance": 0.30100000000000005,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
+        "address": {
+            "amenity": "Willi's Wine Bar",
+            "road": "Rue des Petits Champs",
+            "neighbourhood": "Quartier du Palais Royal",
+            "city_district": "Paris 2e Arrondissement",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75001",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "Willi's Wine Bar"
+        }
+    },
+    {
+        "place_id": 1364834,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 305903405,
+        "boundingbox": [
+            "48.8850766",
+            "48.8851766",
+            "2.3251155",
+            "2.3252155"
+        ],
+        "lat": "48.8851266",
+        "lon": "2.3251655",
+        "display_name": "Lush, 16, Rue des Dames, Quartier des Batignolles, Paris 17e Arrondissement, Paris, Île-de-France, France métropolitaine, 75017, France",
         "class": "amenity",
         "type": "pub",
         "importance": 0.201,
         "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
         "address": {
-            "amenity": "O’Sullivans",
-            "road": "Voie Privée",
-            "neighbourhood": "Vc Qua Nouvelle Prefecture",
-            "suburb": "Cergy Préfecture",
-            "town": "Cergy",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
+            "amenity": "Lush",
+            "house_number": "16",
+            "road": "Rue des Dames",
+            "suburb": "Quartier des Batignolles",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
             "state": "Île-de-France",
             "country": "France",
-            "postcode": "95000",
+            "postcode": "75017",
             "country_code": "fr"
         },
         "extratags": {
+            "phone": "+33 1 43 87 49 46",
+            "brewery": "guinness;Grolsch",
+            "smoking": "outside",
+            "operator": "O'Reilly Kenneth",
+            "opening_hours": "Mo-Su 17:30-01:30",
+            "internet_access": "no"
+        },
+        "namedetails": {
+            "name": "Lush"
+        }
+    },
+    {
+        "place_id": 1381409,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 315769031,
+        "boundingbox": [
+            "48.8519126",
+            "48.8520126",
+            "2.3387819",
+            "2.3388819"
+        ],
+        "lat": "48.8519626",
+        "lon": "2.3388319",
+        "display_name": "Le Comptoir du Relais, 9, Carrefour de l'Odéon, Quartier de l'Odéon, Paris, Île-de-France, France métropolitaine, 75006, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Le Comptoir du Relais",
+            "house_number": "9",
+            "road": "Carrefour de l'Odéon",
+            "suburb": "Quartier de l'Odéon",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75006",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "cuisine": "french",
+            "opening_hours": "Mo-Su 12:00-23:00"
+        },
+        "namedetails": {
+            "name": "Le Comptoir du Relais"
+        }
+    },
+    {
+        "place_id": 1421246,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 319695790,
+        "boundingbox": [
+            "48.8323664",
+            "48.8324664",
+            "2.371199",
+            "2.371299"
+        ],
+        "lat": "48.8324164",
+        "lon": "2.371249",
+        "display_name": "The Lions, Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "The Lions",
+            "road": "Rue du Chevaleret",
+            "suburb": "Quartier de la Gare",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75013",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "phone": "+33 1 73 75 86 13",
+            "brewery": "various",
+            "smoking": "outside",
+            "website": "http://www.thelionsparis.fr",
+            "wheelchair": "limited",
+            "opening_hours": "Mo 11:00-00:00; Tu-We 11:00-01:00; Th-Fr 11:00-02:00; Sa 19:00-02:00; Su 19:00-00:00"
+        },
+        "namedetails": {
+            "name": "The Lions"
+        }
+    },
+    {
+        "place_id": 3791494,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 418073939,
+        "boundingbox": [
+            "48.8666438",
+            "48.8667438",
+            "2.3828175",
+            "2.3829175"
+        ],
+        "lat": "48.8666938",
+        "lon": "2.3828675",
+        "display_name": "Le Biarritz, Boulevard de Ménilmontant, Paris 11e Arrondissement, Paris, Île-de-France, France métropolitaine, 75011, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Le Biarritz",
+            "road": "Boulevard de Ménilmontant",
+            "suburb": "Paris 11e Arrondissement",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75011",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "Le Biarritz"
+        }
+    },
+    {
+        "place_id": 3724020,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 418142037,
+        "boundingbox": [
+            "48.8687177",
+            "48.8688177",
+            "2.3799302",
+            "2.3800302"
+        ],
+        "lat": "48.8687677",
+        "lon": "2.3799802",
+        "display_name": "L'Assassin, 99, Rue Jean-Pierre Timbaud, Quartier de la Folie-Méricourt, Paris, Île-de-France, France métropolitaine, 75011, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "L'Assassin",
+            "house_number": "99",
+            "road": "Rue Jean-Pierre Timbaud",
+            "suburb": "Quartier de la Folie-Méricourt",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75011",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "phone": "+33 1 49 23 08 96",
+            "brewery": "leffe;carlsberg;hoegaarden",
+            "website": "https://www.lassassin.fr",
+            "wheelchair": "limited",
+            "opening_hours": "Mo-Su 09:00-02:00"
+        },
+        "namedetails": {
+            "name": "L'Assassin"
+        }
+    },
+    {
+        "place_id": 3761523,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 420117472,
+        "boundingbox": [
+            "48.876981",
+            "48.877081",
+            "2.3879068",
+            "2.3880068"
+        ],
+        "lat": "48.877031",
+        "lon": "2.3879568",
+        "display_name": "L'Escargot, Rue des Solitaires, Quartier d'Amérique, Paris, Île-de-France, France métropolitaine, 75019, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "L'Escargot",
+            "road": "Rue des Solitaires",
+            "suburb": "Quartier d'Amérique",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75019",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "brewery": "leffe"
+        },
+        "namedetails": {
+            "name": "L'Escargot"
+        }
+    },
+    {
+        "place_id": 1301379,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 310363627,
+        "boundingbox": [
+            "48.8453224",
+            "48.8454224",
+            "2.3547812",
+            "2.3548812"
+        ],
+        "lat": "48.8453724",
+        "lon": "2.3548312",
+        "display_name": "L'Inévitable, Rue Linné, Quartier Saint-Victor, Paris, Île-de-France, France métropolitaine, 75005, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "L'Inévitable",
+            "road": "Rue Linné",
+            "neighbourhood": "Quartier Saint-Victor",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75005",
+            "country_code": "fr"
+        },
+        "extratags": {},
+        "namedetails": {
+            "name": "L'Inévitable"
+        }
+    },
+    {
+        "place_id": 682041,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node",
+        "osm_id": 251474115,
+        "boundingbox": [
+            "48.8422893",
+            "48.8423893",
+            "2.3497973",
+            "2.3498973"
+        ],
+        "lat": "48.8423393",
+        "lon": "2.3498473",
+        "display_name": "Le Vieux Chêne, Rue Mouffetard, Paris 5e Arrondissement, Paris, Île-de-France, France métropolitaine, 75005, France",
+        "class": "amenity",
+        "type": "pub",
+        "importance": 0.201,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+        "address": {
+            "amenity": "Le Vieux Chêne",
+            "road": "Rue Mouffetard",
+            "suburb": "Paris 5e Arrondissement",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
+            "state": "Île-de-France",
+            "country": "France",
+            "postcode": "75005",
+            "country_code": "fr"
+        },
+        "extratags": {
+            "brewery": "Tripel Karmeliet;Delirium;Chouffe",
             "smoking": "outside"
         },
         "namedetails": {
-            "name": "O’Sullivans"
+            "name": "Le Vieux Chêne"
         }
     },
     {
-        "place_id": 18261587,
+        "place_id": 1302054,
         "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
         "osm_type": "node",
-        "osm_id": 1786735481,
+        "osm_id": 308015251,
         "boundingbox": [
-            "49.0481435",
-            "49.0482435",
-            "2.0338472",
-            "2.0339472"
+            "48.8717309",
+            "48.8718309",
+            "2.3937384",
+            "2.3938384"
         ],
-        "lat": "49.0481935",
-        "lon": "2.0338972",
-        "display_name": "Le Forum, Place du Marché, La Fosse Aux Chats, Cergy Saint-Christophe, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95800, France",
+        "lat": "48.8717809",
+        "lon": "2.3937884",
+        "display_name": "Les Trois Arts, Rue du Guignier, Quartier de Belleville, Paris, Île-de-France, France métropolitaine, 75020, France",
         "class": "amenity",
         "type": "pub",
         "importance": 0.201,
         "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
         "address": {
-            "amenity": "Le Forum",
-            "road": "Place du Marché",
-            "neighbourhood": "La Fosse Aux Chats",
-            "suburb": "Cergy Saint-Christophe",
-            "town": "Cergy",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
+            "amenity": "Les Trois Arts",
+            "road": "Rue du Guignier",
+            "suburb": "Quartier de Belleville",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
             "state": "Île-de-France",
             "country": "France",
-            "postcode": "95800",
+            "postcode": "75020",
             "country_code": "fr"
         },
         "extratags": {},
         "namedetails": {
-            "name": "Le Forum"
+            "name": "Les Trois Arts"
         }
     },
     {
-        "place_id": 4750752,
+        "place_id": 681772,
         "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
         "osm_type": "node",
-        "osm_id": 546845329,
+        "osm_id": 251126259,
         "boundingbox": [
-            "49.0312336",
-            "49.0313336",
-            "2.0599527",
-            "2.0600527"
+            "48.8573414",
+            "48.8574414",
+            "2.3562778",
+            "2.3563778"
         ],
-        "lat": "49.0312836",
-        "lon": "2.0600027",
-        "display_name": "La Taverne des Rois, Quai de la Tourelle, L Isle, Port-Cergy, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "lat": "48.8573914",
+        "lon": "2.3563278",
+        "display_name": "Le Lizard Lounge, Rue du Bourg Tibourg, Quartier Saint-Gervais, Paris, Île-de-France, France métropolitaine, 75004, France",
         "class": "amenity",
         "type": "pub",
         "importance": 0.201,
         "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
         "address": {
-            "amenity": "La Taverne des Rois",
-            "road": "Quai de la Tourelle",
-            "neighbourhood": "L Isle",
-            "suburb": "Port-Cergy",
-            "town": "Cergy",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
+            "amenity": "Le Lizard Lounge",
+            "road": "Rue du Bourg Tibourg",
+            "suburb": "Quartier Saint-Gervais",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
             "state": "Île-de-France",
             "country": "France",
-            "postcode": "95000",
+            "postcode": "75004",
             "country_code": "fr"
         },
         "extratags": {
-            "website": "http://latavernedesrois.fr/",
-            "wheelchair": "yes",
-            "toilets:wheelchair": "yes"
+            "internet_access": "yes"
         },
         "namedetails": {
-            "name": "La Taverne des Rois"
+            "name": "Le Lizard Lounge"
         }
     },
     {
-        "place_id": 1271105,
+        "place_id": 1274429,
         "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
         "osm_type": "node",
-        "osm_id": 305380188,
+        "osm_id": 310363590,
         "boundingbox": [
-            "49.0369516",
-            "49.0370516",
-            "2.0788972",
-            "2.0789972"
+            "48.8455539",
+            "48.8456539",
+            "2.3547469",
+            "2.3548469"
         ],
-        "lat": "49.0370016",
-        "lon": "2.0789472",
-        "display_name": "Place de la Fontaine, Vc Qua Nouvelle Prefecture, Cergy Préfecture, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
+        "lat": "48.8456039",
+        "lon": "2.3547969",
+        "display_name": "Epsilon, Place Jussieu, Quartier Saint-Victor, Paris, Île-de-France, France métropolitaine, 75005, France",
         "class": "amenity",
         "type": "pub",
         "importance": 0.201,
         "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
         "address": {
-            "road": "Place de la Fontaine",
-            "neighbourhood": "Vc Qua Nouvelle Prefecture",
-            "suburb": "Cergy Préfecture",
-            "town": "Cergy",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
+            "amenity": "Epsilon",
+            "road": "Place Jussieu",
+            "neighbourhood": "Quartier Saint-Victor",
+            "city": "Paris",
+            "municipality": "Paris",
+            "county": "Paris",
             "state": "Île-de-France",
             "country": "France",
-            "postcode": "95000",
+            "postcode": "75005",
             "country_code": "fr"
         },
         "extratags": {
-            "layer": "1"
-        },
-        "namedetails": {}
-    },
-    {
-        "place_id": 69792432,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node",
-        "osm_id": 6140167073,
-        "boundingbox": [
-            "49.0442865",
-            "49.0443865",
-            "2.0732724",
-            "2.0733724"
-        ],
-        "lat": "49.0443365",
-        "lon": "2.0733224",
-        "display_name": "La Porte Ouverte, 16, Rue Francis Combe, Cité Artisanale Francis Combe, Cergy Préfecture, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95000, France",
-        "class": "amenity",
-        "type": "bar",
-        "importance": 0.201,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
-        "address": {
-            "amenity": "La Porte Ouverte",
-            "house_number": "16",
-            "road": "Rue Francis Combe",
-            "industrial": "Cité Artisanale Francis Combe",
-            "suburb": "Cergy Préfecture",
-            "town": "Cergy",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
-            "state": "Île-de-France",
-            "country": "France",
-            "postcode": "95000",
-            "country_code": "fr"
-        },
-        "extratags": {
-            "phone": "+33 1 34 24 10 40",
-            "brewery": "various",
-            "smoking": "outside",
-            "opening_hours": "Tu-Sa 17:00-00:30",
+            "brewery": "chouffe;Guinness;Heineken",
             "outdoor_seating": "yes"
         },
         "namedetails": {
-            "name": "La Porte Ouverte"
+            "name": "Epsilon"
         }
-    },
-    {
-        "place_id": 18040169,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node",
-        "osm_id": 1786718206,
-        "boundingbox": [
-            "49.0469772",
-            "49.0470772",
-            "2.0335229",
-            "2.0336229"
-        ],
-        "lat": "49.0470272",
-        "lon": "2.0335729",
-        "display_name": "Brasserie 2000, Avenue Mondétour, Les Genottes, Cergy Saint-Christophe, Cergy, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95800, France",
-        "class": "amenity",
-        "type": "bar",
-        "importance": 0.201,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
-        "address": {
-            "amenity": "Brasserie 2000",
-            "road": "Avenue Mondétour",
-            "neighbourhood": "Les Genottes",
-            "suburb": "Cergy Saint-Christophe",
-            "town": "Cergy",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
-            "state": "Île-de-France",
-            "country": "France",
-            "postcode": "95800",
-            "country_code": "fr"
-        },
-        "extratags": {},
-        "namedetails": {
-            "name": "Brasserie 2000"
-        }
-    },
-    {
-        "place_id": 24840333,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node",
-        "osm_id": 2432255116,
-        "boundingbox": [
-            "49.0765904",
-            "49.0766904",
-            "2.0290647",
-            "2.0291647"
-        ],
-        "lat": "49.0766404",
-        "lon": "2.0291147",
-        "display_name": "Bar Tabac de la Mairie, Impasse du Four à Ban, Le Bourg, Boissy-l'Aillerie, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95650, France",
-        "class": "amenity",
-        "type": "bar",
-        "importance": 0.201,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
-        "address": {
-            "amenity": "Bar Tabac de la Mairie",
-            "road": "Impasse du Four à Ban",
-            "neighbourhood": "Le Bourg",
-            "village": "Boissy-l'Aillerie",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
-            "state": "Île-de-France",
-            "country": "France",
-            "postcode": "95650",
-            "country_code": "fr"
-        },
-        "extratags": {
-            "wifi": "yes"
-        },
-        "namedetails": {
-            "name": "Bar Tabac de la Mairie"
-        }
-    },
-    {
-        "place_id": 46134694,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node",
-        "osm_id": 3515397525,
-        "boundingbox": [
-            "49.0606425",
-            "49.0607425",
-            "2.0593985",
-            "2.0594985"
-        ],
-        "lat": "49.0606925",
-        "lon": "2.0594485",
-        "display_name": "Bar du Centre, Rue Aristide Briand, Le Village, Immarmont, Osny, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95520, France",
-        "class": "amenity",
-        "type": "bar",
-        "importance": 0.201,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
-        "address": {
-            "amenity": "Bar du Centre",
-            "road": "Rue Aristide Briand",
-            "neighbourhood": "Le Village",
-            "hamlet": "Immarmont",
-            "town": "Osny",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
-            "state": "Île-de-France",
-            "country": "France",
-            "postcode": "95520",
-            "country_code": "fr"
-        },
-        "extratags": {},
-        "namedetails": {
-            "name": "Bar du Centre"
-        }
-    },
-    {
-        "place_id": 59916058,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node",
-        "osm_id": 5034697269,
-        "boundingbox": [
-            "49.0354898",
-            "49.0355898",
-            "2.0001202",
-            "2.0002202"
-        ],
-        "lat": "49.0355398",
-        "lon": "2.0001702",
-        "display_name": "La Renaissance, Rue Raymond Berivin, Le Village, Courdimanche, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95800, France",
-        "class": "amenity",
-        "type": "bar",
-        "importance": 0.101,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
-        "address": {
-            "amenity": "La Renaissance",
-            "road": "Rue Raymond Berivin",
-            "neighbourhood": "Le Village",
-            "village": "Courdimanche",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
-            "state": "Île-de-France",
-            "country": "France",
-            "postcode": "95800",
-            "country_code": "fr"
-        },
-        "extratags": {},
-        "namedetails": {
-            "name": "La Renaissance"
-        }
-    },
-    {
-        "place_id": 4257778,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node",
-        "osm_id": 477197159,
-        "boundingbox": [
-            "49.0105761",
-            "49.0106761",
-            "2.0285726",
-            "2.0286726"
-        ],
-        "lat": "49.0106261",
-        "lon": "2.0286226",
-        "display_name": "Les Merisiers, 2, Rue Maurice Ravel, La Croix Villecoq, Écancourt, Jouy-le-Moutier, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95280, France",
-        "class": "amenity",
-        "type": "pub",
-        "importance": 0.101,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
-        "address": {
-            "amenity": "Les Merisiers",
-            "house_number": "2",
-            "road": "Rue Maurice Ravel",
-            "neighbourhood": "La Croix Villecoq",
-            "hamlet": "Écancourt",
-            "town": "Jouy-le-Moutier",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
-            "state": "Île-de-France",
-            "country": "France",
-            "postcode": "95280",
-            "country_code": "fr"
-        },
-        "extratags": {
-            "tobacco": "yes"
-        },
-        "namedetails": {
-            "name": "Les Merisiers"
-        }
-    },
-    {
-        "place_id": 46001855,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node",
-        "osm_id": 3515431494,
-        "boundingbox": [
-            "49.060418",
-            "49.060518",
-            "2.0645753",
-            "2.0646753"
-        ],
-        "lat": "49.060468",
-        "lon": "2.0646253",
-        "display_name": "Café des Sports, Rue Aristide Briand, Le Village, Immarmont, Osny, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95520, France",
-        "class": "amenity",
-        "type": "bar",
-        "importance": 0.101,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png",
-        "address": {
-            "amenity": "Café des Sports",
-            "road": "Rue Aristide Briand",
-            "neighbourhood": "Le Village",
-            "hamlet": "Immarmont",
-            "town": "Osny",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
-            "state": "Île-de-France",
-            "country": "France",
-            "postcode": "95520",
-            "country_code": "fr"
-        },
-        "extratags": {},
-        "namedetails": {
-            "name": "Café des Sports"
-        }
-    },
-    {
-        "place_id": 1305586,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node",
-        "osm_id": 307762079,
-        "boundingbox": [
-            "49.0332223",
-            "49.0333223",
-            "2.0195782",
-            "2.0196782"
-        ],
-        "lat": "49.0332723",
-        "lon": "2.0196282",
-        "display_name": "Boulevard de l'Oise, La Bussie, Vauréal, Pontoise, Val-d'Oise, Île-de-France, France métropolitaine, 95490, France",
-        "class": "amenity",
-        "type": "pub",
-        "importance": 0.101,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
-        "address": {
-            "road": "Boulevard de l'Oise",
-            "neighbourhood": "La Bussie",
-            "town": "Vauréal",
-            "municipality": "Pontoise",
-            "county": "Val-d'Oise",
-            "state": "Île-de-France",
-            "country": "France",
-            "postcode": "95490",
-            "country_code": "fr"
-        },
-        "extratags": {},
-        "namedetails": {}
     }
 ]

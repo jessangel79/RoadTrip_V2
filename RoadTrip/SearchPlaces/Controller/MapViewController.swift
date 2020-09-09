@@ -29,12 +29,10 @@ class MapViewController: UIViewController {
     var titleName: String?
     var subtitle: String?
     var info: String?
-    
+        
     var coordinateInit: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude ?? 48.863581, longitude: longitude ?? 2.344312)
     }
-    
-    var directionsArray: [MKDirections] = []
     
     // MARK: - Actions
     
@@ -51,7 +49,6 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func locateMeButtonTapped(_ sender: UIButton) {
-        print("getPosition")
         guard let userPositionCoordinate = userPosition?.coordinate else { return }
         setupMap(coordinates: userPositionCoordinate, myLat: 0.05, myLon: 0.05)
     }
@@ -115,30 +112,6 @@ extension MapViewController: MKMapViewDelegate {
         let region = MKCoordinateRegion(center: coordinates, span: span)
         mapView.setRegion(region, animated: true)
     }
-    
-    /// to custom annotations
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-////        guard let annotation = annotation as? Poi else { return nil }
-//        var view: MKMarkerAnnotationView
-//        let poiAnnotationView = PoiAnnotationView()
-//        guard let anno = poiAnnotationView.annotation as? Poi else { return nil }
-//
-//        if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifierPoi) as? MKMarkerAnnotationView {
-////            dequeueView.annotation = annotation
-//            dequeueView.annotation = anno
-//            view = dequeueView
-//        } else {
-////            let poiAnnotationView = PoiAnnotationView()
-////            let anno = poiAnnotationView.annotation
-//            view = MKMarkerAnnotationView(annotation: anno, reuseIdentifier: identifierPoi)
-//
-////            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifierPoi)
-//            view.canShowCallout = true
-//            view.calloutOffset = CGPoint(x: -5, y: 5)
-//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-//        }
-//        return view
-//    }
     
     /// display title and info of place in an alert user with an info button
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {

@@ -6,6 +6,6 @@
 //  Copyright © 2020 Angelique Babin. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 var urlsList = [String]()

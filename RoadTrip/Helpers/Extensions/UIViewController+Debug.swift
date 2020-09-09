@@ -91,7 +91,6 @@ extension UIViewController {
         print("extratags : \(String(describing: placesList.first?.extratags))")
         print("phone : \(String(describing: placesList.first?.extratags.phone))")
         print("website : \(String(describing: placesList.first?.extratags.website))")
-        
 //        print("address : \(String(describing: placesList.first?.address))")
         print("boundingbox : \(String(describing: placesList.first?.boundingbox))")
         print("icon : \(String(describing: placesList.first?.icon))")
@@ -105,14 +104,6 @@ extension UIViewController {
         print("urlsList count : \(String(describing: urlsList.count))")
 //        print("photosList : \(String(describing: photosList))")
         print("photosList count : \(String(describing: photosList.count))")
-        
-//        var index = 0
-//        for place in placesList {
-//            print("Place N° \(index + 1) :")
-//            print("Address : \(place.address)")
-//            print("Type : \(place.type)")
-//            print("Name : \(place.displayName)")
-//            index += 1
-//        }
+
     }
 }

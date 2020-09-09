@@ -39,7 +39,6 @@ final class PlaceService {
                 return
             }
             completionHandler(true, placesSearch)
-           
         }
     }
     

@@ -23,8 +23,7 @@ class DetailsPlaceViewController: UIViewController {
     @IBOutlet weak var websiteButton: UIButton!
     @IBOutlet weak var placeMarkerButton: UIButton!
     @IBOutlet weak var calendarButton: UIButton!
-    @IBOutlet weak var addressTextView: UITextView!
-    @IBOutlet weak var typesTextView: UITextView!
+    @IBOutlet weak var detailsTextView: UITextView!
     @IBOutlet weak var bookmarkBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
     @IBOutlet var allLabels: [UILabel]!
@@ -38,14 +37,14 @@ class DetailsPlaceViewController: UIViewController {
     var placeIsSaved = false
     private var informations: String?
     let segueToMap = Constants.SegueToMap
-    
+    var placeName = String()
+    var address = String()
+
     var shareInfoPlace: String {
         guard let country = cellule?.address.country else { return "Pays N/A" }
-        guard let namePlace = cellule?.displayName.cutEndString() else { return "" }
-        guard let addressPlace = cellule?.displayName.cutStartString(2) else { return "N/A" }
-        guard let typePlace = cellule?.type.changeDash.capitalized else { return "N/A" }
+        guard let types = cellule?.type.changeDash.capitalized else { return "N/A" }
         guard let websiteUrl = URL(string: cellule?.extratags.website ?? "N/A") else { return "" }
-        return placeToShare(country, namePlace, addressPlace, typePlace, websiteUrl)
+        return placeToShare(country, placeName, address, types, websiteUrl)
     }
     
     // MARK: - Actions
@@ -66,24 +65,13 @@ class DetailsPlaceViewController: UIViewController {
         openSafari(urlString: cellule?.extratags.website ?? "")
     }
     
-//    @IBAction func placeMarkerButtonTapped(_ sender: UIButton) {
-//        for placeId in placeDetailsResultsList where placeId.placeID == placeIdCellule {
-//            guard let placeMarkerUrl = placeId.url else { return }
-//            openSafari(urlString: placeMarkerUrl)
-//        }
-//    }
-    
     @IBAction func calendarButtonTapped(_ sender: UIButton) {
-        let placeName = cellule?.displayName.cutEndString() ?? ""
-        let address = cellule?.displayName.cutStartString(2) ?? ""
         generateEvent(title: placeName, location: address)
     }
 
     @IBAction func saveBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        guard let placeName = cellule?.displayName.cutEndString() else { return }
-        guard let address = cellule?.displayName.cutStartString(2) else { return }
-        checkIfPlaceIsSaved(placeName: placeName, address: address)
-        !placeIsSaved ? savePlace() : deletePlace(placeName: placeName, address: address)
+        checkIfPlaceIsSaved()
+        !placeIsSaved ? savePlace() : deletePlace()
     }
     
     // MARK: - View Life Cycle
@@ -98,9 +86,7 @@ class DetailsPlaceViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard let placeName = cellule?.displayName.cutEndString() else { return }
-        guard let address = cellule?.displayName.cutStartString(2) else { return }
-        checkIfPlaceIsSaved(placeName: placeName, address: address)
+        checkIfPlaceIsSaved()
     }
     
     // MARK: - Methods
@@ -118,11 +104,24 @@ class DetailsPlaceViewController: UIViewController {
         customImageView(imageView: iconImageView, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
     }
     
-    func placeToShare(_ country: String, _ namePlace: String, _ addressPlace: String, _ typePlace: String, _ websiteUrl: URL) -> String {
-        var placeToShare = "🛣 Trip in \(country) 🧳 ! Hello, here is a place I want to visit : \(namePlace) to \(addressPlace) ! \n"
-        placeToShare += "✨ Activities ✨ \(typePlace) ✨ \n🌐 \(websiteUrl)"
+    func placeToShare(_ country: String, _ placeName: String, _ address: String, _ types: String, _ websiteUrl: URL) -> String {
+        let country = "🛣 Trip in \(country) 🧳 ! "
+        let placeName = "Hello, here is a place I want to visit : \(placeName) "
+        let address = "to \(address) ! \n"
+        let activities = "✨ Activities ✨ \(types) ✨ \n🌐 \(websiteUrl)"
+        let placeToShare = country + placeName + address + activities
         print("placeToShare => \(placeToShare)")
         return placeToShare
+    }
+    
+    /// open url with safari
+    func openSafari(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            presentAlert(typeError: .noWebsite)
+        }
     }
     
     private func configureDetailsPlace() {
@@ -143,13 +142,12 @@ class DetailsPlaceViewController: UIViewController {
             wifi: wifi, tobacco: tobacco))
     }
     
-    private func setCelluleData() {
-        let name = cellule?.displayName.cutEndString() ?? ""
+    func setCelluleData() {
+        placeName = cellule?.displayName.cutEndString() ?? ""
+        address = cellule?.displayName.cutStartString(2) ?? "N/A"
         let phoneNumber = cellule?.extratags.phone ?? "N/A"
-        let address = cellule?.displayName.cutStartString(2) ?? "N/A"
         let openHours = setOpeningHours(openingHours: cellule?.extratags.openingHours)
         let types = cellule?.type.capitalized ?? "N/A"
-//        let types = "\n Activities : " + (cellule?.type ?? "N/A").capitalized
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
         let rating = importance.importanceString() ?? ""
         let icon = cellule?.icon ?? ""
@@ -162,17 +160,19 @@ class DetailsPlaceViewController: UIViewController {
         
         configurePlace(parameters: PlaceParameters(
             address: address, country: country, icon: icon,
-            name: name, openDays: openHours, phoneNumber: phoneNumber,
+            name: placeName, openDays: openHours, phoneNumber: phoneNumber,
             photo: photo, rating: rating, types: types,
             website: website, informations: informations, lat: lat, lon: lon))
     }
     
     func configurePlace(parameters: PlaceParameters) {
+        let phone = "Phone : \(parameters.phoneNumber) \n"
+        let address = "Address : \(parameters.address) \n"
+        let info = "Informations : \(parameters.informations) \n"
+        let type = "Activities : \(parameters.types)"
         nameLabel.text = parameters.name
-        addressTextView.text = "Phone : \(parameters.phoneNumber) \n"
-        addressTextView.text += "Address : \(parameters.address)"
+        detailsTextView.text = phone + address + info + type
         openLabel.text = parameters.openDays
-        typesTextView.text = parameters.informations + "\n Activities : \(parameters.types)"
         ratingLabel.text = parameters.rating
         loadIcon(imageString: parameters.icon)
         setPhoto(parameters)
@@ -180,7 +180,7 @@ class DetailsPlaceViewController: UIViewController {
     
     private func setInformations(parameters: DetailsPlaceParameters) -> String? {
         informations = """
-        Informations : \n \(parameters.openDays) \n \(parameters.smoking)
+        \n \(parameters.openDays) \n \(parameters.smoking)
         \(parameters.wheelchair) \n \(parameters.toiletsWheelchair) \n \(parameters.layer)
         \(parameters.brewery) \n \(parameters.outdoorSeating) \n \(parameters.wifi) \n \(parameters.tobacco)
         """
@@ -220,7 +220,7 @@ class DetailsPlaceViewController: UIViewController {
         }
     }
     
-    func checkIfPlaceIsSaved(placeName: String, address: String) {
+    func checkIfPlaceIsSaved() {
         guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
         placeIsSaved = checkIfPlaceIsSaved
         placeIsSaved ? setBookmarkBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)) : setBookmarkBarButtonItem(color: .none)
@@ -250,8 +250,8 @@ class DetailsPlaceViewController: UIViewController {
     }
 
     /// Delete place
-    func deletePlace(placeName: String?, address: String?) {
-        coreDataManager?.deletePlace(placeName: placeName ?? "", address: address ?? "")
+    func deletePlace() {
+        coreDataManager?.deletePlace(placeName: placeName, address: address)
         setBookmarkBarButtonItem(color: .none)
         debugCoreDataPlace(nameDebug: "Place deleted", coreDataManager: coreDataManager)
     }

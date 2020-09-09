@@ -117,7 +117,7 @@
                             </stackView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jo2-Zf-GmZ">
                                 <rect key="frame" x="0.0" y="207" width="320" height="200"/>
-                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="0.75163206339999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.44794335550851605" green="0.49394252614915352" blue="0.63194003807106602" alpha="0.74785958908493155" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="hRN-Yk-2v3"/>
                                 </constraints>

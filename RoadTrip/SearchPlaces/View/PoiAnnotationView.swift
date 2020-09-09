@@ -16,7 +16,7 @@ class PoiAnnotationView: MKMarkerAnnotationView {
             canShowCallout = true
             calloutOffset = CGPoint(x: -5, y: 5)
             let infoButton = UIButton(type: .detailDisclosure)
-            infoButton.tintColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
+            infoButton.tintColor = .systemPurple
             rightCalloutAccessoryView = infoButton
             leftCalloutAccessoryView = setupLeft()
         }
@@ -32,7 +32,7 @@ class PoiAnnotationView: MKMarkerAnnotationView {
     @objc func gps() {
         guard let annotation = annotation as? Poi else { return }
         let placemark = MKPlacemark(coordinate: annotation.coordinate)
-        let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault]
         let map = MKMapItem(placemark: placemark)
         map.openInMaps(launchOptions: options)
     }

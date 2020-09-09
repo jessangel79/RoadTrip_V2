@@ -58,19 +58,6 @@ final class ListPlacesTableViewCell: UITableViewCell {
         }
     }
     
-//    var place: Result? {
-//        didSet {
-//            nameLabel.text = place?.name
-//            addressLabel.text = place?.formattedAddress
-//            openLabel.text = openResult(place?.openingHours?.openNow)
-//            loadIcon(imageString: place?.icon)
-//            priceLevelLabel.text = priceLevelString(place?.priceLevel ?? 0)
-//            ratingLabel.text = String(place?.rating ?? 0.0)
-//            let photo = place?.photos ?? [Photo]()
-//            configPhoto(photo)
-//        }
-//    }
-    
     var placeEntity: PlaceEntity? {
         didSet {
             nameLabel.text = placeEntity?.name

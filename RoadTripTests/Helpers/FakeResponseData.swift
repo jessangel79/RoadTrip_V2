@@ -24,17 +24,17 @@ class FakeResponseData {
     
     static var correctDataPlaces: Data {
         let bundle = Bundle(for: FakeResponseData.self)
-        guard let url = bundle.url(forResource: "PlacesSearch", withExtension: "json") else {
-            fatalError("PlacesSearch.json is not found.")
+        guard let url = bundle.url(forResource: "PlacesSearchOpen", withExtension: "json") else {
+            fatalError("PlacesSearchOpen.json is not found.")
         }
         guard let data = try? Data(contentsOf: url) else { return Data() }
         return data
     }
     
-    static var correctDataPlaceDetails: Data {
+    static var correctDataPhotos: Data {
         let bundle = Bundle(for: FakeResponseData.self)
-        guard let url = bundle.url(forResource: "PlaceDetails", withExtension: "json") else {
-            fatalError("PlaceDetails.json is not found.")
+        guard let url = bundle.url(forResource: "Photos", withExtension: "json") else {
+            fatalError("Photos.json is not found.")
         }
         guard let data = try? Data(contentsOf: url) else { return Data() }
         return data

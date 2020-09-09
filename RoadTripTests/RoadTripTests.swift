@@ -8,6 +8,8 @@
 
 import XCTest
 @testable import RoadTrip
+import MapKit
+import CoreLocation
 
 final class RoadTripTests: XCTestCase {
     
@@ -15,13 +17,15 @@ final class RoadTripTests: XCTestCase {
 
     var queriesList: [String]!
     var placeId: String!
+    var query: String!
     
     // MARK: - Tests Life Cycle
     
     override func setUp() {
         super.setUp()
         queriesList = ["restaurant", "paris"]
-        placeId = "ChIJqTQzIehv5kcRaF3hD1SzX5A"
+//        placeId = "ChIJqTQzIehv5kcRaF3hD1SzX5A"
+        query = "bar"
     }
 
     // MARK: - Tests GetPlaces
@@ -101,122 +105,129 @@ final class RoadTripTests: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-//    func testGetPlacesShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
-//        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.correctDataPlaces, error: nil)
-//        let placeSessionFake = PlaceSessionFake(fakeResponse: fakeResponse)
-//        let placeService = PlaceService(placeSession: placeSessionFake)
-//        
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        placeService.getPlaces(queriesList: queriesList) { (success, placesSearch) in
-//            XCTAssertTrue(success)
-//            XCTAssertNotNil(placesSearch)
-//            XCTAssertEqual(placesSearch?.results[0].name, "Le Cinq")
-//            XCTAssertEqual(placesSearch?.results[0].icon, "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png")
-//            XCTAssertEqual(placesSearch?.results[0].formattedAddress, "31 Avenue George V, 75008 Paris, France")
-//            XCTAssertEqual(placesSearch?.results[0].placeID, "ChIJqTQzIehv5kcRaF3hD1SzX5A")
-//            XCTAssertEqual(placesSearch?.results[0].priceLevel, 4)
-//            XCTAssertEqual(placesSearch?.results[0].openingHours?.openNow, false)
-//            expectation.fulfill()
-//        }
-//        
-//        wait(for: [expectation], timeout: 0.01)
-//    }
+    func testGetPlacesShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
+        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.correctDataPlaces, error: nil)
+        let placeSessionFake = PlaceSessionFake(fakeResponse: fakeResponse)
+        let placeService = PlaceService(placeSession: placeSessionFake)
+        
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        placeService.getPlaces(queriesList: queriesList) { (success, placesSearch) in
+            XCTAssertTrue(success)
+            XCTAssertNotNil(placesSearch)
+            XCTAssertEqual(placesSearch?.first?.displayName.cutEndString(), "Harry's Bar")
+            XCTAssertEqual(placesSearch?.first?.icon, "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png")
+            XCTAssertEqual(placesSearch?.first?.displayName.cutStartString(2), "5, Rue Daunou, Quartier Gaillon, Paris 2e Arrondissement, Paris, Île-de-France, France métropolitaine, 75002, France")
+            XCTAssertEqual(placesSearch?.first?.extratags.openingHours, nil)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 0.01)
+    }
     
-    // MARK: - Tests GetPlaceDetails
+    // MARK: - Tests GetPhotos
     
-//    func testGetPlaceDetailsShouldPostFailedCallback() {
-//        let fakeResponse = FakeResponse(response: nil, data: nil, error: FakeResponseData.networkError)
-//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-//
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-//            XCTAssertFalse(success)
-//            XCTAssertNil(placesDetails)
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 0.01)
-//    }
-    
-//    func testGetPlaceDetailsShouldPostFailedCallbackIfNoData() {
-//        let fakeResponse = FakeResponse(response: nil, data: FakeResponseData.incorrectData, error: nil)
-//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-//
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-//            XCTAssertFalse(success)
-//            XCTAssertNil(placesDetails)
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 0.01)
-//    }
-    
-//    func testGetPlaceDetailsShouldPostFailedCallbackIfIncorrectResponse() {
-//        let fakeResponse = FakeResponse(response: FakeResponseData.responseKO, data: FakeResponseData.correctDataPlaceDetails, error: nil)
-//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-//
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-//            XCTAssertFalse(success)
-//            XCTAssertNil(placesDetails)
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 0.01)
-//    }
-    
-//    func testGetPlaceDetailsShouldPostFailedCallbackIfResponseCorrectAndDataNil() {
-//        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: nil, error: nil)
-//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-//
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-//            XCTAssertFalse(success)
-//            XCTAssertNil(placesDetails)
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 0.01)
-//    }
-    
-//    func testGetPlaceDetailsShouldPostFailedCallbackIfIncorrectData() {
-//        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.incorrectData, error: nil)
-//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-//
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-//            XCTAssertFalse(success)
-//            XCTAssertNil(placesDetails)
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 0.01)
-//    }
-    
-//    func testGetPlaceDetailsShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
-//        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.correctDataPlaceDetails, error: nil)
-//        let placeSessionDetailsFake = PlaceSessionDetailsFake(fakeResponse: fakeResponse)
-//        let placeService = PlaceService(placeSession: placeSessionDetailsFake)
-//
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        placeService.getPlaceDetails(placeId: placeId) { (success, placesDetails) in
-//            XCTAssertTrue(success)
-//            XCTAssertNotNil(placesDetails)
-//            XCTAssertEqual(placesDetails?.result.name, "Le Cinq")
-//            XCTAssertEqual(placesDetails?.result.url, "https://maps.google.com/?cid=10403230837874187624")
-//            XCTAssertEqual(placesDetails?.result.website, "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
-//            XCTAssertEqual(placesDetails?.result.openingHours?.weekdayText, nil)
-//            XCTAssertEqual(placesDetails?.result.internationalPhoneNumber, "+33 1 49 52 71 54")
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 0.01)
-//    }
+    func testGetPhotosShouldPostFailedCallback() {
+        let fakeResponse = FakeResponse(response: nil, data: nil, error: FakeResponseData.networkError)
+        let placeSessionPhotosFake = PlaceSessionPhotosFake(fakeResponse: fakeResponse)
+        let placeService = PlaceService(placeSession: placeSessionPhotosFake)
 
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        placeService.getPhotos(query: query) { (success, photos) in
+            XCTAssertFalse(success)
+            XCTAssertNil(photos)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetPhotosShouldPostFailedCallbackIfNoData() {
+        let fakeResponse = FakeResponse(response: nil, data: FakeResponseData.incorrectData, error: nil)
+        let placeSessionPhotosFake = PlaceSessionPhotosFake(fakeResponse: fakeResponse)
+        let placeService = PlaceService(placeSession: placeSessionPhotosFake)
+
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        placeService.getPhotos(query: query) { (success, photos) in
+            XCTAssertFalse(success)
+            XCTAssertNil(photos)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetPhotosShouldPostFailedCallbackIfIncorrectResponse() {
+        let fakeResponse = FakeResponse(response: FakeResponseData.responseKO, data: FakeResponseData.correctDataPhotos, error: nil)
+        let placeSessionPhotosFake = PlaceSessionPhotosFake(fakeResponse: fakeResponse)
+        let placeService = PlaceService(placeSession: placeSessionPhotosFake)
+
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        placeService.getPhotos(query: query) { (success, photos) in
+            XCTAssertFalse(success)
+            XCTAssertNil(photos)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetPhotosShouldPostFailedCallbackIfResponseCorrectAndDataNil() {
+        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: nil, error: nil)
+        let placeSessionPhotosFake = PlaceSessionPhotosFake(fakeResponse: fakeResponse)
+        let placeService = PlaceService(placeSession: placeSessionPhotosFake)
+
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        placeService.getPhotos(query: query) { (success, photos) in
+            XCTAssertFalse(success)
+            XCTAssertNil(photos)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetPhotosShouldPostFailedCallbackIfIncorrectData() {
+        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.incorrectData, error: nil)
+        let placeSessionPhotosFake = PlaceSessionPhotosFake(fakeResponse: fakeResponse)
+        let placeService = PlaceService(placeSession: placeSessionPhotosFake)
+
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        placeService.getPhotos(query: query) { (success, photos) in
+            XCTAssertFalse(success)
+            XCTAssertNil(photos)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetPhotosShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
+        let fakeResponse = FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.correctDataPhotos, error: nil)
+        let placeSessionPhotosFake = PlaceSessionPhotosFake(fakeResponse: fakeResponse)
+        let placeService = PlaceService(placeSession: placeSessionPhotosFake)
+
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        placeService.getPhotos(query: query) { (success, photos) in
+            XCTAssertTrue(success)
+            XCTAssertNotNil(photos)
+            XCTAssertEqual(photos?.results.first?.urls.regular, "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE2MjY4MH0")
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    // MARK: - Tests Poi - Map
+    
+    func testInitPoi() {
+        let coordinateInit = CLLocationCoordinate2D(latitude: 48.8691942, longitude: 2.3321035)
+        let poi = Poi(title: "Harry's Bar",
+                      subtitle: "5, Rue Daunou, Quartier Gaillon, Paris 2e Arrondissement, Paris, Île-de-France, France métropolitaine, 75002, France",
+                      coordinate: coordinateInit, info: "Bar")
+        XCTAssertEqual("Harry's Bar", poi.title)
+        XCTAssertEqual("5, Rue Daunou, Quartier Gaillon, Paris 2e Arrondissement, Paris, Île-de-France, France métropolitaine, 75002, France", poi.subtitle)
+        XCTAssertEqual("Bar", poi.info)
+        XCTAssertEqual(48.8691942, poi.coordinate.latitude)
+        XCTAssertEqual(2.3321035, poi.coordinate.longitude)
+    }
 }

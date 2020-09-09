@@ -220,19 +220,8 @@
                                     <constraint firstAttribute="bottom" secondItem="cht-Lw-aAg" secondAttribute="bottom" constant="8" id="t6O-9b-LKq"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zk-60-fO2" userLabel="Address Text View">
-                                <rect key="frame" x="0.0" y="325" width="320" height="110"/>
-                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="iKN-nf-8Bp"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jx-23-T8P" userLabel="Type Text View">
-                                <rect key="frame" x="0.0" y="437" width="320" height="82"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jx-23-T8P" userLabel="Details Text View">
+                                <rect key="frame" x="0.0" y="324" width="320" height="195"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -245,11 +234,8 @@
                             <constraint firstItem="pwM-Hw-U0v" firstAttribute="leading" secondItem="Mus-nt-68h" secondAttribute="leading" id="5BB-bE-lWn"/>
                             <constraint firstItem="4Jx-23-T8P" firstAttribute="trailing" secondItem="Mus-nt-68h" secondAttribute="trailing" id="7D0-8T-BWY"/>
                             <constraint firstItem="4Jx-23-T8P" firstAttribute="bottom" secondItem="Mus-nt-68h" secondAttribute="bottom" id="Cw4-89-893"/>
-                            <constraint firstItem="4Jx-23-T8P" firstAttribute="top" secondItem="4Zk-60-fO2" secondAttribute="bottom" constant="2" id="HNJ-IF-1IU"/>
-                            <constraint firstItem="4Zk-60-fO2" firstAttribute="top" secondItem="pwM-Hw-U0v" secondAttribute="bottom" constant="1" id="Iwt-Az-cb4"/>
-                            <constraint firstItem="4Zk-60-fO2" firstAttribute="leading" secondItem="Mus-nt-68h" secondAttribute="leading" id="QXy-93-n9I"/>
+                            <constraint firstItem="4Jx-23-T8P" firstAttribute="top" secondItem="pwM-Hw-U0v" secondAttribute="bottom" id="asj-Zv-pGP"/>
                             <constraint firstItem="4Jx-23-T8P" firstAttribute="leading" secondItem="Mus-nt-68h" secondAttribute="leading" id="ixq-oq-2rM"/>
-                            <constraint firstItem="4Zk-60-fO2" firstAttribute="trailing" secondItem="Mus-nt-68h" secondAttribute="trailing" id="k8V-Mh-f9h"/>
                             <constraint firstItem="pwM-Hw-U0v" firstAttribute="top" secondItem="Mus-nt-68h" secondAttribute="top" id="ngV-Ga-RGd"/>
                             <constraint firstItem="pwM-Hw-U0v" firstAttribute="trailing" secondItem="Mus-nt-68h" secondAttribute="trailing" id="yA1-R9-jR3"/>
                         </constraints>
@@ -271,10 +257,10 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="addressTextView" destination="4Zk-60-fO2" id="svt-oN-Ix1"/>
                         <outlet property="baseView" destination="pwM-Hw-U0v" id="PlL-d9-uTp"/>
                         <outlet property="bookmarkBarButtonItem" destination="mRM-Vn-DsQ" id="nv4-Zp-uX3"/>
                         <outlet property="calendarButton" destination="Yvb-UT-fjw" id="1Wf-NI-2PM"/>
+                        <outlet property="detailsTextView" destination="4Jx-23-T8P" id="47d-cO-pdB"/>
                         <outlet property="iconImageView" destination="yuS-LA-Cba" id="y5M-GU-qQ8"/>
                         <outlet property="nameLabel" destination="uaj-DN-SUh" id="1De-n0-HZf"/>
                         <outlet property="openLabel" destination="1zp-2i-8i0" id="d9A-aB-Vle"/>
@@ -282,7 +268,6 @@
                         <outlet property="placeMarkerButton" destination="azm-Hd-Zao" id="OC0-jl-7UU"/>
                         <outlet property="ratingLabel" destination="DUH-7E-dfy" id="58W-ST-JlV"/>
                         <outlet property="shareBarButtonItem" destination="6op-04-UwP" id="YI9-12-1YA"/>
-                        <outlet property="typesTextView" destination="4Jx-23-T8P" id="A4g-NU-YNc"/>
                         <outlet property="violetView" destination="ox8-yV-A3F" id="OiX-t1-QhE"/>
                         <outlet property="websiteButton" destination="Fvk-Vg-0Cy" id="IdE-f6-QgS"/>
                         <outletCollection property="allLabels" destination="uaj-DN-SUh" collectionClass="NSMutableArray" id="DaO-14-gAP"/>

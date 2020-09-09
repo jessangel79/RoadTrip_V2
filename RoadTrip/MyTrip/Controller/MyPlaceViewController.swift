@@ -17,11 +17,9 @@ final class MyPlaceViewController: DetailsPlaceViewController {
 
     override var shareInfoPlace: String {
         guard let country = celluleEntity?.country else { return "Pays N/A" }
-        guard let namePlace = celluleEntity?.name else { return "" }
-        guard let addressPlace = celluleEntity?.address else { return "N/A" }
-        guard let typePlace = celluleEntity?.types else { return "N/A" }
-        guard let websiteUrl = URL(string: celluleEntity?.website ?? "N/A") else { return ""}
-        return placeToShare(country, namePlace, addressPlace, typePlace, websiteUrl)
+        guard let types = celluleEntity?.types else { return "N/A" }
+        guard let websiteUrl = URL(string: celluleEntity?.website ?? "N/A") else { return "" }
+        return placeToShare(country, placeName, address, types, websiteUrl)
     }
 
     // MARK: - Actions
@@ -36,22 +34,9 @@ final class MyPlaceViewController: DetailsPlaceViewController {
         }
     }
 
-//    @IBAction override func placeMarkerButtonTapped(_ sender: UIButton) {
-//        guard let placeMarkerUrl = cellule?.url else { return }
-//        openSafari(urlString: placeMarkerUrl)
-//    }
-
-    @IBAction override func calendarButtonTapped(_ sender: UIButton) {
-        let title = celluleEntity?.name ?? ""
-        let location = celluleEntity?.address ?? ""
-        super.generateEvent(title: title, location: location)
-    }
-
     @IBAction override func saveBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        guard let placeName = celluleEntity?.name else { return }
-        guard let address = celluleEntity?.address else { return }
-        checkIfPlaceIsSaved(placeName: placeName, address: address)
-        deletePlace(placeName: placeName, address: address)
+        checkIfPlaceIsSaved()
+        deletePlace()
         navigationController?.popViewController(animated: true)
 
     }
@@ -60,18 +45,16 @@ final class MyPlaceViewController: DetailsPlaceViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let placeName = celluleEntity?.name else { return }
-        guard let address = celluleEntity?.address else { return }
-        checkIfPlaceIsSaved(placeName: placeName, address: address)
-        setCelluleEntityData(address)
+        checkIfPlaceIsSaved()
     }
     
     override func viewWillAppear(_ animated: Bool) {}
     
     // MARK: - Methods
     
-    private func setCelluleEntityData(_ address: String) {
-        let name = celluleEntity?.name ?? ""
+    override func setCelluleData() {
+        placeName = celluleEntity?.name ?? ""
+        address = celluleEntity?.address ?? ""
         guard let phoneNumber = celluleEntity?.phoneNumber else { return }
         let openHours = setOpeningHours(openingHours: celluleEntity?.openDays)
         let informations = celluleEntity?.informations ?? ""
@@ -83,10 +66,10 @@ final class MyPlaceViewController: DetailsPlaceViewController {
         let photo = celluleEntity?.photo ?? ""
         let lat = celluleEntity?.lat ?? ""
         let lon = celluleEntity?.lon ?? ""
-        
+
         configurePlace(parameters: PlaceParameters(
             address: address, country: country, icon: icon,
-            name: name, openDays: openHours, phoneNumber: phoneNumber,
+            name: placeName, openDays: openHours, phoneNumber: phoneNumber,
             photo: photo, rating: rating, types: types,
             website: website, informations: informations, lat: lat, lon: lon))
     }

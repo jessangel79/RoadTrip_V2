@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "icons8-track_order.png",
+      "filename" : "icons8-track-order-64.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-track_order-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-track_order-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

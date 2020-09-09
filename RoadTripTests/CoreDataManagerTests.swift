@@ -35,12 +35,13 @@ final class CoreDataManagerTests: XCTestCase {
     private func createPlace(placeName: String, address: String) {
         coreDataManager.createPlace(parameters: PlaceParameters(
             address: address, country: "France",
-            icon: "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
-            name: placeName, openDays: "N/A",
-            phoneNumber: "+33 1 49 52 71 54", photo: "",
-            rating: "", types: "4",
-            website: "Bar, Restaurant, Food, Point Of Interest, Establishment",
-            informations: "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
+            icon: "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+            name: placeName, openDays: "Mo 11:00-00:00; Tu-We 11:00-01:00; Th-Fr 11:00-02:00; Sa 19:00-02:00; Su 19:00-00:00",
+            phoneNumber: "+33 1 73 75 86 13", photo: "",
+            rating: "0.201", types: "pub",
+            website: "http://www.thelionsparis.fr",
+            informations: "",
+            lat: "49.0318009", lon: "2.061048")
         )
     }
     
@@ -57,8 +58,8 @@ final class CoreDataManagerTests: XCTestCase {
 //    }
     
     private func createPlaces() {
-        createPlace(placeName: "Le Cinq", address: "31 Avenue George V, 75008 Paris, France")
-        createPlace(placeName: "Madito", address: "38 Rue de Cîteaux, 75012 Paris, France")
+        createPlace(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
+        createPlace(placeName: "Le Biarritz", address: "Boulevard de Ménilmontant, Paris 11e Arrondissement, Paris, Île-de-France, France métropolitaine, 75011, France")
     }
     
     private func createDetailsTrip(nameTrip: String, travellerOne: String) {
@@ -94,37 +95,34 @@ final class CoreDataManagerTests: XCTestCase {
     // MARK: - Tests PlaceEntity
 
     func testAddPlaceMethods_WhenAnEntityIsCreated_ThenShouldBeCorrectlySaved() {
-        createPlace(placeName: "Le Cinq", address: "31 Avenue George V, 75008 Paris, France")
+        createPlace(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
         XCTAssertTrue(!coreDataManager.places.isEmpty)
         XCTAssertTrue(coreDataManager.places.count == 1)
-        XCTAssertTrue(coreDataManager.places[0].address == "31 Avenue George V, 75008 Paris, France")
+        XCTAssertTrue(coreDataManager.places[0].address == "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
         XCTAssertTrue(coreDataManager.places[0].country == "France")
-        XCTAssertTrue(coreDataManager.places[0].icon == "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png")
-        XCTAssertTrue(coreDataManager.places[0].name == "Le Cinq")
-        XCTAssertTrue(coreDataManager.places[0].openDays == "N/A")
-//        XCTAssertTrue(coreDataManager.places[0].openNow == false)
-        XCTAssertTrue(coreDataManager.places[0].phoneNumber == "+33 1 49 52 71 54")
-//        XCTAssertTrue(coreDataManager.places[0].placeID == "ChIJqTQzIehv5kcRaF3hD1SzX5A")
-//        XCTAssertTrue(coreDataManager.places[0].priceLevel == 4)
-        XCTAssertTrue(coreDataManager.places[0].rating == "4")
-        XCTAssertTrue(coreDataManager.places[0].types == "Bar, Restaurant, Food, Point Of Interest, Establishment")
-//        XCTAssertTrue(coreDataManager.places[0].url == "https://maps.google.com/?cid=10403230837874187624")
-//        XCTAssertTrue(coreDataManager.places[0].userRatingsTotal == 1107)
-        XCTAssertTrue(coreDataManager.places[0].website == "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
+        XCTAssertTrue(coreDataManager.places[0].icon == "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png")
+        XCTAssertTrue(coreDataManager.places[0].name == "The Lions")
+        XCTAssertTrue(coreDataManager.places[0].openDays == "Mo 11:00-00:00; Tu-We 11:00-01:00; Th-Fr 11:00-02:00; Sa 19:00-02:00; Su 19:00-00:00")
+        XCTAssertTrue(coreDataManager.places[0].phoneNumber == "+33 1 73 75 86 13")
+        XCTAssertTrue(coreDataManager.places[0].rating == "0.201")
+        XCTAssertTrue(coreDataManager.places[0].types == "pub")
+        XCTAssertTrue(coreDataManager.places[0].website == "http://www.thelionsparis.fr")
         
-        let placeIsSaved = coreDataManager.checkIfPlaceIsSaved(placeName: "Le Cinq", address: "31 Avenue George V, 75008 Paris, France")
+        let placeIsSaved = coreDataManager.checkIfPlaceIsSaved(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
         XCTAssertTrue(coreDataManager.places.count > 0)
         XCTAssertTrue(placeIsSaved)
     }
 
     func testDeletePlaceMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
         createPlaces()
-        coreDataManager.deletePlace(placeName: "Le Cinq", address: "31 Avenue George V, 75008 Paris, France")
+        coreDataManager.deletePlace(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
 
-        let placeIsSavedOne = coreDataManager.checkIfPlaceIsSaved(placeName: "Le Cinq", address: "31 Avenue George V, 75008 Paris, France")
+        let placeIsSavedOne = coreDataManager.checkIfPlaceIsSaved(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
         XCTAssertFalse(placeIsSavedOne)
 
-        let placeIsSavedTwo = coreDataManager.checkIfPlaceIsSaved(placeName: "Madito", address: "38 Rue de Cîteaux, 75012 Paris, France")
+        let placeIsSavedTwo = coreDataManager.checkIfPlaceIsSaved(
+            placeName: "Le Biarritz", address: "Boulevard de Ménilmontant, Paris 11e Arrondissement, Paris, Île-de-France, France métropolitaine, 75011, France"
+        )
         XCTAssertTrue(placeIsSavedTwo)
         XCTAssertFalse(coreDataManager.places.isEmpty)
     }
@@ -134,10 +132,12 @@ final class CoreDataManagerTests: XCTestCase {
         coreDataManager.deleteAllPlaces()
         XCTAssertTrue(coreDataManager.places.isEmpty)
 
-        let placeIsSavedOne = coreDataManager.checkIfPlaceIsSaved(placeName: "Le Cinq", address: "31 Avenue George V, 75008 Paris, France")
+        let placeIsSavedOne = coreDataManager.checkIfPlaceIsSaved(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
         XCTAssertFalse(placeIsSavedOne)
         
-        let placeIsSavedTwo = coreDataManager.checkIfPlaceIsSaved(placeName: "Madito", address: "38 Rue de Cîteaux, 75012 Paris, France")
+        let placeIsSavedTwo = coreDataManager.checkIfPlaceIsSaved(
+            placeName: "Le Biarritz", address: "Boulevard de Ménilmontant, Paris 11e Arrondissement, Paris, Île-de-France, France métropolitaine, 75011, France"
+        )
         XCTAssertFalse(placeIsSavedTwo)
     }
     

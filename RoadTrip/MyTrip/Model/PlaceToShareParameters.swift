@@ -12,9 +12,9 @@ import Foundation
 
 struct PlaceToShareParameters {
     let country: String
-    let namePlace: String
-    let addressPlace: String
-    let typePlace: String
+    let placeName: String
+    let address: String
+    let types: String
     let websiteUrl: URL
     let index: Int
 }

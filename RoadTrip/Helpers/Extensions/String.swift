@@ -100,35 +100,4 @@ extension String {
             return Importance.noa.rawValue
         }
     }
-    
-//    func importanceString() -> String? {
-//        switch self {
-//        case "0.1":
-//            return Importance.one.importanceFunc()
-//        case "0.2":
-//            return Importance.two.importanceFunc()
-//        case "0.3":
-//            return Importance.three.importanceFunc()
-//        case "0.4":
-//            return Importance.four.importanceFunc()
-//        case "0.5":
-//             return Importance.five.importanceFunc()
-//        case "0.6":
-//             return Importance.six.importanceFunc()
-//        case "0.7":
-//             return Importance.seven.importanceFunc()
-//        case "0.8":
-//             return Importance.eight.importanceFunc()
-//        case "0.9":
-//             return Importance.nine.importanceFunc()
-//        default:
-//            return Importance.noa.importanceFunc()
-//        }
-//    }
-    
-//            let length = 20
-//            if placeName.count > length {
-//                var shortName = Substring(placeName)
-//                return String(shortName)
-//            }
 }
