@@ -35,6 +35,11 @@
 		3A5FF4F42434D94C00C2B395 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FF4F32434D94C00C2B395 /* MockCoreDataStack.swift */; };
 		3A5FF4F62434D98A00C2B395 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FF4F52434D98A00C2B395 /* CoreDataManagerTests.swift */; };
 		3A631DBE2428F0D70023BFCA /* ImagesBackgroundList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A631DBD2428F0D70023BFCA /* ImagesBackgroundList.swift */; };
+		3A70AD51250A94B300C1CD09 /* Informations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A70AD50250A94B300C1CD09 /* Informations.storyboard */; };
+		3A70AD54250A9BF000C1CD09 /* InformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A70AD53250A9BF000C1CD09 /* InformationsViewController.swift */; };
+		3A70AD56250A9DB800C1CD09 /* WebViewInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A70AD55250A9DB800C1CD09 /* WebViewInformationsViewController.swift */; };
+		3A70AD58250A9E4900C1CD09 /* UiViewController+WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A70AD57250A9E4900C1CD09 /* UiViewController+WKWebView.swift */; };
+		3A70AD5A250AA96600C1CD09 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A70AD59250AA96600C1CD09 /* WebKit.framework */; };
 		3A755CB523EDA3DE00889FA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CB423EDA3DE00889FA5 /* AppDelegate.swift */; };
 		3A755CBC23EDA3DE00889FA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A755CBA23EDA3DE00889FA5 /* Main.storyboard */; };
 		3A755CBF23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CBD23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld */; };
@@ -133,6 +138,11 @@
 		3A5FF4F32434D94C00C2B395 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		3A5FF4F52434D98A00C2B395 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
 		3A631DBD2428F0D70023BFCA /* ImagesBackgroundList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesBackgroundList.swift; sourceTree = "<group>"; };
+		3A70AD50250A94B300C1CD09 /* Informations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Informations.storyboard; sourceTree = "<group>"; };
+		3A70AD53250A9BF000C1CD09 /* InformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsViewController.swift; sourceTree = "<group>"; };
+		3A70AD55250A9DB800C1CD09 /* WebViewInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewInformationsViewController.swift; sourceTree = "<group>"; };
+		3A70AD57250A9E4900C1CD09 /* UiViewController+WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiViewController+WKWebView.swift"; sourceTree = "<group>"; };
+		3A70AD59250AA96600C1CD09 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3A755CB123EDA3DE00889FA5 /* RoadTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A755CB423EDA3DE00889FA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A755CBB23EDA3DE00889FA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A70AD5A250AA96600C1CD09 /* WebKit.framework in Frameworks */,
 				3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */,
 				3A5FF4EC2434C66300C2B395 /* Pods_RoadTrip.framework in Frameworks */,
 			);
@@ -208,6 +219,7 @@
 		18A73A4B8CFE3F51A74F6441 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A70AD59250AA96600C1CD09 /* WebKit.framework */,
 				3A0E376824129BBF00039FD3 /* NetworkExtension.framework */,
 				3A36190124059795002A29BA /* Alamofire.framework */,
 				3A3618FD24059328002A29BA /* Alamofire.framework */,
@@ -226,6 +238,32 @@
 				3A5FF4F12434D52A00C2B395 /* PlaceSessionPhotosFake.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3A70AD4D250A945300C1CD09 /* Informations */ = {
+			isa = PBXGroup;
+			children = (
+				3A70AD4F250A948C00C1CD09 /* Controller */,
+				3A70AD4E250A948300C1CD09 /* View */,
+			);
+			path = Informations;
+			sourceTree = "<group>";
+		};
+		3A70AD4E250A948300C1CD09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A70AD50250A94B300C1CD09 /* Informations.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A70AD4F250A948C00C1CD09 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3A70AD53250A9BF000C1CD09 /* InformationsViewController.swift */,
+				3A70AD55250A9DB800C1CD09 /* WebViewInformationsViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		3A755CA823EDA3DE00889FA5 = {
@@ -257,6 +295,7 @@
 				3AC005F324FE745B008CD822 /* MyTrip */,
 				3AC005EF24FE7446008CD822 /* Details */,
 				3AC005EB24FE742F008CD822 /* PackingList */,
+				3A70AD4D250A945300C1CD09 /* Informations */,
 				3AC005F724FE77BB008CD822 /* Helpers */,
 				3A755CDD23EDB02E00889FA5 /* Supporting Files */,
 			);
@@ -299,6 +338,7 @@
 				3AFA6203241A67430055E8E8 /* UIViewController+ActivityIndicator.swift */,
 				3A0E376C2412A9E200039FD3 /* UIViewController+EventKit.swift */,
 				3AFA6207241A67B60055E8E8 /* UIViewController+Debug.swift */,
+				3A70AD57250A9E4900C1CD09 /* UiViewController+WKWebView.swift */,
 				3A02015D23F4788300CDDEED /* String.swift */,
 				3A832AB123FEC049008E7237 /* UITableViewCell.swift */,
 				3AE7F56F241A944300751764 /* Date.swift */,
@@ -588,6 +628,7 @@
 				3AC005FF24FE7E57008CD822 /* PackingList.storyboard in Resources */,
 				3A755CBC23EDA3DE00889FA5 /* Main.storyboard in Resources */,
 				3A30E9F923F597BC00532EDD /* ListPlacesTableViewCell.xib in Resources */,
+				3A70AD51250A94B300C1CD09 /* Informations.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +752,7 @@
 				3AA339EE23FDA21B00356B6B /* DetailsPlaceViewController.swift in Sources */,
 				3A2DB4B324003D9500709183 /* PlaceToShareParameters.swift in Sources */,
 				3A755CB523EDA3DE00889FA5 /* AppDelegate.swift in Sources */,
+				3A70AD56250A9DB800C1CD09 /* WebViewInformationsViewController.swift in Sources */,
 				3ABB99AA241963B8007CE8FA /* AddDetailsMyTripViewController.swift in Sources */,
 				3ADD71C9242A365A00CD4081 /* AddItemViewController.swift in Sources */,
 				3ABB99A024190D66007CE8FA /* DetailsMyTripViewController.swift in Sources */,
@@ -730,10 +772,12 @@
 				3ABB99A524194CF8007CE8FA /* DetailsMyTripTableViewCell.swift in Sources */,
 				3A34E808241F917400237610 /* UITextField.swift in Sources */,
 				3A30E9FD23F5A21C00532EDD /* Constants.swift in Sources */,
+				3A70AD54250A9BF000C1CD09 /* InformationsViewController.swift in Sources */,
 				3A755CBF23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld in Sources */,
 				3ADD71C6242A339D00CD4081 /* Categories.swift in Sources */,
 				3AFA6202241A66F60055E8E8 /* UIViewController+CustomUI.swift in Sources */,
 				3AD895E825028B5200E8902F /* DetailsPlaceParameters.swift in Sources */,
+				3A70AD58250A9E4900C1CD09 /* UiViewController+WKWebView.swift in Sources */,
 				3AF881BC23F16A46005F64ED /* PlaceService.swift in Sources */,
 				3ABB99A8241961CD007CE8FA /* DetailsTrip.swift in Sources */,
 				3A0E58E724081605000123D5 /* PlaceParameters.swift in Sources */,

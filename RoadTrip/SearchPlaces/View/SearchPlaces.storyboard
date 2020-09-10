@@ -145,6 +145,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="RoadTrip" id="HHw-8e-4tt">
                         <barButtonItem key="backBarButtonItem" title="Back" id="0Vt-Fr-HpN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Info" image="info-credits" id="lq5-9L-2rs">
+                            <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="HxG-zb-gWn" kind="show" id="KWl-GO-u6b"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="xTl-zf-y5g" id="b5h-ko-q4x"/>
@@ -164,6 +170,16 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1727" y="-724"/>
+        </scene>
+        <!--Informations-->
+        <scene sceneID="TKF-hC-oSg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Informations" id="HxG-zb-gWn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7SD-AN-0Wq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNT-LS-ZNV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2334" y="-1200"/>
         </scene>
         <!--List Places View Controller-->
         <scene sceneID="53X-w7-q72">
@@ -474,6 +490,7 @@
         <image name="bookmark_fill" width="25" height="25"/>
         <image name="coucher-du-soleil_1024x1024" width="1024" height="1024"/>
         <image name="europe" width="25" height="25"/>
+        <image name="info-credits" width="25" height="25"/>
         <image name="palm-island_1024x768" width="1024" height="768"/>
         <image name="placemarker" width="25" height="25"/>
         <image name="placemarker-url" width="50" height="50"/>

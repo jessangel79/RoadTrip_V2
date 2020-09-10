@@ -27,5 +27,5 @@ struct Constants {
     static var Item = "item"
     static let SegueToMap = "segueToMap"
     static let IdentifierPoi = "poi"
-
+    static let SegueToWebsiteInfo = "segueToWebsiteInfo"
 }

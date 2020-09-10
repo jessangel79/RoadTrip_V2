@@ -62,7 +62,7 @@ class DetailsPlaceViewController: UIViewController {
         if cellule?.extratags.website == nil {
             presentAlert(typeError: .noWebsite)
         }
-        openSafari(urlString: cellule?.extratags.website ?? "")
+        openSafari(cellule?.extratags.website ?? "")
     }
     
     @IBAction func calendarButtonTapped(_ sender: UIButton) {
@@ -115,14 +115,14 @@ class DetailsPlaceViewController: UIViewController {
     }
     
     /// open url with safari
-    func openSafari(urlString: String) {
-        guard let url = URL(string: urlString) else { return }
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url)
-        } else {
-            presentAlert(typeError: .noWebsite)
-        }
-    }
+//    func openSafari(urlString: String) {
+//        guard let url = URL(string: urlString) else { return }
+//        if UIApplication.shared.canOpenURL(url) {
+//            UIApplication.shared.open(url)
+//        } else {
+//            presentAlert(typeError: .noWebsite)
+//        }
+//    }
     
     private func configureDetailsPlace() {
         let openDays = "- Opening Hours : " + (cellule?.extratags.openingHours ?? "N/A")

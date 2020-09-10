@@ -29,7 +29,7 @@ final class MyPlaceViewController: DetailsPlaceViewController {
             if websiteUrl == "N/A" {
                 presentAlert(typeError: .noWebsite)
             } else {
-                openSafari(urlString: websiteUrl)
+                openSafari(websiteUrl)
             }
         }
     }
