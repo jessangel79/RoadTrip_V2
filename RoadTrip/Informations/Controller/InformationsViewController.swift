@@ -15,30 +15,31 @@ final class InformationsViewController: UIViewController {
     private let segueToWebsiteInfo = Constants.SegueToWebsiteInfo
     private let badgeLinkedIn = "https://www.linkedin.com/mwlite/in/ang%C3%A9lique-babin-158aa874"
     private let badgeDevTo = "https://dev.to/angelappdev"
-    private var badge = String()
+    private let manthana = "https://www.iconfinder.com/Manthana"
+    private let iconfinder = "https://www.iconfinder.com/"
+    private let angelAppDev = "http://www.angelappdev.io"
+    private var urlString = String()
     
     // MARK: - Actions
     
     @IBAction private func manthanaButtonTapped(_ sender: UIButton) {
-        openSafari("https://www.iconfinder.com/Manthana")
+        openWebView(manthana)
     }
     
     @IBAction private func iconfinderButtonTapped(_ sender: UIButton) {
-        openSafari("https://www.iconfinder.com/")
+        openWebView(iconfinder)
     }
     
     @IBAction private func angelAppDevButtonTapped(_ sender: UIButton) {
-        openSafari("http://www.angelappdev.io")
+        openWebView(angelAppDev)
     }
     
     @IBAction private func badgeProButtonTapped(_ sender: UIButton) {
-        badge = badgeLinkedIn
-        performSegue(withIdentifier: segueToWebsiteInfo, sender: self)
+        openWebView(badgeLinkedIn)
     }
     
     @IBAction private func badgeDevButtonTapped(_ sender: UIButton) {
-        badge = badgeDevTo
-        performSegue(withIdentifier: segueToWebsiteInfo, sender: self)
+        openWebView(badgeDevTo)
     }
     
     // MARK: - View Life Cycle
@@ -52,6 +53,13 @@ final class InformationsViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isToolbarHidden = true
     }
+    
+    // MARK: - Methods
+    
+    private func openWebView(_ urlString: String) {
+        self.urlString = urlString
+        performSegue(withIdentifier: segueToWebsiteInfo, sender: self)
+    }
 }
 
 // MARK: - Navigation
@@ -60,7 +68,7 @@ extension InformationsViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueToWebsiteInfo {
             guard let websiteInfoVC = segue.destination as? WebViewInformationsViewController else { return }
-            websiteInfoVC.badge = self.badge
+            websiteInfoVC.urlString = self.urlString
         }
     }
 }

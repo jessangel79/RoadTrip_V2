@@ -157,8 +157,8 @@
 		3A755CE123EDB12600889FA5 /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		3A755CE523EDB2FE00889FA5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3A755CE923EDD63200889FA5 /* PlaceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceProtocol.swift; sourceTree = "<group>"; };
+		3A8129A7250BB92A00022AB9 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		3A832AB123FEC049008E7237 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
-		3A8806E02508EA1C00414F7B /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		3A8806E12508F2F000414F7B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		3A8806E325094A8400414F7B /* Photos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Photos.json; sourceTree = "<group>"; };
 		3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlacesSearchOpen.json; sourceTree = "<group>"; };
@@ -511,8 +511,8 @@
 			isa = PBXGroup;
 			children = (
 				3A755CDE23EDB0A100889FA5 /* Extensions */,
+				3A8129A7250BB92A00022AB9 /* Location.gpx */,
 				3A30E9FC23F5A21C00532EDD /* Constants.swift */,
-				3A8806E02508EA1C00414F7B /* Location.gpx */,
 				3A631DBD2428F0D70023BFCA /* ImagesBackgroundList.swift */,
 				3A2932BF249CF98000F672B8 /* UrlsList.swift */,
 			);

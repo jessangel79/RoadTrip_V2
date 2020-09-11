@@ -17,16 +17,6 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     @IBOutlet private weak var safariBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var shareBarButtonItem: UIBarButtonItem!
     
-    // MARK: - Actions
-    
-    @IBAction private func safariBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        openSafari(badge)
-    }
-    
-    @IBAction private func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        shareContent(website: badge, shareBarButtonItem: shareBarButtonItem, view: self)
-    }
-    
     // MARK: - Properties
     
     private let forwardBarItem = UIBarButtonItem(title: ">>", style: .plain, target: self,
@@ -34,7 +24,17 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     private let backBarItem = UIBarButtonItem(title: "<<", style: .plain, target: self,
                                       action: #selector(backAction))
     private let refreshBarItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
-    var badge = String()
+    var urlString = String()
+    
+    // MARK: - Actions
+    
+    @IBAction private func safariBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        openSafari(urlString)
+    }
+    
+    @IBAction private func shareBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        shareContent(website: urlString, shareBarButtonItem: shareBarButtonItem, view: self)
+    }
         
     // MARK: - View Life Cycle
 
@@ -42,7 +42,7 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         let barItemsCollection: [UIBarButtonItem] = [forwardBarItem, refreshBarItem, backBarItem]
         setupWebView(webView: webView, barItemsCollection: barItemsCollection)
-        loadWebsite(badge, webView: webView)
+        loadWebsite(urlString, webView: webView)
     }
     
     // MARK: - Methods

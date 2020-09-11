@@ -114,16 +114,6 @@ class DetailsPlaceViewController: UIViewController {
         return placeToShare
     }
     
-    /// open url with safari
-//    func openSafari(urlString: String) {
-//        guard let url = URL(string: urlString) else { return }
-//        if UIApplication.shared.canOpenURL(url) {
-//            UIApplication.shared.open(url)
-//        } else {
-//            presentAlert(typeError: .noWebsite)
-//        }
-//    }
-    
     private func configureDetailsPlace() {
         let openDays = "- Opening Hours : " + (cellule?.extratags.openingHours ?? "N/A")
         let smoking = "- Smoking : " + (cellule?.extratags.smoking?.capitalized ?? "N/A")

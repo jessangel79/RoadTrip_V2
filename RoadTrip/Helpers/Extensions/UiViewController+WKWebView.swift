@@ -36,7 +36,7 @@ extension UIViewController {
     }
     
     private func setupToolBar() {
-        navigationController?.toolbar.barTintColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
+        navigationController?.toolbar.barTintColor = #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1)
         navigationController?.isToolbarHidden = false
     }
     
