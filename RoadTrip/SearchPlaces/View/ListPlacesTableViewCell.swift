@@ -21,7 +21,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var ratingView: UIView!
     @IBOutlet private var allLabels: [UILabel]!
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var baseView: UIView!
     
     // MARK: - Properties
     
@@ -35,9 +35,11 @@ final class ListPlacesTableViewCell: UITableViewCell {
     }
     
     private func customCell() {
-        customLabelsCell(labels: allLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
-        customViewCell(view: ratingView)
-        customImageViewCell(imageView: iconImageView, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
+        customLabelsCell(labels: allLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.7209171661), colorBorder: UIColor.gray)
+        customViewCell(view: ratingView, colorBorder: UIColor.gray, width: 1.0, colorBackground: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.7209171661))
+        customViewCell(view: baseView, colorBorder: #colorLiteral(red: 0.2532418037, green: 0.05658567593, blue: 0.2074308577, alpha: 1), width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
+//        customViewCell(view: ratingView)
+        customImageViewCell(imageView: iconImageView, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.7209171661), colorBorder: UIColor.gray)
     }
     
     var place: PlacesSearchElement? {

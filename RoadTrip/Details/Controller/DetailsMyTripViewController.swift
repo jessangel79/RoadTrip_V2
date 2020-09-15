@@ -64,7 +64,6 @@ class DetailsMyTripViewController: UIViewController {
     func resetAll() {
         coreDataManager?.deleteAllDetailsTrip()
         myTripTableView.reloadData()
-        debugCoreDataDetailsTrip(nameDebug: "All details \(tabType) deleted", coreDataManager: coreDataManager)
     }
     
     func showAlertResetAll() {
@@ -117,7 +116,6 @@ extension DetailsMyTripViewController: UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         myTripTableView.reloadData()
-        debugCoreDataDetailsTrip(nameDebug: "The \(tabType) is deleted", coreDataManager: coreDataManager)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

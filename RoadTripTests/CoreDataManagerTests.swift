@@ -45,18 +45,6 @@ final class CoreDataManagerTests: XCTestCase {
         )
     }
     
-//    private func createPlace(placeName: String, address: String) {
-//        coreDataManager.createPlace(parameters: PlaceParameters(
-//            address: address, country: "France",
-//            icon: "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
-//            name: placeName, openDays: "N/A",
-//            phoneNumber: "+33 1 49 52 71 54", photo: "",
-//            informations: "", rating: "4",
-//            types: "Bar, Restaurant, Food, Point Of Interest, Establishment",
-//            website: "http://www.restaurant-lecinq.com/?seo=google_local_par2_emea")
-//        )
-//    }
-    
     private func createPlaces() {
         createPlace(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
         createPlace(placeName: "Le Biarritz", address: "Boulevard de Ménilmontant, Paris 11e Arrondissement, Paris, Île-de-France, France métropolitaine, 75011, France")
@@ -105,7 +93,7 @@ final class CoreDataManagerTests: XCTestCase {
         XCTAssertTrue(coreDataManager.places[0].openDays == "Mo 11:00-00:00; Tu-We 11:00-01:00; Th-Fr 11:00-02:00; Sa 19:00-02:00; Su 19:00-00:00")
         XCTAssertTrue(coreDataManager.places[0].phoneNumber == "+33 1 73 75 86 13")
         XCTAssertTrue(coreDataManager.places[0].rating == "0.201")
-        XCTAssertTrue(coreDataManager.places[0].types == "pub")
+        XCTAssertTrue(coreDataManager.places[0].types?.changeDash.capitalized == "Pub")
         XCTAssertTrue(coreDataManager.places[0].website == "http://www.thelionsparis.fr")
         
         let placeIsSaved = coreDataManager.checkIfPlaceIsSaved(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
@@ -148,9 +136,16 @@ final class CoreDataManagerTests: XCTestCase {
         XCTAssertTrue(!coreDataManager.detailsTrips.isEmpty)
         XCTAssertTrue(coreDataManager.detailsTrips.count == 1)
         XCTAssertTrue(coreDataManager.detailsTrips[0].name == "Trip to London")
-        XCTAssertTrue(coreDataManager.detailsTrips[0].startDate == "01/04/2020")
-        XCTAssertTrue(coreDataManager.detailsTrips[0].endDate == "01/05/2020")
+        
+        let startDate = coreDataManager.detailsTrips[0].startDate ?? ""
+        let endDate = coreDataManager.detailsTrips[0].endDate ?? ""
+        XCTAssertTrue(startDate == "01/04/2020")
+        XCTAssertTrue(endDate == "01/05/2020")
         XCTAssertTrue(coreDataManager.detailsTrips[0].numberDays == "30 days")
+        
+        let numberDays = endDate.toDate().timeSinceDateInDays(fromDate: startDate.toDate())
+        XCTAssertEqual(numberDays, "30 days")
+        
         XCTAssertTrue(coreDataManager.detailsTrips[0].travellerOne == "Hugo")
         XCTAssertTrue(coreDataManager.detailsTrips[0].travellerTwo == "Fred")
         XCTAssertTrue(coreDataManager.detailsTrips[0].travellerThree == "Lili")
@@ -217,7 +212,7 @@ final class CoreDataManagerTests: XCTestCase {
         XCTAssertTrue(coreDataManager.items[0].imageBackground == "lac-en-suisse_1024x1024.jpg")
         XCTAssertTrue(coreDataManager.items[0].category == "Clothes")
         XCTAssertTrue(coreDataManager.items[0].itemIsCheck == false)
-        XCTAssertTrue(coreDataManager.items[0].categoryImage == "clothes")
+        XCTAssertTrue(coreDataManager.items[0].categoryImage?.deleteWhitespaces == "clothes")
         
         let itemExist = coreDataManager.checkIfItemExist(itemName: "Pull")
         XCTAssertTrue(coreDataManager.items.count > 0)

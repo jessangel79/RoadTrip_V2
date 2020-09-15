@@ -19,17 +19,17 @@ extension UIViewController: EKEventEditViewDelegate {
         let eventStore = EKEventStore()
         switch EKEventStore.authorizationStatus(for: .event) {
         case .notDetermined:
-            print("User run this app for the first")
+//            print("User run this app for the first")
             eventStore.requestAccess(to: .event) { (granted, error) in
                 if granted {
-                    print("granted \(granted)")
+//                    print("granted \(granted)")
                     DispatchQueue.main.async {
                         self.showEventViewController(eventStore, title: title, location: location)
                     }
                 }
             }
         case .authorized:
-            print("User has access to calendar")
+//            print("User has access to calendar")
             DispatchQueue.main.async {
                 self.showEventViewController(eventStore, title: title, location: location)
             }

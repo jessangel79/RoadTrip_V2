@@ -16,7 +16,6 @@ final class RoadTripTests: XCTestCase {
     // MARK: - Properties
 
     var queriesList: [String]!
-    var placeId: String!
     var query: String!
     
     // MARK: - Tests Life Cycle
@@ -24,7 +23,6 @@ final class RoadTripTests: XCTestCase {
     override func setUp() {
         super.setUp()
         queriesList = ["restaurant", "paris"]
-//        placeId = "ChIJqTQzIehv5kcRaF3hD1SzX5A"
         query = "bar"
     }
 
@@ -118,6 +116,8 @@ final class RoadTripTests: XCTestCase {
             XCTAssertEqual(placesSearch?.first?.icon, "https://nominatim.openstreetmap.org/images/mapicons/food_bar.p.20.png")
             XCTAssertEqual(placesSearch?.first?.displayName.cutStartString(2), "5, Rue Daunou, Quartier Gaillon, Paris 2e Arrondissement, Paris, Île-de-France, France métropolitaine, 75002, France")
             XCTAssertEqual(placesSearch?.first?.extratags.openingHours, nil)
+            let importance = String(format: "%.1f", placesSearch?.first?.importance ?? 0.0)
+            XCTAssertEqual(importance.importanceString(), "6")
             expectation.fulfill()
         }
         

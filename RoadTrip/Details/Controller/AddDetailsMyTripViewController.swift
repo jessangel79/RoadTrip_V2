@@ -56,7 +56,6 @@ class AddDetailsMyTripViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkIfCelluleActive()
-        debugCellule(celluleActive: celluleActive, celluleIndex: celluleIndex)
     }
 
     // MARK: - Methods
@@ -114,7 +113,6 @@ class AddDetailsMyTripViewController: UIViewController {
                                                                                travellerFour: travellerFour,
                                                                                notes: notes, imageBackground: randomImage))
                     navigationController?.popViewController(animated: true)
-                    debugCoreDataDetailsTrip(nameDebug: "Details trip saved", coreDataManager: coreDataManager)
                 } else {
                     let image = cellule?.imageBackground ?? "iles-de-locean_1024x1024.png"
                     coreDataManager?.editDetailsTrip(parameters: DetailsTrip(name: name,
@@ -127,7 +125,6 @@ class AddDetailsMyTripViewController: UIViewController {
                                                                              travellerFour: travellerFour,
                                                                              notes: notes, imageBackground: image), index: celluleIndex ?? 0)
                     navigationController?.popViewController(animated: true)
-                    debugCoreDataDetailsTrip(nameDebug: "Details trip changed", coreDataManager: coreDataManager)
                 }
             }
         }
@@ -218,7 +215,7 @@ extension AddDetailsMyTripViewController {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         dateFormatter.dateStyle = .short
         let selectedDate = dateFormatter.string(from: datePicker.date)
-        print("Selected value \(selectedDate)")
+//        print("Selected value \(selectedDate)")
         return selectedDate
     }
 }

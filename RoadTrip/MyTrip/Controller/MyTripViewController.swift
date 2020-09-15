@@ -33,7 +33,7 @@ final class MytripViewController: ListPlacesViewController {
                 websiteUrl: websiteUrl, index: index), tripToShare: &tripToShare)
             index += 1
         }
-        print("tripToShare => \(tripToShare)")
+//        print("tripToShare => \(tripToShare)")
         return tripToShare
     }
     
@@ -88,7 +88,6 @@ final class MytripViewController: ListPlacesViewController {
     private func resetAll() {
         coreDataManager?.deleteAllPlaces()
         placesTableView.reloadData()
-        debugCoreDataPlace(nameDebug: "All places deleted", coreDataManager: coreDataManager)
     }
     
     private func showAlertResetAll() {
@@ -136,7 +135,6 @@ extension MytripViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         placesTableView.reloadData()
-        debugCoreDataPlace(nameDebug: "The place is deleted", coreDataManager: coreDataManager)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

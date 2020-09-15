@@ -53,7 +53,6 @@ final class AddItemViewController: AddDetailsMyTripViewController {
                                         category: category, itemIsCheck: false,
                                         categoryImage: category.deleteWhitespaces.lowercased())
             navigationController?.popViewController(animated: true)
-            debugCoreDataItem(nameDebug: "Item saved", coreDataManager: coreDataManager)
         }
     }
     

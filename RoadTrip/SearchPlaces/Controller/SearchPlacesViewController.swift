@@ -82,7 +82,6 @@ final class SearchPlacesViewController: UIViewController {
                 if !placesSearch.isEmpty {
                     self.placesList = placesSearch
                     self.getPhotos()
-                    self.debugGetPlaces(nameDebug: "debug getPlaces", placesList: self.placesList, photosList: self.photosList)
                 } else {
                     self.presentAlert(typeError: .zeroResult)
                     self.toggleActivityIndicator(shown: false,

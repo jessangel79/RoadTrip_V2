@@ -28,11 +28,12 @@ extension UITableViewCell {
     }
     
     /// custom view
-    func customViewCell(view: UIView) {
+    func customViewCell(view: UIView, colorBorder: UIColor, width: CGFloat, colorBackground: UIColor) {
         view.layer.cornerRadius = 5
-        view.layer.borderWidth = 1.0
-        view.layer.backgroundColor = #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884)
-        view.layer.borderColor = UIColor.gray.cgColor
+        view.layer.borderWidth = width
+        view.layer.backgroundColor = colorBackground.cgColor
+        view.layer.borderColor = colorBorder.cgColor
+//        view.layer.borderColor = UIColor.gray.cgColor
     }
     
     /// custom button circle

@@ -33,7 +33,7 @@ class MapViewController: UIViewController {
     var coordinateInit: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude ?? 48.863581, longitude: longitude ?? 2.344312)
     }
-    
+
     // MARK: - Actions
     
     @IBAction func changeMapTypeButtonTapped(_ sender: UISegmentedControl) {

@@ -35,7 +35,6 @@ final class PackingListViewController: DetailsMyTripViewController {
     override func resetAll() {
         coreDataManager?.deleteAllItems()
         myTripTableView.reloadData()
-        debugCoreDataItem(nameDebug: "All \(tabType) deleted", coreDataManager: coreDataManager)
     }
 }
 
@@ -72,7 +71,6 @@ extension PackingListViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         myTripTableView.reloadData()
-        debugCoreDataItem(nameDebug: "The \(tabType) is deleted", coreDataManager: coreDataManager)
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

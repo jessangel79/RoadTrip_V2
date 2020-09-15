@@ -47,29 +47,10 @@ extension UIViewController {
         self.navigationItem.rightBarButtonItems = barItemsCollection
     }
     
-    /// open url or pdf  in webview
-//    func loadLink(_ urlSttring: String, webView: WKWebView) {
-//        let suffixPdf = urlSttring.hasSuffix(".pdf")
-//        if suffixPdf {
-//            let ressource = urlSttring.dropString
-//            loadPdf(ressource, webView: webView)
-//        } else {
-//            loadWebsite(urlSttring, webView: webView)
-//        }
-//    }
-
-    /// display pdf in webview
-//    private func loadPdf(_ resource: String, webView: WKWebView) {
-//        guard let urlPdf = Bundle.main.url(forResource: resource, withExtension: "pdf") else { return }
-//        print(urlPdf)
-//        webView.load(URLRequest(url: urlPdf))
-//        webView.allowsBackForwardNavigationGestures = true
-//    }
-    
     /// open url in webview
     func loadWebsite(_ urlSttring: String, webView: WKWebView) {
         guard let url = URL(string: urlSttring) else { return }
-        print(url)
+//        print(url)
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
@@ -83,49 +64,6 @@ extension UIViewController {
             presentAlert(typeError: .noWebsite)
         }
     }
-    
-    /// open url with safari
-//    func openSafari(_ urlString: String) {
-//        let suffixPdf = urlString.hasSuffix(".pdf")
-//        if suffixPdf {
-//            presentAlert(typeError: .offline)
-//        } else {
-//            guard let url = URL(string: urlString) else { return }
-//            guard UIApplication.shared.canOpenURL(url) else { return }
-//            UIApplication.shared.open(url)
-//        }
-//    }
-
-    /// share a link or a pdf
-//    func shareContent(website: String, shareBarButtonItem: UIBarButtonItem, view: UIViewController) {
-//        var shareLink: URL? {
-//            let linkToShare = URL(string: website)
-//            return linkToShare
-//        }
-//        var sharePdf: URL? {
-//            var pdfToShare: URL?
-//            let ressource = website.dropString
-//            if let urlPdf = Bundle.main.url(forResource: ressource, withExtension: "pdf") {
-//                pdfToShare = urlPdf
-//            }
-//            return pdfToShare
-//        }
-//        shareTypeOfContent(website, sharePdf, shareBarButtonItem, shareLink)
-//    }
-    
-    /// check if link or pdf to share and set UIActivityViewController
-//    private func shareTypeOfContent(_ website: String, _ sharePdf: URL?, _ shareBarButtonItem: UIBarButtonItem, _ shareLink: URL?) {
-//        let suffixPdf = website.hasSuffix(".pdf")
-//        if suffixPdf {
-//            guard let sharePdf = sharePdf else { return }
-//            let viewController = UIActivityViewController(activityItems: [sharePdf], applicationActivities: [])
-//            presentShare(viewController, shareBarButtonItem)
-//        } else {
-//            guard let shareLink = shareLink else { return }
-//            let viewController = UIActivityViewController(activityItems: [shareLink], applicationActivities: [])
-//            presentShare(viewController, shareBarButtonItem)
-//        }
-//    }
     
     func shareContent(website: String, shareBarButtonItem: UIBarButtonItem, view: UIViewController) {
         guard let linkToShare = URL(string: website) else { return }

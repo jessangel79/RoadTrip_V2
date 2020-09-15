@@ -59,17 +59,9 @@ extension PlaceProtocol {
     
     /// url  for API to get photos
     var urlPhotoAPI: String {
-        // for test without API unsplash
-//        return ""
         return "\(scheme)://\(hostPhoto)\(pathDetailsPhoto)client_id=\(keyPhotoApi)&query="
+        
+    // for test without API unsplash
+//        return ""
     }
-    
-    // Unsplash get image with keyword
-    // https://source.unsplash.com/800x450/?hotel
-    
-    // Search base
-//    https://nominatim.openstreetmap.org/?format=json&addressdetails=1&namedetails=1&extratags=1&limit=20&q=bar+in+cergy
-    
-    // Details of place
-//    https://nominatim.openstreetmap.org/lookup?format=json&extratags=1&osm_ids=W102978626
 }

@@ -110,7 +110,7 @@ class DetailsPlaceViewController: UIViewController {
         let address = "to \(address) ! \n"
         let activities = "✨ Activities ✨ \(types) ✨ \n🌐 \(websiteUrl)"
         let placeToShare = country + placeName + address + activities
-        print("placeToShare => \(placeToShare)")
+//        print("placeToShare => \(placeToShare)")
         return placeToShare
     }
     
@@ -236,14 +236,12 @@ class DetailsPlaceViewController: UIViewController {
                                                                  openDays: openDays, phoneNumber: phoneNumber, photo: photo,
                                                                  rating: rating, types: types, website: website, informations: informations, lat: lat, lon: lon))
         setBookmarkBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1))
-        debugCoreDataPlace(nameDebug: "Places saved", coreDataManager: coreDataManager)
     }
 
     /// Delete place
     func deletePlace() {
         coreDataManager?.deletePlace(placeName: placeName, address: address)
         setBookmarkBarButtonItem(color: .none)
-        debugCoreDataPlace(nameDebug: "Place deleted", coreDataManager: coreDataManager)
     }
     
     /// Manage the button bookmark of places saved
