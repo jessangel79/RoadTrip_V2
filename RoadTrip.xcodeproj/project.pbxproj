@@ -12,6 +12,7 @@
 		3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0E376824129BBF00039FD3 /* NetworkExtension.framework */; };
 		3A0E376D2412A9E200039FD3 /* UIViewController+EventKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E376C2412A9E200039FD3 /* UIViewController+EventKit.swift */; };
 		3A0E58E724081605000123D5 /* PlaceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E58E624081605000123D5 /* PlaceParameters.swift */; };
+		3A1EDD152512743100E2A51A /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EDD142512743100E2A51A /* UITableView+TableFlip.swift */; };
 		3A21DC4E240D32A500C6A33A /* MyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21DC4D240D32A500C6A33A /* MyTripViewController.swift */; };
 		3A21DC50240D33F200C6A33A /* MyPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21DC4F240D33F200C6A33A /* MyPlaceViewController.swift */; };
 		3A2932C0249CF98000F672B8 /* UrlsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2932BF249CF98000F672B8 /* UrlsList.swift */; };
@@ -97,6 +98,7 @@
 		3A0E376824129BBF00039FD3 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		3A0E376C2412A9E200039FD3 /* UIViewController+EventKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EventKit.swift"; sourceTree = "<group>"; };
 		3A0E58E624081605000123D5 /* PlaceParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceParameters.swift; sourceTree = "<group>"; };
+		3A1EDD142512743100E2A51A /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
 		3A21DC4D240D32A500C6A33A /* MyTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTripViewController.swift; sourceTree = "<group>"; };
 		3A21DC4F240D33F200C6A33A /* MyPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaceViewController.swift; sourceTree = "<group>"; };
 		3A2932BF249CF98000F672B8 /* UrlsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlsList.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				3AFA6203241A67430055E8E8 /* UIViewController+ActivityIndicator.swift */,
 				3A0E376C2412A9E200039FD3 /* UIViewController+EventKit.swift */,
 				3A70AD57250A9E4900C1CD09 /* UiViewController+WKWebView.swift */,
+				3A1EDD142512743100E2A51A /* UITableView+TableFlip.swift */,
 				3A02015D23F4788300CDDEED /* String.swift */,
 				3A832AB123FEC049008E7237 /* UITableViewCell.swift */,
 				3AE7F56F241A944300751764 /* Date.swift */,
@@ -752,6 +755,7 @@
 				3A70AD54250A9BF000C1CD09 /* InformationsViewController.swift in Sources */,
 				3A755CBF23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld in Sources */,
 				3ADD71C6242A339D00CD4081 /* Categories.swift in Sources */,
+				3A1EDD152512743100E2A51A /* UITableView+TableFlip.swift in Sources */,
 				3AFA6202241A66F60055E8E8 /* UIViewController+CustomUI.swift in Sources */,
 				3AD895E825028B5200E8902F /* DetailsPlaceParameters.swift in Sources */,
 				3A70AD58250A9E4900C1CD09 /* UiViewController+WKWebView.swift in Sources */,

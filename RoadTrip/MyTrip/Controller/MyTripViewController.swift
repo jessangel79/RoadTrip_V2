@@ -87,6 +87,7 @@ final class MytripViewController: ListPlacesViewController {
     
     private func resetAll() {
         coreDataManager?.deleteAllPlaces()
+        animationTableView(tableView: placesTableView)
         placesTableView.reloadData()
     }
     
@@ -135,6 +136,7 @@ extension MytripViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         placesTableView.reloadData()
+        animationCell(tableView)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

@@ -55,4 +55,33 @@ extension UIViewController {
         imageView.layer.backgroundColor = colorBackground.cgColor
         imageView.layer.borderColor = colorBorder.cgColor
     }
+
+}
+
+// MARK: - Extension to animate TableView and Cells
+
+extension UIViewController {
+    
+    /// animate tableView
+    func animationTableView(tableView: UITableView) {
+        let transition = CATransition()
+        transition.type = CATransitionType.push
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.fillMode = CAMediaTimingFillMode.forwards
+        transition.duration = 0.5
+        transition.subtype = CATransitionSubtype.fromTop
+        tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
+    }
+    
+    /// animate cells of tableView
+    func animationCell(_ tableView: UITableView) {
+        tableView.animate(animation: .fade(duration: 0.8))
+        let degrees = sin(90.0 * CGFloat.pi/180.0)
+        let rotationTransform = CGAffineTransform(rotationAngle: degrees)
+        let flipTransform = CGAffineTransform(scaleX: -1, y: -1)
+        let customTransform = rotationTransform.concatenating(flipTransform)
+        
+        let customAnimation = TableViewAnimation.Cell.custom(duration: 0.6, transform: customTransform, options: .transitionFlipFromLeft)
+        tableView.animate(animation: customAnimation, completion: nil)
+    }
 }

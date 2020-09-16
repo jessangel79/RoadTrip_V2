@@ -34,11 +34,12 @@ class DetailsMyTripViewController: UIViewController {
     }
     
     // MARK: - View Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         coreDataFunction()
         setNib()
+        animationTableView(tableView: myTripTableView)
         myTripTableView.reloadData()
     }
     
@@ -63,6 +64,7 @@ class DetailsMyTripViewController: UIViewController {
     
     func resetAll() {
         coreDataManager?.deleteAllDetailsTrip()
+        animationTableView(tableView: myTripTableView)
         myTripTableView.reloadData()
     }
     
@@ -116,12 +118,12 @@ extension DetailsMyTripViewController: UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         myTripTableView.reloadData()
+        animationCell(tableView)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
         label.text = "Click on ➕ to add a \(tabType)"
-//        label.text = "Click on ➕ to add a trip"
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         label.textAlignment = .center
         label.textColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)

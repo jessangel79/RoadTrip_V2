@@ -55,7 +55,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ULV-ty-aj1" firstAttribute="top" secondItem="HGq-zU-ObC" secondAttribute="top" id="H0y-DU-cx1"/>
                             <constraint firstItem="ULV-ty-aj1" firstAttribute="trailing" secondItem="HGq-zU-ObC" secondAttribute="trailing" id="RBp-UG-UC2"/>

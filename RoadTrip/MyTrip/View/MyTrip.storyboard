@@ -54,7 +54,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HIx-V1-v7r" firstAttribute="top" secondItem="kOs-eC-g2U" secondAttribute="top" id="WNj-rz-sYC"/>
                             <constraint firstItem="HIx-V1-v7r" firstAttribute="trailing" secondItem="kOs-eC-g2U" secondAttribute="trailing" id="X6Y-UN-JIu"/>

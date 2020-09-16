@@ -34,6 +34,7 @@ final class PackingListViewController: DetailsMyTripViewController {
     
     override func resetAll() {
         coreDataManager?.deleteAllItems()
+        animationTableView(tableView: myTripTableView)
         myTripTableView.reloadData()
     }
 }
@@ -71,6 +72,7 @@ extension PackingListViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         myTripTableView.reloadData()
+        animationCell(tableView)
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
