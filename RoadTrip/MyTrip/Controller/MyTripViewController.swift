@@ -132,7 +132,7 @@ extension MytripViewController {
         if editingStyle == .delete {
             let place = coreDataManager?.places[indexPath.row]
             coreDataManager?.deletePlace(placeName: place?.name ?? "", address: place?.address ?? "")
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         placesTableView.reloadData()
     }

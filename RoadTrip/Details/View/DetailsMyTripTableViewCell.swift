@@ -25,6 +25,7 @@ final class DetailsMyTripTableViewCell: UITableViewCell {
     @IBOutlet private var allInfoLabels: [UILabel]!
     @IBOutlet private var allMainLabels: [UILabel]!
     @IBOutlet private var allSetLabels: [UILabel]!
+    @IBOutlet private var shadowViews: [UIView]!
     
     // MARK: - Methods
 
@@ -37,6 +38,9 @@ final class DetailsMyTripTableViewCell: UITableViewCell {
         customLabelsCell(labels: allInfoLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: UIColor.gray)
         customLabelsCell(labels: allMainLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884))
         customLabelsCell(labels: allSetLabels, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.7516320634), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 0.7516320634))
+        for view in shadowViews {
+            customCellShadow(view: view)
+        }
     }
     
    var detailsTripEntity: DetailsTripEntity? {

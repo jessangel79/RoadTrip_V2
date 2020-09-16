@@ -158,6 +158,9 @@
 		3AD895E725028B5200E8902F /* DetailsPlaceParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlaceParameters.swift; sourceTree = "<group>"; };
 		3ADD71C5242A339D00CD4081 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		3ADD71C8242A365A00CD4081 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		3ADE91BE251255DD0009BAEA /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ADE91C2251255E70009BAEA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ADE91CF2512579C0009BAEA /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADF8DDB25010D160011DD77 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3AE7F56F241A944300751764 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3AF881B923F16A19005F64ED /* PlaceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSession.swift; sourceTree = "<group>"; };
@@ -196,6 +199,9 @@
 		18A73A4B8CFE3F51A74F6441 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3ADE91CF2512579C0009BAEA /* SDWebImage.framework */,
+				3ADE91C2251255E70009BAEA /* Alamofire.framework */,
+				3ADE91BE251255DD0009BAEA /* SDWebImage.framework */,
 				3A70AD59250AA96600C1CD09 /* WebKit.framework */,
 				3A0E376824129BBF00039FD3 /* NetworkExtension.framework */,
 				3A36190124059795002A29BA /* Alamofire.framework */,

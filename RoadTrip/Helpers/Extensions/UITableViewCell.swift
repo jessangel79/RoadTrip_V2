@@ -28,34 +28,42 @@ extension UITableViewCell {
     }
     
     /// custom view
-    func customViewCell(view: UIView, colorBorder: UIColor, width: CGFloat, colorBackground: UIColor) {
-        view.layer.cornerRadius = 5
-        view.layer.borderWidth = width
-        view.layer.backgroundColor = colorBackground.cgColor
+    func customViewCell(view: UIView, colorBorder: UIColor, colorBackground: UIColor, width: CGFloat, radius: CGFloat) {
         view.layer.borderColor = colorBorder.cgColor
-//        view.layer.borderColor = UIColor.gray.cgColor
+        view.layer.backgroundColor = colorBackground.cgColor
+        view.layer.borderWidth = width
+        view.layer.cornerRadius = radius
     }
     
     /// custom button circle
     func circleButton(button: UIButton) {
-        button.layer.cornerRadius = button.bounds.width / 2
         button.layer.borderColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
         button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = button.bounds.width / 2
+    }
+    
+    /// custom view cell with shadow
+    func customCellShadow(view: UIView) {
+        view.clipsToBounds = false
+        view.layer.cornerRadius = 10
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.8
+        view.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
     
     /// custom imageView
     func customImageViewCell(imageView: UIImageView) {
-        imageView.layer.cornerRadius = 4
-        imageView.layer.borderWidth = 0.4
         imageView.layer.borderColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
+        imageView.layer.borderWidth = 0.4
+        imageView.layer.cornerRadius = 4
     }
     
     /// custom imageView for Icon
-    func customImageViewCell(imageView: UIImageView, radius: CGFloat, width: CGFloat, colorBackground: UIColor, colorBorder: UIColor) {
-        imageView.layer.cornerRadius = radius
-        imageView.layer.borderWidth = width
-        imageView.layer.backgroundColor = colorBackground.cgColor
+    func customImageViewCell(imageView: UIImageView, colorBorder: UIColor, colorBackground: UIColor, width: CGFloat, radius: CGFloat) {
         imageView.layer.borderColor = colorBorder.cgColor
+        imageView.layer.backgroundColor = colorBackground.cgColor
+        imageView.layer.borderWidth = width
+        imageView.layer.cornerRadius = radius
     }
 }
 

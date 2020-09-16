@@ -60,7 +60,6 @@ extension PlaceProtocol {
     /// url  for API to get photos
     var urlPhotoAPI: String {
         return "\(scheme)://\(hostPhoto)\(pathDetailsPhoto)client_id=\(keyPhotoApi)&query="
-        
     // for test without API unsplash
 //        return ""
     }
