@@ -18,6 +18,7 @@ final class InformationsViewController: UIViewController {
     private let manthana = "https://www.iconfinder.com/Manthana"
     private let iconfinder = "https://www.iconfinder.com/"
     private let angelAppDev = "http://www.angelappdev.io"
+    private let mergersort = "https://github.com/mergesort/TableFlip"
     private var urlString = String()
     
     // MARK: - Actions
@@ -28,6 +29,10 @@ final class InformationsViewController: UIViewController {
     
     @IBAction private func iconfinderButtonTapped(_ sender: UIButton) {
         openWebView(iconfinder)
+    }
+    
+    @IBAction private func mergesortButtonTapped(_ sender: UIButton) {
+        openWebView(mergersort)
     }
     
     @IBAction private func angelAppDevButtonTapped(_ sender: UIButton) {
