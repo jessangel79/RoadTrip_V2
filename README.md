@@ -22,4 +22,4 @@
 
 | RoadTrip | Search Places | My Trip | Details | Packing List |
 | -------- | ------------- | ------- | ------- | ------------ |
-|![RoadTrip](source/images/launchscreen.png) | ![Search Places](source/images/searchplaces.gif) | ![My Trip](source/images/mytrip.gif) | ![Details](source/images/details.gif) | ![Packing List](source/images/packinglist.gif) |
+|![RoadTrip](source/images/launchscreen.png) | ![Search Places](source/images/searchplaces.gif) | ![My Trip](source/images/mytrip.png) | ![Details](source/images/details.png) | ![Packing List](source/images/packinglist.png) |
