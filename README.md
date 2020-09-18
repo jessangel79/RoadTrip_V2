@@ -1,13 +1,13 @@
 # Projet : Réalisez un projet libre à impact social
-## RoadTrip'App - Planifier vos voyages
+## RoadTrip App - Planifier vos voyages
 
 
 ![platform-ios](https://img.shields.io/badge/platform-ios-lightgrey.svg) ![swift-version](https://img.shields.io/badge/swift-5.0-red.svg) ![device](https://img.shields.io/badge/Device-iPhone--iPad-green)
-![version](https://img.shields.io/badge/Version-1.1-blue)
+![version](https://img.shields.io/badge/Version-1.2-blue)
 
 **Description :**
 -
-RoadTrip’App est l’application idéale pour vous aider à planifier vos voyages autant en train, qu’en avion ou bien en voiture. Elle vous permettra de gérer et partager vos voyages avec vos amis.
+RoadTrip App est l’application idéale pour vous aider à planifier vos voyages autant en train, qu’en avion ou bien en voiture. Elle vous permettra de gérer et partager vos voyages avec vos amis.
 Vous pouvez chercher les lieux que vous souhaitez visiter dans les villes de votre choix et enregistrer les différentes étapes de votre voyage sur votre appareil. 
 
 Pour chaque lieu vous avez la possibilité :
@@ -22,6 +22,8 @@ Elle permet également de préparer sa valise en créant une liste qui peut êtr
 
 Dotée d’une interface légère, l’application fonctionnera sur les appareils allant de l’iPhone SE (1st generation) à l’iPhone 11 pro Max.
 Nécessite au minimum iOS 11
+
+Disponible sur l'App Store : https://apps.apple.com/app/id1531731926
 
 **Compétences évaluées**
 -
@@ -47,6 +49,7 @@ Nécessite au minimum iOS 11
 -
 - Icons made by Manthana Chaiwong: https://www.iconfinder.com/Manthana from ICONFINDER: https://www.iconfinder.com/
 - API Photo : https://unsplash.com/ (https://unsplash.com/developers)
+- © les contributeurs OpenStreetMap, sous licence ODbL : https://www.openstreetmap.org/copyright
 - Thanks to Joe Fabisevich for TableFlip : https://github.com/mergesort/TableFlip
 
 
