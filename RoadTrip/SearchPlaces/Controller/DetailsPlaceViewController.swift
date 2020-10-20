@@ -39,6 +39,7 @@ class DetailsPlaceViewController: UIViewController {
     let segueToMap = Constants.SegueToMap
     var placeName = String()
     var address = String()
+    let dataManager = DataManager()
 
     var shareInfoPlace: String {
         guard let country = cellule?.address.country else { return "Pays N/A" }
@@ -136,7 +137,8 @@ class DetailsPlaceViewController: UIViewController {
         placeName = cellule?.displayName.cutEndString() ?? ""
         address = cellule?.displayName.cutStartString(2) ?? "N/A"
         let phoneNumber = cellule?.extratags.phone ?? "N/A"
-        let openHours = setOpeningHours(openingHours: cellule?.extratags.openingHours)
+//        let openHours = setOpeningHours(openingHours: cellule?.extratags.openingHours)
+        let openHours = dataManager.setOpeningHours(openingHours: cellule?.extratags.openingHours)
         let types = cellule?.type.capitalized ?? "N/A"
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
         let rating = importance.importanceString() ?? ""
@@ -177,15 +179,15 @@ class DetailsPlaceViewController: UIViewController {
         return informations
     }
     
-    func setOpeningHours(openingHours: String?) -> String {
-        var openDays = ""
-        if let openingHours = openingHours {
-            openDays = openingHours
-        } else {
-            openDays = "Opening Hours : N/A"
-        }
-        return openDays
-    }
+//    func setOpeningHours(openingHours: String?) -> String {
+//        var openDays = ""
+//        if let openingHours = openingHours {
+//            openDays = openingHours
+//        } else {
+//            openDays = "Opening Hours : N/A"
+//        }
+//        return openDays
+//    }
     
     private func loadIcon(imageString: String?) {
         guard let url = URL(string: imageString ?? "") else { return }
@@ -218,23 +220,8 @@ class DetailsPlaceViewController: UIViewController {
     }
 
     private func savePlace() {
-        let address = cellule?.displayName.cutStartString(2) ?? ""
-        let icon = cellule?.icon ?? ""
-        let name = cellule?.displayName.cutEndString() ?? ""
-        let photo = photoOfCellule ?? ""
-        let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
-        let rating = importance.importanceString() ?? ""
-        let types = cellule?.type.changeDash.capitalized ?? "N/A"
-        let country = cellule?.address.country ?? ""
-        let openDays = setOpeningHours(openingHours: cellule?.extratags.openingHours)
-        let phoneNumber = cellule?.extratags.phone ?? "N/A"
-        let website = cellule?.extratags.website ?? "N/A"
-        let informations = self.informations ?? ""
-        let lat = cellule?.lat ?? ""
-        let lon = cellule?.lon ?? ""
-        coreDataManager?.createPlace(parameters: PlaceParameters(address: address, country: country, icon: icon, name: name,
-                                                                 openDays: openDays, phoneNumber: phoneNumber, photo: photo,
-                                                                 rating: rating, types: types, website: website, informations: informations, lat: lat, lon: lon))
+//        var openDays = setOpeningHours(openingHours: cellule?.extratags.openingHours)
+        dataManager.savePlace(cellule: cellule, photoOfCellule: photoOfCellule, informations: &informations, coreDataManager: coreDataManager)
         setBookmarkBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1))
     }
 

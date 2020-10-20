@@ -18,6 +18,12 @@ extension UITextField {
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))
         datePicker.datePickerMode = .date
         datePicker.timeZone = TimeZone.autoupdatingCurrent
+        
+        if #available(iOS 14, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+            datePicker.sizeToFit()
+        }
+        
         self.inputView = datePicker
 
         // Create a toolbar and assign it to inputAccessoryView

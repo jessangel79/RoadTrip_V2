@@ -52,6 +52,7 @@
 		3A832AB223FEC049008E7237 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A832AB123FEC049008E7237 /* UITableViewCell.swift */; };
 		3A8806E425094A8400414F7B /* Photos.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A8806E325094A8400414F7B /* Photos.json */; };
 		3A959D3524992B7900C27B86 /* PlacesSearchOpen.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */; };
+		3AA316092523A72300B9C19E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA316082523A72200B9C19E /* DataManager.swift */; };
 		3AA339EE23FDA21B00356B6B /* DetailsPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */; };
 		3AA3A1682507EADC00C0999F /* PoiAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3A1672507EADC00C0999F /* PoiAnnotationView.swift */; };
 		3ABB99A024190D66007CE8FA /* DetailsMyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */; };
@@ -70,6 +71,7 @@
 		3ADD71C9242A365A00CD4081 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD71C8242A365A00CD4081 /* AddItemViewController.swift */; };
 		3ADF8DDC25010D160011DD77 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF8DDB25010D160011DD77 /* CoreDataStack.swift */; };
 		3AE7F570241A944300751764 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE7F56F241A944300751764 /* Date.swift */; };
+		3AE99AC32539DDDA00471F2B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3AE99AC22539DDDA00471F2B /* README.md */; };
 		3AF881BA23F16A19005F64ED /* PlaceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881B923F16A19005F64ED /* PlaceSession.swift */; };
 		3AF881BC23F16A46005F64ED /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BB23F16A46005F64ED /* PlaceService.swift */; };
 		3AF881BE23F16B2B005F64ED /* PlacesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BD23F16B2B005F64ED /* PlacesSearch.swift */; };
@@ -144,6 +146,7 @@
 		3A832AB123FEC049008E7237 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		3A8806E325094A8400414F7B /* Photos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Photos.json; sourceTree = "<group>"; };
 		3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlacesSearchOpen.json; sourceTree = "<group>"; };
+		3AA316082523A72200B9C19E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlaceViewController.swift; sourceTree = "<group>"; };
 		3AA3A1672507EADC00C0999F /* PoiAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiAnnotationView.swift; sourceTree = "<group>"; };
 		3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMyTripViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 		3ADE91CF2512579C0009BAEA /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADF8DDB25010D160011DD77 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3AE7F56F241A944300751764 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		3AE99AC22539DDDA00471F2B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		3AF881B923F16A19005F64ED /* PlaceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSession.swift; sourceTree = "<group>"; };
 		3AF881BB23F16A46005F64ED /* PlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
 		3AF881BD23F16B2B005F64ED /* PlacesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearch.swift; sourceTree = "<group>"; };
@@ -275,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				3A755CBA23EDA3DE00889FA5 /* Main.storyboard */,
+				3AE99AC22539DDDA00471F2B /* README.md */,
 				3ABBA05524FFE617007E80DB /* LocalStorage */,
 				3AC005E624FE73CB008CD822 /* SearchPlaces */,
 				3AC005F324FE745B008CD822 /* MyTrip */,
@@ -363,6 +368,7 @@
 				3AD895E725028B5200E8902F /* DetailsPlaceParameters.swift */,
 				3ABB99A7241961CD007CE8FA /* DetailsTrip.swift */,
 				3A2A7F5B250684C000C06D8B /* Poi.swift */,
+				3AA316082523A72200B9C19E /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -563,7 +569,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Angelique Babin";
 				TargetAttributes = {
 					3A755CB023EDA3DE00889FA5 = {
@@ -603,6 +609,7 @@
 				3A755CC423EDA3E300889FA5 /* LaunchScreen.storyboard in Resources */,
 				3A755CE223EDB12600889FA5 /* ApiKeys.plist in Resources */,
 				3A755CC123EDA3E300889FA5 /* Assets.xcassets in Resources */,
+				3AE99AC32539DDDA00471F2B /* README.md in Resources */,
 				3AC005F924FE79DC008CD822 /* SearchPlaces.storyboard in Resources */,
 				3AC005FD24FE7E43008CD822 /* Details.storyboard in Resources */,
 				3ABB99A624194CF8007CE8FA /* DetailsMyTripTableViewCell.xib in Resources */,
@@ -750,6 +757,7 @@
 				3A0E376D2412A9E200039FD3 /* UIViewController+EventKit.swift in Sources */,
 				3A30E9FB23F5990100532EDD /* ListPlacesViewController.swift in Sources */,
 				3ABB99A524194CF8007CE8FA /* DetailsMyTripTableViewCell.swift in Sources */,
+				3AA316092523A72300B9C19E /* DataManager.swift in Sources */,
 				3A34E808241F917400237610 /* UITextField.swift in Sources */,
 				3A30E9FD23F5A21C00532EDD /* Constants.swift in Sources */,
 				3A70AD54250A9BF000C1CD09 /* InformationsViewController.swift in Sources */,
@@ -848,6 +856,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -872,7 +881,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -908,6 +917,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -926,7 +936,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

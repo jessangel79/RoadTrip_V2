@@ -56,7 +56,8 @@ final class MyPlaceViewController: DetailsPlaceViewController {
         placeName = celluleEntity?.name ?? ""
         address = celluleEntity?.address ?? ""
         guard let phoneNumber = celluleEntity?.phoneNumber else { return }
-        let openHours = setOpeningHours(openingHours: celluleEntity?.openDays)
+        let openHours = dataManager.setOpeningHours(openingHours: celluleEntity?.openDays)
+//        let openHours = setOpeningHours(openingHours: celluleEntity?.openDays)
         let informations = celluleEntity?.informations ?? ""
         let types = (celluleEntity?.types ?? "")
         let rating = celluleEntity?.rating ?? ""
