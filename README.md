@@ -2,8 +2,8 @@
 ## RoadTrip App - Planifier vos voyages
 
 
-![platform-ios](https://img.shields.io/badge/platform-ios-lightgrey.svg) ![swift-version](https://img.shields.io/badge/swift-5.0-red.svg) ![device](https://img.shields.io/badge/Device-iPhone--iPad-green)
-![version](https://img.shields.io/badge/Version-1.2-blue)
+![platform-ios](https://img.shields.io/badge/platform-ios--macos-lightgrey.svg) ![swift-version](https://img.shields.io/badge/swift-5.0-red.svg) ![device](https://img.shields.io/badge/Device-iPhone--iPad--Mac-green)
+![version](https://img.shields.io/badge/Version-1.3-blue)
 
 **Description :**
 -
@@ -23,7 +23,11 @@ Elle permet également de préparer sa valise en créant une liste qui peut êtr
 Dotée d’une interface légère, l’application fonctionnera sur les appareils allant de l’iPhone SE (1st generation) à l’iPhone 11 pro Max.
 Nécessite au minimum iOS 11
 
-Disponible sur l'App Store : https://apps.apple.com/app/id1531731926
+***OpenStreetMap France :** https://www.openstreetmap.fr/open-data/*
+***API :** https://nominatim.openstreetmap.org/ - https://nominatim.org/*
+
+
+**Disponible sur l'App Store :** https://apps.apple.com/app/id1531731926
 
 **Compétences évaluées**
 -
