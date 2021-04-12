@@ -24,7 +24,7 @@ Dotée d’une interface légère, l’application fonctionnera sur les appareil
 Nécessite au minimum iOS 11
 
 ***OpenStreetMap France :** https://www.openstreetmap.fr/open-data/*
-***API :** https://nominatim.openstreetmap.org/ - https://nominatim.org/*
+***API :** https://nominatim.org/ - https://nominatim.openstreetmap.org/*
 
 
 **Disponible sur l'App Store :** https://apps.apple.com/app/id1531731926
@@ -35,14 +35,6 @@ Nécessite au minimum iOS 11
 - Identifier et mener un projet à impact social
 - Mobiliser ses compétences au profit de la réalisation d’un projet
 - Communiquer avec une base de données pour stocker et requêter des informations
-- EventKit, Core Data, POO, POP, Alamofire, Rest API, UIKit, CocoaPods, Unit Testing, Xcode 11, Swift 5, iOS 11.
-
-**Competencies evaluated**
--
-
-- Identify and conduct a social impact project
-- Mobilize skills for project delivery
-- Communicate with a database to store and request information
 - EventKit, Core Data, POO, POP, Alamofire, Rest API, UIKit, CocoaPods, Unit Testing, Xcode 11, Swift 5, iOS 11.
 
 | RoadTrip | Search Places | My Trip | Details | Packing List |
