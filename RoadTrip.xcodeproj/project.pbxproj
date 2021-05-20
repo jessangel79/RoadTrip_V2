@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0FED066783CC95CB986112FE /* Pods_RoadTripTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1012D1EEE940907BD44AA4 /* Pods_RoadTripTests.framework */; };
 		3A02015E23F4788300CDDEED /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02015D23F4788300CDDEED /* String.swift */; };
+		3A07E4B32656893900F23E60 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A07E4B22656893900F23E60 /* CoreTelephony.framework */; };
 		3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0E376824129BBF00039FD3 /* NetworkExtension.framework */; };
 		3A0E376D2412A9E200039FD3 /* UIViewController+EventKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E376C2412A9E200039FD3 /* UIViewController+EventKit.swift */; };
 		3A0E58E724081605000123D5 /* PlaceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E58E624081605000123D5 /* PlaceParameters.swift */; };
@@ -25,6 +26,7 @@
 		3A30E9FB23F5990100532EDD /* ListPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30E9FA23F5990100532EDD /* ListPlacesViewController.swift */; };
 		3A30E9FD23F5A21C00532EDD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30E9FC23F5A21C00532EDD /* Constants.swift */; };
 		3A34E808241F917400237610 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34E807241F917400237610 /* UITextField.swift */; };
+		3A483272265580F80003C043 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A483271265580F70003C043 /* credentials.plist */; };
 		3A4D510124293D78008D682F /* PackingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */; };
 		3A4D510224293D78008D682F /* PackingListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4D510024293D78008D682F /* PackingListTableViewCell.xib */; };
 		3A5FF4E72434C0B600C2B395 /* FakeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FF4E62434C0B600C2B395 /* FakeResponse.swift */; };
@@ -79,6 +81,7 @@
 		3AF881C223F175CC005F64ED /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881C123F175CC005F64ED /* UIViewController+Alert.swift */; };
 		3AFA6202241A66F60055E8E8 /* UIViewController+CustomUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA6201241A66F60055E8E8 /* UIViewController+CustomUI.swift */; };
 		3AFA6204241A67430055E8E8 /* UIViewController+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA6203241A67430055E8E8 /* UIViewController+ActivityIndicator.swift */; };
+		E9B62E3406937E3974668119 /* Pods_RoadTrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A924A3FAD9A8757786ECBF4B /* Pods_RoadTrip.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,7 @@
 		2E44E984C7402216F6FA10FA /* Pods-RoadTrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTrip.debug.xcconfig"; path = "Target Support Files/Pods-RoadTrip/Pods-RoadTrip.debug.xcconfig"; sourceTree = "<group>"; };
 		3A02015D23F4788300CDDEED /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3A0720692510D2BF002619A7 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		3A07E4B22656893900F23E60 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		3A0E376824129BBF00039FD3 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		3A0E376C2412A9E200039FD3 /* UIViewController+EventKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EventKit.swift"; sourceTree = "<group>"; };
 		3A0E58E624081605000123D5 /* PlaceParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceParameters.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		3A34E807241F917400237610 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		3A3618FD24059328002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A36190124059795002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A483271265580F70003C043 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListTableViewCell.swift; sourceTree = "<group>"; };
 		3A4D510024293D78008D682F /* PackingListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackingListTableViewCell.xib; sourceTree = "<group>"; };
 		3A5FF4E62434C0B600C2B395 /* FakeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponse.swift; sourceTree = "<group>"; };
@@ -186,8 +191,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A07E4B32656893900F23E60 /* CoreTelephony.framework in Frameworks */,
 				3A70AD5A250AA96600C1CD09 /* WebKit.framework in Frameworks */,
 				3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */,
+				E9B62E3406937E3974668119 /* Pods_RoadTrip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +212,7 @@
 		18A73A4B8CFE3F51A74F6441 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A07E4B22656893900F23E60 /* CoreTelephony.framework */,
 				3ADE91CF2512579C0009BAEA /* SDWebImage.framework */,
 				3ADE91C2251255E70009BAEA /* Alamofire.framework */,
 				3ADE91BE251255DD0009BAEA /* SDWebImage.framework */,
@@ -309,6 +317,7 @@
 		3A755CDD23EDB02E00889FA5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A483271265580F70003C043 /* credentials.plist */,
 				3A755CC223EDA3E300889FA5 /* LaunchScreen.storyboard */,
 				3A755CB423EDA3DE00889FA5 /* AppDelegate.swift */,
 				3A755CC023EDA3E300889FA5 /* Assets.xcassets */,
@@ -610,6 +619,7 @@
 				3A755CE223EDB12600889FA5 /* ApiKeys.plist in Resources */,
 				3A755CC123EDA3E300889FA5 /* Assets.xcassets in Resources */,
 				3AE99AC32539DDDA00471F2B /* README.md in Resources */,
+				3A483272265580F80003C043 /* credentials.plist in Resources */,
 				3AC005F924FE79DC008CD822 /* SearchPlaces.storyboard in Resources */,
 				3AC005FD24FE7E43008CD822 /* Details.storyboard in Resources */,
 				3ABB99A624194CF8007CE8FA /* DetailsMyTripTableViewCell.xib in Resources */,
@@ -881,7 +891,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -936,7 +946,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -961,9 +971,72 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UserMessagingPlatform\"",
+					"-framework",
+					"\"WebKit\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.ddns.jessangel-web.RoadTrip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -984,9 +1057,72 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UserMessagingPlatform\"",
+					"-framework",
+					"\"WebKit\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.ddns.jessangel-web.RoadTrip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1001,7 +1137,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				INFOPLIST_FILE = RoadTripTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1024,7 +1160,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				INFOPLIST_FILE = RoadTripTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

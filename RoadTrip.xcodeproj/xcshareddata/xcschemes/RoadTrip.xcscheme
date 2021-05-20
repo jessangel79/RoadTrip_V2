@@ -74,6 +74,13 @@
             ReferencedContainer = "container:RoadTrip.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <LocationScenarioReference
          identifier = "../RoadTrip/Helpers/Location.gpx"
          referenceType = "0">

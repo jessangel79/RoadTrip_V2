@@ -17,7 +17,7 @@ final class DataManager {
         let photo = photoOfCellule ?? ""
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
         let rating = importance.importanceString() ?? ""
-        let types = cellule?.type.changeDash.capitalized ?? "N/A"
+        let types =  "type" //cellule?.type?.changeDash.capitalized ?? "N/A"
         let country = cellule?.address.country ?? ""
 //        let openDays = openDays
         let openDays = setOpeningHours(openingHours: cellule?.extratags.openingHours)

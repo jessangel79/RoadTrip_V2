@@ -9,6 +9,8 @@ target 'RoadTrip' do
   pod 'Alamofire', '4.9'
   pod 'SDWebImage', '5.6'
 #  pod 'SDWebImage/MapKit', '5.6'
+  pod 'Google-Mobile-Ads-SDK'
+
 
   target 'RoadTripTests' do
     inherit! :search_paths

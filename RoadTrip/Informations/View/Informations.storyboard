@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nT0-5c-D43">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nT0-5c-D43">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,7 +61,7 @@
                                         <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWe-wd-h7J">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWe-wd-h7J">
                                         <rect key="frame" x="97" y="0.0" width="155" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="155" id="ulA-RG-lks"/>
@@ -87,7 +88,7 @@
                                         <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-Vl-Suj">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-Vl-Suj">
                                         <rect key="frame" x="35" y="0.0" width="100" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="hC7-sR-aRS"/>
@@ -103,36 +104,33 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IwI-b9-cqM">
-                                <rect key="frame" x="34.5" y="107" width="251" height="325.5"/>
+                                <rect key="frame" x="35" y="107" width="250" height="325.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24r-So-JLD">
-                                        <rect key="frame" x="0.0" y="0.0" width="251" height="29"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24r-So-JLD">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <state key="normal" title="TableFlip By Joe Fabisevich">
                                             <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="manthanaButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="har-Bv-ZSU"/>
                                             <action selector="mergesortButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="Aja-Vc-I45"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2As-8i-ZCT">
-                                        <rect key="frame" x="0.0" y="34" width="251" height="46"/>
+                                        <rect key="frame" x="0.0" y="34" width="250" height="46"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygr-IH-COb">
-                                                <rect key="frame" x="0.0" y="0.0" width="251" height="29"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygr-IH-COb">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <state key="normal" title="© les contributeurs OpenStreetMap,">
                                                     <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="manthanaButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="G6f-00-dwh"/>
-                                                    <action selector="mergesortButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="S7M-Ug-6MS"/>
                                                     <action selector="openStreetMapButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="e37-qu-yRB"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sous licence ODbL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cu5-VN-wu4">
-                                                <rect key="frame" x="0.0" y="29" width="251" height="17"/>
+                                                <rect key="frame" x="0.0" y="29" width="250" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -140,16 +138,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YTd-YF-paf">
-                                        <rect key="frame" x="0.0" y="85" width="251" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="85" width="250" height="53.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Développeuse mobile iOS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOR-m1-pcL">
-                                                <rect key="frame" x="0.0" y="0.0" width="251" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-OU-ubK">
-                                                <rect key="frame" x="0.0" y="20.5" width="251" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-OU-ubK">
+                                                <rect key="frame" x="0.0" y="20.5" width="250" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <state key="normal" title="AngeAppDev - Angélique Babin"/>
                                                 <connections>
@@ -159,7 +157,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Id-mz-Mzs" userLabel="LinkedInButton">
-                                        <rect key="frame" x="0.0" y="143.5" width="251" height="182"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="250" height="182"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" image="BadgeLinkedIn_dark"/>
                                         <connections>
@@ -180,6 +178,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="leP-lZ-r1a"/>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -192,11 +191,16 @@
                             <constraint firstItem="sMv-Mk-RyG" firstAttribute="top" secondItem="leP-lZ-r1a" secondAttribute="top" constant="5" id="EXw-sS-gJG"/>
                             <constraint firstItem="7CH-XP-9VZ" firstAttribute="top" secondItem="IwI-b9-cqM" secondAttribute="bottom" constant="5" id="bf7-sz-5gx"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="leP-lZ-r1a"/>
                     </view>
                     <navigationItem key="navigationItem" title="Crédits" id="RGd-Je-UuX">
                         <barButtonItem key="backBarButtonItem" title="Crédits" id="ECf-sB-E8S">
                             <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="DJm-OZ-i6v">
+                            <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="closeModalButtonTapped:" destination="ilZ-Ug-feF" id="5ib-eL-JKL"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -226,14 +230,14 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="cN4-Ld-aRb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cN4-Ld-aRb" firstAttribute="bottom" secondItem="p1M-0o-cEB" secondAttribute="bottom" id="DIQ-0n-l8E"/>
                             <constraint firstItem="cN4-Ld-aRb" firstAttribute="trailing" secondItem="p1M-0o-cEB" secondAttribute="trailing" id="Lxo-eN-wmI"/>
                             <constraint firstItem="p1M-0o-cEB" firstAttribute="top" secondItem="cN4-Ld-aRb" secondAttribute="top" id="Y0y-jp-31X"/>
                             <constraint firstItem="p1M-0o-cEB" firstAttribute="leading" secondItem="cN4-Ld-aRb" secondAttribute="leading" id="l7o-kb-hAM"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="cN4-Ld-aRb"/>
                     </view>
                     <toolbarItems>
                         <barButtonItem image="share-app" id="uzs-Eb-MMA">
@@ -270,5 +274,8 @@
         <image name="dev-to_25_dark" width="112" height="112"/>
         <image name="safari" width="25" height="25"/>
         <image name="share-app" width="25" height="25"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -52,6 +52,10 @@ final class InformationsViewController: UIViewController {
         openWebView(badgeDevTo)
     }
     
+    @IBAction func closeModalButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+        
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {

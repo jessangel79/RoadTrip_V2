@@ -14,7 +14,7 @@ struct PlacesSearchElement: Decodable {
     let lat, lon, displayName: String
     let type: String
     let importance: Double
-    let icon: String
+    let icon: String?
     let address: Address
     let extratags: Extratags
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 final class SearchPlacesViewController: UIViewController {
     
@@ -18,6 +19,7 @@ final class SearchPlacesViewController: UIViewController {
     @IBOutlet private weak var cityTextField: UITextField!
     @IBOutlet private weak var placeTextField: UITextField!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var bannerView: GADBannerView!
     
     // MARK: - Properties
     
@@ -26,7 +28,7 @@ final class SearchPlacesViewController: UIViewController {
     private var photosList = [PhotosResult]()
     private var queriesList = [String]()
     private let segueToPlacesList = Constants.SegueToPlacesList
-
+    
     // MARK: - Actions
     
     @IBAction private func searchButtonTapped(_ sender: UIButton) {
@@ -37,7 +39,19 @@ final class SearchPlacesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // add AdMob (Google)
+        //        let adSize = GADAdSizeFromCGSize(CGSize(width: 300, height: 50))
+        //  bannerView = GADBannerView(adSize: kGADAdSizeBanner) // kGADAdSizeBanner
+        //        addBannerViewToView(bannerView)
+        bannerViewDidReceiveAd(bannerView)
+        
         customButton(button: searchPlacesButton, radius: 30, width: 0.8, colorBackground: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
+        
+        bannerView.delegate = self
+        bannerView.adUnitID = Constants.AdMobAdUnitIDTest // ID Test
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +60,29 @@ final class SearchPlacesViewController: UIViewController {
     }
     
     // MARK: - Methods
-
+    
+//    private func addBannerViewToView(_ bannerView: GADBannerView) {
+//        bannerView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(bannerView)
+//        view.addConstraints(
+//            [NSLayoutConstraint(item: bannerView,
+//                                attribute: .bottom,
+//                                relatedBy: .equal,
+//                                toItem: view.safeAreaLayoutGuide,
+//                                attribute: .top,
+//                                multiplier: 1,
+//                                constant: 0),
+//             NSLayoutConstraint(item: bannerView,
+//                                attribute: .centerX,
+//                                relatedBy: .equal,
+//                                toItem: view,
+//                                attribute: .centerX,
+//                                multiplier: 1,
+//                                constant: 0)
+//            ]
+//        )
+//    }
+    
     private func setQuery() {
         queriesList = [String]()
         guard var place = placeTextField.text, !place.isBlank else { return }
@@ -65,14 +101,14 @@ final class SearchPlacesViewController: UIViewController {
         toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, validateButton: searchPlacesButton)
         getPlaces()
     }
-
+    
     private func getPlaces() {
         guard !queriesList.isEmpty else {
             presentAlert(typeError: .isEmpty)
             toggleActivityIndicator(shown: false, activityIndicator: activityIndicator, validateButton: searchPlacesButton)
             return
         }
-
+        
         placeService.getPlaces(queriesList: queriesList) { (success, placesSearch) in
             self.toggleActivityIndicator(shown: false,
                                          activityIndicator: self.activityIndicator,
@@ -144,4 +180,35 @@ extension SearchPlacesViewController {
             listPlacesVC.placesList = placesList
         }
     }
+}
+
+// MARK: - Extension GADBannerViewDelegate
+
+extension SearchPlacesViewController: GADBannerViewDelegate {
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("bannerViewDidReceiveAd")
+//        addBannerViewToView(bannerView)
+    }
+    
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+        print("bannerViewDidRecordImpression")
+    }
+    
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillPresentScreen")
+    }
+    
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillDIsmissScreen")
+    }
+    
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("bannerViewDidDismissScreen")
+    }
+    
 }

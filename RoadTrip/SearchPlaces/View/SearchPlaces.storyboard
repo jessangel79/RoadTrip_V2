@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rop-A0-w01">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rop-A0-w01">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -105,6 +105,14 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsk-FB-1Gt" customClass="GADBannerView">
+                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="BTb-zI-9pq"/>
+                                    <constraint firstAttribute="height" constant="50" id="cNG-HV-D59"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rb-41-1xf">
                                 <rect key="frame" x="90" y="363" width="140" height="55"/>
                                 <color key="backgroundColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -127,6 +135,7 @@
                         <viewLayoutGuide key="safeArea" id="pwa-vy-ZqR"/>
                         <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pwa-vy-ZqR" firstAttribute="bottom" secondItem="gsk-FB-1Gt" secondAttribute="bottom" id="9G0-0y-ANh"/>
                             <constraint firstItem="SAv-Jc-Ff9" firstAttribute="top" secondItem="pwa-vy-ZqR" secondAttribute="top" id="9OG-EN-KWU"/>
                             <constraint firstItem="0Rb-41-1xf" firstAttribute="centerX" secondItem="GBk-7U-GcH" secondAttribute="centerX" id="Krx-NY-KbD"/>
                             <constraint firstItem="xTl-zf-y5g" firstAttribute="centerX" secondItem="0Rb-41-1xf" secondAttribute="centerX" id="NUX-EV-Jo7"/>
@@ -137,6 +146,7 @@
                             <constraint firstAttribute="bottom" secondItem="0Rb-41-1xf" secondAttribute="bottom" constant="150" id="jFC-N7-He4"/>
                             <constraint firstAttribute="trailing" secondItem="Gxs-Nb-Ylf" secondAttribute="trailing" constant="35" id="nWw-mn-ldM"/>
                             <constraint firstItem="pwa-vy-ZqR" firstAttribute="bottom" secondItem="SAv-Jc-Ff9" secondAttribute="bottom" id="oyR-f6-rKT"/>
+                            <constraint firstItem="gsk-FB-1Gt" firstAttribute="centerX" secondItem="GBk-7U-GcH" secondAttribute="centerX" id="pZk-FR-BNY"/>
                             <constraint firstItem="Gxs-Nb-Ylf" firstAttribute="leading" secondItem="GBk-7U-GcH" secondAttribute="leading" constant="35" id="sa0-2L-Syl"/>
                             <constraint firstItem="Gxs-Nb-Ylf" firstAttribute="top" secondItem="pwa-vy-ZqR" secondAttribute="top" constant="50" id="yTB-tI-16G"/>
                         </constraints>
@@ -155,6 +165,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="xTl-zf-y5g" id="b5h-ko-q4x"/>
+                        <outlet property="bannerView" destination="gsk-FB-1Gt" id="FNS-yn-l2q"/>
                         <outlet property="cityLabel" destination="kPD-zF-Sd7" id="VpT-Mw-gtd"/>
                         <outlet property="cityTextField" destination="fMX-X7-Wpp" id="SJe-Y6-XK7"/>
                         <outlet property="placeLabel" destination="exa-D9-5Tw" id="yDy-dR-lfg"/>

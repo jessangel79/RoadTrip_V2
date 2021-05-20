@@ -29,6 +29,7 @@ class MapViewController: UIViewController {
     var titleName: String?
     var subtitle: String?
     var info: String?
+    var phone: String?
         
     var coordinateInit: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude ?? 48.863581, longitude: longitude ?? 2.344312)
@@ -81,6 +82,7 @@ class MapViewController: UIViewController {
         titleName = cellule?.displayName.cutEndString()
         subtitle = cellule?.displayName.cutStartString(2)
         info = cellule?.type.capitalized
+        phone = cellule?.extratags.phone
     }
 }
 
@@ -92,10 +94,10 @@ extension MapViewController: MKMapViewDelegate {
         let regionLatitudinalMeters: CLLocationDistance = 5000
         let regionLongitudinalMeters: CLLocationDistance = 5000
         let coordinRegion = MKCoordinateRegion(center: coordinateInit,
-                                                latitudinalMeters: regionLatitudinalMeters,
-                                                longitudinalMeters: regionLongitudinalMeters)
+                                               latitudinalMeters: regionLatitudinalMeters,
+                                               longitudinalMeters: regionLongitudinalMeters)
         mapView.setRegion(coordinRegion, animated: true)
-        let place = Poi(title: titleName ?? "", subtitle: subtitle ?? "", coordinate: coordinateInit, info: info ?? "")
+        let place = Poi(title: titleName ?? "N/A", subtitle: subtitle ?? "N/A", coordinate: coordinateInit, info: info ?? "N/A", phone: phone ?? "N/A")
         setupMapView(place)
     }
     
@@ -117,7 +119,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let poi = view.annotation as? Poi else { return }
         let placeName = poi.title ?? ""
-        let placeInfo = "Activities : \(poi.info) - Adresse : \(poi.subtitle ?? "")"
+        let placeInfo = "Activities : \(poi.info ?? "") - Adresse : \(poi.subtitle ?? "") - Phone : \(poi.phone ?? "")"
         presentAlertMapInfo(placeName, placeInfo)
     }
     

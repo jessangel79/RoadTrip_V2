@@ -34,6 +34,8 @@ class PoiAnnotationView: MKMarkerAnnotationView {
         let placemark = MKPlacemark(coordinate: annotation.coordinate)
         let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault]
         let map = MKMapItem(placemark: placemark)
+        map.name = annotation.title
+        map.phoneNumber = annotation.phone
         map.openInMaps(launchOptions: options)
     }
 }
