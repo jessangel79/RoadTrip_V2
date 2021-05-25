@@ -118,7 +118,7 @@ class AddDetailsMyTripViewController: UIViewController {
                                                                                notes: notes, imageBackground: randomImage))
                     navigationController?.popViewController(animated: true)
                 } else {
-                    let image = cellule?.imageBackground ?? "iles-de-locean_1024x1024.png"
+                    let image = cellule?.imageBackground ?? Constants.imgBackground
                     coreDataManager?.editDetailsTrip(parameters: DetailsTrip(name: name,
                                                                              startDate: startDate,
                                                                              endDate: endDate,
@@ -166,7 +166,7 @@ class AddDetailsMyTripViewController: UIViewController {
         if celluleActive {
             displayTrip()
         } else {
-            randomImage = imagesBackgroundList.shuffled().randomElement() ?? "iles-de-locean_1024x1024.png"
+            randomImage = imagesBackgroundList.shuffled().randomElement() ?? Constants.imgBackground
             tripImageView.image = UIImage(named: randomImage)
             cleanTextField()
         }
@@ -192,7 +192,7 @@ class AddDetailsMyTripViewController: UIViewController {
         travellerThreeTextField.text = cellule?.travellerThree
         travellerFourTextField.text = cellule?.travellerFour
         notesTextField.text = cellule?.notes
-        tripImageView.image = UIImage(named: cellule?.imageBackground ?? "iles-de-locean_1024x1024.png")
+        tripImageView.image = UIImage(named: cellule?.imageBackground ?? Constants.imgBackground)
     }
 }
 

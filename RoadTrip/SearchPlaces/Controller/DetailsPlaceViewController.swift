@@ -140,7 +140,6 @@ class DetailsPlaceViewController: UIViewController {
         placeName = cellule?.displayName.cutEndString() ?? ""
         address = cellule?.displayName.cutStartString(2) ?? "N/A"
         let phoneNumber = cellule?.extratags.phone ?? "N/A"
-//        let openHours = setOpeningHours(openingHours: cellule?.extratags.openingHours)
         let openHours = dataManager.setOpeningHours(openingHours: cellule?.extratags.openingHours)
         let types = cellule?.type.capitalized ?? "N/A"
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
@@ -182,16 +181,6 @@ class DetailsPlaceViewController: UIViewController {
         return informations
     }
     
-//    func setOpeningHours(openingHours: String?) -> String {
-//        var openDays = ""
-//        if let openingHours = openingHours {
-//            openDays = openingHours
-//        } else {
-//            openDays = "Opening Hours : N/A"
-//        }
-//        return openDays
-//    }
-    
     private func loadIcon(imageString: String?) {
         guard let url = URL(string: imageString ?? "") else { return }
         DispatchQueue.main.async {
@@ -223,7 +212,6 @@ class DetailsPlaceViewController: UIViewController {
     }
 
     private func savePlace() {
-//        var openDays = setOpeningHours(openingHours: cellule?.extratags.openingHours)
         dataManager.savePlace(cellule: cellule, photoOfCellule: photoOfCellule, informations: &informations, coreDataManager: coreDataManager)
         setBookmarkBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1))
     }
@@ -237,7 +225,6 @@ class DetailsPlaceViewController: UIViewController {
     /// Manage the button bookmark of places saved
     private func setBookmarkBarButtonItem(color: UIColor?) {
         bookmarkBarButtonItem.tintColor = color
-//        navigationItem.rightBarButtonItem = barButtonItem
     }
 }
 

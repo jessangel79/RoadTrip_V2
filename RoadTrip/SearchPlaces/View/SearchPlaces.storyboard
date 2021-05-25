@@ -252,10 +252,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brv-Ay-ucx" userLabel="Base View">
-                                <rect key="frame" x="0.0" y="44" width="320" height="250"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="260"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="palm-island_1024x768" translatesAutoresizingMaskIntoConstraints="NO" id="4oD-u5-Zz0">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="europe" translatesAutoresizingMaskIntoConstraints="NO" id="2yd-5p-K7t">
                                         <rect key="frame" x="8" y="8" width="45" height="45"/>
@@ -304,7 +304,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Z6A-K3-gBe">
-                                        <rect key="frame" x="3" y="182" width="314" height="60"/>
+                                        <rect key="frame" x="3" y="192" width="314" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xda-dQ-QP5">
                                                 <rect key="frame" x="0.0" y="0.0" width="251" height="60"/>
@@ -366,7 +366,7 @@
                                     <constraint firstItem="4oD-u5-Zz0" firstAttribute="height" secondItem="brv-Ay-ucx" secondAttribute="height" id="B7T-ff-bWj"/>
                                     <constraint firstItem="Z6A-K3-gBe" firstAttribute="centerX" secondItem="brv-Ay-ucx" secondAttribute="centerX" id="CWJ-aL-876"/>
                                     <constraint firstItem="UqT-PO-pdI" firstAttribute="leading" secondItem="brv-Ay-ucx" secondAttribute="leading" constant="8" id="J9e-Yq-7fb"/>
-                                    <constraint firstAttribute="height" constant="250" id="MuN-wa-iWl"/>
+                                    <constraint firstAttribute="height" constant="260" id="MuN-wa-iWl"/>
                                     <constraint firstAttribute="trailing" secondItem="4oD-u5-Zz0" secondAttribute="trailing" id="Ql6-2M-Flb"/>
                                     <constraint firstAttribute="bottom" secondItem="Z6A-K3-gBe" secondAttribute="bottom" constant="8" id="RlD-Iq-8Df"/>
                                     <constraint firstItem="4oD-u5-Zz0" firstAttribute="top" secondItem="brv-Ay-ucx" secondAttribute="top" id="X5N-1f-JTK"/>
@@ -381,7 +381,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fce-BU-Ip6" userLabel="Details Text View">
-                                <rect key="frame" x="0.0" y="294" width="320" height="175"/>
+                                <rect key="frame" x="0.0" y="304" width="320" height="165"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

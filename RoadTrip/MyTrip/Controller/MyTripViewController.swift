@@ -33,7 +33,6 @@ final class MytripViewController: ListPlacesViewController {
                 websiteUrl: websiteUrl, index: index), tripToShare: &tripToShare)
             index += 1
         }
-//        print("tripToShare => \(tripToShare)")
         return tripToShare
     }
     

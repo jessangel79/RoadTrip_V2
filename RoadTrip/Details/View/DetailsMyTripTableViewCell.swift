@@ -54,7 +54,7 @@ final class DetailsMyTripTableViewCell: UITableViewCell {
             travellerThreeLabel.text = detailsTripEntity?.travellerThree
             travellerFourLabel.text = detailsTripEntity?.travellerFour
             notesTextView.text = detailsTripEntity?.notes
-            tripImageView.image = UIImage(named: detailsTripEntity?.imageBackground ?? "iles-de-locean_1024x1024.png")
+            tripImageView.image = UIImage(named: detailsTripEntity?.imageBackground ?? Constants.imgBackground)
         }
     }
 }
