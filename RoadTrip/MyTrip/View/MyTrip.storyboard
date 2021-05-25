@@ -162,16 +162,16 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="cht-Lw-aAg">
-                                        <rect key="frame" x="3.5" y="192" width="313" height="60"/>
+                                        <rect key="frame" x="4" y="192" width="312" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaj-DN-SUh">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="249" height="60"/>
                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                 <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvk-Vg-0Cy">
-                                                <rect key="frame" x="253" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="252" y="0.0" width="60" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="VBT-bD-nMs"/>
                                                     <constraint firstAttribute="width" secondItem="Fvk-Vg-0Cy" secondAttribute="height" multiplier="1:1" id="p31-jt-zhV"/>
@@ -225,7 +225,7 @@
                                     <constraint firstAttribute="trailing" secondItem="j1b-2t-YvN" secondAttribute="trailing" constant="10" id="DLj-fk-bin"/>
                                     <constraint firstItem="yuS-LA-Cba" firstAttribute="leading" secondItem="pwM-Hw-U0v" secondAttribute="leading" constant="8" id="JCP-3d-0aW"/>
                                     <constraint firstItem="yuS-LA-Cba" firstAttribute="top" secondItem="pwM-Hw-U0v" secondAttribute="top" constant="8" id="MR3-f1-PSW"/>
-                                    <constraint firstItem="cht-Lw-aAg" firstAttribute="leading" secondItem="pwM-Hw-U0v" secondAttribute="leading" constant="3.5" id="S9G-bj-lxG"/>
+                                    <constraint firstItem="cht-Lw-aAg" firstAttribute="leading" secondItem="pwM-Hw-U0v" secondAttribute="leading" constant="4" id="S9G-bj-lxG"/>
                                     <constraint firstItem="TS5-Kh-6jU" firstAttribute="top" secondItem="pwM-Hw-U0v" secondAttribute="top" id="Sn3-M8-Zn7"/>
                                     <constraint firstItem="cht-Lw-aAg" firstAttribute="centerX" secondItem="pwM-Hw-U0v" secondAttribute="centerX" id="TZj-mq-ecp"/>
                                     <constraint firstItem="TS5-Kh-6jU" firstAttribute="width" secondItem="pwM-Hw-U0v" secondAttribute="width" id="UX3-3y-A5q"/>

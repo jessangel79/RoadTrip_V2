@@ -304,16 +304,16 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Z6A-K3-gBe">
-                                        <rect key="frame" x="3" y="192" width="314" height="60"/>
+                                        <rect key="frame" x="4" y="192" width="312" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xda-dQ-QP5">
-                                                <rect key="frame" x="0.0" y="0.0" width="251" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="249" height="60"/>
                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                 <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUU-Xo-UNO">
-                                                <rect key="frame" x="254" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="252" y="0.0" width="60" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pUU-Xo-UNO" secondAttribute="height" multiplier="1:1" id="IMb-Py-AeT"/>
                                                     <constraint firstAttribute="height" constant="60" id="VHN-5W-PWk"/>
@@ -376,7 +376,7 @@
                                     <constraint firstItem="2yd-5p-K7t" firstAttribute="leading" secondItem="brv-Ay-ucx" secondAttribute="leading" constant="8" id="ex3-A7-peZ"/>
                                     <constraint firstItem="4oD-u5-Zz0" firstAttribute="leading" secondItem="brv-Ay-ucx" secondAttribute="leading" id="qqB-bz-n7s"/>
                                     <constraint firstItem="6T9-6k-hx0" firstAttribute="top" secondItem="brv-Ay-ucx" secondAttribute="top" constant="8" id="sRh-pl-FB5"/>
-                                    <constraint firstItem="Z6A-K3-gBe" firstAttribute="leading" secondItem="brv-Ay-ucx" secondAttribute="leading" constant="3" id="vBw-Vj-gWC"/>
+                                    <constraint firstItem="Z6A-K3-gBe" firstAttribute="leading" secondItem="brv-Ay-ucx" secondAttribute="leading" constant="4" id="vBw-Vj-gWC"/>
                                     <constraint firstItem="UqT-PO-pdI" firstAttribute="top" secondItem="tHk-iK-FTK" secondAttribute="bottom" constant="5" id="yVo-Z7-CiN"/>
                                 </constraints>
                             </view>

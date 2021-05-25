@@ -13,7 +13,7 @@ final class AdMobService {
     
     func setAdMob(_ bannerView: GADBannerView, _ viewController: UIViewController) {
         bannerView.delegate = viewController
-        bannerView.adUnitID = Constants.AdMobAdUnitIDTest // ID Test
+        bannerView.adUnitID = Constants.AdMobAdUnitIDTest
         bannerView.rootViewController = viewController
         bannerView.load(GADRequest())
     }

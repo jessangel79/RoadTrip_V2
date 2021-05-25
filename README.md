@@ -21,7 +21,7 @@ L’application permet la personnalisation d’un voyage en enregistrant des dé
 Elle permet également de préparer sa valise en créant une liste qui peut être cochée au fur et à mesure de sa préparation.
 
 Dotée d’une interface légère, l’application fonctionnera sur les appareils allant de l’iPhone SE (1st generation) à l’iPhone 11 pro Max.
-Nécessite au minimum iOS 11
+Nécessite au minimum iOS 12
 
 ***OpenStreetMap France :** https://www.openstreetmap.fr/open-data/*
 ***API :** https://nominatim.org/ - https://nominatim.openstreetmap.org/*
@@ -35,7 +35,7 @@ Nécessite au minimum iOS 11
 - Identifier et mener un projet à impact social
 - Mobiliser ses compétences au profit de la réalisation d’un projet
 - Communiquer avec une base de données pour stocker et requêter des informations
-- EventKit, Core Data, POO, POP, Alamofire, Rest API, UIKit, CocoaPods, Unit Testing, Xcode 11, Swift 5, iOS 11.
+- EventKit, Core Data, POO, POP, Alamofire, Rest API, UIKit, CocoaPods, Unit Testing, Xcode 11, Swift 5, iOS 12.
 
 | RoadTrip | Search Places | My Trip | Details | Packing List |
 | -------- | ------------- | ------- | ------- | ------------ |

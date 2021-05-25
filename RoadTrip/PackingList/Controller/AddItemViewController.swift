@@ -67,7 +67,7 @@ final class AddItemViewController: AddDetailsMyTripViewController {
     }
     
     private func setImagebackground() {
-        randomImage = imagesBackgroundList.shuffled().randomElement() ?? Constants.imgRandomBackground
+        randomImage = imagesBackgroundList.shuffled().randomElement() ?? Constants.ImgRandomBackground
         itemImageView.image = UIImage(named: randomImage)
         itemTextField.text = String()
     }

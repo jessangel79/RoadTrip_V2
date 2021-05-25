@@ -184,7 +184,7 @@ class DetailsPlaceViewController: UIViewController {
     private func loadIcon(imageString: String?) {
         guard let url = URL(string: imageString ?? "") else { return }
         DispatchQueue.main.async {
-            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.placeHolderIcon))
+            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.PlaceHolderIcon))
         }
     }
     
@@ -192,14 +192,14 @@ class DetailsPlaceViewController: UIViewController {
         if !parameters.photo.isEmpty {
             loadPhoto(urlString: parameters.photo)
         } else {
-            self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? Constants.placeHolderPhotoBackgd)
+            self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? Constants.PlaceHolderPhotoBackgd)
         }
     }
     
     private func loadPhoto(urlString: String?) {
         if let url = URL(string: urlString ?? "") {
             DispatchQueue.main.async {
-                self.placeImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.placeHolderPhoto))
+                self.placeImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.PlaceHolderPhoto))
             }
         }
     }

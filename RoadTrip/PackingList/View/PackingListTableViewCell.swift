@@ -53,9 +53,9 @@ final class PackingListTableViewCell: UITableViewCell {
         didSet {
             itemIsCheck = false
             itemLabel.text = itemEntity?.itemName
-            itemImageView.image = UIImage(named: itemEntity?.imageBackground ?? Constants.imgRandomBackground)
+            itemImageView.image = UIImage(named: itemEntity?.imageBackground ?? Constants.ImgRandomBackground)
             checkIfItemIsChecked()
-            categoryImageView.image = UIImage(named: itemEntity?.categoryImage ?? Constants.imgCategoryDefault)
+            categoryImageView.image = UIImage(named: itemEntity?.categoryImage ?? Constants.ImgCategoryDefault)
         }
     }
     
@@ -71,11 +71,11 @@ final class PackingListTableViewCell: UITableViewCell {
     }
     
     func setButton() {
-        itemCheckButton.setImage(UIImage(named: Constants.circleImg), for: .normal)
+        itemCheckButton.setImage(UIImage(named: Constants.CircleImg), for: .normal)
     }
     
     func setButtonWhenCheck() {
-        itemCheckButton.setImage(UIImage(named: Constants.checkImg), for: .normal)
+        itemCheckButton.setImage(UIImage(named: Constants.CheckImg), for: .normal)
     }
     
     private func ifCheckItemIsTrue() -> Bool {

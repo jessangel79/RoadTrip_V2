@@ -81,8 +81,8 @@ class MapViewController: UIViewController {
     }
     
     func setupData() {
-        latitude = Double(cellule?.lat ?? Constants.latitudeDefault)
-        longitude = Double(cellule?.lon ?? Constants.longitudeDefault)
+        latitude = Double(cellule?.lat ?? Constants.LatitudeDefault)
+        longitude = Double(cellule?.lon ?? Constants.LongitudeDefault)
         titleName = cellule?.displayName.cutEndString()
         subtitle = cellule?.displayName.cutStartString(2)
         info = cellule?.type.capitalized
