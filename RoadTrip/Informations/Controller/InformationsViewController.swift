@@ -16,7 +16,6 @@ final class InformationsViewController: UIViewController {
     private let segueToWebsiteInfo = Constants.SegueToWebsiteInfo
     private let badgeLinkedIn = "https://www.linkedin.com/mwlite/in/ang%C3%A9lique-babin-158aa874"
     private let badgeDevTo = "https://dev.to/angelappdev"
-//    private let manthana = "https://www.iconfinder.com/Manthana"
     private let iconfinder = "https://www.iconfinder.com/"
     private let angelAppDev = "http://www.angelappdev.io"
     private let mergersort = "https://github.com/mergesort/TableFlip"
@@ -29,10 +28,6 @@ final class InformationsViewController: UIViewController {
     @IBOutlet private weak var bannerView: GADBannerView!
     
     // MARK: - Actions
-    
-//    @IBAction private func manthanaButtonTapped(_ sender: UIButton) {
-//        openWebView(manthana)
-//    }
     
     @IBAction private func iconfinderButtonTapped(_ sender: UIButton) {
         openWebView(iconfinder)

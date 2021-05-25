@@ -16,6 +16,7 @@ class DetailsMyTripViewController: UIViewController {
     @IBOutlet weak var myTripTableView: UITableView! {
         didSet { myTripTableView.tableFooterView = UIView() }
     }
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: - Properties

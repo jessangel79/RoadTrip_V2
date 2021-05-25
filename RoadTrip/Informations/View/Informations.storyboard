@@ -214,22 +214,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1M-0o-cEB">
-                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
-                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="425"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-ef-pLK" customClass="GADBannerView">
+                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Zun-8l-NFP"/>
+                                    <constraint firstAttribute="height" constant="50" id="nkw-Fo-ZmD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cN4-Ld-aRb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cN4-Ld-aRb" firstAttribute="bottom" secondItem="p1M-0o-cEB" secondAttribute="bottom" id="DIQ-0n-l8E"/>
+                            <constraint firstItem="bSb-ef-pLK" firstAttribute="top" secondItem="p1M-0o-cEB" secondAttribute="bottom" id="GdL-g8-tso"/>
                             <constraint firstItem="cN4-Ld-aRb" firstAttribute="trailing" secondItem="p1M-0o-cEB" secondAttribute="trailing" id="Lxo-eN-wmI"/>
                             <constraint firstItem="p1M-0o-cEB" firstAttribute="top" secondItem="cN4-Ld-aRb" secondAttribute="top" id="Y0y-jp-31X"/>
+                            <constraint firstItem="bSb-ef-pLK" firstAttribute="bottom" secondItem="cN4-Ld-aRb" secondAttribute="bottom" id="gop-Te-Va6"/>
                             <constraint firstItem="p1M-0o-cEB" firstAttribute="leading" secondItem="cN4-Ld-aRb" secondAttribute="leading" id="l7o-kb-hAM"/>
+                            <constraint firstItem="bSb-ef-pLK" firstAttribute="centerX" secondItem="mwr-F6-lh8" secondAttribute="centerX" id="rh9-B6-gha"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -252,6 +262,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bannerView" destination="bSb-ef-pLK" id="7Mm-3P-Ms2"/>
                         <outlet property="safariBarButtonItem" destination="n2s-D0-DUT" id="4Kb-av-5Wm"/>
                         <outlet property="shareBarButtonItem" destination="uzs-Eb-MMA" id="ntC-Kq-6Vx"/>
                         <outlet property="webView" destination="p1M-0o-cEB" id="RzV-sy-qjV"/>
@@ -259,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARv-xv-XTb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="59"/>
+            <point key="canvasLocation" x="922.5" y="58.098591549295776"/>
         </scene>
     </scenes>
     <resources>

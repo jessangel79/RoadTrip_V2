@@ -14,27 +14,10 @@ import WebKit
 extension UIViewController {
     
     func setupWebView(webView: WKWebView, barItemsCollection: [UIBarButtonItem]) {
-        setupUI(webView: webView)
         setupToolBar()
         setupNavItem(barItemsCollection: barItemsCollection)
     }
-    
-    private func setupUI(webView: WKWebView) {
-        self.view.backgroundColor = .white
-        self.view.addSubview(webView)
         
-        NSLayoutConstraint.activate([
-            webView.topAnchor
-                .constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            webView.leftAnchor
-                .constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
-            webView.bottomAnchor
-                .constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            webView.rightAnchor
-                .constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor)
-        ])
-    }
-    
     private func setupToolBar() {
         navigationController?.toolbar.barTintColor = #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1)
         navigationController?.isToolbarHidden = false
