@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import GoogleMobileAds
 
 class DetailsPlaceViewController: UIViewController {
     
@@ -28,6 +29,7 @@ class DetailsPlaceViewController: UIViewController {
     @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
     @IBOutlet var allLabels: [UILabel]!
     @IBOutlet var allButtons: [UIButton]!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: - Properties
 
@@ -40,6 +42,7 @@ class DetailsPlaceViewController: UIViewController {
     var placeName = String()
     var address = String()
     let dataManager = DataManager()
+    let adMobService = AdMobService()
 
     var shareInfoPlace: String {
         guard let country = cellule?.address.country else { return "Pays N/A" }
@@ -79,6 +82,7 @@ class DetailsPlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        adMobService.setAdMob(bannerView, self)
         coreDataFunction()
         customUI()
         configureDetailsPlace()
@@ -111,7 +115,6 @@ class DetailsPlaceViewController: UIViewController {
         let address = "to \(address) ! \n"
         let activities = "✨ Activities ✨ \(types) ✨ \n🌐 \(websiteUrl)"
         let placeToShare = country + placeName + address + activities
-//        print("placeToShare => \(placeToShare)")
         return placeToShare
     }
     
@@ -192,7 +195,7 @@ class DetailsPlaceViewController: UIViewController {
     private func loadIcon(imageString: String?) {
         guard let url = URL(string: imageString ?? "") else { return }
         DispatchQueue.main.async {
-            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "europe.png"))
+            self.iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.placeHolderIcon))
         }
     }
     
@@ -200,14 +203,14 @@ class DetailsPlaceViewController: UIViewController {
         if !parameters.photo.isEmpty {
             loadPhoto(urlString: parameters.photo)
         } else {
-            self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? "val-dorcia-italie_1024x1024.jpg")
+            self.placeImageView.image = UIImage(named: imagesBackgroundList.randomElement() ?? Constants.placeHolderPhotoBackgd)
         }
     }
     
     private func loadPhoto(urlString: String?) {
         if let url = URL(string: urlString ?? "") {
             DispatchQueue.main.async {
-            self.placeImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "bruges-maison-blanche-belgique_1024x768" + ".jpg"))
+                self.placeImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.placeHolderPhoto))
             }
         }
     }

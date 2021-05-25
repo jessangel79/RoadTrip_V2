@@ -28,6 +28,14 @@ struct Constants {
     static let SegueToMap = "segueToMap"
     static let IdentifierPoi = "poi"
     static let SegueToWebsiteInfo = "segueToWebsiteInfo"
+    static let placeHolderIcon = "europe.png"
+    static let placeHolderPhotoBackgd = "val-dorcia-italie_1024x1024.jpg"
+    static let placeHolderPhoto = "bruges-maison-blanche-belgique_1024x768.jpg"
+    static let latitudeDefault = "48.863581"
+    static let longitudeDefault = "2.344312"
     static let AdMobAdUnitIDTest = "ca-app-pub-3940256099942544/2934735716"
     static let AdMobAdUnitIDProd = "ca-app-pub-1785702102693747/6436244128"
+    
+    static let BannerViewCell = "BannerViewCell"
+    static let BannerTableViewCell = "BannerTableViewCell"
 }

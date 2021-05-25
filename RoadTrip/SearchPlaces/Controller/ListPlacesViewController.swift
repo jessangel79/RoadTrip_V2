@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class ListPlacesViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class ListPlacesViewController: UIViewController {
     @IBOutlet weak var placesTableView: UITableView! {
         didSet { placesTableView.tableFooterView = UIView() }
     }
+    @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: - Properties
     
@@ -22,11 +24,13 @@ class ListPlacesViewController: UIViewController {
     private var cellSelected: PlacesSearchElement?
     private var photoOfCellSelected: String?
     private let segueToPlaceDetails = Constants.SegueToPlaceDetails
+    let adMobService = AdMobService()
     
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        adMobService.setAdMob(bannerView, self)
         let nib = UINib(nibName: Constants.ListPlacesTableViewCell, bundle: nil)
         placesTableView.register(nib, forCellReuseIdentifier: Constants.ListPlacesCell)
         animationTableView(tableView: placesTableView)

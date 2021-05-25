@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import GoogleMobileAds
 
 class MapViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var changeMapTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var locateMeButton: UIButton!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: - Properties
     
@@ -30,6 +32,7 @@ class MapViewController: UIViewController {
     var subtitle: String?
     var info: String?
     var phone: String?
+    let adMobService = AdMobService()
         
     var coordinateInit: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude ?? 48.863581, longitude: longitude ?? 2.344312)
@@ -63,6 +66,7 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        adMobService.setAdMob(bannerView, self)
         mapView.register(PoiAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         customUI()
         setupData()
@@ -77,8 +81,8 @@ class MapViewController: UIViewController {
     }
     
     func setupData() {
-        latitude = Double(cellule?.lat ?? "48.863581")
-        longitude = Double(cellule?.lon ?? "2.344312")
+        latitude = Double(cellule?.lat ?? Constants.latitudeDefault)
+        longitude = Double(cellule?.lon ?? Constants.longitudeDefault)
         titleName = cellule?.displayName.cutEndString()
         subtitle = cellule?.displayName.cutStartString(2)
         info = cellule?.type.capitalized

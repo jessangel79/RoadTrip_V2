@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class AddDetailsMyTripViewController: UIViewController {
     
@@ -24,6 +25,7 @@ class AddDetailsMyTripViewController: UIViewController {
     @IBOutlet private weak var travellerFourTextField: UITextField!
     @IBOutlet private weak var notesTextField: UITextField!
     @IBOutlet private var allLabels: [UILabel]!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: - Properties
     
@@ -35,6 +37,7 @@ class AddDetailsMyTripViewController: UIViewController {
     var celluleActive = false
     var celluleIndex: Int?
     var randomImage = String()
+    let adMobService = AdMobService()
     
     // MARK: - Actions
 
@@ -47,6 +50,7 @@ class AddDetailsMyTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        adMobService.setAdMob(bannerView, self)
         coreDataFunction()
         customUI()
         setDatePicker()

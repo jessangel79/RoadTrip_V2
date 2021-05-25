@@ -49,147 +49,139 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMv-Mk-RyG">
-                                <rect key="frame" x="34" y="49" width="252" height="29"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B15-Gb-Wkt">
+                                <rect key="frame" x="20" y="47" width="280" height="416.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon made by" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTc-Hs-kdr">
-                                        <rect key="frame" x="0.0" y="0.0" width="97" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="97" id="mp7-S0-qcr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWe-wd-h7J">
-                                        <rect key="frame" x="97" y="0.0" width="155" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="155" id="ulA-RG-lks"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <state key="normal" title="Manthana Chaiwong">
-                                            <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="manthanaButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="5X2-Fl-byZ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHL-bC-WcJ">
-                                <rect key="frame" x="92.5" y="78" width="135" height="29"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSS-2u-4Rq">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="j4b-HQ-WoN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-Vl-Suj">
-                                        <rect key="frame" x="35" y="0.0" width="100" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="hC7-sR-aRS"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <state key="normal" title="ICONFINDER">
-                                            <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="iconfinderButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="L81-xo-taY"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IwI-b9-cqM">
-                                <rect key="frame" x="35" y="107" width="250" height="325.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24r-So-JLD">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <state key="normal" title="TableFlip By Joe Fabisevich">
-                                            <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="mergesortButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="Aja-Vc-I45"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2As-8i-ZCT">
-                                        <rect key="frame" x="0.0" y="34" width="250" height="46"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5hX-op-fhC">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="202.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygr-IH-COb">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="29"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FnT-Rv-fv0">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Icon made by Manthana Chaiwong from ICONFINDER" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTc-Hs-kdr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-Vl-Suj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="iconfinderButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="L81-xo-taY"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="QhR-DN-g7k"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24r-So-JLD">
+                                                <rect key="frame" x="0.0" y="58" width="280" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                <state key="normal" title="© les contributeurs OpenStreetMap,">
+                                                <state key="normal" title="TableFlip By Joe Fabisevich">
                                                     <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="openStreetMapButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="e37-qu-yRB"/>
+                                                    <action selector="mergesortButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="Aja-Vc-I45"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sous licence ODbL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cu5-VN-wu4">
-                                                <rect key="frame" x="0.0" y="29" width="250" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2As-8i-ZCT">
+                                                <rect key="frame" x="0.0" y="95" width="280" height="46"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygr-IH-COb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="29"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <state key="normal" title="© les contributeurs OpenStreetMap,">
+                                                            <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="openStreetMapButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="e37-qu-yRB"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sous licence ODbL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cu5-VN-wu4">
+                                                        <rect key="frame" x="0.0" y="29" width="280" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YTd-YF-paf">
+                                                <rect key="frame" x="0.0" y="149" width="280" height="53.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Développeuse mobile iOS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOR-m1-pcL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-OU-ubK">
+                                                        <rect key="frame" x="0.0" y="20.5" width="280" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <state key="normal" title="AngeAppDev - Angélique Babin"/>
+                                                        <connections>
+                                                            <action selector="angelAppDevButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="6lc-Mn-uqD"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YTd-YF-paf">
-                                        <rect key="frame" x="0.0" y="85" width="250" height="53.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ipR-if-icn">
+                                        <rect key="frame" x="86.5" y="207.5" width="107" height="209"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Développeuse mobile iOS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOR-m1-pcL">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-OU-ubK">
-                                                <rect key="frame" x="0.0" y="20.5" width="250" height="33"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <state key="normal" title="AngeAppDev - Angélique Babin"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Id-mz-Mzs" userLabel="LinkedInButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="107" height="155"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="107" id="U0M-2J-CAT"/>
+                                                    <constraint firstAttribute="width" secondItem="7Id-mz-Mzs" secondAttribute="height" multiplier="107:155" id="cpg-Fr-Sta"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" image="BadgeLinkedIn_dark"/>
                                                 <connections>
-                                                    <action selector="angelAppDevButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="6lc-Mn-uqD"/>
+                                                    <action selector="badgeProButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="dMj-oj-rCt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CH-XP-9VZ" userLabel="DevButton">
+                                                <rect key="frame" x="28.5" y="159" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="PZL-Il-x4B"/>
+                                                    <constraint firstAttribute="width" secondItem="7CH-XP-9VZ" secondAttribute="height" multiplier="1:1" id="faH-LU-yWR"/>
+                                                </constraints>
+                                                <state key="normal" image="dev-to_25_dark"/>
+                                                <connections>
+                                                    <action selector="badgeDevButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="hR4-7d-6r1"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Id-mz-Mzs" userLabel="LinkedInButton">
-                                        <rect key="frame" x="0.0" y="143.5" width="250" height="182"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" image="BadgeLinkedIn_dark"/>
-                                        <connections>
-                                            <action selector="badgeProButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="dMj-oj-rCt"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CH-XP-9VZ" userLabel="DevButton">
-                                <rect key="frame" x="127.5" y="437.5" width="65" height="65"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utt-PS-29v" customClass="GADBannerView">
+                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="PZL-Il-x4B"/>
-                                    <constraint firstAttribute="width" secondItem="7CH-XP-9VZ" secondAttribute="height" multiplier="1:1" id="faH-LU-yWR"/>
+                                    <constraint firstAttribute="height" constant="50" id="XAx-dG-wPo"/>
+                                    <constraint firstAttribute="width" constant="300" id="wNg-Cj-jbU"/>
                                 </constraints>
-                                <state key="normal" image="dev-to_25_dark"/>
-                                <connections>
-                                    <action selector="badgeDevButtonTapped:" destination="ilZ-Ug-feF" eventType="touchUpInside" id="hR4-7d-6r1"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="leP-lZ-r1a"/>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="bHL-bC-WcJ" firstAttribute="top" secondItem="sMv-Mk-RyG" secondAttribute="bottom" id="5BT-Ce-Dhj"/>
-                            <constraint firstItem="bHL-bC-WcJ" firstAttribute="centerX" secondItem="EAQ-5X-vX3" secondAttribute="centerX" id="60h-fg-nB8"/>
-                            <constraint firstItem="7CH-XP-9VZ" firstAttribute="centerX" secondItem="EAQ-5X-vX3" secondAttribute="centerX" id="7KX-dM-SpY"/>
-                            <constraint firstItem="IwI-b9-cqM" firstAttribute="top" secondItem="bHL-bC-WcJ" secondAttribute="bottom" id="9uG-YR-dPh"/>
-                            <constraint firstItem="IwI-b9-cqM" firstAttribute="centerX" secondItem="EAQ-5X-vX3" secondAttribute="centerX" id="Bms-2P-yfV"/>
-                            <constraint firstItem="sMv-Mk-RyG" firstAttribute="centerX" secondItem="EAQ-5X-vX3" secondAttribute="centerX" id="EWx-rj-UnF"/>
-                            <constraint firstItem="sMv-Mk-RyG" firstAttribute="top" secondItem="leP-lZ-r1a" secondAttribute="top" constant="5" id="EXw-sS-gJG"/>
-                            <constraint firstItem="7CH-XP-9VZ" firstAttribute="top" secondItem="IwI-b9-cqM" secondAttribute="bottom" constant="5" id="bf7-sz-5gx"/>
+                            <constraint firstItem="B15-Gb-Wkt" firstAttribute="leading" secondItem="leP-lZ-r1a" secondAttribute="leading" constant="20" id="3GS-hC-XVp"/>
+                            <constraint firstItem="utt-PS-29v" firstAttribute="centerX" secondItem="EAQ-5X-vX3" secondAttribute="centerX" id="NZY-gQ-qrU"/>
+                            <constraint firstItem="B15-Gb-Wkt" firstAttribute="top" secondItem="leP-lZ-r1a" secondAttribute="top" constant="3" id="Q0i-ap-jts"/>
+                            <constraint firstItem="leP-lZ-r1a" firstAttribute="trailing" secondItem="B15-Gb-Wkt" secondAttribute="trailing" constant="20" id="Yb7-og-IJ8"/>
+                            <constraint firstItem="leP-lZ-r1a" firstAttribute="bottom" secondItem="utt-PS-29v" secondAttribute="bottom" id="gp1-NN-exP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Crédits" id="RGd-Je-UuX">
@@ -205,6 +197,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bannerView" destination="utt-PS-29v" id="UNx-Up-irc"/>
                         <segue destination="SdW-hj-lRc" kind="show" identifier="segueToWebsiteInfo" id="MCR-io-ftF"/>
                     </connections>
                 </viewController>
