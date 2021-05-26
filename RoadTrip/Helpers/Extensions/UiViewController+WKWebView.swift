@@ -26,6 +26,7 @@ extension UIViewController {
     private func setupNavItem(barItemsCollection: [UIBarButtonItem]) {
         for barItem in barItemsCollection {
             barItem.tintColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
+            barItem.width = 44
         }
         self.navigationItem.rightBarButtonItems = barItemsCollection
     }

@@ -23,7 +23,7 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string>public.app-category.travel</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -36,23 +36,23 @@
 		<true/>
 	</dict>
 	<key>NSAppleEventsUsageDescription</key>
-	<string>This application need to access</string>
+	<string>This application needs access in order to be able to create an event</string>
 	<key>NSCalendarsUsageDescription</key>
-	<string>This application need to access to calendar</string>
+	<string>Allow access to calendar to add event in the calendar</string>
 	<key>NSContactsUsageDescription</key>
-	<string>This application need to access to contacts</string>
+	<string>Allow access to contacts to find friends and add them</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>This application need to access to location</string>
+	<string>Turning on location services allows us to locate you in order to calculate the route to the requested location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This application need to access to location</string>
+	<string>Turning on location services allows us to locate you in order to calculate the route to the requested location</string>
 	<key>NSLocationUsageDescription</key>
-	<string>This application need to access to location</string>
+	<string>Turning on location services allows us to locate you in order to calculate the route to the requested location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This application need to access to location</string>
+	<string>Turning on location services allows us to locate you in order to calculate the route to the requested location</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We need to write photos in your gallery</string>
+	<string>Allow access to photos to uplaod photos from your library</string>
 	<key>NSRemindersUsageDescription</key>
-	<string>This application need to access to reminders</string>
+	<string>Allow access to reminders to configure reminders</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

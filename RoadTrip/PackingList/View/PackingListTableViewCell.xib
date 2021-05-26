@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PackingListCell" rowHeight="50" id="KGk-i7-Jjw" customClass="PackingListTableViewCell" customModule="RoadTrip" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PackingListCell" rowHeight="66" id="KGk-i7-Jjw" customClass="PackingListTableViewCell" customModule="RoadTrip" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmt-1C-ZWm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piha-beach-nouvelle-zelande_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="zAR-IT-ghB">
-                                <rect key="frame" x="5" y="5" width="310" height="40"/>
+                                <rect key="frame" x="5" y="5" width="310" height="56"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-Ui-GEr">
-                                <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                <rect key="frame" x="10" y="10" width="46" height="46"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Yho-Ui-GEr" secondAttribute="height" multiplier="1:1" id="nWe-gh-unj"/>
@@ -34,13 +34,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQw-Xc-1q9">
-                                <rect key="frame" x="55" y="13" width="44.5" height="24"/>
+                                <rect key="frame" x="71" y="13" width="44.5" height="40"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                 <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tasksbeforeyougo" translatesAutoresizingMaskIntoConstraints="NO" id="SGX-c2-AS6">
-                                <rect key="frame" x="278" y="8" width="34" height="34"/>
+                                <rect key="frame" x="262" y="8" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SGX-c2-AS6" secondAttribute="height" multiplier="1:1" id="y6y-kJ-HQM"/>
@@ -53,7 +53,7 @@
                             <constraint firstAttribute="trailing" secondItem="SGX-c2-AS6" secondAttribute="trailing" constant="8" id="KLo-Ba-84g"/>
                             <constraint firstAttribute="bottom" secondItem="BQw-Xc-1q9" secondAttribute="bottom" constant="13" id="KWo-7M-a9h"/>
                             <constraint firstAttribute="bottom" secondItem="zAR-IT-ghB" secondAttribute="bottom" constant="5" id="Oii-s2-HW2"/>
-                            <constraint firstAttribute="height" constant="50" id="ZtQ-XN-4Ir"/>
+                            <constraint firstAttribute="height" constant="66" id="ZtQ-XN-4Ir"/>
                             <constraint firstAttribute="bottom" secondItem="Yho-Ui-GEr" secondAttribute="bottom" constant="10" id="bnH-m2-KZr"/>
                             <constraint firstItem="zAR-IT-ghB" firstAttribute="top" secondItem="Dmt-1C-ZWm" secondAttribute="top" constant="5" id="gf4-Ng-cFv"/>
                             <constraint firstItem="zAR-IT-ghB" firstAttribute="leading" secondItem="Dmt-1C-ZWm" secondAttribute="leading" constant="5" id="jDj-e1-GOY"/>
@@ -73,8 +73,8 @@
                     <constraint firstItem="Dmt-1C-ZWm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="owR-Gl-XZs"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="categoryImageView" destination="SGX-c2-AS6" id="Z67-ag-mb9"/>
                 <outlet property="itemCheckButton" destination="Yho-Ui-GEr" id="ml4-zW-dtO"/>

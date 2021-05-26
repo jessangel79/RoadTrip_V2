@@ -45,7 +45,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ULV-ty-aj1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="66" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ULV-ty-aj1">
                                 <rect key="frame" x="0.0" y="44" width="320" height="425"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -78,11 +78,13 @@
                     <navigationItem key="navigationItem" title="Packing List" id="3lI-SX-x9F">
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="Z6h-ze-eI1">
+                                <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <segue destination="yON-MQ-oTy" kind="show" identifier="segueToAddItem" id="vk9-hl-VUR"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Reset" id="eyt-6I-UjJ">
+                                <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="resetBarButtonItemTapped:" destination="y0H-NL-oZK" id="oZY-ZM-SXI"/>
                                 </connections>

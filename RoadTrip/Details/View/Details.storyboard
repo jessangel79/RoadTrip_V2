@@ -75,14 +75,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="bFB-f1-PAX">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="jJo-EO-kzr"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="jJo-EO-kzr">
+                            <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="r7i-OM-DTf">
+                                <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <segue destination="4xP-hB-DFU" kind="show" identifier="segueToAddDetails" id="vfI-Yn-gEV"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Reset" id="Z3b-Jw-2S7">
+                                <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="resetBarButtonItemTapped:" destination="2jP-sR-pTh" id="dNp-g2-YLu"/>
                                 </connections>
