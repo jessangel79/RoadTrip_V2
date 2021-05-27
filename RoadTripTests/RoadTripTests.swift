@@ -223,7 +223,7 @@ final class RoadTripTests: XCTestCase {
         let coordinateInit = CLLocationCoordinate2D(latitude: 48.8691942, longitude: 2.3321035)
         let poi = Poi(title: "Harry's Bar",
                       subtitle: "5, Rue Daunou, Quartier Gaillon, Paris 2e Arrondissement, Paris, Île-de-France, France métropolitaine, 75002, France",
-                      coordinate: coordinateInit, info: "Bar")
+                      coordinate: coordinateInit, info: "Bar", phone: "+33 1 43 87 49 46")
         XCTAssertEqual("Harry's Bar", poi.title)
         XCTAssertEqual("5, Rue Daunou, Quartier Gaillon, Paris 2e Arrondissement, Paris, Île-de-France, France métropolitaine, 75002, France", poi.subtitle)
         XCTAssertEqual("Bar", poi.info)

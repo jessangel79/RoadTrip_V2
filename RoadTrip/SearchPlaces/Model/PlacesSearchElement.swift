@@ -1,5 +1,5 @@
 //
-//  PlacesSearch.swift
+//  PlacesSearchElement.swift
 //  RoadTrip
 //
 //  Created by Angelique Babin on 10/02/2020.

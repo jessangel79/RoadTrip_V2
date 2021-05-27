@@ -15,6 +15,7 @@ final class CoreDataManagerTests: XCTestCase {
 
     var coreDataStack: MockCoreDataStack!
     var coreDataManager: CoreDataManager!
+    let dataManager = DataManager()
 
     // MARK: - Tests Life Cycle
 
@@ -43,6 +44,24 @@ final class CoreDataManagerTests: XCTestCase {
             informations: "",
             lat: "49.0318009", lon: "2.061048")
         )
+    }
+    
+    private func savePlace(photoOfCellule: String?, informations: inout String?, openDays: String?) {
+        let cellule = PlacesSearchElement(
+            lat: "49.0318009", lon: "2.061048",
+            displayName: "The Lions, Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France",
+            type: "pub",
+            importance: 0.201, icon: "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png",
+            address: Address(country: "France"),
+            extratags: Extratags(phone: "+33 1 73 75 86 13",
+                                 website: "http://www.thelionsparis.fr", smoking: "outside",
+                                 wheelchair: "limited", toiletsWheelchair: nil,
+                                 layer: nil, brewery: "various",
+                                 openingHours: openDays,
+                                 outdoorSeating: nil,
+                                 wifi: nil, tobacco: nil)
+        )
+        dataManager.savePlace(cellule: cellule, photoOfCellule: photoOfCellule, informations: &informations, coreDataManager: coreDataManager)
     }
     
     private func createPlaces() {
@@ -81,24 +100,35 @@ final class CoreDataManagerTests: XCTestCase {
     }
     
     // MARK: - Tests PlaceEntity
-
-    func testAddPlaceMethods_WhenAnEntityIsCreated_ThenShouldBeCorrectlySaved() {
-        createPlace(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
+    
+    func testSavePlaceMethods_WhenAnEntityIsCreatedWhenOpenDaysIsOk_ThenShouldBeCorrectlySaved() {
+        var informations: String? = ""
+        let openDays = "Mo 11:00-00:00; Tu-We 11:00-01:00; Th-Fr 11:00-02:00; Sa 19:00-02:00; Su 19:00-00:00"
+        savePlace(photoOfCellule: "", informations: &informations, openDays: openDays)
         XCTAssertTrue(!coreDataManager.places.isEmpty)
         XCTAssertTrue(coreDataManager.places.count == 1)
-        XCTAssertTrue(coreDataManager.places[0].address == "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
-        XCTAssertTrue(coreDataManager.places[0].country == "France")
-        XCTAssertTrue(coreDataManager.places[0].icon == "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png")
-        XCTAssertTrue(coreDataManager.places[0].name == "The Lions")
-        XCTAssertTrue(coreDataManager.places[0].openDays == "Mo 11:00-00:00; Tu-We 11:00-01:00; Th-Fr 11:00-02:00; Sa 19:00-02:00; Su 19:00-00:00")
-        XCTAssertTrue(coreDataManager.places[0].phoneNumber == "+33 1 73 75 86 13")
-        XCTAssertTrue(coreDataManager.places[0].rating == "0.201")
-        XCTAssertTrue(coreDataManager.places[0].types?.changeDash.capitalized == "Pub")
-        XCTAssertTrue(coreDataManager.places[0].website == "http://www.thelionsparis.fr")
-        
+        XCTAssertEqual(coreDataManager.places[0].lat, "49.0318009")
+        XCTAssertEqual(coreDataManager.places[0].lon, "2.061048")
+        XCTAssertEqual(coreDataManager.places[0].country, "France")
+        XCTAssertEqual(coreDataManager.places[0].name, "The Lions")
+        XCTAssertEqual(coreDataManager.places[0].address, "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
+        XCTAssertEqual(coreDataManager.places[0].icon, "https://nominatim.openstreetmap.org/images/mapicons/food_pub.p.20.png")
+        XCTAssertEqual(coreDataManager.places[0].openDays, "Mo 11:00-00:00; Tu-We 11:00-01:00; Th-Fr 11:00-02:00; Sa 19:00-02:00; Su 19:00-00:00")
+        XCTAssertEqual(coreDataManager.places[0].phoneNumber, "+33 1 73 75 86 13")
+        XCTAssertEqual(coreDataManager.places[0].rating, "2")
+        XCTAssertEqual(coreDataManager.places[0].types?.changeDash.capitalized, "Pub")
+        XCTAssertEqual(coreDataManager.places[0].website, "http://www.thelionsparis.fr")
         let placeIsSaved = coreDataManager.checkIfPlaceIsSaved(placeName: "The Lions", address: "Rue du Chevaleret, Quartier de la Gare, Paris, Île-de-France, France métropolitaine, 75013, France")
         XCTAssertTrue(coreDataManager.places.count > 0)
         XCTAssertTrue(placeIsSaved)
+    }
+    
+    func testSavePlaceMethods_WhenAnEntityIsCreatedWhenOpenDaysIsNil_ThenShouldBeCorrectlySaved() {
+        var informations: String? = ""
+        let openDays: String? = nil
+        savePlace(photoOfCellule: "", informations: &informations, openDays: openDays)
+        XCTAssertEqual(coreDataManager.places[0].openDays, "Opening Hours : N/A")
+
     }
 
     func testDeletePlaceMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {

@@ -77,7 +77,7 @@
 		3AE99AC32539DDDA00471F2B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3AE99AC22539DDDA00471F2B /* README.md */; };
 		3AF881BA23F16A19005F64ED /* PlaceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881B923F16A19005F64ED /* PlaceSession.swift */; };
 		3AF881BC23F16A46005F64ED /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BB23F16A46005F64ED /* PlaceService.swift */; };
-		3AF881BE23F16B2B005F64ED /* PlacesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BD23F16B2B005F64ED /* PlacesSearch.swift */; };
+		3AF881BE23F16B2B005F64ED /* PlacesSearchElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BD23F16B2B005F64ED /* PlacesSearchElement.swift */; };
 		3AF881C023F17005005F64ED /* SearchPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BF23F17005005F64ED /* SearchPlacesViewController.swift */; };
 		3AF881C223F175CC005F64ED /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881C123F175CC005F64ED /* UIViewController+Alert.swift */; };
 		3AFA6202241A66F60055E8E8 /* UIViewController+CustomUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA6201241A66F60055E8E8 /* UIViewController+CustomUI.swift */; };
@@ -178,7 +178,7 @@
 		3AE99AC22539DDDA00471F2B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		3AF881B923F16A19005F64ED /* PlaceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSession.swift; sourceTree = "<group>"; };
 		3AF881BB23F16A46005F64ED /* PlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
-		3AF881BD23F16B2B005F64ED /* PlacesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearch.swift; sourceTree = "<group>"; };
+		3AF881BD23F16B2B005F64ED /* PlacesSearchElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearchElement.swift; sourceTree = "<group>"; };
 		3AF881BF23F17005005F64ED /* SearchPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesViewController.swift; sourceTree = "<group>"; };
 		3AF881C123F175CC005F64ED /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		3AFA6201241A66F60055E8E8 /* UIViewController+CustomUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomUI.swift"; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 				3AF881BB23F16A46005F64ED /* PlaceService.swift */,
 				3A755CE923EDD63200889FA5 /* PlaceProtocol.swift */,
 				3AF881B923F16A19005F64ED /* PlaceSession.swift */,
-				3AF881BD23F16B2B005F64ED /* PlacesSearch.swift */,
+				3AF881BD23F16B2B005F64ED /* PlacesSearchElement.swift */,
 				3ABBA05324FFC52B007E80DB /* Photos.swift */,
 				3A0E58E624081605000123D5 /* PlaceParameters.swift */,
 				3AD895E725028B5200E8902F /* DetailsPlaceParameters.swift */,
@@ -795,7 +795,7 @@
 				3ADF8DDC25010D160011DD77 /* CoreDataStack.swift in Sources */,
 				3AA3A1682507EADC00C0999F /* PoiAnnotationView.swift in Sources */,
 				3AFA6204241A67430055E8E8 /* UIViewController+ActivityIndicator.swift in Sources */,
-				3AF881BE23F16B2B005F64ED /* PlacesSearch.swift in Sources */,
+				3AF881BE23F16B2B005F64ED /* PlacesSearchElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
