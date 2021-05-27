@@ -344,7 +344,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BadgeLinkedIn_dark" width="656" height="480"/>
+        <image name="BadgeLinkedIn_dark" width="658" height="482"/>
         <image name="dev-to_25_dark" width="112" height="112"/>
         <image name="safari" width="25" height="25"/>
         <image name="share-app" width="25" height="25"/>
