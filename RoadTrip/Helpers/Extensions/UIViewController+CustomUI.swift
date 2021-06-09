@@ -25,6 +25,9 @@ extension UIViewController {
         button.layer.borderWidth = width
         button.layer.backgroundColor = colorBackground.cgColor
         button.layer.borderColor = colorBorder.cgColor
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.8
+        button.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
     
     /// custom labels collection
