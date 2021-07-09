@@ -21,6 +21,16 @@ final class PackingListTableViewCell: UITableViewCell {
 
     private var coreDataManager: CoreDataManager?
     private var itemIsCheck = false
+    
+    var itemEntity: ItemEntity? {
+        didSet {
+            itemIsCheck = false
+            itemLabel.text = itemEntity?.itemName
+            itemImageView.image = UIImage(named: itemEntity?.imageBackground ?? Constants.ImgRandomBackground)
+            checkIfItemIsChecked()
+            categoryImageView.image = UIImage(named: itemEntity?.categoryImage ?? Constants.ImgCategoryDefault)
+        }
+    }
 
     // MARK: - Actions
     
@@ -29,7 +39,7 @@ final class PackingListTableViewCell: UITableViewCell {
         editItemCheckButton()
     }
     
-    // MARK: - Methods
+    // MARK: - View Life Cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +47,8 @@ final class PackingListTableViewCell: UITableViewCell {
         customCell()
     }
     
+    // MARK: - Methods
+
     private func customCell() {
         customLabelCell(label: itemLabel, radius: 5, width: 1.0, colorBackground: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884), colorBorder: #colorLiteral(red: 0.7009438452, green: 0.7009438452, blue: 0.7009438452, alpha: 0.6988976884))
         customImageViewCell(imageView: categoryImageView)
@@ -47,16 +59,6 @@ final class PackingListTableViewCell: UITableViewCell {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataStack = appDelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
-    }
-    
-    var itemEntity: ItemEntity? {
-        didSet {
-            itemIsCheck = false
-            itemLabel.text = itemEntity?.itemName
-            itemImageView.image = UIImage(named: itemEntity?.imageBackground ?? Constants.ImgRandomBackground)
-            checkIfItemIsChecked()
-            categoryImageView.image = UIImage(named: itemEntity?.categoryImage ?? Constants.ImgCategoryDefault)
-        }
     }
     
     private func editItemCheckButton() {
