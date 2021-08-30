@@ -13,7 +13,6 @@ import Foundation
 struct Constants {
     static let ListPlacesCell = "ListPlacesCell"
     static let ListPlacesTableViewCell = "ListPlacesTableViewCell"
-    static let PlacesAPIKey = "PlacesAPIKey"
     static let PhotosAPIKey = "PhotosAPIKey"
     static let SegueToPlacesList = "segueToPlacesList"
     static let SegueToPlaceDetails = "segueToPlaceDetails"
