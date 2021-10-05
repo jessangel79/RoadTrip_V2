@@ -2,8 +2,8 @@
 ## RoadTrip App - Planifier vos voyages
 
 
-![platform-ios](https://img.shields.io/badge/platform-ios--macos-lightgrey.svg) ![swift-version](https://img.shields.io/badge/swift-5.0-red.svg) ![device](https://img.shields.io/badge/Device-iPhone--iPad--Mac-green)
-![version](https://img.shields.io/badge/Version-1.3-blue)
+![platform-ios](https://img.shields.io/badge/platform-ios--macos-lightgrey.svg) ![swift-version](https://img.shields.io/badge/swift-5.5-red.svg) ![device](https://img.shields.io/badge/Device-iPhone--iPad--Mac-green)
+![version](https://img.shields.io/badge/Version-1.4-blue)
 
 **Description :**
 -
