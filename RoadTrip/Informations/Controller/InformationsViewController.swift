@@ -53,7 +53,7 @@ final class InformationsViewController: UIViewController {
         openWebView(badgeDevTo)
     }
     
-    @IBAction func closeModalButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func closeModalBarButtonItemTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
         
