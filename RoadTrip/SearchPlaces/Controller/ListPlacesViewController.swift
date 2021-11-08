@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import GoogleMobileAds
 
 class ListPlacesViewController: UIViewController {
@@ -16,6 +17,7 @@ class ListPlacesViewController: UIViewController {
     @IBOutlet weak var placesTableView: UITableView! {
         didSet { placesTableView.tableFooterView = UIView() }
     }
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: - Properties
@@ -24,13 +26,16 @@ class ListPlacesViewController: UIViewController {
     private var cellSelected: PlacesSearchElement?
     private var photoOfCellSelected: String?
     private let segueToPlaceDetails = Constants.SegueToPlaceDetails
+    
     let adMobService = AdMobService()
     
     // MARK: - View Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         adMobService.setAdMob(bannerView, self)
+        
         let nib = UINib(nibName: Constants.ListPlacesTableViewCell, bundle: nil)
         placesTableView.register(nib, forCellReuseIdentifier: Constants.ListPlacesCell)
         animationTableView(tableView: placesTableView)
@@ -40,6 +45,18 @@ class ListPlacesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         placesTableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        adMobService.loadBannerAd(bannerView)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.adMobService.loadBannerAd(self.bannerView)
+        })
     }
 }
 

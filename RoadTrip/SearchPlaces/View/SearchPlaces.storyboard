@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rop-A0-w01">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rop-A0-w01">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -269,10 +269,10 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6T9-6k-hx0">
-                                        <rect key="frame" x="250" y="8" width="62" height="30"/>
+                                        <rect key="frame" x="245" y="8" width="67" height="30"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="twg-HG-lvA">
-                                                <rect key="frame" x="5" y="5" width="52" height="20"/>
+                                                <rect key="frame" x="5" y="5" width="57" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J01-KE-f8R">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -285,7 +285,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="ycK-Rj-pyu">
-                                                        <rect key="frame" x="32" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="32" y="0.0" width="25" height="20"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
@@ -519,7 +519,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pGN-qs-9C8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.71610444780000004" green="0.77808940410000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KZa-ar-oTP" firstAttribute="centerX" secondItem="cVS-vl-ta3" secondAttribute="centerX" id="Rxd-Bf-Cdv"/>
                             <constraint firstItem="pGN-qs-9C8" firstAttribute="trailing" secondItem="gvg-Pw-UZc" secondAttribute="trailing" constant="5" id="cgP-ZC-aoU"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import GoogleMobileAds
 
 final class SearchPlacesViewController: UIViewController {
@@ -19,6 +20,7 @@ final class SearchPlacesViewController: UIViewController {
     @IBOutlet private weak var cityTextField: UITextField!
     @IBOutlet private weak var placeTextField: UITextField!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet private weak var bannerView: GADBannerView!
     
     // MARK: - Properties
@@ -28,6 +30,7 @@ final class SearchPlacesViewController: UIViewController {
     private var photosList = [PhotosResult]()
     private var queriesList = [String]()
     private let segueToPlacesList = Constants.SegueToPlacesList
+    
     private let adMobService = AdMobService()
     
     // MARK: - Actions
@@ -41,12 +44,26 @@ final class SearchPlacesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customButton(button: searchPlacesButton, radius: 20, width: 0.8, colorBackground: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
+        
         adMobService.setAdMob(bannerView, self)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         queriesList = [String]()
         urlsList = [String]()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        adMobService.loadBannerAd(bannerView)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.adMobService.loadBannerAd(self.bannerView)
+        })
     }
     
     // MARK: - Methods

@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+
 import GoogleMobileAds
 
 class DetailsPlaceViewController: UIViewController {
@@ -29,6 +30,7 @@ class DetailsPlaceViewController: UIViewController {
     @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
     @IBOutlet var allLabels: [UILabel]!
     @IBOutlet var allButtons: [UIButton]!
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: - Properties
@@ -42,8 +44,9 @@ class DetailsPlaceViewController: UIViewController {
     var placeName = String()
     var address = String()
     let dataManager = DataManager()
+    
     let adMobService = AdMobService()
-
+    
     var shareInfoPlace: String {
         guard let country = cellule?.address.country else { return "Pays N/A" }
         guard let types = cellule?.type.changeDash.capitalized else { return "N/A" }
@@ -82,7 +85,9 @@ class DetailsPlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         adMobService.setAdMob(bannerView, self)
+        
         coreDataFunction()
         customUI()
         configureDetailsPlace()
@@ -92,6 +97,18 @@ class DetailsPlaceViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkIfPlaceIsSaved()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        adMobService.loadBannerAd(bannerView)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.adMobService.loadBannerAd(self.bannerView)
+        })
     }
     
     // MARK: - Methods

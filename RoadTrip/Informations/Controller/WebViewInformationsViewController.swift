@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+
 import GoogleMobileAds
 
 final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
@@ -17,6 +18,7 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     @IBOutlet private weak var webView: WKWebView!
     @IBOutlet private weak var safariBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var shareBarButtonItem: UIBarButtonItem!
+    
     @IBOutlet private weak var bannerView: GADBannerView!
     
     // MARK: - Properties
@@ -26,7 +28,9 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     private let backBarItem = UIBarButtonItem(title: "<<", style: .plain, target: self,
                                       action: #selector(backAction))
     private let refreshBarItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
+    
     private let adMobService = AdMobService()
+    
     var urlString = String()
     
     // MARK: - Actions
@@ -43,10 +47,24 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         adMobService.setAdMob(bannerView, self)
+        
         let barItemsCollection: [UIBarButtonItem] = [forwardBarItem, refreshBarItem, backBarItem]
         setupWebView(webView: webView, barItemsCollection: barItemsCollection)
         loadWebsite(urlString, webView: webView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        adMobService.loadBannerAd(bannerView)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.adMobService.loadBannerAd(self.bannerView)
+        })
     }
     
     // MARK: - Methods

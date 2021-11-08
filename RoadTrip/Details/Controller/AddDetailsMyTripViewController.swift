@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import GoogleMobileAds
 
 class AddDetailsMyTripViewController: UIViewController {
@@ -25,6 +26,7 @@ class AddDetailsMyTripViewController: UIViewController {
     @IBOutlet private weak var travellerFourTextField: UITextField!
     @IBOutlet private weak var notesTextField: UITextField!
     @IBOutlet private var allLabels: [UILabel]!
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: - Properties
@@ -37,8 +39,9 @@ class AddDetailsMyTripViewController: UIViewController {
     var celluleActive = false
     var celluleIndex: Int?
     var randomImage = String()
-    let adMobService = AdMobService()
     
+    let adMobService = AdMobService()
+        
     // MARK: - Actions
 
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -50,7 +53,9 @@ class AddDetailsMyTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         adMobService.setAdMob(bannerView, self)
+        
         coreDataFunction()
         customUI()
         setDatePicker()
@@ -60,6 +65,18 @@ class AddDetailsMyTripViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkIfCelluleActive()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        adMobService.loadBannerAd(bannerView)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.adMobService.loadBannerAd(self.bannerView)
+        })
     }
 
     // MARK: - Methods

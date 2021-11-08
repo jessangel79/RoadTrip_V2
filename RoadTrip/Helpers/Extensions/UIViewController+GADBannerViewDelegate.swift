@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 import GoogleMobileAds
 
 // MARK: - Extension GADBannerViewDelegate
@@ -15,6 +16,10 @@ extension UIViewController: GADBannerViewDelegate {
     
     public func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("bannerViewDidReceiveAd")
+        bannerView.alpha = 0
+          UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+          })
     }
     
     public func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 import GoogleMobileAds
 
 final class AdMobService {
@@ -15,6 +16,10 @@ final class AdMobService {
         bannerView.delegate = viewController
         bannerView.adUnitID = Constants.AdMobAdUnitIDTest // Test
         bannerView.rootViewController = viewController
+//        bannerView.load(GADRequest())
+    }
+    
+    func loadBannerAd(_ bannerView: GADBannerView) {
         bannerView.load(GADRequest())
     }
     

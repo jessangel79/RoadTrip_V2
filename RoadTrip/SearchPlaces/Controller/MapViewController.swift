@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+
 import GoogleMobileAds
 
 class MapViewController: UIViewController {
@@ -18,6 +19,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var changeMapTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var locateMeButton: UIButton!
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: - Properties
@@ -32,6 +34,7 @@ class MapViewController: UIViewController {
     var subtitle: String?
     var info: String?
     var phone: String?
+    
     let adMobService = AdMobService()
         
     var coordinateInit: CLLocationCoordinate2D {
@@ -66,12 +69,26 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         adMobService.setAdMob(bannerView, self)
+        
         mapView.register(PoiAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         customUI()
         setupData()
         setupLocationManager()
         setup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        adMobService.loadBannerAd(bannerView)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.adMobService.loadBannerAd(self.bannerView)
+        })
     }
     
     // MARK: - Methods

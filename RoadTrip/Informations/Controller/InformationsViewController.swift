@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import GoogleMobileAds
 
 final class InformationsViewController: UIViewController {
@@ -21,6 +22,7 @@ final class InformationsViewController: UIViewController {
     private let mergersort = "https://github.com/mergesort/TableFlip"
     private let openStreetMap = "https://www.openstreetmap.org/copyright"
     private var urlString = String()
+    
     private let adMobService = AdMobService()
     
     // MARK: - Outlets
@@ -63,11 +65,24 @@ final class InformationsViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isToolbarHidden = true
         adMobService.setAdMob(bannerView, self)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isToolbarHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        adMobService.loadBannerAd(bannerView)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.adMobService.loadBannerAd(self.bannerView)
+        })
     }
     
     // MARK: - Methods

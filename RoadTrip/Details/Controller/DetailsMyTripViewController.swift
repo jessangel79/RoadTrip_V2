@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import GoogleMobileAds
 
 class DetailsMyTripViewController: UIViewController {
@@ -18,7 +19,7 @@ class DetailsMyTripViewController: UIViewController {
     }
     
     @IBOutlet weak var bannerView: GADBannerView!
-    
+
     // MARK: - Properties
     
     var coreDataManager: CoreDataManager?
@@ -27,8 +28,9 @@ class DetailsMyTripViewController: UIViewController {
     private var celluleActive = false
     private var celluleIndex = 0
     var tabType = Constants.Trip
+    
     let adMobService = AdMobService()
-
+    
     // MARK: - Actions
     
     @IBAction func resetBarButtonItemTapped(_ sender: UIBarButtonItem) {
@@ -41,7 +43,9 @@ class DetailsMyTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         adMobService.setAdMob(bannerView, self)
+        
         coreDataFunction()
         setNib()
         animationTableView(tableView: myTripTableView)
@@ -52,6 +56,18 @@ class DetailsMyTripViewController: UIViewController {
         super.viewWillAppear(animated)
         celluleActive = false
         myTripTableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        adMobService.loadBannerAd(bannerView)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.adMobService.loadBannerAd(self.bannerView)
+        })
     }
     
     // MARK: - Methods
