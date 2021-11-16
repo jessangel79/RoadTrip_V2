@@ -43,9 +43,7 @@ class DetailsMyTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         adMobService.setAdMob(bannerView, self)
-        
         coreDataFunction()
         setNib()
         animationTableView(tableView: myTripTableView)
@@ -60,16 +58,8 @@ class DetailsMyTripViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        adMobService.loadBannerAd(bannerView)
     }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: { _ in
-            self.adMobService.loadBannerAd(self.bannerView)
-        })
-    }
-    
+
     // MARK: - Methods
     
     func setNib() {

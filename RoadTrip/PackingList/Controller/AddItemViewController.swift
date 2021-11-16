@@ -30,9 +30,7 @@ final class AddItemViewController: AddDetailsMyTripViewController {
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
-        
         adMobService.setAdMob(bannerView, self)
-        
         coreDataFunction()
         customUI()
         setImagebackground()

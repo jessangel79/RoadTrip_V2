@@ -7,28 +7,27 @@
 //
 
 import UIKit
-
 import GoogleMobileAds
+import AdSupport
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     lazy var coreDataStack = CoreDataStack(modelName: "RoadTrip")
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         coreDataStack.saveContext()
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         coreDataStack.saveContext()
     }
-
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        
         return true
     }
 }

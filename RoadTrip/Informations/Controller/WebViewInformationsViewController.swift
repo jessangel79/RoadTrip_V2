@@ -47,9 +47,7 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         adMobService.setAdMob(bannerView, self)
-        
         let barItemsCollection: [UIBarButtonItem] = [forwardBarItem, refreshBarItem, backBarItem]
         setupWebView(webView: webView, barItemsCollection: barItemsCollection)
         loadWebsite(urlString, webView: webView)
@@ -57,14 +55,6 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        adMobService.loadBannerAd(bannerView)
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: { _ in
-            self.adMobService.loadBannerAd(self.bannerView)
-        })
     }
     
     // MARK: - Methods

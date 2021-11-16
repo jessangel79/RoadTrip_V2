@@ -471,7 +471,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CtU-OZ-FQC">
-                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <rect key="frame" x="0.0" y="94" width="320" height="425"/>
                                 <connections>
                                     <outlet property="delegate" destination="RIc-BQ-kOp" id="Xdx-3f-rlc"/>
                                 </connections>
@@ -529,7 +529,7 @@
                             <constraint firstItem="pGN-qs-9C8" firstAttribute="bottom" secondItem="CtU-OZ-FQC" secondAttribute="bottom" id="ghK-BV-iNF"/>
                             <constraint firstItem="KZa-ar-oTP" firstAttribute="top" secondItem="pGN-qs-9C8" secondAttribute="top" id="txN-cU-ftI"/>
                             <constraint firstItem="pGN-qs-9C8" firstAttribute="trailing" secondItem="CtU-OZ-FQC" secondAttribute="trailing" id="w1m-yO-NgP"/>
-                            <constraint firstItem="CtU-OZ-FQC" firstAttribute="top" secondItem="pGN-qs-9C8" secondAttribute="top" id="w7u-JE-NKZ"/>
+                            <constraint firstItem="CtU-OZ-FQC" firstAttribute="top" secondItem="KZa-ar-oTP" secondAttribute="bottom" id="w7u-JE-NKZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="fwS-j1-L9s">
