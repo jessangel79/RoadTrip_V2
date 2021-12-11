@@ -20,12 +20,15 @@ class AddDetailsMyTripViewController: UIViewController {
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var startDateTextField: UITextField!
     @IBOutlet private weak var endDateTextField: UITextField!
-    @IBOutlet private weak var travellerOneTextField: UITextField!
-    @IBOutlet private weak var travellerTwoTextField: UITextField!
-    @IBOutlet private weak var travellerThreeTextField: UITextField!
-    @IBOutlet private weak var travellerFourTextField: UITextField!
+//    @IBOutlet private weak var travellerOneTextField: UITextField!
+//    @IBOutlet private weak var travellerTwoTextField: UITextField!
+//    @IBOutlet private weak var travellerThreeTextField: UITextField!
+//    @IBOutlet private weak var travellerFourTextField: UITextField!
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet private var allLabels: [UILabel]!
+    @IBOutlet private weak var travellersTableView: UITableView! {
+        didSet { travellersTableView.tableFooterView = UIView() }
+    }
     
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -39,14 +42,25 @@ class AddDetailsMyTripViewController: UIViewController {
     var celluleActive = false
     var celluleIndex: Int?
     var randomImage = String()
-    
     let adMobService = AdMobService()
-        
+//    private var cellSelected: TravellerEntity?
+//    private var travellers: TravellerEntity?
+    var travellersNames = [String]()
+
     // MARK: - Actions
 
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         saveDetailsTrip()
         textFieldResignFirstResponder()
+    }
+    
+    @IBAction func addTravellerBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        displayAddTravellerAlert { [weak self] travellerName in
+            guard let travellerName = travellerName?.trimWhitespaces, !travellerName.isBlank else { return } // self?.presentAlert(typeError: .noTraveller)
+            self?.travellersNames.append(travellerName)
+//            self?.coreDataManager?.createTraveller(travellerName)
+            self?.travellersTableView.reloadData()
+        }
     }
     
     // MARK: - View Life Cycle
@@ -59,6 +73,7 @@ class AddDetailsMyTripViewController: UIViewController {
         customUI()
         setDatePicker()
         keyboardObserver()
+        setTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,47 +110,64 @@ class AddDetailsMyTripViewController: UIViewController {
                                                name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    private func setTableView() {
+        travellersTableView.delegate = self
+        travellersTableView.dataSource = self
+        travellersTableView.register(TravellerTableViewCell.nib, forCellReuseIdentifier: TravellerTableViewCell.identifier)
+        travellersTableView.reloadData()
+    }
+    
     private func saveDetailsTrip() {
         guard let name = nameTextField.text?.trimWhitespaces, !name.isBlank else {
             return presentAlert(typeError: .noNameTrip)
         }
         guard let startDate = startDateTextField.text, !startDate.isBlank else { return presentAlert(typeError: .noStartDate) }
         guard let endDate = endDateTextField.text, !endDate.isBlank else { return presentAlert(typeError: .noEndDate)}
-        guard let travellerOne = travellerOneTextField.text?.trimWhitespaces, !travellerOne.isBlank else {
-            return presentAlert(typeError: .noTraveller)
-        }
-        guard let travellerTwo = travellerTwoTextField.text?.trimWhitespaces else { return }
-        guard let travellerThree = travellerThreeTextField.text?.trimWhitespaces else { return }
-        guard let travellerFour = travellerFourTextField.text?.trimWhitespaces  else { return }
+//        guard let travellerOne = travellerOneTextField.text?.trimWhitespaces, !travellerOne.isBlank else {
+//            return presentAlert(typeError: .noTraveller)
+//        }
+//        guard let travellerTwo = travellerTwoTextField.text?.trimWhitespaces else { return }
+//        guard let travellerThree = travellerThreeTextField.text?.trimWhitespaces else { return }
+//        guard let travellerFour = travellerFourTextField.text?.trimWhitespaces  else { return }
+        
+//        guard let travellers = coreDataManager?.travellers else { return }
+//        for traveller in travellers {
+//            travellersNames.append(traveller.name ?? "")
+//        }
         guard let notesTextView = notesTextView.text?.trimWhitespaces else { return }
         
         startDateString = startDate
         endDateString = endDate
         let numberDays = calculateDays()
-        
+        let travellersNamesString = travellersNames.joined(separator: "-")
+
         if checkIfDateCorrect() {
             if !checkIfNameTripExist(name: name) {
                 if !celluleActive {
+                    coreDataManager?.createTraveller(travellersNamesString)
                     coreDataManager?.createDetailsTrip(parameters: DetailsTrip(name: name,
                                                                                startDate: startDate,
                                                                                endDate: endDate,
                                                                                numberDays: numberDays,
-                                                                               travellerOne: travellerOne,
-                                                                               travellerTwo: travellerTwo,
-                                                                               travellerThree: travellerThree,
-                                                                               travellerFour: travellerFour,
+                                                                               travellers: travellersNamesString,
+//                                                                               travellerOne: travellerOne,
+//                                                                               travellerTwo: travellerTwo,
+//                                                                               travellerThree: travellerThree,
+//                                                                               travellerFour: travellerFour,
                                                                                notes: notesTextView, imageBackground: randomImage))
                     navigationController?.popViewController(animated: true)
                 } else {
                     let image = cellule?.imageBackground ?? Constants.ImgBackground
+                    coreDataManager?.createTraveller(travellersNamesString)
                     coreDataManager?.editDetailsTrip(parameters: DetailsTrip(name: name,
                                                                              startDate: startDate,
                                                                              endDate: endDate,
                                                                              numberDays: numberDays,
-                                                                             travellerOne: travellerOne,
-                                                                             travellerTwo: travellerTwo,
-                                                                             travellerThree: travellerThree,
-                                                                             travellerFour: travellerFour,
+                                                                             travellers: travellersNamesString,
+//                                                                             travellerOne: travellerOne,
+//                                                                             travellerTwo: travellerTwo,
+//                                                                             travellerThree: travellerThree,
+//                                                                             travellerFour: travellerFour,
                                                                              notes: notesTextView, imageBackground: image), index: celluleIndex ?? 0)
                     navigationController?.popViewController(animated: true)
                 }
@@ -185,10 +217,14 @@ class AddDetailsMyTripViewController: UIViewController {
         nameTextField.text = String()
         startDateTextField.text = String()
         endDateTextField.text = String()
-        travellerOneTextField.text = String()
-        travellerTwoTextField.text = String()
-        travellerThreeTextField.text = String()
-        travellerFourTextField.text = String()
+        
+//        travellersNames.removeAll()
+//        travellersTableView.reloadData()
+        
+//        travellerOneTextField.text = String()
+//        travellerTwoTextField.text = String()
+//        travellerThreeTextField.text = String()
+//        travellerFourTextField.text = String()
         notesTextView.text = String()
     }
     
@@ -196,10 +232,12 @@ class AddDetailsMyTripViewController: UIViewController {
         nameTextField.text = cellule?.name
         startDateTextField.text = cellule?.startDate
         endDateTextField.text = cellule?.endDate
-        travellerOneTextField.text = cellule?.travellerOne
-        travellerTwoTextField.text = cellule?.travellerTwo
-        travellerThreeTextField.text = cellule?.travellerThree
-        travellerFourTextField.text = cellule?.travellerFour
+//        travellerOneTextField.text = cellule?.travellerOne
+//        travellerTwoTextField.text = cellule?.travellerTwo
+//        travellerThreeTextField.text = cellule?.travellerThree
+//        travellerFourTextField.text = cellule?.travellerFour
+
+        travellersNames = cellule?.travellers?.components(separatedBy: "-") ?? [String]()
         notesTextView.text = cellule?.notes
         tripImageView.image = UIImage(named: cellule?.imageBackground ?? Constants.ImgBackground)
     }
@@ -269,10 +307,72 @@ extension AddDetailsMyTripViewController: UITextFieldDelegate, UITextViewDelegat
         nameTextField.resignFirstResponder()
         startDateTextField.resignFirstResponder()
         endDateTextField.resignFirstResponder()
-        travellerOneTextField.resignFirstResponder()
-        travellerTwoTextField.resignFirstResponder()
-        travellerThreeTextField.resignFirstResponder()
-        travellerFourTextField.resignFirstResponder()
+//        travellerOneTextField.resignFirstResponder()
+//        travellerTwoTextField.resignFirstResponder()
+//        travellerThreeTextField.resignFirstResponder()
+//        travellerFourTextField.resignFirstResponder()
         notesTextView.resignFirstResponder()
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension AddDetailsMyTripViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return travellersNames.count
+//        return coreDataManager?.travellers.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let travellersCell = tableView.dequeueReusableCell(withIdentifier: TravellerTableViewCell.identifier,
+                                                                    for: indexPath) as? TravellerTableViewCell else {
+            return UITableViewCell()
+        }
+//        let travellers = coreDataManager?.travellers[indexPath.row]
+        let travellers = travellersNames[indexPath.row]
+        travellersCell.traveller = travellers
+        return travellersCell
+    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.cellSelected = coreDataManager?.detailsTrips[indexPath.row]
+//        celluleActive = true
+//        celluleIndex = indexPath.row
+//        performSegue(withIdentifier: self.segueToAddDetails, sender: self)
+//    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension AddDetailsMyTripViewController: UITableViewDelegate {
+    
+    /// delete entity CoreData
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let traveller = coreDataManager?.travellers[indexPath.row]
+            coreDataManager?.deleteTraveller(traveller?.name ?? "")
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        travellersTableView.reloadData()
+        animationCell(tableView)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Click on 👤 to add a traveller"
+        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        label.textAlignment = .center
+        label.textColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return travellersNames.isEmpty ? 100 : 0
+//        return coreDataManager?.travellers.isEmpty ?? true ? 100 : 0
     }
 }

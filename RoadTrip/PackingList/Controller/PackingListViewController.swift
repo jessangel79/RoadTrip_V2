@@ -23,6 +23,7 @@ final class PackingListViewController: DetailsMyTripViewController {
     override func viewDidLoad() {
         tabType = Constants.Item
         super.viewDidLoad()
+        // TODO: Add section for travellers => Voir App Cekikapeye
     }
 
     // MARK: - Methods

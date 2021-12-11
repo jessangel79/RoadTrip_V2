@@ -175,49 +175,12 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="C0c-uj-Y0i">
-                                                <rect key="frame" x="10" y="138" width="300" height="189"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travellers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJA-zX-yJd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
-                                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
-                                                        <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hugo" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IAC-4F-cUO">
-                                                        <rect key="frame" x="0.0" y="29" width="300" height="34"/>
-                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="continue" textContentType="name"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="4xP-hB-DFU" id="3b8-RV-zIe"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fred" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XgP-hD-3Y6">
-                                                        <rect key="frame" x="0.0" y="71" width="300" height="34"/>
-                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="continue" textContentType="name"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="4xP-hB-DFU" id="8Pw-4J-49b"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lili" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yjb-k0-UZ6">
-                                                        <rect key="frame" x="0.0" y="113" width="300" height="34"/>
-                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="continue" textContentType="name"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="4xP-hB-DFU" id="XRZ-Cw-teS"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Charlotte" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n7X-AZ-OnJ">
-                                                        <rect key="frame" x="0.0" y="155" width="300" height="34"/>
-                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="continue" textContentType="name"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="4xP-hB-DFU" id="UvN-Fy-8d8"/>
-                                                        </connections>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travellers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJA-zX-yJd">
+                                                <rect key="frame" x="10" y="138" width="300" height="21"/>
+                                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
+                                                <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lEj-Wk-MO1">
                                                 <rect key="frame" x="10" y="337" width="300" height="131"/>
                                                 <subviews>
@@ -253,23 +216,33 @@
                                                     <action selector="saveButtonTapped:" destination="4xP-hB-DFU" eventType="touchUpInside" id="mDx-JB-ITt"/>
                                                 </connections>
                                             </button>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-Fo-okR">
+                                                <rect key="frame" x="10" y="174" width="300" height="148"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="148" id="6d5-Ru-mWb"/>
+                                                </constraints>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="5Uh-gx-8sh" firstAttribute="leading" secondItem="4yV-vi-eGM" secondAttribute="leading" constant="10" id="4UR-Br-xKh"/>
                                             <constraint firstItem="Ck9-Yl-fpU" firstAttribute="leading" secondItem="4yV-vi-eGM" secondAttribute="leading" id="5T8-tH-kT4"/>
-                                            <constraint firstItem="C0c-uj-Y0i" firstAttribute="leading" secondItem="4yV-vi-eGM" secondAttribute="leading" constant="10" id="6tM-Q4-TBl"/>
-                                            <constraint firstItem="C0c-uj-Y0i" firstAttribute="top" secondItem="5Uh-gx-8sh" secondAttribute="bottom" constant="10" id="77K-IU-ill"/>
                                             <constraint firstItem="mUC-GS-mxd" firstAttribute="leading" secondItem="4yV-vi-eGM" secondAttribute="leading" constant="105" id="AD7-5f-df7"/>
-                                            <constraint firstItem="lEj-Wk-MO1" firstAttribute="top" secondItem="C0c-uj-Y0i" secondAttribute="bottom" constant="10" id="BWs-6m-LnT"/>
                                             <constraint firstItem="lEj-Wk-MO1" firstAttribute="leading" secondItem="4yV-vi-eGM" secondAttribute="leading" constant="10" id="Bja-qC-t9d"/>
+                                            <constraint firstItem="zJA-zX-yJd" firstAttribute="leading" secondItem="4yV-vi-eGM" secondAttribute="leading" constant="10" id="EKt-zv-klr"/>
                                             <constraint firstAttribute="trailing" secondItem="5Uh-gx-8sh" secondAttribute="trailing" constant="10" id="Eaf-8K-31A"/>
                                             <constraint firstAttribute="trailing" secondItem="lEj-Wk-MO1" secondAttribute="trailing" constant="10" id="H2m-bX-1q5"/>
+                                            <constraint firstAttribute="trailing" secondItem="zJA-zX-yJd" secondAttribute="trailing" constant="10" id="JCd-rg-sTv"/>
+                                            <constraint firstItem="XVW-Fo-okR" firstAttribute="leading" secondItem="4yV-vi-eGM" secondAttribute="leading" constant="10" id="Oe2-uv-Qqa"/>
+                                            <constraint firstAttribute="trailing" secondItem="XVW-Fo-okR" secondAttribute="trailing" constant="10" id="R3C-3V-P8b"/>
                                             <constraint firstItem="mUC-GS-mxd" firstAttribute="top" secondItem="lEj-Wk-MO1" secondAttribute="bottom" constant="35" id="Vun-KG-KHT"/>
                                             <constraint firstAttribute="bottom" secondItem="Ck9-Yl-fpU" secondAttribute="bottom" id="bDs-Tf-Mik"/>
                                             <constraint firstItem="Ck9-Yl-fpU" firstAttribute="top" secondItem="4yV-vi-eGM" secondAttribute="top" id="jyk-cU-zpq"/>
                                             <constraint firstItem="mUC-GS-mxd" firstAttribute="centerX" secondItem="4yV-vi-eGM" secondAttribute="centerX" id="nbb-ti-LOb"/>
-                                            <constraint firstAttribute="trailing" secondItem="C0c-uj-Y0i" secondAttribute="trailing" constant="10" id="ssG-3P-1ZY"/>
+                                            <constraint firstItem="XVW-Fo-okR" firstAttribute="top" secondItem="zJA-zX-yJd" secondAttribute="bottom" constant="15" id="on7-di-e83"/>
+                                            <constraint firstItem="lEj-Wk-MO1" firstAttribute="top" secondItem="XVW-Fo-okR" secondAttribute="bottom" constant="15" id="ouf-Tb-XUG"/>
+                                            <constraint firstItem="zJA-zX-yJd" firstAttribute="top" secondItem="5Uh-gx-8sh" secondAttribute="bottom" constant="10" id="sLo-Ot-kJy"/>
                                             <constraint firstAttribute="trailing" secondItem="Ck9-Yl-fpU" secondAttribute="trailing" id="v4t-oz-KPK"/>
                                             <constraint firstItem="5Uh-gx-8sh" firstAttribute="top" secondItem="4yV-vi-eGM" secondAttribute="top" constant="10" id="w4d-Va-VAb"/>
                                         </constraints>
@@ -308,7 +281,13 @@
                             <outletCollection property="gestureRecognizers" destination="bYu-ni-kjh" appends="YES" id="fHj-0N-31p"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Details" id="TQJ-zU-xu1"/>
+                    <navigationItem key="navigationItem" title="Add Details" id="TQJ-zU-xu1">
+                        <barButtonItem key="rightBarButtonItem" image="add-person" id="1hl-30-e9H">
+                            <connections>
+                                <action selector="addTravellerBarButtonItemTapped:" destination="4xP-hB-DFU" id="GO0-WE-L4e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bannerView" destination="HEB-Sf-e0H" id="frx-mF-8cy"/>
                         <outlet property="endDateTextField" destination="cAG-99-cXn" id="7wV-46-1i8"/>
@@ -317,15 +296,12 @@
                         <outlet property="saveButton" destination="mUC-GS-mxd" id="ifn-lE-4BQ"/>
                         <outlet property="scrollView" destination="oNi-wX-N52" id="1gf-yt-JCw"/>
                         <outlet property="startDateTextField" destination="pLy-XG-PoG" id="pus-hL-0Z5"/>
-                        <outlet property="travellerFourTextField" destination="n7X-AZ-OnJ" id="ifd-L8-ovC"/>
-                        <outlet property="travellerOneTextField" destination="IAC-4F-cUO" id="QNw-97-0nC"/>
-                        <outlet property="travellerThreeTextField" destination="yjb-k0-UZ6" id="yHa-pt-nah"/>
-                        <outlet property="travellerTwoTextField" destination="XgP-hD-3Y6" id="Ex9-YG-zp0"/>
+                        <outlet property="travellersTableView" destination="XVW-Fo-okR" id="MX1-Z2-e6b"/>
                         <outlet property="tripImageView" destination="Ck9-Yl-fpU" id="Tev-It-4Se"/>
-                        <outletCollection property="allLabels" destination="zJA-zX-yJd" collectionClass="NSMutableArray" id="6wG-hw-mQS"/>
                         <outletCollection property="allLabels" destination="n81-iy-bQp" collectionClass="NSMutableArray" id="CTU-96-eQn"/>
                         <outletCollection property="allLabels" destination="Byo-fb-6uM" collectionClass="NSMutableArray" id="y6s-tk-X4N"/>
                         <outletCollection property="allLabels" destination="wnl-S5-Tfw" collectionClass="NSMutableArray" id="fIm-fQ-ZU3"/>
+                        <outletCollection property="allLabels" destination="zJA-zX-yJd" collectionClass="NSMutableArray" id="6wG-hw-mQS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9er-1d-h7c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -339,6 +315,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-person" width="25" height="25"/>
         <image name="details" width="25" height="25"/>
         <image name="green-island_1024x1024" width="1024" height="1024"/>
         <systemColor name="labelColor">

@@ -28,7 +28,7 @@ final class DetailsMyTripTableViewCell: UITableViewCell {
     @IBOutlet private var shadowViews: [UIView]!
     
     // MARK: - Methods
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         customCell()
@@ -43,16 +43,16 @@ final class DetailsMyTripTableViewCell: UITableViewCell {
         }
     }
     
-   var detailsTripEntity: DetailsTripEntity? {
+    var detailsTripEntity: DetailsTripEntity? {
         didSet {
             nameLabel.text = detailsTripEntity?.name
             setStartDateLabel.text = detailsTripEntity?.startDate
             setEndDateLabel.text = detailsTripEntity?.endDate
             setNumberDaysLabel.text = detailsTripEntity?.numberDays
-            travellerOneLabel.text = detailsTripEntity?.travellerOne
-            travellerTwoLabel.text = detailsTripEntity?.travellerTwo
-            travellerThreeLabel.text = detailsTripEntity?.travellerThree
-            travellerFourLabel.text = detailsTripEntity?.travellerFour
+//            travellerOneLabel.text = detailsTripEntity?.travellerOne
+//            travellerTwoLabel.text = detailsTripEntity?.travellerTwo
+//            travellerThreeLabel.text = detailsTripEntity?.travellerThree
+//            travellerFourLabel.text = detailsTripEntity?.travellerFour
             notesTextView.text = detailsTripEntity?.notes
             tripImageView.image = UIImage(named: detailsTripEntity?.imageBackground ?? Constants.ImgBackground)
         }

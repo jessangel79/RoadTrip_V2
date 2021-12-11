@@ -74,6 +74,8 @@
 		3ADD71C6242A339D00CD4081 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD71C5242A339D00CD4081 /* Categories.swift */; };
 		3ADD71C9242A365A00CD4081 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD71C8242A365A00CD4081 /* AddItemViewController.swift */; };
 		3ADF8DDC25010D160011DD77 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF8DDB25010D160011DD77 /* CoreDataStack.swift */; };
+		3AE5D2FC276517C600BB025D /* TravellerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5D2FA276517C600BB025D /* TravellerTableViewCell.swift */; };
+		3AE5D2FD276517C600BB025D /* TravellerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE5D2FB276517C600BB025D /* TravellerTableViewCell.xib */; };
 		3AE7F570241A944300751764 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE7F56F241A944300751764 /* Date.swift */; };
 		3AE99AC32539DDDA00471F2B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3AE99AC22539DDDA00471F2B /* README.md */; };
 		3AF881BA23F16A19005F64ED /* PlaceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881B923F16A19005F64ED /* PlaceSession.swift */; };
@@ -187,6 +189,8 @@
 		3ADE91C2251255E70009BAEA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADE91CF2512579C0009BAEA /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADF8DDB25010D160011DD77 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		3AE5D2FA276517C600BB025D /* TravellerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellerTableViewCell.swift; sourceTree = "<group>"; };
+		3AE5D2FB276517C600BB025D /* TravellerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravellerTableViewCell.xib; sourceTree = "<group>"; };
 		3AE7F56F241A944300751764 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3AE99AC22539DDDA00471F2B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		3AF881B923F16A19005F64ED /* PlaceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSession.swift; sourceTree = "<group>"; };
@@ -488,6 +492,8 @@
 				3AC005FC24FE7E43008CD822 /* Details.storyboard */,
 				3ABB99A424194CF8007CE8FA /* DetailsMyTripTableViewCell.xib */,
 				3ABB99A324194CF8007CE8FA /* DetailsMyTripTableViewCell.swift */,
+				3AE5D2FB276517C600BB025D /* TravellerTableViewCell.xib */,
+				3AE5D2FA276517C600BB025D /* TravellerTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -668,6 +674,7 @@
 				3A755CBC23EDA3DE00889FA5 /* Main.storyboard in Resources */,
 				3A30E9F923F597BC00532EDD /* ListPlacesTableViewCell.xib in Resources */,
 				3A70AD51250A94B300C1CD09 /* Informations.storyboard in Resources */,
+				3AE5D2FD276517C600BB025D /* TravellerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,6 +837,7 @@
 				3A755CE623EDB2FE00889FA5 /* CoreDataManager.swift in Sources */,
 				3AF881BA23F16A19005F64ED /* PlaceSession.swift in Sources */,
 				3A755CE023EDB10600889FA5 /* ApiKeys.swift in Sources */,
+				3AE5D2FC276517C600BB025D /* TravellerTableViewCell.swift in Sources */,
 				3ADF8DDC25010D160011DD77 /* CoreDataStack.swift in Sources */,
 				3AA3A1682507EADC00C0999F /* PoiAnnotationView.swift in Sources */,
 				3AFA6204241A67430055E8E8 /* UIViewController+ActivityIndicator.swift in Sources */,

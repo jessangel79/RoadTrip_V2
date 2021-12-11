@@ -37,6 +37,12 @@ final class CoreDataManager {
         guard let item = try? managedObjectContext.fetch(request) else { return [] }
         return item
     }
+    
+    var travellers: [TravellerEntity] {
+        let request: NSFetchRequest<TravellerEntity> = TravellerEntity.fetchRequest()
+        guard let traveller = try? managedObjectContext.fetch(request) else { return [] }
+        return traveller
+    }
 
     // MARK: - Initializer
 
@@ -98,16 +104,19 @@ final class CoreDataManager {
         detailsTrip.startDate = parameters.startDate
         detailsTrip.endDate = parameters.endDate
         detailsTrip.numberDays = parameters.numberDays
-        detailsTrip.travellerOne = parameters.travellerOne
-        detailsTrip.travellerTwo = parameters.travellerTwo
-        detailsTrip.travellerThree = parameters.travellerThree
-        detailsTrip.travellerFour = parameters.travellerFour
+//        let travellers = parameters.travellers.joined(separator: "-")
+        detailsTrip.travellers = parameters.travellers
+
+//        detailsTrip.travellerOne = parameters.travellerOne
+//        detailsTrip.travellerTwo = parameters.travellerTwo
+//        detailsTrip.travellerThree = parameters.travellerThree
+//        detailsTrip.travellerFour = parameters.travellerFour
         detailsTrip.notes = parameters.notes
         detailsTrip.imageBackground = parameters.imageBackground
         coreDataStack.saveContext()
     }
     
-    func deleteDetailsTrip(nameTrip: String, travellerOne: String) {
+    func deleteDetailsTrip(nameTrip: String) {
         let request: NSFetchRequest<DetailsTripEntity> = DetailsTripEntity.fetchRequest()
         request.predicate = NSPredicate(format: "name == %@", nameTrip)
         
@@ -138,12 +147,35 @@ final class CoreDataManager {
             objectUpdate.setValue(parameters.startDate, forKey: "startDate")
             objectUpdate.setValue(parameters.endDate, forKey: "endDate")
             objectUpdate.setValue(parameters.numberDays, forKey: "numberDays")
-            objectUpdate.setValue(parameters.travellerOne, forKey: "travellerOne")
-            objectUpdate.setValue(parameters.travellerTwo, forKey: "travellerTwo")
-            objectUpdate.setValue(parameters.travellerThree, forKey: "travellerThree")
-            objectUpdate.setValue(parameters.travellerFour, forKey: "travellerFour")
+            objectUpdate.setValue(parameters.travellers, forKey: "travellers")
+//            objectUpdate.setValue(parameters.travellerOne, forKey: "travellerOne")
+//            objectUpdate.setValue(parameters.travellerTwo, forKey: "travellerTwo")
+//            objectUpdate.setValue(parameters.travellerThree, forKey: "travellerThree")
+//            objectUpdate.setValue(parameters.travellerFour, forKey: "travellerFour")
             objectUpdate.setValue(parameters.notes, forKey: "notes")
         }
+        coreDataStack.saveContext()
+    }
+    
+    // MARK: - Manage TravellerEntity
+    
+    func createTraveller(_ travellerName: String) {
+        let traveller = TravellerEntity(context: managedObjectContext)
+        traveller.name = travellerName
+        coreDataStack.saveContext()
+    }
+    
+    func deleteTraveller(_ travellerName: String) {
+        let request: NSFetchRequest<TravellerEntity> = TravellerEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", travellerName)
+        if let entity = try? managedObjectContext.fetch(request) {
+            entity.forEach { managedObjectContext.delete($0) }
+        }
+        coreDataStack.saveContext()
+    }
+    
+    func deleteAllTravellers() {
+        travellers.forEach { managedObjectContext.delete($0) }
         coreDataStack.saveContext()
     }
     

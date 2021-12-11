@@ -124,8 +124,7 @@ extension DetailsMyTripViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let detailsTrip = coreDataManager?.detailsTrips[indexPath.row]
-            coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "",
-                                               travellerOne: detailsTrip?.travellerOne ?? "")
+            coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         myTripTableView.reloadData()

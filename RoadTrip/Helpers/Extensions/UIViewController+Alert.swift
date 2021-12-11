@@ -108,4 +108,18 @@ extension UIViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    /// Display an alert to enter the task name
+    func displayAddTravellerAlert(handlerAddTravellerName: @escaping (String?) -> Void) {
+        let alertController = UIAlertController(title: "Add new traveller", message: "", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "Traveller"
+        }
+        let addAction = UIAlertAction(title: "Add", style: .default, handler: { _ in
+            guard let textField = alertController.textFields else { return }
+            handlerAddTravellerName(textField[0].text)
+        })
+        alertController.addAction(addAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
