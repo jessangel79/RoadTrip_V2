@@ -14,6 +14,10 @@ import GoogleMobileAds
 
 extension UIViewController: GADBannerViewDelegate {
     
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("Banner adapter class name: \(String(describing: bannerView.responseInfo?.adNetworkClassName))")
+    }
+    
     public func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("bannerViewDidReceiveAd")
         bannerView.alpha = 0

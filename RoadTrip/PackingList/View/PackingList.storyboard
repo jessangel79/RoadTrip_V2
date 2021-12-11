@@ -56,11 +56,11 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exs-Ra-E9X" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NLj-FL-5Ns"/>
-                                    <constraint firstAttribute="width" constant="300" id="jj2-0f-Ids"/>
+                                    <constraint firstAttribute="width" constant="320" id="jj2-0f-Ids"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -131,10 +131,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohx-rv-Eox" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="44" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="7uk-HU-a8v"/>
+                                    <constraint firstAttribute="width" constant="320" id="7uk-HU-a8v"/>
                                     <constraint firstAttribute="height" constant="50" id="vdt-my-HvO"/>
                                 </constraints>
                             </view>

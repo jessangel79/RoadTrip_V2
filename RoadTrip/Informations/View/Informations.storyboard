@@ -232,11 +232,11 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utt-PS-29v" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XAx-dG-wPo"/>
-                                    <constraint firstAttribute="width" constant="300" id="wNg-Cj-jbU"/>
+                                    <constraint firstAttribute="width" constant="320" id="wNg-Cj-jbU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -293,10 +293,10 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-ef-pLK" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Zun-8l-NFP"/>
+                                    <constraint firstAttribute="width" constant="320" id="Zun-8l-NFP"/>
                                     <constraint firstAttribute="height" constant="50" id="nkw-Fo-ZmD"/>
                                 </constraints>
                             </view>

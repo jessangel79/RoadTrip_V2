@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A02015E23F4788300CDDEED /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02015D23F4788300CDDEED /* String.swift */; };
-		3A07E4B32656893900F23E60 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A07E4B22656893900F23E60 /* CoreTelephony.framework */; };
 		3A07E4B52656AFCD00F23E60 /* UIViewController+GADBannerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A07E4B42656AFCD00F23E60 /* UIViewController+GADBannerViewDelegate.swift */; };
 		3A07E4B72656B18700F23E60 /* AdMobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A07E4B62656B18700F23E60 /* AdMobService.swift */; };
 		3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0E376824129BBF00039FD3 /* NetworkExtension.framework */; };
@@ -52,11 +51,14 @@
 		3A755CE623EDB2FE00889FA5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CE523EDB2FE00889FA5 /* CoreDataManager.swift */; };
 		3A755CEA23EDD63200889FA5 /* PlaceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CE923EDD63200889FA5 /* PlaceProtocol.swift */; };
 		3A832AB223FEC049008E7237 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A832AB123FEC049008E7237 /* UITableViewCell.swift */; };
+		3A84F5A0275677CF007BFA42 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A84F59E275674C7007BFA42 /* CoreTelephony.framework */; };
 		3A8806E425094A8400414F7B /* Photos.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A8806E325094A8400414F7B /* Photos.json */; };
 		3A959D3524992B7900C27B86 /* PlacesSearchOpen.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */; };
 		3AA316092523A72300B9C19E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA316082523A72200B9C19E /* DataManager.swift */; };
 		3AA339EE23FDA21B00356B6B /* DetailsPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */; };
 		3AA3A1682507EADC00C0999F /* PoiAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3A1672507EADC00C0999F /* PoiAnnotationView.swift */; };
+		3AAA368D27568F5200FE4975 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAA368B27568F5200FE4975 /* EventKit.framework */; };
+		3AAA369227568F6300FE4975 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAA369127568F6300FE4975 /* AdSupport.framework */; };
 		3ABB99A024190D66007CE8FA /* DetailsMyTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */; };
 		3ABB99A224194757007CE8FA /* PackingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB99A124194757007CE8FA /* PackingListViewController.swift */; };
 		3ABB99A524194CF8007CE8FA /* DetailsMyTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB99A324194CF8007CE8FA /* DetailsMyTripTableViewCell.swift */; };
@@ -149,12 +151,23 @@
 		3A755CE523EDB2FE00889FA5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3A755CE923EDD63200889FA5 /* PlaceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceProtocol.swift; sourceTree = "<group>"; };
 		3A832AB123FEC049008E7237 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		3A84F59E275674C7007BFA42 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3A8806E325094A8400414F7B /* Photos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Photos.json; sourceTree = "<group>"; };
 		3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlacesSearchOpen.json; sourceTree = "<group>"; };
 		3AA069A2271F32DD0098447E /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		3AA316082523A72200B9C19E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlaceViewController.swift; sourceTree = "<group>"; };
 		3AA3A1672507EADC00C0999F /* PoiAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiAnnotationView.swift; sourceTree = "<group>"; };
+		3AAA368B27568F5200FE4975 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		3AAA368C27568F5200FE4975 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		3AAA368F27568F5B00FE4975 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3AAA369127568F6300FE4975 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		3AAA369327568F6B00FE4975 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3AAA369527568F7900FE4975 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3AAA369727568F8300FE4975 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		3AAA369927568F8C00FE4975 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		3AAA369B27568F9300FE4975 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3AAA369D27568F9D00FE4975 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3ABB999F24190D66007CE8FA /* DetailsMyTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMyTripViewController.swift; sourceTree = "<group>"; };
 		3ABB99A124194757007CE8FA /* PackingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListViewController.swift; sourceTree = "<group>"; };
 		3ABB99A324194CF8007CE8FA /* DetailsMyTripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMyTripTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,7 +208,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A07E4B32656893900F23E60 /* CoreTelephony.framework in Frameworks */,
+				3A84F5A0275677CF007BFA42 /* CoreTelephony.framework in Frameworks */,
+				3AAA369227568F6300FE4975 /* AdSupport.framework in Frameworks */,
+				3AAA368D27568F5200FE4975 /* EventKit.framework in Frameworks */,
 				3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */,
 				3A6D058F2743CB8600AB0735 /* WebKit.framework in Frameworks */,
 				E6E09DF279E0D1E17987D7CF /* Pods_RoadTrip.framework in Frameworks */,
@@ -216,6 +231,17 @@
 		18A73A4B8CFE3F51A74F6441 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AAA369D27568F9D00FE4975 /* SystemConfiguration.framework */,
+				3AAA369B27568F9300FE4975 /* StoreKit.framework */,
+				3AAA369927568F8C00FE4975 /* MessageUI.framework */,
+				3AAA369727568F8300FE4975 /* CoreMedia.framework */,
+				3AAA369527568F7900FE4975 /* CoreGraphics.framework */,
+				3AAA369327568F6B00FE4975 /* AudioToolbox.framework */,
+				3AAA369127568F6300FE4975 /* AdSupport.framework */,
+				3AAA368F27568F5B00FE4975 /* AVFoundation.framework */,
+				3AAA368B27568F5200FE4975 /* EventKit.framework */,
+				3AAA368C27568F5200FE4975 /* EventKitUI.framework */,
+				3A84F59E275674C7007BFA42 /* CoreTelephony.framework */,
 				3AD6A6FA2742CDF800DDD7C9 /* AppTrackingTransparency.framework */,
 				3AA069A2271F32DD0098447E /* GoogleMobileAds.xcframework */,
 				3A07E4B22656893900F23E60 /* CoreTelephony.framework */,
@@ -326,9 +352,9 @@
 				3A755CC223EDA3E300889FA5 /* LaunchScreen.storyboard */,
 				3A755CB423EDA3DE00889FA5 /* AppDelegate.swift */,
 				3A755CC023EDA3E300889FA5 /* Assets.xcassets */,
-				3A755CC523EDA3E300889FA5 /* Info.plist */,
 				3A755CDF23EDB10600889FA5 /* ApiKeys.swift */,
 				3A755CE123EDB12600889FA5 /* ApiKeys.plist */,
+				3A755CC523EDA3E300889FA5 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -979,15 +1005,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadTrip/RoadTrip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "RoadTrip/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1066,15 +1092,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadTrip/RoadTrip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "RoadTrip/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

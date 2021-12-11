@@ -18,6 +18,8 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-1785702102693747~9008428961</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
@@ -51,8 +53,6 @@
 	<string>Allow access to photos to uplaod photos from your library</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>Allow access to reminders to configure reminders</string>
-	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-1785702102693747~9008428961</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WV7-FM-wcK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WV7-FM-wcK">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,7 +45,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="320" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FXg-Tp-GyU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="420" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FXg-Tp-GyU">
                                 <rect key="frame" x="0.0" y="44" width="320" height="425"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,11 +55,11 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyl-jT-uMo" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="MKL-8o-9cn"/>
-                                    <constraint firstAttribute="width" constant="300" id="xzN-rt-0AA"/>
+                                    <constraint firstAttribute="width" constant="320" id="xzN-rt-0AA"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -219,7 +219,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lEj-Wk-MO1">
-                                                <rect key="frame" x="10" y="337" width="300" height="63"/>
+                                                <rect key="frame" x="10" y="337" width="300" height="131"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n81-iy-bQp">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
@@ -227,18 +227,20 @@
                                                         <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="euY-cM-Y8t">
-                                                        <rect key="frame" x="0.0" y="29" width="300" height="34"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes" translatesAutoresizingMaskIntoConstraints="NO" id="35Y-y5-r9t">
+                                                        <rect key="frame" x="0.0" y="29" width="300" height="102"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="102" id="zri-qO-otv"/>
+                                                        </constraints>
+                                                        <color key="textColor" systemColor="labelColor"/>
                                                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="continue"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="4xP-hB-DFU" id="I1Z-1B-iRV"/>
-                                                        </connections>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                                    </textView>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUC-GS-mxd">
-                                                <rect key="frame" x="105" y="435" width="110" height="44"/>
+                                                <rect key="frame" x="105" y="503" width="110" height="44"/>
                                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="YUI-Q6-bvJ"/>
@@ -284,10 +286,10 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="U2p-Ab-rXc"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEB-Sf-e0H" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="44" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="4WE-ys-XCf"/>
+                                    <constraint firstAttribute="width" constant="320" id="4WE-ys-XCf"/>
                                     <constraint firstAttribute="height" constant="50" id="Lbz-Wz-J5L"/>
                                 </constraints>
                             </view>
@@ -311,7 +313,7 @@
                         <outlet property="bannerView" destination="HEB-Sf-e0H" id="frx-mF-8cy"/>
                         <outlet property="endDateTextField" destination="cAG-99-cXn" id="7wV-46-1i8"/>
                         <outlet property="nameTextField" destination="Tze-Cy-sbW" id="Uzs-yV-C3k"/>
-                        <outlet property="notesTextField" destination="euY-cM-Y8t" id="sJX-yc-iF4"/>
+                        <outlet property="notesTextView" destination="35Y-y5-r9t" id="kjF-hG-AfQ"/>
                         <outlet property="saveButton" destination="mUC-GS-mxd" id="ifn-lE-4BQ"/>
                         <outlet property="scrollView" destination="oNi-wX-N52" id="1gf-yt-JCw"/>
                         <outlet property="startDateTextField" destination="pLy-XG-PoG" id="pus-hL-0Z5"/>
@@ -339,6 +341,9 @@
     <resources>
         <image name="details" width="25" height="25"/>
         <image name="green-island_1024x1024" width="1024" height="1024"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

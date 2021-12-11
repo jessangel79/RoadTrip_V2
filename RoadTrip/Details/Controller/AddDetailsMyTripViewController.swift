@@ -24,7 +24,7 @@ class AddDetailsMyTripViewController: UIViewController {
     @IBOutlet private weak var travellerTwoTextField: UITextField!
     @IBOutlet private weak var travellerThreeTextField: UITextField!
     @IBOutlet private weak var travellerFourTextField: UITextField!
-    @IBOutlet private weak var notesTextField: UITextField!
+    @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet private var allLabels: [UILabel]!
     
     @IBOutlet weak var bannerView: GADBannerView!
@@ -53,6 +53,7 @@ class AddDetailsMyTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notesTextView.delegate = self
         adMobService.setAdMob(bannerView, self)
         coreDataFunction()
         customUI()
@@ -106,7 +107,8 @@ class AddDetailsMyTripViewController: UIViewController {
         guard let travellerTwo = travellerTwoTextField.text?.trimWhitespaces else { return }
         guard let travellerThree = travellerThreeTextField.text?.trimWhitespaces else { return }
         guard let travellerFour = travellerFourTextField.text?.trimWhitespaces  else { return }
-        guard let notes = notesTextField.text?.trimWhitespaces else { return }
+        guard let notesTextView = notesTextView.text?.trimWhitespaces else { return }
+        
         startDateString = startDate
         endDateString = endDate
         let numberDays = calculateDays()
@@ -122,7 +124,7 @@ class AddDetailsMyTripViewController: UIViewController {
                                                                                travellerTwo: travellerTwo,
                                                                                travellerThree: travellerThree,
                                                                                travellerFour: travellerFour,
-                                                                               notes: notes, imageBackground: randomImage))
+                                                                               notes: notesTextView, imageBackground: randomImage))
                     navigationController?.popViewController(animated: true)
                 } else {
                     let image = cellule?.imageBackground ?? Constants.ImgBackground
@@ -134,7 +136,7 @@ class AddDetailsMyTripViewController: UIViewController {
                                                                              travellerTwo: travellerTwo,
                                                                              travellerThree: travellerThree,
                                                                              travellerFour: travellerFour,
-                                                                             notes: notes, imageBackground: image), index: celluleIndex ?? 0)
+                                                                             notes: notesTextView, imageBackground: image), index: celluleIndex ?? 0)
                     navigationController?.popViewController(animated: true)
                 }
             }
@@ -187,7 +189,7 @@ class AddDetailsMyTripViewController: UIViewController {
         travellerTwoTextField.text = String()
         travellerThreeTextField.text = String()
         travellerFourTextField.text = String()
-        notesTextField.text = String()
+        notesTextView.text = String()
     }
     
     private func displayTrip() {
@@ -198,7 +200,7 @@ class AddDetailsMyTripViewController: UIViewController {
         travellerTwoTextField.text = cellule?.travellerTwo
         travellerThreeTextField.text = cellule?.travellerThree
         travellerFourTextField.text = cellule?.travellerFour
-        notesTextField.text = cellule?.notes
+        notesTextView.text = cellule?.notes
         tripImageView.image = UIImage(named: cellule?.imageBackground ?? Constants.ImgBackground)
     }
 }
@@ -233,15 +235,19 @@ extension AddDetailsMyTripViewController {
 
 // MARK: - Keyboard
 
-extension AddDetailsMyTripViewController: UITextFieldDelegate {
+extension AddDetailsMyTripViewController: UITextFieldDelegate, UITextViewDelegate {
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         textFieldResignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        saveDetailsTrip()
         textField.resignFirstResponder()
+        return true
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
         return true
     }
     
@@ -267,6 +273,6 @@ extension AddDetailsMyTripViewController: UITextFieldDelegate {
         travellerTwoTextField.resignFirstResponder()
         travellerThreeTextField.resignFirstResponder()
         travellerFourTextField.resignFirstResponder()
-        notesTextField.resignFirstResponder()
+        notesTextView.resignFirstResponder()
     }
 }

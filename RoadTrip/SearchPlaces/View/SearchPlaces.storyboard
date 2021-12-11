@@ -106,10 +106,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsk-FB-1Gt" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="BTb-zI-9pq"/>
+                                    <constraint firstAttribute="width" constant="320" id="BTb-zI-9pq"/>
                                     <constraint firstAttribute="height" constant="50" id="cNG-HV-D59"/>
                                 </constraints>
                             </view>
@@ -213,11 +213,11 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFd-LE-hmz" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1AT-Cg-FhH"/>
-                                    <constraint firstAttribute="width" constant="300" id="qz5-8e-gAB"/>
+                                    <constraint firstAttribute="width" constant="320" id="qz5-8e-gAB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -396,11 +396,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6a-4x-Z1g" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="469" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="uHa-1o-Ipj"/>
-                                    <constraint firstAttribute="width" constant="300" id="yoG-Bm-jdL"/>
+                                    <constraint firstAttribute="width" constant="320" id="yoG-Bm-jdL"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -477,11 +477,11 @@
                                 </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZa-ar-oTP" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="44" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3L5-yY-Nzv"/>
-                                    <constraint firstAttribute="width" constant="300" id="Tmt-bf-Ydt"/>
+                                    <constraint firstAttribute="width" constant="320" id="Tmt-bf-Ydt"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gvg-Pw-UZc">
