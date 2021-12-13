@@ -148,10 +148,6 @@ final class CoreDataManager {
             objectUpdate.setValue(parameters.endDate, forKey: "endDate")
             objectUpdate.setValue(parameters.numberDays, forKey: "numberDays")
             objectUpdate.setValue(parameters.travellers, forKey: "travellers")
-//            objectUpdate.setValue(parameters.travellerOne, forKey: "travellerOne")
-//            objectUpdate.setValue(parameters.travellerTwo, forKey: "travellerTwo")
-//            objectUpdate.setValue(parameters.travellerThree, forKey: "travellerThree")
-//            objectUpdate.setValue(parameters.travellerFour, forKey: "travellerFour")
             objectUpdate.setValue(parameters.notes, forKey: "notes")
         }
         coreDataStack.saveContext()
@@ -162,6 +158,15 @@ final class CoreDataManager {
     func createTraveller(_ travellerName: String) {
         let traveller = TravellerEntity(context: managedObjectContext)
         traveller.name = travellerName
+        coreDataStack.saveContext()
+    }
+    
+    func editTraveller(_ travellerName: String, index: Int) {
+        let request: NSFetchRequest<TravellerEntity> = TravellerEntity.fetchRequest()
+        if let entity = try? managedObjectContext.fetch(request) {
+            let objectUpdate = entity[index] as NSManagedObject
+            objectUpdate.setValue(travellerName, forKey: "name")
+        }
         coreDataStack.saveContext()
     }
     

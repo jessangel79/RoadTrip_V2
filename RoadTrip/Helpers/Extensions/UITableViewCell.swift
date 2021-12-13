@@ -65,14 +65,37 @@ extension UITableViewCell {
         imageView.layer.borderWidth = width
         imageView.layer.cornerRadius = radius
     }
+    
+    /// custom TextView
+    func customTextView(textView: UITextView, radius: CGFloat) {
+        textView.layer.cornerRadius = radius
+    }
 }
 
 // MARK: - Extension to manage the ActivityIndicator
+
 extension UITableViewCell {
     
     /// manage the ActivityIndicator with UITableView
     func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, imageView: UIImageView) {
         activityIndicator.isHidden = !shown
         imageView.isHidden = shown
+    }
+}
+
+// MARK: - Extension to animate TableView and Cells
+
+extension UITableViewCell {
+    
+    /// animate cells of tableView
+    func animationCell(_ tableView: UITableView) {
+        tableView.animate(animation: .fade(duration: 0.8))
+        let degrees = sin(90.0 * CGFloat.pi/180.0)
+        let rotationTransform = CGAffineTransform(rotationAngle: degrees)
+        let flipTransform = CGAffineTransform(scaleX: -1, y: -1)
+        let customTransform = rotationTransform.concatenating(flipTransform)
+        
+        let customAnimation = TableViewAnimation.Cell.custom(duration: 0.6, transform: customTransform, options: .transitionFlipFromLeft)
+        tableView.animate(animation: customAnimation, completion: nil)
     }
 }

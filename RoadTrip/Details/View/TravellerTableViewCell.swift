@@ -12,7 +12,8 @@ class TravellerTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var baseView: UIView!
     
     // MARK: - Properties
     
@@ -24,26 +25,16 @@ class TravellerTableViewCell: UITableViewCell {
             nameLabel.text = traveller
         }
     }
-    
-//    var travellerEntity: TravellerEntity? {
-//        didSet {
-//            nameLabel.text = travellerEntity?.name
-//        }
-//    }
-    
+
     // MARK: - View Life Cycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        customCellShadow(view: baseView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
-    // MARK: - Methods
-    
+
 }

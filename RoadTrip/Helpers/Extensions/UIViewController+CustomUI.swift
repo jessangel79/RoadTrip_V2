@@ -59,6 +59,18 @@ extension UIViewController {
         imageView.layer.borderColor = colorBorder.cgColor
     }
 
+    /// custom TableView
+    func customTableView(tableView: UITableView, radius: CGFloat, width: CGFloat, colorBorder: UIColor) {
+        tableView.layer.cornerRadius = radius
+        tableView.layer.borderWidth = width
+        tableView.layer.borderColor = colorBorder.cgColor
+    }
+    
+    /// custom TextView
+    func customTextView(textView: UITextView, radius: CGFloat) {
+        textView.layer.cornerRadius = radius
+    }
+
 }
 
 // MARK: - Extension to animate TableView and Cells
@@ -87,4 +99,5 @@ extension UIViewController {
         let customAnimation = TableViewAnimation.Cell.custom(duration: 0.6, transform: customTransform, options: .transitionFlipFromLeft)
         tableView.animate(animation: customAnimation, completion: nil)
     }
+
 }
