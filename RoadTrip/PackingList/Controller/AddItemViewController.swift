@@ -15,12 +15,32 @@ final class AddItemViewController: AddDetailsMyTripViewController {
     @IBOutlet private weak var itemTextField: UITextField!
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var categoryPickerView: UIPickerView!
+    @IBOutlet private weak var travellerTextField: UITextField!
+    @IBOutlet private weak var tripPickerViewButton: UIButton!
+    @IBOutlet private weak var tripNameLabel: UILabel!
     
     // MARK: - Properties
     
     private var itemExist = false
+    private var travellersNames = [String]()
+    private var trips: [DetailsTripEntity]?
+    private var tripNames = [String]()
+    private var travellerChoicePickerView = UIPickerView()
+    private var tripName = String()
+    private let screenWidth = UIScreen.main.bounds.width - 10
+    private let screenHeight = UIScreen.main.bounds.height / 2
+    private var selectedRow = 0
     
     // MARK: - Actions
+    
+    @IBAction private func tripButtonTapped(_ sender: UIButton) {
+        selectTrip()
+//        if travellersNames.isEmpty {
+//            presentAlert(typeError: .noTripSelected)
+//        } else {
+//            travellerTextField.inputView = travellerChoicePickerView
+//        }
+    }
     
     @IBAction override func saveButtonTapped(_ sender: UIButton) {
         saveItem()
@@ -34,6 +54,40 @@ final class AddItemViewController: AddDetailsMyTripViewController {
         coreDataFunction()
         customUI()
         setImagebackground()
+ 
+        travellerTextField.delegate = self
+        
+        trips = coreDataManager?.detailsTrips
+        guard let trips = trips else { return }
+        for trip in trips {
+            tripNames.append(trip.name ?? "")
+        }
+        
+        print(trips as Any)
+        print(tripNames)
+
+        travellerChoicePickerView.delegate = self
+        travellerChoicePickerView.dataSource = self
+        travellerChoicePickerView.tag = 2
+        
+        if trips.isEmpty {
+            presentAlert(typeError: .noTripSelected)
+//            navigationController?.popViewController(animated: true)
+        } else {
+            selectTrip()
+        }
+
+        travellerTextField.inputView = travellerChoicePickerView
+
+//        if !travellersNames.isEmpty {
+//            travellerTextField.inputView = travellerChoicePickerView
+//        }
+        
+//        if travellersNames.isEmpty {
+//            presentAlert(typeError: .noTripSelected)
+//        } else {
+//            travellerTextField.inputView = travellerChoicePickerView
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) { }
@@ -71,6 +125,39 @@ final class AddItemViewController: AddDetailsMyTripViewController {
         itemImageView.image = UIImage(named: randomImage)
         itemTextField.text = String()
     }
+    
+    private func selectTrip() {
+        let viewController = UIViewController()
+        viewController.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.tag = 1
+        pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+        viewController.view.addSubview(pickerView)
+        pickerView.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor).isActive = true
+        pickerView.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor).isActive = true
+        
+        let alert = UIAlertController(title: "Select your trip", message: "", preferredStyle: .actionSheet)
+        alert.popoverPresentationController?.sourceView = tripPickerViewButton
+        alert.popoverPresentationController?.sourceRect = tripPickerViewButton.bounds
+        
+        alert.setValue(viewController, forKey: "contentViewController")
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAlertAction) in
+            self.selectedRow = pickerView.selectedRow(inComponent: 0)
+            let selectedName = self.tripNames[self.selectedRow]
+            self.tripNameLabel.text = selectedName
+            guard let trips = self.trips else { return }
+            for trip in trips where trip.name == selectedName {
+                let travellersNamesJoined = trip.travellers
+                self.travellersNames = travellersNamesJoined?.components(separatedBy: "-") ?? [String]()
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - PickerView
@@ -82,12 +169,52 @@ extension AddItemViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoriesList.count
+        var countRows = Int()
+        if pickerView.tag == 0 {
+            countRows = categoriesList.count
+        } else if pickerView.tag == 1 {
+            countRows = tripNames.count
+        } else if pickerView.tag == 2 {
+            countRows = travellersNames.count
+        }
+        return countRows
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoriesList[row]
+        var titleForRow = String()
+        if pickerView.tag == 0 {
+            titleForRow = categoriesList[row]
+        } else if pickerView.tag == 1 {
+            titleForRow = tripNames[row]
+        } else if pickerView.tag == 2 {
+            titleForRow = travellersNames[row]
+        }
+        return titleForRow
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 2 {
+            travellerTextField.text = travellersNames[row]
+            travellerTextField.resignFirstResponder()
+        }
+    }
+    
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
+//        if pickerView.tag == 1 {
+//            label.text = tripNames[row]
+//            label.sizeToFit()
+//        }
+//        return label
+//    }
+    
+//    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+//        var rowHeight = CGFloat()
+//        if pickerView.tag == 1 {
+//            rowHeight = 60
+//        }
+//        return rowHeight
+//    }
 }
 
 // MARK: - Keyboard
@@ -96,6 +223,7 @@ extension AddItemViewController {
     
     @IBAction override func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         itemTextField.resignFirstResponder()
+        travellerTextField.resignFirstResponder()
     }
     
     override func textFieldShouldReturn(_ textField: UITextField) -> Bool {

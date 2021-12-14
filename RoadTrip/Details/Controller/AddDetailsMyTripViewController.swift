@@ -40,6 +40,7 @@ class AddDetailsMyTripViewController: UIViewController {
     var randomImage = String()
     let adMobService = AdMobService()
     private var travellersNames = [String]()
+    private var cellSelected: String?
 
     // MARK: - Actions
 
@@ -51,7 +52,11 @@ class AddDetailsMyTripViewController: UIViewController {
     @IBAction func addTravellerBarButtonItemTapped(_ sender: UIBarButtonItem) {
         displayAddTravellerAlert { [unowned self] travellerName in
             guard let travellerName = travellerName?.trimWhitespaces, !travellerName.isBlank else { return }
-            self.travellersNames.append(travellerName)
+            if travellersNames.contains(travellerName.capitalized) {
+                presentAlert(typeError: .travellerNameExist)
+            } else {
+                self.travellersNames.append(travellerName.capitalized)
+            }
             self.travellersTableView.reloadData()
         }
     }
@@ -119,38 +124,27 @@ class AddDetailsMyTripViewController: UIViewController {
         guard let startDate = startDateTextField.text, !startDate.isBlank else { return presentAlert(typeError: .noStartDate) }
         guard let endDate = endDateTextField.text, !endDate.isBlank else { return presentAlert(typeError: .noEndDate)}
         guard let notesTextView = notesTextView.text?.trimWhitespaces else { return }
-        let travellersNamesString = travellersNames.joined(separator: "-")
-
+        let travellersNamesJoined = travellersNames.joined(separator: "-")
         startDateString = startDate
         endDateString = endDate
         let numberDays = calculateDays()
-
         if checkIfDateCorrect() {
             if !checkIfNameTripExist(name: name) {
                 if checkIfOneTraveller() {
-                    if !celluleActive {
-                        coreDataManager?.createTraveller(travellersNamesString)
-                        coreDataManager?.createDetailsTrip(
-                            parameters: DetailsTrip(name: name, startDate: startDate,
-                                                    endDate: endDate, numberDays: numberDays,
-                                                    travellers: travellersNamesString,
-                                                    notes: notesTextView,
-                                                    imageBackground: randomImage))
-                        navigationController?.popViewController(animated: true)
-                    } else {
-                        let image = cellule?.imageBackground ?? Constants.ImgBackground
-                        coreDataManager?.editTraveller(travellersNamesString, index: celluleIndex ?? 0)
-                        coreDataManager?.editDetailsTrip(
-                            parameters: DetailsTrip(name: name, startDate: startDate,
-                                                    endDate: endDate, numberDays: numberDays,
-                                                    travellers: travellersNamesString,
-                                                    notes: notesTextView,
-                                                    imageBackground: image), index: celluleIndex ?? 0)
-                        navigationController?.popViewController(animated: true)
-                    }
+                    saveDetailsTripWithCheckIfCelluleActive(travellersNamesJoined, name, startDate, endDate, numberDays, notesTextView)
                 }
             }
         }
+    }
+    
+    private func checkIfDateCorrect() -> Bool {
+        let startDateFromString = startDateString.toDate()
+        let endDateFromString = endDateString.toDate()
+        if endDateFromString < startDateFromString {
+            presentAlert(typeError: .errorDate)
+            return false
+        }
+        return true
     }
     
     private func checkIfNameTripExist(name: String) -> Bool {
@@ -165,22 +159,35 @@ class AddDetailsMyTripViewController: UIViewController {
         return false
     }
     
-    private func checkIfDateCorrect() -> Bool {
-        let startDateFromString = startDateString.toDate()
-        let endDateFromString = endDateString.toDate()
-        if endDateFromString < startDateFromString {
-            presentAlert(typeError: .errorDate)
-            return false
-        }
-        return true
-    }
-    
     private func checkIfOneTraveller() -> Bool {
         if travellersNames.isEmpty {
             presentAlert(typeError: .noTraveller)
             return false
         }
         return true
+    }
+    
+    private func saveDetailsTripWithCheckIfCelluleActive(_ travellersNamesJoined: String, _ name: String, _ startDate: String, _ endDate: String, _ numberDays: String, _ notesTextView: String) {
+        if !celluleActive {
+            coreDataManager?.createTraveller(travellersNamesJoined)
+            coreDataManager?.createDetailsTrip(
+                parameters: DetailsTrip(name: name, startDate: startDate,
+                                        endDate: endDate, numberDays: numberDays,
+                                        travellers: travellersNamesJoined,
+                                        notes: notesTextView,
+                                        imageBackground: randomImage))
+            navigationController?.popViewController(animated: true)
+        } else {
+            let image = cellule?.imageBackground ?? Constants.ImgBackground
+            coreDataManager?.editTraveller(travellersNamesJoined, index: celluleIndex ?? 0)
+            coreDataManager?.editDetailsTrip(
+                parameters: DetailsTrip(name: name, startDate: startDate,
+                                        endDate: endDate, numberDays: numberDays,
+                                        travellers: travellersNamesJoined,
+                                        notes: notesTextView,
+                                        imageBackground: image), index: celluleIndex ?? 0)
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     private func calculateDays() -> String {
@@ -306,12 +313,16 @@ extension AddDetailsMyTripViewController: UITableViewDataSource {
         return travellersCell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.cellSelected = coreDataManager?.detailsTrips[indexPath.row]
-//        celluleActive = true
-//        celluleIndex = indexPath.row
-//        performSegue(withIdentifier: self.segueToAddDetails, sender: self)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.cellSelected = travellersNames[indexPath.row]
+        guard let cellSelected = cellSelected else { return }
+        displayEditTravellerAlert(cellSelected: cellSelected) { [unowned self] cellSelected in
+            guard let cellSelected = cellSelected?.trimWhitespaces, !cellSelected.isBlank else { return }
+            self.travellersNames.remove(at: indexPath.row)
+            self.travellersNames.insert(cellSelected.capitalized, at: indexPath.row)
+            self.travellersTableView.reloadData()
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
