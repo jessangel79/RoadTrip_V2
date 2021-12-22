@@ -16,10 +16,6 @@ struct DetailsTrip {
     let endDate: String
     let numberDays: String
     let travellers: String
-//    let travellerOne: String
-//    let travellerTwo: String
-//    let travellerThree: String
-//    let travellerFour: String
     let notes: String
     let imageBackground: String
 }

@@ -26,6 +26,8 @@ final class DetailsMyTripTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     
+    var travellersNames = [String]()
+
     var detailsTripEntity: DetailsTripEntity? {
         didSet {
             nameLabel.text = detailsTripEntity?.name
@@ -38,8 +40,6 @@ final class DetailsMyTripTableViewCell: UITableViewCell {
             travellersTableView.reloadData()
         }
     }
-    
-    var travellersNames = [String]()
     
     // MARK: - View Life Cycle
     

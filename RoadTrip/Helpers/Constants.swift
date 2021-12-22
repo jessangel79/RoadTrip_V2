@@ -18,6 +18,8 @@ struct Constants {
     static let SegueToPlaceDetails = "segueToPlaceDetails"
     static let SegueToMyPlace = "segueToMyPlace"
     static let SegueToAddDetails = "segueToAddDetails"
+    static let SegueToAddItem = "segueToAddItem"
+    static let SegueToPackingList = "segueToPackingList"
     static let DetailsMyTripCell = "DetailsMyTripCell"
     static let DetailsMyTripTableViewCell = "DetailsMyTripTableViewCell"
     static let PackingListCell = "PackingListCell"

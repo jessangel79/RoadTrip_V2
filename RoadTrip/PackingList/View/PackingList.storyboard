@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QZp-dg-YZK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QZp-dg-YZK">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,24 +76,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Packing List" id="3lI-SX-x9F">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="Z6h-ze-eI1">
-                                <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <segue destination="yON-MQ-oTy" kind="show" identifier="segueToAddItem" id="vk9-hl-VUR"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Reset" id="eyt-6I-UjJ">
-                                <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <action selector="resetBarButtonItemTapped:" destination="y0H-NL-oZK" id="oZY-ZM-SXI"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="eyt-6I-UjJ">
+                            <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="resetBarButtonItemTapped:" destination="y0H-NL-oZK" id="oZY-ZM-SXI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Z6h-ze-eI1">
+                            <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="addItemBarButtonItemTapped:" destination="y0H-NL-oZK" id="HMl-0d-dqN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bannerView" destination="exs-Ra-E9X" id="X88-fQ-gCu"/>
                         <outlet property="myTripTableView" destination="ULV-ty-aj1" id="VyP-ay-tAK"/>
+                        <segue destination="yON-MQ-oTy" kind="show" identifier="segueToAddItem" id="gjZ-E1-mPX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hak-wc-y2G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -112,7 +111,7 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gFV-ro-qJo">
-                                <rect key="frame" x="15" y="109" width="290" height="137"/>
+                                <rect key="frame" x="15" y="109" width="290" height="117"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item to add :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OgJ-3o-GJR">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="29"/>
@@ -128,38 +127,11 @@
                                             <outlet property="delegate" destination="yON-MQ-oTy" id="Dnf-dE-0JI"/>
                                         </connections>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sbO-lz-ZgZ">
-                                        <rect key="frame" x="0.0" y="83" width="290" height="44"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxF-sF-eHl">
-                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="0.75163206339999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="44" id="4dm-Q9-ZeF"/>
-                                                    <constraint firstAttribute="height" constant="44" id="TXz-c7-qbo"/>
-                                                </constraints>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="trip">
-                                                    <color key="titleColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="tripButtonTapped:" destination="yON-MQ-oTy" eventType="touchUpInside" id="mr6-9H-akO"/>
-                                                </connections>
-                                            </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Paula" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CTl-y3-zB4">
-                                                <rect key="frame" x="54" y="0.0" width="236" height="44"/>
-                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOs-RR-TdF">
-                                        <rect key="frame" x="0.0" y="137" width="290" height="0.0"/>
-                                        <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="0.75163206339999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                        <color key="textColor" red="0.25324180369999999" green="0.056585675930000003" blue="0.2074308577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Paula" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CTl-y3-zB4">
+                                        <rect key="frame" x="0.0" y="83" width="290" height="34"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohx-rv-Eox" customClass="GADBannerView">
@@ -171,7 +143,7 @@
                                 </constraints>
                             </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jo2-Zf-GmZ">
-                                <rect key="frame" x="0.0" y="261" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="241" width="320" height="150"/>
                                 <color key="backgroundColor" red="0.44794335550851605" green="0.49394252614915352" blue="0.63194003807106602" alpha="0.74785958908493155" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="hRN-Yk-2v3"/>
@@ -182,7 +154,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZz-t8-6ZW">
-                                <rect key="frame" x="105" y="426" width="110" height="44"/>
+                                <rect key="frame" x="105" y="406" width="110" height="44"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="0.75163206339999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="oCL-Ad-SIw"/>
@@ -219,11 +191,7 @@
                             <outletCollection property="gestureRecognizers" destination="EcJ-ke-AsH" appends="YES" id="SyE-Tz-6XY"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Item" id="Fgg-nD-kts">
-                        <barButtonItem key="rightBarButtonItem" image="trip" id="FiG-GA-8Ps">
-                            <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Item" id="Fgg-nD-kts"/>
                     <connections>
                         <outlet property="bannerView" destination="Ohx-rv-Eox" id="QzD-WA-cHm"/>
                         <outlet property="categoryPickerView" destination="Jo2-Zf-GmZ" id="TSn-ZU-s88"/>
@@ -231,11 +199,11 @@
                         <outlet property="itemTextField" destination="tGB-Kv-irz" id="WAs-c6-3fl"/>
                         <outlet property="saveButton" destination="WZz-t8-6ZW" id="svd-HD-hef"/>
                         <outlet property="travellerTextField" destination="CTl-y3-zB4" id="Pfp-vI-Bvq"/>
-                        <outlet property="tripNameLabel" destination="sOs-RR-TdF" id="gOj-Vj-tln"/>
-                        <outlet property="tripPickerViewButton" destination="sxF-sF-eHl" id="qYS-sY-Mq6"/>
+                        <segue destination="6uJ-t1-jSq" kind="unwind" identifier="segueToPackingList" unwindAction="unwindToViewControllerWithSegue:" id="hba-Au-jGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQv-kf-JsT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6uJ-t1-jSq" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="EcJ-ke-AsH">
                     <connections>
                         <action selector="dismissKeyboard:" destination="yON-MQ-oTy" id="IHH-rA-Xod"/>
@@ -248,7 +216,6 @@
     <resources>
         <image name="arbre-solitaire_1024x1024" width="1024" height="1024"/>
         <image name="baggage" width="25" height="25"/>
-        <image name="trip" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -63,12 +63,13 @@ final class PackingListTableViewCell: UITableViewCell {
     
     private func editItemCheckButton() {
         guard let itemName = itemEntity?.itemName else { return }
+        guard let traveller = itemEntity?.traveller else { return }
         if ifCheckItemIsTrue() {
             let itemIsCheck = false
-            coreDataManager?.editItemToCheckButton(itemName: itemName, itemIsCheck: itemIsCheck)
+            coreDataManager?.editItemToCheckButton(itemName: itemName, itemIsCheck: itemIsCheck, traveller: traveller)
         } else {
             let itemIsCheck = true
-            coreDataManager?.editItemToCheckButton(itemName: itemName, itemIsCheck: itemIsCheck)
+            coreDataManager?.editItemToCheckButton(itemName: itemName, itemIsCheck: itemIsCheck, traveller: traveller)
         }
     }
     

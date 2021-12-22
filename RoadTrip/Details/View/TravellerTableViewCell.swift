@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TravellerTableViewCell: UITableViewCell {
+final class TravellerTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     

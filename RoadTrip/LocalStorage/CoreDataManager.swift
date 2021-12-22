@@ -98,21 +98,29 @@ final class CoreDataManager {
         
     // MARK: - Manage DetailsTripEntity
     
-    func createDetailsTrip(parameters: DetailsTrip) {
+    func createDetailsTrip(_ parameters: DetailsTrip) {
         let detailsTrip = DetailsTripEntity(context: managedObjectContext)
         detailsTrip.name = parameters.name
         detailsTrip.startDate = parameters.startDate
         detailsTrip.endDate = parameters.endDate
         detailsTrip.numberDays = parameters.numberDays
-//        let travellers = parameters.travellers.joined(separator: "-")
         detailsTrip.travellers = parameters.travellers
-
-//        detailsTrip.travellerOne = parameters.travellerOne
-//        detailsTrip.travellerTwo = parameters.travellerTwo
-//        detailsTrip.travellerThree = parameters.travellerThree
-//        detailsTrip.travellerFour = parameters.travellerFour
         detailsTrip.notes = parameters.notes
         detailsTrip.imageBackground = parameters.imageBackground
+        coreDataStack.saveContext()
+    }
+    
+    func editDetailsTrip(_ parameters: DetailsTrip, index: Int) {
+        let request: NSFetchRequest<DetailsTripEntity> = DetailsTripEntity.fetchRequest()
+        if let entity = try? managedObjectContext.fetch(request) {
+            let objectUpdate = entity[index] as NSManagedObject
+            objectUpdate.setValue(parameters.name, forKey: "name")
+            objectUpdate.setValue(parameters.startDate, forKey: "startDate")
+            objectUpdate.setValue(parameters.endDate, forKey: "endDate")
+            objectUpdate.setValue(parameters.numberDays, forKey: "numberDays")
+            objectUpdate.setValue(parameters.travellers, forKey: "travellers")
+            objectUpdate.setValue(parameters.notes, forKey: "notes")
+        }
         coreDataStack.saveContext()
     }
     
@@ -137,20 +145,6 @@ final class CoreDataManager {
         
         guard let counter = try? managedObjectContext.count(for: request) else { return false }
         return counter == 0 ? false : true
-    }
-        
-    func editDetailsTrip(parameters: DetailsTrip, index: Int) {
-        let request: NSFetchRequest<DetailsTripEntity> = DetailsTripEntity.fetchRequest()
-        if let entity = try? managedObjectContext.fetch(request) {
-            let objectUpdate = entity[index] as NSManagedObject
-            objectUpdate.setValue(parameters.name, forKey: "name")
-            objectUpdate.setValue(parameters.startDate, forKey: "startDate")
-            objectUpdate.setValue(parameters.endDate, forKey: "endDate")
-            objectUpdate.setValue(parameters.numberDays, forKey: "numberDays")
-            objectUpdate.setValue(parameters.travellers, forKey: "travellers")
-            objectUpdate.setValue(parameters.notes, forKey: "notes")
-        }
-        coreDataStack.saveContext()
     }
     
     // MARK: - Manage TravellerEntity
@@ -186,42 +180,62 @@ final class CoreDataManager {
     
     // MARK: - Manage ItemEntity
     
-    func createItem(itemName: String, imageBackground: String, category: String, itemIsCheck: Bool, categoryImage: String) {
+    func createItem(_ parameters: Item) {
         let item = ItemEntity(context: managedObjectContext)
-        item.itemName = itemName
-        item.imageBackground = imageBackground
-        item.category = category
-        item.itemIsCheck = itemIsCheck
-        item.categoryImage = categoryImage
+        item.id = UUID()
+        item.itemName = parameters.itemName
+        item.traveller = parameters.traveller
+        item.category = parameters.category
+        item.itemIsCheck = parameters.itemIsCheck
+        item.categoryImage = parameters.categoryImage
+        item.imageBackground = parameters.imageBackground
         coreDataStack.saveContext()
     }
     
-    func deleteItem(itemName: String) {
+    func editItem(_ parameters: Item, itemName: String, traveller: String, id: UUID) {
         let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "itemName == %@", itemName)
-
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        if let entity = try? managedObjectContext.fetch(request) {
+            if entity.count != 0 {
+                for objectUpdate in entity {
+                    objectUpdate.setValue(parameters.itemName, forKey: "itemName")
+                    objectUpdate.setValue(parameters.traveller, forKey: "traveller")
+                    objectUpdate.setValue(parameters.category, forKey: "category")
+                    objectUpdate.setValue(parameters.itemIsCheck, forKey: "itemIsCheck")
+                    objectUpdate.setValue(parameters.categoryImage, forKey: "categoryImage")
+                    objectUpdate.setValue(parameters.imageBackground, forKey: "imageBackground")
+                }
+            }
+        }
+        coreDataStack.saveContext()
+    }
+    
+    func deleteItem(itemName: String, traveller: String) {
+        let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "itemName == %@ && traveller == %@", argumentArray: [itemName, traveller])
+        request.includesPropertyValues = false
         if let entity = try? managedObjectContext.fetch(request) {
             entity.forEach { managedObjectContext.delete($0) }
         }
         coreDataStack.saveContext()
     }
-    
+
     func deleteAllItems() {
         items.forEach { managedObjectContext.delete($0) }
         coreDataStack.saveContext()
     }
     
-    func checkIfItemExist(itemName: String) -> Bool {
+    func checkIfItemExistByTraveller(itemName: String, traveller: String) -> Bool {
         let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "itemName == %@", itemName)
-        
+        request.predicate = NSPredicate(format: "itemName == %@ && traveller == %@", argumentArray: [itemName, traveller])
         guard let counter = try? managedObjectContext.count(for: request) else { return false }
         return counter == 0 ? false : true
     }
     
-    func editItemToCheckButton(itemName: String, itemIsCheck: Bool) {
+    func editItemToCheckButton(itemName: String, itemIsCheck: Bool, traveller: String) {
         let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "itemName == %@", itemName)
+//        request.predicate = NSPredicate(format: "itemName == %@", itemName)
+        request.predicate = NSPredicate(format: "itemName == %@ && traveller == %@", argumentArray: [itemName, traveller])
         if let entity = try? managedObjectContext.fetch(request) {
             let objectUpdate = entity[0] as NSManagedObject
             objectUpdate.setValue(itemIsCheck, forKey: "itemIsCheck")

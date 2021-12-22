@@ -25,8 +25,8 @@ class DetailsMyTripViewController: UIViewController {
     var coreDataManager: CoreDataManager?
     private var cellSelected: DetailsTripEntity?
     private let segueToAddDetails = Constants.SegueToAddDetails
-    private var celluleActive = false
-    private var celluleIndex = 0
+    var celluleActive = false
+    var celluleIndex = 0
     var tabType = Constants.Trip
     
     let adMobService = AdMobService()

@@ -171,23 +171,22 @@ class AddDetailsMyTripViewController: UIViewController {
         if !celluleActive {
             coreDataManager?.createTraveller(travellersNamesJoined)
             coreDataManager?.createDetailsTrip(
-                parameters: DetailsTrip(name: name, startDate: startDate,
-                                        endDate: endDate, numberDays: numberDays,
-                                        travellers: travellersNamesJoined,
-                                        notes: notesTextView,
-                                        imageBackground: randomImage))
-            navigationController?.popViewController(animated: true)
+                DetailsTrip(name: name, startDate: startDate,
+                            endDate: endDate, numberDays: numberDays,
+                            travellers: travellersNamesJoined,
+                            notes: notesTextView,
+                            imageBackground: randomImage))
         } else {
             let image = cellule?.imageBackground ?? Constants.ImgBackground
             coreDataManager?.editTraveller(travellersNamesJoined, index: celluleIndex ?? 0)
             coreDataManager?.editDetailsTrip(
-                parameters: DetailsTrip(name: name, startDate: startDate,
-                                        endDate: endDate, numberDays: numberDays,
-                                        travellers: travellersNamesJoined,
-                                        notes: notesTextView,
-                                        imageBackground: image), index: celluleIndex ?? 0)
-            navigationController?.popViewController(animated: true)
+                DetailsTrip(name: name, startDate: startDate,
+                            endDate: endDate, numberDays: numberDays,
+                            travellers: travellersNamesJoined,
+                            notes: notesTextView,
+                            imageBackground: image), index: celluleIndex ?? 0)
         }
+        navigationController?.popViewController(animated: true)
     }
     
     private func calculateDays() -> String {
@@ -205,13 +204,6 @@ class AddDetailsMyTripViewController: UIViewController {
             cleanTextField()
         }
     }
-        
-    private func cleanTextField() {
-        nameTextField.text = String()
-        startDateTextField.text = String()
-        endDateTextField.text = String()
-        notesTextView.text = String()
-    }
     
     private func displayTrip() {
         nameTextField.text = cellule?.name
@@ -221,6 +213,14 @@ class AddDetailsMyTripViewController: UIViewController {
         notesTextView.text = cellule?.notes
         tripImageView.image = UIImage(named: cellule?.imageBackground ?? Constants.ImgBackground)
     }
+    
+    private func cleanTextField() {
+        nameTextField.text = String()
+        startDateTextField.text = String()
+        endDateTextField.text = String()
+        notesTextView.text = String()
+    }
+    
 }
 
 // MARK: - DatePicker

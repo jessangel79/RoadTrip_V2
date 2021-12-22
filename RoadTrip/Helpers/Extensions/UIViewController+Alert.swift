@@ -24,12 +24,16 @@ extension UIViewController {
         case noStartDate
         case noEndDate
         case errorDate
+        case noItem
+        case noTrip
+    }
+    
+    /// Enumeration of the error
+    enum AlertErrorExist {
         case nameExist
         case nothingToShare
-        case noItem
         case itemExist
         case travellerNameExist
-        case noTripSelected
     }
     
     /// Alert message for user
@@ -68,24 +72,35 @@ extension UIViewController {
         case .errorDate:
             title = "Error date"
             message = "Please to set correct start and end dates."
+        case .noItem:
+            title = "No item"
+            message = "Please to set an item."
+        case .noTrip:
+            title = "No trip created"
+            message = "Please create at least one trip in details tab to select a traveller."
+        }
+        
+        alertError(title, message)
+    }
+    
+    /// Alert message for user
+    func presentAlert(typeError: AlertErrorExist) {
+        var message: String
+        var title: String
+      
+        switch typeError {
         case .nameExist:
             title = "This name of trip already exist"
             message = "Please to set another name for you trip."
         case .nothingToShare:
             title = "Nothing to share"
             message = "Sorry there is nothing to share."
-        case .noItem:
-            title = "No item"
-            message = "Please to set an item."
         case .itemExist:
             title = "This item already exist"
             message = "Please to set another item."
         case .travellerNameExist:
             title = "This name already exist"
             message = "Please to set another name."
-        case .noTripSelected:
-            title = "Selected your Trip"
-            message = "Please to selected your trip to choose a traveller."
         }
         
         alertError(title, message)

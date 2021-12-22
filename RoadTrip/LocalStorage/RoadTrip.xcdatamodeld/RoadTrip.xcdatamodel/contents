@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DetailsTripEntity" representedClassName=".DetailsTripEntity" syncable="YES" codeGenerationType="class">
         <attribute name="endDate" optional="YES" attributeType="String"/>
         <attribute name="imageBackground" optional="YES" attributeType="String"/>
@@ -13,9 +13,11 @@
     <entity name="ItemEntity" representedClassName=".ItemEntity" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="categoryImage" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imageBackground" optional="YES" attributeType="String"/>
         <attribute name="itemIsCheck" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="itemName" optional="YES" attributeType="String"/>
+        <attribute name="traveller" optional="YES" attributeType="String"/>
     </entity>
     <entity name="PlaceEntity" representedClassName=".PlaceEntity" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String"/>
@@ -37,7 +39,7 @@
     </entity>
     <elements>
         <element name="DetailsTripEntity" positionX="-63" positionY="99" width="128" height="149"/>
-        <element name="ItemEntity" positionX="-63" positionY="126" width="128" height="104"/>
+        <element name="ItemEntity" positionX="-63" positionY="126" width="128" height="134"/>
         <element name="PlaceEntity" positionX="-63" positionY="-18" width="128" height="238"/>
         <element name="TravellerEntity" positionX="-63" positionY="126" width="128" height="44"/>
     </elements>
