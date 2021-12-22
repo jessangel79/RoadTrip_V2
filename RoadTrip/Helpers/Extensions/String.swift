@@ -49,7 +49,6 @@ extension String {
     
     func cutEndString() -> String {
         guard let endOfSentence = self.firstIndex(of: ",") else { return "" }
-//        let endOfSentence = self.firstIndex(of: ",")!
         var firstSentence = self[...endOfSentence]
         firstSentence.removeLast()
         return String(firstSentence)

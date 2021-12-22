@@ -210,9 +210,9 @@ final class CoreDataManager {
         coreDataStack.saveContext()
     }
     
-    func deleteItem(itemName: String, traveller: String) {
+    func deleteItem(id: UUID) {
         let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "itemName == %@ && traveller == %@", argumentArray: [itemName, traveller])
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         request.includesPropertyValues = false
         if let entity = try? managedObjectContext.fetch(request) {
             entity.forEach { managedObjectContext.delete($0) }

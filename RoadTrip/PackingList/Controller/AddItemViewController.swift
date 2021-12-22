@@ -45,6 +45,7 @@ final class AddItemViewController: AddDetailsMyTripViewController {
         setImagebackground()
         setTravellerPickerView()
         setTravellerTextField()
+        setPickerViewsRowsSelected()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,6 +121,23 @@ final class AddItemViewController: AddDetailsMyTripViewController {
         }
     }
     
+    private func setPickerViewsRowsSelected() {
+        if celluleItemActive {
+            setPickerViewRow(rowSelected: celluleItem?.category, list: categoriesList, pickerview: categoryPickerView)
+            setPickerViewRow(rowSelected: celluleItem?.traveller, list: travellersNames, pickerview: travellerChoicePickerView)
+        } else {
+            categoryPickerView.reloadAllComponents()
+            travellerChoicePickerView.reloadAllComponents()
+        }
+    }
+    
+    private func setPickerViewRow(rowSelected: String?, list: [String], pickerview: UIPickerView) {
+        guard let rowSelected = rowSelected else { return }
+        if let row = list.firstIndex(of: rowSelected) {
+            pickerview.selectRow(row, inComponent: 0, animated: false)
+        }
+    }
+
     private func checkIfCelluleActive() {
         if celluleItemActive {
             displayItem()

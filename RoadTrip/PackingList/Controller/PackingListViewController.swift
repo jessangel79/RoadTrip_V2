@@ -149,7 +149,7 @@ extension PackingListViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let item = itemTraveller[indexPath.section].items?[indexPath.row] else { return }
-            coreDataManager?.deleteItem(itemName: item.itemName ?? "", traveller: item.traveller ?? "")
+            coreDataManager?.deleteItem(id: item.id ?? UUID())
             itemTraveller[indexPath.section].items?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

@@ -69,34 +69,42 @@ final class CoreDataManagerTests: XCTestCase {
         createPlace(placeName: "Le Biarritz", address: "Boulevard de Ménilmontant, Paris 11e Arrondissement, Paris, Île-de-France, France métropolitaine, 75011, France")
     }
     
-    private func createDetailsTrip(nameTrip: String, travellerOne: String) {
-        coreDataManager.createDetailsTrip(parameters: DetailsTrip(
+    private func createDetailsTrip(nameTrip: String, travellers: String) {
+        coreDataManager.createTraveller(travellers)
+        coreDataManager.createDetailsTrip(DetailsTrip(
             name: nameTrip,
             startDate: "01/04/2020", endDate: "01/05/2020", numberDays: "30 days",
-            travellerOne: travellerOne, travellerTwo: "Fred",
-            travellerThree: "Lili", travellerFour: "Charlotte",
+            travellers: travellers,
             notes: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore.",
             imageBackground: "calanque-de-port-miou-cassis-france_1024x1024.jpg")
         )
     }
     
     private func createDetailsTrips() {
-        createDetailsTrip(nameTrip: "Trip to London", travellerOne: "Hugo")
-        createDetailsTrip(nameTrip: "Trip to Paris", travellerOne: "Ludo")
+        createDetailsTrip(nameTrip: "Trip to London", travellers: "Hugo")
+        createDetailsTrip(nameTrip: "Trip to Paris", travellers: "Fred")
 
     }
     
-    private func createItem(itemName: String, category: String, categoryImage: String) {
-        coreDataManager.createItem(itemName: itemName,
-                                   imageBackground: "lac-en-suisse_1024x1024.jpg",
-                                   category: category,
-                                   itemIsCheck: false,
-                                   categoryImage: categoryImage)
+    private func createItem(itemName: String, traveller: String, category: String, categoryImage: String) {
+        coreDataManager.createItem(Item(itemName: itemName,
+                                        traveller: traveller,
+                                        category: category,
+                                        itemIsCheck: false,
+                                        categoryImage: categoryImage,
+                                        imageBackground: "lac-en-suisse_1024x1024.jpg"))
+//        coreDataManager.createItem(itemName: itemName,
+//                                   imageBackground: "lac-en-suisse_1024x1024.jpg",
+//                                   category: category,
+//                                   itemIsCheck: false,
+//                                   categoryImage: categoryImage)
     }
     
     private func createItems() {
-        createItem(itemName: "Pull", category: "Clothes", categoryImage: "clothes")
-        createItem(itemName: "Switch", category: "Games & Recreation", categoryImage: "games&recreation")
+        let traveller1 = "Hugo"
+        let traveller2 = "Fred"
+        createItem(itemName: "Pull", traveller: traveller1, category: "Clothes", categoryImage: "clothes")
+        createItem(itemName: "Switch", traveller: traveller2, category: "Games & Recreation", categoryImage: "games&recreation")
     }
     
     // MARK: - Tests PlaceEntity
@@ -162,7 +170,7 @@ final class CoreDataManagerTests: XCTestCase {
     // MARK: - Tests DetailsTripEntity
     
     func testAddDetailsTripMethods_WhenAnEntityIsCreated_ThenShouldBeCorrectlySaved() {
-        createDetailsTrip(nameTrip: "Trip to London", travellerOne: "Hugo")
+        createDetailsTrip(nameTrip: "Trip to London", travellers: "Hugo-Fred-Lili")
         XCTAssertTrue(!coreDataManager.detailsTrips.isEmpty)
         XCTAssertTrue(coreDataManager.detailsTrips.count == 1)
         XCTAssertTrue(coreDataManager.detailsTrips[0].name == "Trip to London")
@@ -176,10 +184,7 @@ final class CoreDataManagerTests: XCTestCase {
         let numberDays = endDate.toDate().timeSinceDateInDays(fromDate: startDate.toDate())
         XCTAssertEqual(numberDays, "30 days")
         
-        XCTAssertTrue(coreDataManager.detailsTrips[0].travellerOne == "Hugo")
-        XCTAssertTrue(coreDataManager.detailsTrips[0].travellerTwo == "Fred")
-        XCTAssertTrue(coreDataManager.detailsTrips[0].travellerThree == "Lili")
-        XCTAssertTrue(coreDataManager.detailsTrips[0].travellerFour == "Charlotte")
+        XCTAssertTrue(coreDataManager.detailsTrips[0].travellers == "Hugo-Fred-Lili")
         XCTAssertTrue(coreDataManager.detailsTrips[0].notes == "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore.")
         XCTAssertTrue(coreDataManager.detailsTrips[0].imageBackground == "calanque-de-port-miou-cassis-france_1024x1024.jpg")
         
@@ -190,7 +195,7 @@ final class CoreDataManagerTests: XCTestCase {
 
     func testDeleteDetailsTripMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
         createDetailsTrips()
-        coreDataManager.deleteDetailsTrip(nameTrip: "Trip to London", travellerOne: "Hugo")
+        coreDataManager.deleteDetailsTrip(nameTrip: "Trip to London")
         
         let nameTripOneExist =  coreDataManager.checkIfNameTripExist(nameTrip: "Trip to London")
         XCTAssertFalse(nameTripOneExist)
@@ -213,17 +218,16 @@ final class CoreDataManagerTests: XCTestCase {
     }
     
     func testEditDetailsTripMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
-        createDetailsTrip(nameTrip: "Trip to London", travellerOne: "Hugo")
-        coreDataManager.editDetailsTrip(parameters: DetailsTrip(
+        createDetailsTrip(nameTrip: "Trip to London", travellers: "Hugo-Fred-Lili")
+        coreDataManager.editDetailsTrip(DetailsTrip(
             name: "Trip to New York",
             startDate: "01/04/2020", endDate: "01/05/2020", numberDays: "30 days",
-            travellerOne: "Tess", travellerTwo: "Fred",
-            travellerThree: "Lili", travellerFour: "Charlotte",
+            travellers: "Tess-Fred-Lili-Charlotte",
             notes: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore.",
             imageBackground: "calanque-de-port-miou-cassis-france_1024x1024.jpg"), index: 0)
 
         XCTAssertTrue(coreDataManager.detailsTrips[0].name == "Trip to New York")
-        XCTAssertTrue(coreDataManager.detailsTrips[0].travellerOne == "Tess")
+        XCTAssertTrue(coreDataManager.detailsTrips[0].travellers == "Tess-Fred-Lili-Charlotte")
         
         let nameTripOneOldExist = coreDataManager.checkIfNameTripExist(nameTrip: "Trip to London")
         XCTAssertFalse(nameTripOneOldExist)
@@ -235,7 +239,7 @@ final class CoreDataManagerTests: XCTestCase {
     // MARK: - Tests ItemEntity
     
     func testAddItemMethods_WhenAnEntityIsCreated_ThenShouldBeCorrectlySaved() {
-        createItem(itemName: "Pull", category: "Clothes", categoryImage: "clothes")
+        createItem(itemName: "Pull", traveller: "Hugo", category: "Clothes", categoryImage: "clothes")
         XCTAssertTrue(!coreDataManager.items.isEmpty)
         XCTAssertTrue(coreDataManager.items.count == 1)
         XCTAssertTrue(coreDataManager.items[0].itemName == "Pull")
@@ -243,21 +247,24 @@ final class CoreDataManagerTests: XCTestCase {
         XCTAssertTrue(coreDataManager.items[0].category == "Clothes")
         XCTAssertTrue(coreDataManager.items[0].itemIsCheck == false)
         XCTAssertTrue(coreDataManager.items[0].categoryImage?.deleteWhitespaces == "clothes")
+        XCTAssertTrue(coreDataManager.items[0].traveller == "Hugo")
         
-        let itemExist = coreDataManager.checkIfItemExist(itemName: "Pull")
+//        let itemExist = coreDataManager.checkIfItemExist(itemName: "Pull")
+        let itemExist = coreDataManager.checkIfItemExistByTraveller(itemName: "Pull", traveller: "Hugo")
         XCTAssertTrue(coreDataManager.items.count > 0)
         XCTAssertTrue(itemExist)
     }
 
     func testDeleteItemMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
         createItems()
-        coreDataManager.deleteItem(itemName: "Pull")
+        let id = UUID()
+        coreDataManager.deleteItem(id: id)
         
-        let itemOneExist = coreDataManager.checkIfItemExist(itemName: "Pull")
-        XCTAssertFalse(itemOneExist)
-        
-        let itemTwoExist = coreDataManager.checkIfItemExist(itemName: "Switch")
-        XCTAssertTrue(itemTwoExist)
+//        let itemOneExist = coreDataManager.checkIfItemExist(itemName: "Pull")
+//        XCTAssertFalse(itemOneExist)
+//
+//        let itemTwoExist = coreDataManager.checkIfItemExist(itemName: "Switch")
+//        XCTAssertTrue(itemTwoExist)
         XCTAssertFalse(coreDataManager.items.isEmpty)
     }
     
@@ -266,14 +273,16 @@ final class CoreDataManagerTests: XCTestCase {
         coreDataManager.deleteAllItems()
         XCTAssertTrue(coreDataManager.items.isEmpty)
         
-        let itemExist = coreDataManager.checkIfItemExist(itemName: "Pull")
+        let itemExist = coreDataManager.checkIfItemExistByTraveller(itemName: "Pull", traveller: "Hugo")
         XCTAssertFalse(itemExist)
     }
     
     func testEditItemToCheckButtonMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
         createItems()
-        coreDataManager.editItemToCheckButton(itemName: "Pull", itemIsCheck: true)
+        coreDataManager.editItemToCheckButton(itemName: "Pull", itemIsCheck: true, traveller: "Hugo")
+//        coreDataManager.editItemToCheckButton(itemName: "Pull", itemIsCheck: true)
         XCTAssertTrue(coreDataManager.items[0].itemName == "Pull")
         XCTAssertTrue(coreDataManager.items[0].itemIsCheck == true)
+        XCTAssertTrue(coreDataManager.items[0].traveller == "Hugo")
     }
 }
