@@ -75,7 +75,6 @@ extension String {
     }
     
     func importanceString() -> String? {
-        
         switch self {
         case "0.1":
             return Importance.one.rawValue

@@ -164,19 +164,19 @@ final class CoreDataManager {
         coreDataStack.saveContext()
     }
     
-    func deleteTraveller(_ travellerName: String) {
-        let request: NSFetchRequest<TravellerEntity> = TravellerEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "name == %@", travellerName)
-        if let entity = try? managedObjectContext.fetch(request) {
-            entity.forEach { managedObjectContext.delete($0) }
-        }
-        coreDataStack.saveContext()
-    }
+//    func deleteTraveller(_ travellerName: String) {
+//        let request: NSFetchRequest<TravellerEntity> = TravellerEntity.fetchRequest()
+//        request.predicate = NSPredicate(format: "name == %@", travellerName)
+//        if let entity = try? managedObjectContext.fetch(request) {
+//            entity.forEach { managedObjectContext.delete($0) }
+//        }
+//        coreDataStack.saveContext()
+//    }
     
-    func deleteAllTravellers() {
-        travellers.forEach { managedObjectContext.delete($0) }
-        coreDataStack.saveContext()
-    }
+//    func deleteAllTravellers() {
+//        travellers.forEach { managedObjectContext.delete($0) }
+//        coreDataStack.saveContext()
+//    }
     
     // MARK: - Manage ItemEntity
     
@@ -214,6 +214,15 @@ final class CoreDataManager {
         let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         request.includesPropertyValues = false
+        if let entity = try? managedObjectContext.fetch(request) {
+            entity.forEach { managedObjectContext.delete($0) }
+        }
+        coreDataStack.saveContext()
+    }
+    
+    func deleteItemsByTraveller(traveller: String) {
+        let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "traveller == %@", traveller)
         if let entity = try? managedObjectContext.fetch(request) {
             entity.forEach { managedObjectContext.delete($0) }
         }

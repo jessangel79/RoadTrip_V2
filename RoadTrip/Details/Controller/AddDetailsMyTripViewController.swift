@@ -61,6 +61,12 @@ class AddDetailsMyTripViewController: UIViewController {
         }
     }
     
+    @IBAction func removeTravellersListBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        travellersNames.removeAll()
+        travellersTableView.reloadData()
+        // TODO: coredata maj
+    }
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -318,6 +324,9 @@ extension AddDetailsMyTripViewController: UITableViewDataSource {
         guard let cellSelected = cellSelected else { return }
         displayEditTravellerAlert(cellSelected: cellSelected) { [unowned self] cellSelected in
             guard let cellSelected = cellSelected?.trimWhitespaces, !cellSelected.isBlank else { return }
+            
+            // TODO: alert to user !!! coredata maj
+            
             self.travellersNames.remove(at: indexPath.row)
             self.travellersNames.insert(cellSelected.capitalized, at: indexPath.row)
             self.travellersTableView.reloadData()
@@ -334,6 +343,7 @@ extension AddDetailsMyTripViewController: UITableViewDelegate {
         if editingStyle == .delete {
             travellersNames.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            // TODO: alert to user !!! coredata MAJ
         }
         travellersTableView.reloadData()
         animationCell(tableView)
@@ -341,7 +351,7 @@ extension AddDetailsMyTripViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Click on 👤 to add a traveller"
+        label.text = "Click on 👤 to add a traveler"
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         label.textAlignment = .center
         label.textColor = #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1)

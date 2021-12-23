@@ -122,41 +122,81 @@ extension UIViewController {
         let action = UIAlertAction(title: "OK", style: .default)
         alertCustomAction(title, message, action: action)
     }
-    
+
     /// Alert message for user to confirm all reset
-    func showResetAlert(destructiveAction: UIAlertAction) {
-        let alert = UIAlertController(title: "Warning Reset All", message: "Are you sure to reset all ?", preferredStyle: .alert)
+    private func showAlert(_ destructiveAction: UIAlertAction, title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(destructiveAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
     
+    func showResetAllAlert(_ destructiveAction: UIAlertAction) {
+        showAlert(destructiveAction, title: "Warning Reset All !", message: "Are you sure to reset all ?")
+    }
+
+    /// Alert message for user to confirm all reset
+//    func showResetAlert(destructiveAction: UIAlertAction) {
+//        let alert = UIAlertController(title: "Warning Reset All", message: "Are you sure to reset all ?", preferredStyle: .alert)
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        alert.addAction(destructiveAction)
+//        alert.addAction(cancelAction)
+//        present(alert, animated: true, completion: nil)
+//    }
+    
+    /// Alert message for user to confirm the trip selected to delete
+    func showDeletedTripAlert(destructiveAction: UIAlertAction) {
+        showAlert(destructiveAction, title: "Warning delete of this trip !", message: """
+Are you sure you want to delete this trip ? This will also erase the packing list of the travelers present on this trip.
+If you want to keep your items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
+""")
+    }
+    
     /// Display an alert to enter the traveller name
     func displayAddTravellerAlert(handlerAddTravellerName: @escaping (String?) -> Void) {
-        let alertController = UIAlertController(title: "Add new traveller", message: "", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Add new traveler", message: "", preferredStyle: .alert)
         alertController.addTextField { textField in
-            textField.placeholder = "Traveller"
+            textField.placeholder = "Traveler"
+            textField.autocapitalizationType = .words
         }
-        let addAction = UIAlertAction(title: "Add", style: .default, handler: { _ in
+        let action = UIAlertAction(title: "Add", style: .default, handler: { _ in
             guard let textField = alertController.textFields else { return }
             handlerAddTravellerName(textField[0].text)
         })
-        alertController.addAction(addAction)
+        alertController.addAction(action)
         present(alertController, animated: true, completion: nil)
     }
     
     /// Display an alert to rename the traveller
-    func displayEditTravellerAlert(cellSelected: String, handlerAddTravellerName: @escaping (String?) -> Void) {
-        let alertController = UIAlertController(title: "Rename the traveller", message: "", preferredStyle: .alert)
+    func displayEditTravellerAlert(cellSelected: String, handlerEditTravellerName: @escaping (String?) -> Void) {
+        let alertController = UIAlertController(title: "Rename the traveler", message: "", preferredStyle: .alert)
         alertController.addTextField { textField in
             textField.text = cellSelected
+            textField.autocapitalizationType = .words
         }
-        let addAction = UIAlertAction(title: "Rename", style: .default, handler: { _ in
+        let action = UIAlertAction(title: "Rename", style: .default, handler: { _ in
             guard let textField = alertController.textFields else { return }
-            handlerAddTravellerName(textField[0].text)
+            handlerEditTravellerName(textField[0].text)
         })
-        alertController.addAction(addAction)
+        alertController.addAction(action)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    /// Display an alert to delete the list of a traveller
+    func displayDeleteListTravellerAlert(handlerDeleteListByTravellerName: @escaping (String?) -> Void) {
+        let alertController = UIAlertController(title: "Set the name of traveler", message: "", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "Traveler"
+            textField.autocapitalizationType = .words
+        }
+        let deleteAction = UIAlertAction(title: "Delete list for this traveler ?", style: .destructive, handler: { _ in
+            guard let textField = alertController.textFields else { return }
+            handlerDeleteListByTravellerName(textField[0].text)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
 }

@@ -94,7 +94,8 @@ final class MytripViewController: ListPlacesViewController {
         let destructiveAction = UIAlertAction(title: "Reset all", style: .destructive, handler: { action in
             self.resetAll()
         })
-        showResetAlert(destructiveAction: destructiveAction)
+        showResetAllAlert(destructiveAction)
+//        showResetAlert(destructiveAction: destructiveAction)
     }
 }
 

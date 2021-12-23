@@ -82,12 +82,19 @@
                                 <action selector="resetBarButtonItemTapped:" destination="y0H-NL-oZK" id="oZY-ZM-SXI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Z6h-ze-eI1">
-                            <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="addItemBarButtonItemTapped:" destination="y0H-NL-oZK" id="HMl-0d-dqN"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Z6h-ze-eI1">
+                                <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="addItemBarButtonItemTapped:" destination="y0H-NL-oZK" id="HMl-0d-dqN"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="listByTravellerDeleted" id="oRP-ob-Gjm">
+                                <connections>
+                                    <action selector="removeListByTravellerBarButtonItemTapped:" destination="y0H-NL-oZK" id="GYq-nO-gaY"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="bannerView" destination="exs-Ra-E9X" id="X88-fQ-gCu"/>
@@ -216,6 +223,7 @@
     <resources>
         <image name="arbre-solitaire_1024x1024" width="1024" height="1024"/>
         <image name="baggage" width="25" height="25"/>
+        <image name="listByTravellerDeleted" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

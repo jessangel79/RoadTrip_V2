@@ -83,7 +83,22 @@ class DetailsMyTripViewController: UIViewController {
         let destructiveAction = UIAlertAction(title: "Reset all", style: .destructive, handler: { action in
             self.resetAll()
         })
-        showResetAlert(destructiveAction: destructiveAction)
+        showResetAllAlert(destructiveAction)
+    }
+    
+    private func destructionTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
+        let destructiveAction = UIAlertAction(title: "I want to delete this trip", style: .destructive, handler: { action in
+            let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
+            guard let travellers = detailsTrip?.travellers?.components(separatedBy: "-") else { return }
+            for traveller in travellers {
+                self.coreDataManager?.deleteItemsByTraveller(traveller: traveller)
+            }
+            self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.myTripTableView.reloadData()
+            self.animationCell(tableView)
+        })
+        showDeletedTripAlert(destructiveAction: destructiveAction)
     }
 }
 
@@ -120,15 +135,13 @@ extension DetailsMyTripViewController: UITableViewDataSource {
 
 extension DetailsMyTripViewController: UITableViewDelegate {
     
+
+    
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let detailsTrip = coreDataManager?.detailsTrips[indexPath.row]
-            coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            destructionTrip(indexPath, tableView)
         }
-        myTripTableView.reloadData()
-        animationCell(tableView)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

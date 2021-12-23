@@ -93,18 +93,11 @@ final class CoreDataManagerTests: XCTestCase {
                                         itemIsCheck: false,
                                         categoryImage: categoryImage,
                                         imageBackground: "lac-en-suisse_1024x1024.jpg"))
-//        coreDataManager.createItem(itemName: itemName,
-//                                   imageBackground: "lac-en-suisse_1024x1024.jpg",
-//                                   category: category,
-//                                   itemIsCheck: false,
-//                                   categoryImage: categoryImage)
     }
     
     private func createItems() {
-        let traveller1 = "Hugo"
-        let traveller2 = "Fred"
-        createItem(itemName: "Pull", traveller: traveller1, category: "Clothes", categoryImage: "clothes")
-        createItem(itemName: "Switch", traveller: traveller2, category: "Games & Recreation", categoryImage: "games&recreation")
+        createItem(itemName: "Pull", traveller: "Hugo", category: "Clothes", categoryImage: "clothes")
+        createItem(itemName: "Switch", traveller: "Fred", category: "Games & Recreation", categoryImage: "games&recreation")
     }
     
     // MARK: - Tests PlaceEntity
@@ -174,6 +167,7 @@ final class CoreDataManagerTests: XCTestCase {
         XCTAssertTrue(!coreDataManager.detailsTrips.isEmpty)
         XCTAssertTrue(coreDataManager.detailsTrips.count == 1)
         XCTAssertTrue(coreDataManager.detailsTrips[0].name == "Trip to London")
+        XCTAssertTrue(coreDataManager.travellers[0].name == "Hugo-Fred-Lili")
         
         let startDate = coreDataManager.detailsTrips[0].startDate ?? ""
         let endDate = coreDataManager.detailsTrips[0].endDate ?? ""
@@ -219,6 +213,9 @@ final class CoreDataManagerTests: XCTestCase {
     
     func testEditDetailsTripMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
         createDetailsTrip(nameTrip: "Trip to London", travellers: "Hugo-Fred-Lili")
+        coreDataManager.editTraveller("Hugo-Fred-Emily", index: 0)
+        XCTAssertTrue(coreDataManager.travellers[0].name == "Hugo-Fred-Emily")
+                
         coreDataManager.editDetailsTrip(DetailsTrip(
             name: "Trip to New York",
             startDate: "01/04/2020", endDate: "01/05/2020", numberDays: "30 days",
@@ -249,7 +246,6 @@ final class CoreDataManagerTests: XCTestCase {
         XCTAssertTrue(coreDataManager.items[0].categoryImage?.deleteWhitespaces == "clothes")
         XCTAssertTrue(coreDataManager.items[0].traveller == "Hugo")
         
-//        let itemExist = coreDataManager.checkIfItemExist(itemName: "Pull")
         let itemExist = coreDataManager.checkIfItemExistByTraveller(itemName: "Pull", traveller: "Hugo")
         XCTAssertTrue(coreDataManager.items.count > 0)
         XCTAssertTrue(itemExist)
@@ -257,14 +253,14 @@ final class CoreDataManagerTests: XCTestCase {
 
     func testDeleteItemMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
         createItems()
-        let id = UUID()
+        guard let id = coreDataManager.items[0].id else { return }
         coreDataManager.deleteItem(id: id)
         
-//        let itemOneExist = coreDataManager.checkIfItemExist(itemName: "Pull")
-//        XCTAssertFalse(itemOneExist)
-//
-//        let itemTwoExist = coreDataManager.checkIfItemExist(itemName: "Switch")
-//        XCTAssertTrue(itemTwoExist)
+        let itemOneExist = coreDataManager.checkIfItemExistByTraveller(itemName: "Pull", traveller: "Hugo")
+        XCTAssertFalse(itemOneExist)
+        
+        let itemTwoExist = coreDataManager.checkIfItemExistByTraveller(itemName: "Switch", traveller: "Fred")
+        XCTAssertTrue(itemTwoExist)
         XCTAssertFalse(coreDataManager.items.isEmpty)
     }
     
@@ -280,7 +276,6 @@ final class CoreDataManagerTests: XCTestCase {
     func testEditItemToCheckButtonMethod_WhenAnEntityIsCreated_ThenShouldBeCorrectlyDeleted() {
         createItems()
         coreDataManager.editItemToCheckButton(itemName: "Pull", itemIsCheck: true, traveller: "Hugo")
-//        coreDataManager.editItemToCheckButton(itemName: "Pull", itemIsCheck: true)
         XCTAssertTrue(coreDataManager.items[0].itemName == "Pull")
         XCTAssertTrue(coreDataManager.items[0].itemIsCheck == true)
         XCTAssertTrue(coreDataManager.items[0].traveller == "Hugo")

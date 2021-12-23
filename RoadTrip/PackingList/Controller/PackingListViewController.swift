@@ -33,6 +33,16 @@ final class PackingListViewController: DetailsMyTripViewController {
         self.performSegue(withIdentifier: self.segueToAddItem, sender: self)
     }
     
+    @IBAction func removeListByTravellerBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        displayDeleteListTravellerAlert { [unowned self] travellerName in
+            var itemIds = [UUID]()
+            guard let travellerName = travellerName?.trimWhitespaces, !travellerName.isBlank else { return }
+            deleteItemsListByTraveller(travellerName, &itemIds)
+            deleteItemsWithId(itemIds)
+            self.myTripTableView.reloadData()
+        }
+    }
+    
     @IBAction private func unwindToViewController(segue: UIStoryboardSegue) {
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
@@ -59,6 +69,8 @@ final class PackingListViewController: DetailsMyTripViewController {
         celluleItemActive = false
         reinitTravellerNames()
         getTravellersNames()
+        getItemTraveller()
+        myTripTableView.reloadData()
     }
 
     // MARK: - Methods
@@ -96,6 +108,7 @@ final class PackingListViewController: DetailsMyTripViewController {
     }
     
     private func getItemTraveller() {
+        itemTraveller.removeAll()
         let items = coreDataManager?.items
         guard let items = items else { return }
         if !travellersNames.isEmpty {
@@ -113,6 +126,24 @@ final class PackingListViewController: DetailsMyTripViewController {
         print(itemsList)
         return itemsList
     }
+    
+    private func deleteItemsListByTraveller(_ travellerName: String, _ itemIds: inout [UUID]) {
+        for traveller in self.itemTraveller where traveller.travellerName == travellerName {
+            guard let items = traveller.items else { return }
+            for item in items {
+                guard let id = item.id else { return }
+                itemIds.append(id)
+            }
+            traveller.items?.removeAll()
+        }
+    }
+    
+    private func deleteItemsWithId(_ itemIds: [UUID]) {
+        for id in itemIds {
+            coreDataManager?.deleteItem(id: id)
+        }
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -175,7 +206,7 @@ extension PackingListViewController {
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         guard let items = coreDataManager?.items else { return 0 }
-        return (itemTraveller.count == 1 && items.isEmpty) ? 300 : 0
+        return (itemTraveller.count < 6 && items.isEmpty) ? 30 : 0
     }
 }
 
