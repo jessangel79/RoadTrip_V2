@@ -118,7 +118,7 @@ final class PackingListViewController: DetailsMyTripViewController {
         }
     }
     
-    private func getItemsList(items: [ItemEntity], index: Int) -> [ItemEntity] {
+    func getItemsList(items: [ItemEntity], index: Int) -> [ItemEntity] {
         var itemsList = [ItemEntity]()
         for item in items where item.traveller == travellersNames[index] {
             itemsList.append(item)

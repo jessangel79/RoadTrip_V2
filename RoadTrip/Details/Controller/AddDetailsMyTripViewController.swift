@@ -41,6 +41,7 @@ class AddDetailsMyTripViewController: UIViewController {
     let adMobService = AdMobService()
     private var travellersNames = [String]()
     private var cellSelected: String?
+    private var itemTraveller = [ItemTraveller]()
 
     // MARK: - Actions
 
@@ -226,7 +227,6 @@ class AddDetailsMyTripViewController: UIViewController {
         endDateTextField.text = String()
         notesTextView.text = String()
     }
-    
 }
 
 // MARK: - DatePicker
@@ -338,15 +338,53 @@ extension AddDetailsMyTripViewController: UITableViewDataSource {
 
 extension AddDetailsMyTripViewController: UITableViewDelegate {
     
+    /// doublon with PackingListViewController
+    private func getItemsList(items: [ItemEntity], index: Int) -> [ItemEntity] {
+        var itemsList = [ItemEntity]()
+        for item in items where item.traveller == travellersNames[index] {
+            itemsList.append(item)
+        }
+        print(itemsList)
+        return itemsList
+    }
+    
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            travellersNames.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            if !celluleActive {
+                travellersNames.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                travellersTableView.reloadData()
+                animationCell(tableView)
+            } else {
+                let items = coreDataManager?.items
+                guard let items = items else { return }
+                let itemsByTraveler = getItemsList(items: items, index: indexPath.row)
+                if !itemsByTraveler.isEmpty {
+                    presentAlertImpossibleToDeleteTraveler()
+                } else {
+                    travellersNames.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                    travellersTableView.reloadData()
+                    animationCell(tableView)
+                }
+//                let destructiveAction = UIAlertAction(title: "Yes, I want to delete this traveler.", style: .destructive, handler: { _ in
+//                    var itemIds = [UUID]()
+//                    let travellerName = self.travellersNames[indexPath.row]
+//                    self.deleteItemsListByTraveller(travellerName, &itemIds)
+//                    self.deleteItemsWithId(itemIds)
+//                    
+//                    self.travellersNames.remove(at: indexPath.row)
+//                    tableView.deleteRows(at: [indexPath], with: .automatic)
+//                    self.travellersTableView.reloadData()
+//                    self.animationCell(tableView)
+//                })
+//                showDeleteTravelerAlertIfPackingListIsNotEmpty(destructiveAction)
+            }
+            
             // TODO: alert to user !!! coredata MAJ
         }
-        travellersTableView.reloadData()
-        animationCell(tableView)
+
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

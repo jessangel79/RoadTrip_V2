@@ -86,8 +86,31 @@ class DetailsMyTripViewController: UIViewController {
         showResetAllAlert(destructiveAction)
     }
     
+    // TODO: KO
+    private func checkTravelerIfAnotherTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
+        guard let detailsTrips = coreDataManager?.detailsTrips else { return }
+        let detailsTripSelected = self.coreDataManager?.detailsTrips[indexPath.row]
+        guard let travellersSelected = detailsTripSelected?.travellers?.components(separatedBy: "-") else { return }
+        
+        for detailsTrip in detailsTrips {
+            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return }
+            for traveller in travellers {
+                var travellersInTrip = [String]()
+                if traveller == travellersSelected[indexPath.row] {
+                    travellersInTrip.append(traveller)
+                }
+                print("travellersInTrip")
+                print(travellersInTrip)
+            }
+        }
+    }
+    
     private func destructionTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
-        let destructiveAction = UIAlertAction(title: "I want to delete this trip", style: .destructive, handler: { action in
+//        let items = coreDataManager?.items
+//        guard let items = items else { return }
+//        let itemsByTraveler = getItemsList(items: items, index: indexPath.row)
+        
+        let destructiveAction = UIAlertAction(title: "Yes, I want to delete this trip.", style: .destructive, handler: { action in
             let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
             guard let travellers = detailsTrip?.travellers?.components(separatedBy: "-") else { return }
             for traveller in travellers {
@@ -134,12 +157,12 @@ extension DetailsMyTripViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension DetailsMyTripViewController: UITableViewDelegate {
-    
 
-    
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            // TEST
+//            checkTravelerIfAnotherTrip(indexPath, tableView)
             destructionTrip(indexPath, tableView)
         }
     }

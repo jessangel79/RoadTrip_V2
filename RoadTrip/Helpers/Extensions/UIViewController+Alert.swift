@@ -122,6 +122,16 @@ extension UIViewController {
         let action = UIAlertAction(title: "OK", style: .default)
         alertCustomAction(title, message, action: action)
     }
+    
+    func presentAlertImpossibleToDeleteTraveler() {
+        let title = "Warning impossible to delete this traveler !"
+        let message = """
+Cannot delete this traveler because there is a packing list for him.
+Please delete the packing list of this traveler before performing this deletion.
+"""
+        let action = UIAlertAction(title: "OK", style: .default)
+        alertCustomAction(title, message, action: action)
+    }
 
     /// Alert message for user to confirm all reset
     private func showAlert(_ destructiveAction: UIAlertAction, title: String, message: String) {
@@ -152,6 +162,24 @@ Are you sure you want to delete this trip ? This will also erase the packing lis
 If you want to keep your items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
 """)
     }
+    
+    func showDeleteTravelerAlertIfPackingListIsEmpty(_ destructiveAction: UIAlertAction) {
+        showAlert(destructiveAction, title: "Warning delete of this traveler !", message: "Are you sure you want to delete this traveler ?")
+    }
+    
+    func showDeleteTravelerAlertIfPackingListIsNotEmpty(_ destructiveAction: UIAlertAction) {
+        showAlert(destructiveAction, title: "Warning impossible to delete this traveler !", message: """
+Cannot delete this traveler because there is a packing list for him.
+Please delete the packing list of this traveler before performing this deletion.
+""")
+    }
+    
+//    func showDeleteTravelerAlert(_ destructiveAction: UIAlertAction) {
+//        showAlert(destructiveAction, title: "Warning delete of this traveler !", message: """
+//Are you sure you want to delete this traveler ? This will also erase the packing list of this traveler present on this trip.
+//If you want to keep this traveler's items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
+//""")
+//    }
     
     /// Display an alert to enter the traveller name
     func displayAddTravellerAlert(handlerAddTravellerName: @escaping (String?) -> Void) {
