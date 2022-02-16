@@ -113,29 +113,55 @@ final class PackingListViewController: DetailsMyTripViewController {
         guard let items = items else { return }
         if !travellersNames.isEmpty {
             for index in 0...travellersNames.count-1 {
-                itemTraveller.append(ItemTraveller(travellerName: travellersNames[index], items: getItemsList(items: items, index: index)))
+                itemTraveller.append(ItemTraveller(travellerName: travellersNames[index], items: getItemsListByTraveler(items: items, index: index)))
             }
         }
     }
     
-    func getItemsList(items: [ItemEntity], index: Int) -> [ItemEntity] {
+    private func getItemsListByTraveler(items: [ItemEntity], index: Int) -> [ItemEntity] {
         var itemsList = [ItemEntity]()
         for item in items where item.traveller == travellersNames[index] {
             itemsList.append(item)
         }
-        print(itemsList)
         return itemsList
     }
-    
+ 
     private func deleteItemsListByTraveller(_ travellerName: String, _ itemIds: inout [UUID]) {
-        for traveller in self.itemTraveller where traveller.travellerName == travellerName {
-            guard let items = traveller.items else { return }
-            for item in items {
-                guard let id = item.id else { return }
-                itemIds.append(id)
+        if checkIfTravellerExist(travellerName) {
+            if checkIfListIsNotEmpty(travellerName) {
+                for traveller in self.itemTraveller where traveller.travellerName == travellerName {
+                    guard let items = traveller.items else { return }
+                    for item in items {
+                        guard let id = item.id else { return }
+                        itemIds.append(id)
+                    }
+                    traveller.items?.removeAll()
+                }
+            } else {
+                presentAlert(typeError: .listIsEmpty)
             }
-            traveller.items?.removeAll()
+        } else {
+            presentAlert(typeError: .travellerNotExist)
         }
+    }
+    
+    private func checkIfTravellerExist(_ travellerName: String) -> Bool {
+        var travellerExist = false
+        for traveller in self.itemTraveller where traveller.travellerName == travellerName {
+            travellerExist = true
+        }
+        return travellerExist
+    }
+    
+    private func checkIfListIsNotEmpty(_ travellerName: String) -> Bool {
+        var listIsNotEmpty = false
+        for traveller in self.itemTraveller where traveller.travellerName == travellerName {
+            guard let items = traveller.items else { return false }
+            if !items.isEmpty {
+                listIsNotEmpty = true
+            }
+        }
+        return listIsNotEmpty
     }
     
     private func deleteItemsWithId(_ itemIds: [UUID]) {

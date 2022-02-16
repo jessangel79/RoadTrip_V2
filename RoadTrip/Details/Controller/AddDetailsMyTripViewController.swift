@@ -63,9 +63,28 @@ class AddDetailsMyTripViewController: UIViewController {
     }
     
     @IBAction func removeTravellersListBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        travellersNames.removeAll()
-        travellersTableView.reloadData()
+//        let items = coreDataManager?.items
+        guard let items = coreDataManager?.items else { return }
+        let itemsListByTravelers = getItemsListByTravelers(items: items)
+        if !itemsListByTravelers.isEmpty {
+            presentAlert(typeError: .impossibleToDeleteTravelersList)
+        } else {
+            travellersNames.removeAll()
+            travellersTableView.reloadData()
+        }
+//        travellersNames.removeAll()
+//        travellersTableView.reloadData()
         // TODO: coredata maj
+    }
+    
+    private func getItemsListByTravelers(items: [ItemEntity]) -> [ItemEntity] {
+        var itemsList = [ItemEntity]()
+        for traveler in travellersNames {
+            for item in items where item.traveller == traveler {
+                itemsList.append(item)
+            }
+        }
+        return itemsList
     }
     
     // MARK: - View Life Cycle
@@ -319,19 +338,20 @@ extension AddDetailsMyTripViewController: UITableViewDataSource {
         return travellersCell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.cellSelected = travellersNames[indexPath.row]
-        guard let cellSelected = cellSelected else { return }
-        displayEditTravellerAlert(cellSelected: cellSelected) { [unowned self] cellSelected in
-            guard let cellSelected = cellSelected?.trimWhitespaces, !cellSelected.isBlank else { return }
-            
-            // TODO: alert to user !!! coredata maj
-            
-            self.travellersNames.remove(at: indexPath.row)
-            self.travellersNames.insert(cellSelected.capitalized, at: indexPath.row)
-            self.travellersTableView.reloadData()
-        }
-    }
+    // TODO: A voir si renommage de voyageurs à garder ???
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.cellSelected = travellersNames[indexPath.row]
+//        guard let cellSelected = cellSelected else { return }
+//        displayEditTravellerAlert(cellSelected: cellSelected) { [unowned self] cellSelected in
+//            guard let cellSelected = cellSelected?.trimWhitespaces, !cellSelected.isBlank else { return }
+//
+//            // Test: alert to user !!! coredata maj
+//
+//            self.travellersNames.remove(at: indexPath.row)
+//            self.travellersNames.insert(cellSelected.capitalized, at: indexPath.row)
+//            self.travellersTableView.reloadData()
+//        }
+//    }
 }
 
 // MARK: - UITableViewDelegate
@@ -339,14 +359,31 @@ extension AddDetailsMyTripViewController: UITableViewDataSource {
 extension AddDetailsMyTripViewController: UITableViewDelegate {
     
     /// doublon with PackingListViewController
-    private func getItemsList(items: [ItemEntity], index: Int) -> [ItemEntity] {
+    private func getItemsListByTravelerName(items: [ItemEntity], index: Int) -> [ItemEntity] {
         var itemsList = [ItemEntity]()
         for item in items where item.traveller == travellersNames[index] {
             itemsList.append(item)
         }
-        print(itemsList)
         return itemsList
     }
+
+//    private func checkIfTravelerExistInAnotherTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
+//        guard let detailsTrips = coreDataManager?.detailsTrips else { return }
+//        let detailsTripSelected = self.coreDataManager?.detailsTrips[indexPath.row]
+//        guard let travellersSelected = detailsTripSelected?.travellers?.components(separatedBy: "-") else { return }
+//
+//        for detailsTrip in detailsTrips {
+//            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return }
+//            for traveller in travellers {
+//                var travellersInTrip = [String]()
+//                if traveller == travellersSelected[indexPath.row] {
+//                    travellersInTrip.append(traveller)
+//                }
+//                print("travellersInTrip")
+//                print(travellersInTrip)
+//            }
+//        }
+//    }
     
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -357,11 +394,11 @@ extension AddDetailsMyTripViewController: UITableViewDelegate {
                 travellersTableView.reloadData()
                 animationCell(tableView)
             } else {
-                let items = coreDataManager?.items
-                guard let items = items else { return }
-                let itemsByTraveler = getItemsList(items: items, index: indexPath.row)
+//                let items = coreDataManager?.items
+                guard let items = coreDataManager?.items else { return }
+                let itemsByTraveler = getItemsListByTravelerName(items: items, index: indexPath.row)
                 if !itemsByTraveler.isEmpty {
-                    presentAlertImpossibleToDeleteTraveler()
+                    presentAlert(typeError: .impossibleToDeleteTraveler)
                 } else {
                     travellersNames.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: .automatic)

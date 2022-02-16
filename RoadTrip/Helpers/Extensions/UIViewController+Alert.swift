@@ -28,14 +28,6 @@ extension UIViewController {
         case noTrip
     }
     
-    /// Enumeration of the error
-    enum AlertErrorExist {
-        case nameExist
-        case nothingToShare
-        case itemExist
-        case travellerNameExist
-    }
-    
     /// Alert message for user
     func presentAlert(typeError: AlertError) {
         var message: String
@@ -83,11 +75,23 @@ extension UIViewController {
         alertError(title, message)
     }
     
+    /// Enumeration of the error
+    enum AlertErrorExist {
+        case nameExist
+        case nothingToShare
+        case itemExist
+        case travellerNameExist
+        case travellerNotExist
+        case listIsEmpty
+        case impossibleToDeleteTraveler
+        case impossibleToDeleteTravelersList
+    }
+    
     /// Alert message for user
     func presentAlert(typeError: AlertErrorExist) {
         var message: String
         var title: String
-      
+        
         switch typeError {
         case .nameExist:
             title = "This name of trip already exist"
@@ -101,6 +105,24 @@ extension UIViewController {
         case .travellerNameExist:
             title = "This name already exist"
             message = "Please to set another name."
+        case .travellerNotExist:
+            title = "No traveler with this name."
+            message = "Please to set another name."
+        case .listIsEmpty:
+            title = "No item for this traveler"
+            message = ""
+        case .impossibleToDeleteTraveler:
+            title = "Warning impossible to delete this traveler !"
+            message = """
+    Cannot delete this traveler because there is a packing list for him.
+    Please delete the packing list of this traveler before performing this deletion.
+    """
+        case .impossibleToDeleteTravelersList:
+            title = "Warning impossible to delete these travelers !"
+            message = """
+    Cannot delete these travelers because there is a packing list for at less the one of them.
+    Please delete the packing lists of these travelers before performing this deletion.
+    """
         }
         
         alertError(title, message)
@@ -122,16 +144,6 @@ extension UIViewController {
         let action = UIAlertAction(title: "OK", style: .default)
         alertCustomAction(title, message, action: action)
     }
-    
-    func presentAlertImpossibleToDeleteTraveler() {
-        let title = "Warning impossible to delete this traveler !"
-        let message = """
-Cannot delete this traveler because there is a packing list for him.
-Please delete the packing list of this traveler before performing this deletion.
-"""
-        let action = UIAlertAction(title: "OK", style: .default)
-        alertCustomAction(title, message, action: action)
-    }
 
     /// Alert message for user to confirm all reset
     private func showAlert(_ destructiveAction: UIAlertAction, title: String, message: String) {
@@ -140,10 +152,6 @@ Please delete the packing list of this traveler before performing this deletion.
         alert.addAction(destructiveAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
-    }
-    
-    func showResetAllAlert(_ destructiveAction: UIAlertAction) {
-        showAlert(destructiveAction, title: "Warning Reset All !", message: "Are you sure to reset all ?")
     }
 
     /// Alert message for user to confirm all reset
@@ -155,24 +163,66 @@ Please delete the packing list of this traveler before performing this deletion.
 //        present(alert, animated: true, completion: nil)
 //    }
     
-    /// Alert message for user to confirm the trip selected to delete
-    func showDeletedTripAlert(destructiveAction: UIAlertAction) {
-        showAlert(destructiveAction, title: "Warning delete of this trip !", message: """
+    /// Enumeration of the error
+    enum AlertShowAction {
+        case resetAllAlert
+        case deletedTripAlert
+//        case deleteTravelerAlertIfPackingListIsEmpty
+//        case deleteTravelerAlertIfPackingListIsNotEmpty
+    }
+    
+    /// Alert message with action for user
+    func showAlertWithAction(_ destructiveAction: UIAlertAction, typeError: AlertShowAction) {
+        var message: String
+        var title: String
+        
+        switch typeError {
+        case .resetAllAlert:
+            title =  "Warning Reset All !"
+            message = "Are you sure to reset all ?"
+        case .deletedTripAlert:
+            title = "Warning delete of this trip !"
+            message = """
 Are you sure you want to delete this trip ? This will also erase the packing list of the travelers present on this trip.
 If you want to keep your items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
-""")
+"""
+//        case .deleteTravelerAlertIfPackingListIsEmpty:
+//            title = "Warning delete of this traveler !"
+//            message = "Are you sure you want to delete this traveler ?"
+//        case .deleteTravelerAlertIfPackingListIsNotEmpty:
+//            title = "Warning impossible to delete this traveler !"
+//            message = """
+//Cannot delete this traveler because there is a packing list for him.
+//Please delete the packing list of this traveler before performing this deletion.
+//"""
+        }
+        showAlert(destructiveAction, title: title, message: message)
     }
     
-    func showDeleteTravelerAlertIfPackingListIsEmpty(_ destructiveAction: UIAlertAction) {
-        showAlert(destructiveAction, title: "Warning delete of this traveler !", message: "Are you sure you want to delete this traveler ?")
-    }
+    // TODO: - To Delete after test
+//    func showResetAllAlert(_ destructiveAction: UIAlertAction) {
+//        showAlert(destructiveAction, title: "Warning Reset All !", message: "Are you sure to reset all ?")
+//    }
     
-    func showDeleteTravelerAlertIfPackingListIsNotEmpty(_ destructiveAction: UIAlertAction) {
-        showAlert(destructiveAction, title: "Warning impossible to delete this traveler !", message: """
-Cannot delete this traveler because there is a packing list for him.
-Please delete the packing list of this traveler before performing this deletion.
-""")
-    }
+    /// Alert message for user to confirm the trip selected to delete
+//    func showDeletedTripAlert(destructiveAction: UIAlertAction) {
+//        showAlert(destructiveAction, title: "Warning delete of this trip !", message: """
+//Are you sure you want to delete this trip ? This will also erase the packing list of the travelers present on this trip.
+//If you want to keep your items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
+//""")
+//    }
+    
+    // TODO: - To check if useful
+//    func showDeleteTravelerAlertIfPackingListIsEmpty(_ destructiveAction: UIAlertAction) {
+//        showAlert(destructiveAction, title: "Warning delete of this traveler !", message: "Are you sure you want to delete this traveler ?")
+//    }
+    
+//    func showDeleteTravelerAlertIfPackingListIsNotEmpty(_ destructiveAction: UIAlertAction) {
+//        showAlert(destructiveAction, title: "Warning impossible to delete this traveler !", message: """
+//Cannot delete this traveler because there is a packing list for him.
+//Please delete the packing list of this traveler before performing this deletion.
+//""")
+//    }
     
 //    func showDeleteTravelerAlert(_ destructiveAction: UIAlertAction) {
 //        showAlert(destructiveAction, title: "Warning delete of this traveler !", message: """

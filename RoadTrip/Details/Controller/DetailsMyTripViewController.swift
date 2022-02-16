@@ -83,27 +83,31 @@ class DetailsMyTripViewController: UIViewController {
         let destructiveAction = UIAlertAction(title: "Reset all", style: .destructive, handler: { action in
             self.resetAll()
         })
-        showResetAllAlert(destructiveAction)
+//        showResetAllAlert(destructiveAction)
+        showAlertWithAction(destructiveAction, typeError: .resetAllAlert)
     }
     
-    // TODO: KO
-    private func checkTravelerIfAnotherTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
-        guard let detailsTrips = coreDataManager?.detailsTrips else { return }
-        let detailsTripSelected = self.coreDataManager?.detailsTrips[indexPath.row]
-        guard let travellersSelected = detailsTripSelected?.travellers?.components(separatedBy: "-") else { return }
-        
-        for detailsTrip in detailsTrips {
-            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return }
-            for traveller in travellers {
-                var travellersInTrip = [String]()
-                if traveller == travellersSelected[indexPath.row] {
-                    travellersInTrip.append(traveller)
-                }
-                print("travellersInTrip")
-                print(travellersInTrip)
-            }
-        }
-    }
+    // TODO: KO - checkIfTravelerExistInAnotherTrip
+//    private func checkIfTravelerExistInAnotherTrip(_ indexPath: IndexPath, _ tableView: UITableView) -> Bool {
+//        var travelerExistInAnotherTrip = false
+//        guard let detailsTrips = coreDataManager?.detailsTrips else { return false }
+//        let detailsTripSelected = self.coreDataManager?.detailsTrips[indexPath.row]
+//        guard let travellersSelected = detailsTripSelected?.travellers?.components(separatedBy: "-") else { return false }
+//
+//        for detailsTrip in detailsTrips {
+//            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return false }
+//            for traveller in travellers {
+//                var travellersInTrip = [String]()
+//                if traveller == travellersSelected[indexPath.row] {
+//                    travellersInTrip.append(traveller)
+//                    travelerExistInAnotherTrip = true
+//                }
+//                print("travellersInTrip")
+//                print(travellersInTrip)
+//            }
+//        }
+//        return travelerExistInAnotherTrip
+//    }
     
     private func destructionTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
 //        let items = coreDataManager?.items
@@ -121,8 +125,52 @@ class DetailsMyTripViewController: UIViewController {
             self.myTripTableView.reloadData()
             self.animationCell(tableView)
         })
-        showDeletedTripAlert(destructiveAction: destructiveAction)
+        showAlertWithAction(destructiveAction, typeError: .deletedTripAlert)
+//        showDeletedTripAlert(destructiveAction: destructiveAction)
     }
+    
+//    private func getItemTraveller() {
+//        itemTraveller.removeAll()
+//        let items = coreDataManager?.items
+//        guard let items = items else { return }
+//        if !travellersNames.isEmpty {
+//            for index in 0...travellersNames.count-1 {
+//                itemTraveller.append(ItemTraveller(travellerName: travellersNames[index], items: getItemsList(items: items, index: index)))
+//            }
+//        }
+//    }
+    
+//    private func getItemsList(items: [ItemEntity], index: Int) -> [ItemEntity] {
+//        var itemsList = [ItemEntity]()
+//        for item in items where item.traveller == travellersNames[index] {
+//            itemsList.append(item)
+//        }
+//        print(itemsList)
+//        return itemsList
+//    }
+    
+//    private func getTravellersNames() {
+//        trips = coreDataManager?.detailsTrips
+//        guard let trips = trips else { return }
+//        if !trips.isEmpty {
+//            for trip in trips {
+//                travellersNames.append(contentsOf: trip.travellers?.components(separatedBy: "-") ?? ["Uncategorized"])
+//            }
+//            travellersNames = travellersNames.removingDuplicates
+//            travellersNames = travellersNames.sorted()
+//        }
+//    }
+    
+//    private func checkIfListIsNotEmpty(_ travellerName: String) -> Bool {
+//        var listIsNotEmpty = false
+//        for traveller in self.itemTraveller where traveller.travellerName == travellerName {
+//            guard let items = traveller.items else { return false }
+//            if !items.isEmpty {
+//                listIsNotEmpty = true
+//            }
+//        }
+//        return listIsNotEmpty
+//    }
 }
 
 // MARK: - UITableViewDataSource
@@ -161,8 +209,17 @@ extension DetailsMyTripViewController: UITableViewDelegate {
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // TEST
-//            checkTravelerIfAnotherTrip(indexPath, tableView)
+            // TODO: TEST
+//            checkIfTravelerExistInAnotherTrip(indexPath, tableView)
+//            if checkIfTravelerExistInAnotherTrip(indexPath, tableView) {
+//                destructionTrip(indexPath, tableView)
+//            } else {
+//                let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
+//                self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
+//                tableView.deleteRows(at: [indexPath], with: .automatic)
+//                self.myTripTableView.reloadData()
+//                self.animationCell(tableView)
+//            }
             destructionTrip(indexPath, tableView)
         }
     }
