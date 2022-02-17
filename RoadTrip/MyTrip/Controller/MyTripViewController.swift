@@ -95,7 +95,6 @@ final class MytripViewController: ListPlacesViewController {
             self.resetAll()
         })
         showAlertWithAction(destructiveAction, typeError: .resetAllAlert)
-//        showResetAllAlert(destructiveAction)
     }
 }
 

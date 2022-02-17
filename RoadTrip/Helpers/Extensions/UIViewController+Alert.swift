@@ -153,15 +153,6 @@ extension UIViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
-
-    /// Alert message for user to confirm all reset
-//    func showResetAlert(destructiveAction: UIAlertAction) {
-//        let alert = UIAlertController(title: "Warning Reset All", message: "Are you sure to reset all ?", preferredStyle: .alert)
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        alert.addAction(destructiveAction)
-//        alert.addAction(cancelAction)
-//        present(alert, animated: true, completion: nil)
-//    }
     
     /// Enumeration of the error
     enum AlertShowAction {
@@ -199,38 +190,6 @@ If you want to keep your items you must classify them in \"uncategorized\" in th
         showAlert(destructiveAction, title: title, message: message)
     }
     
-    // TODO: - To Delete after test
-//    func showResetAllAlert(_ destructiveAction: UIAlertAction) {
-//        showAlert(destructiveAction, title: "Warning Reset All !", message: "Are you sure to reset all ?")
-//    }
-    
-    /// Alert message for user to confirm the trip selected to delete
-//    func showDeletedTripAlert(destructiveAction: UIAlertAction) {
-//        showAlert(destructiveAction, title: "Warning delete of this trip !", message: """
-//Are you sure you want to delete this trip ? This will also erase the packing list of the travelers present on this trip.
-//If you want to keep your items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
-//""")
-//    }
-    
-    // TODO: - To check if useful
-//    func showDeleteTravelerAlertIfPackingListIsEmpty(_ destructiveAction: UIAlertAction) {
-//        showAlert(destructiveAction, title: "Warning delete of this traveler !", message: "Are you sure you want to delete this traveler ?")
-//    }
-    
-//    func showDeleteTravelerAlertIfPackingListIsNotEmpty(_ destructiveAction: UIAlertAction) {
-//        showAlert(destructiveAction, title: "Warning impossible to delete this traveler !", message: """
-//Cannot delete this traveler because there is a packing list for him.
-//Please delete the packing list of this traveler before performing this deletion.
-//""")
-//    }
-    
-//    func showDeleteTravelerAlert(_ destructiveAction: UIAlertAction) {
-//        showAlert(destructiveAction, title: "Warning delete of this traveler !", message: """
-//Are you sure you want to delete this traveler ? This will also erase the packing list of this traveler present on this trip.
-//If you want to keep this traveler's items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
-//""")
-//    }
-    
     /// Display an alert to enter the traveller name
     func displayAddTravellerAlert(handlerAddTravellerName: @escaping (String?) -> Void) {
         let alertController = UIAlertController(title: "Add new traveler", message: "", preferredStyle: .alert)
@@ -241,21 +200,6 @@ If you want to keep your items you must classify them in \"uncategorized\" in th
         let action = UIAlertAction(title: "Add", style: .default, handler: { _ in
             guard let textField = alertController.textFields else { return }
             handlerAddTravellerName(textField[0].text)
-        })
-        alertController.addAction(action)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    /// Display an alert to rename the traveller
-    func displayEditTravellerAlert(cellSelected: String, handlerEditTravellerName: @escaping (String?) -> Void) {
-        let alertController = UIAlertController(title: "Rename the traveler", message: "", preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.text = cellSelected
-            textField.autocapitalizationType = .words
-        }
-        let action = UIAlertAction(title: "Rename", style: .default, handler: { _ in
-            guard let textField = alertController.textFields else { return }
-            handlerEditTravellerName(textField[0].text)
         })
         alertController.addAction(action)
         present(alertController, animated: true, completion: nil)

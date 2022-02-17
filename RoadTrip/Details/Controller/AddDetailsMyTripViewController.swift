@@ -337,21 +337,6 @@ extension AddDetailsMyTripViewController: UITableViewDataSource {
         travellersCell.traveller = travellers
         return travellersCell
     }
-    
-    // TODO: A voir si renommage de voyageurs à garder ???
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.cellSelected = travellersNames[indexPath.row]
-//        guard let cellSelected = cellSelected else { return }
-//        displayEditTravellerAlert(cellSelected: cellSelected) { [unowned self] cellSelected in
-//            guard let cellSelected = cellSelected?.trimWhitespaces, !cellSelected.isBlank else { return }
-//
-//            // Test: alert to user !!! coredata maj
-//
-//            self.travellersNames.remove(at: indexPath.row)
-//            self.travellersNames.insert(cellSelected.capitalized, at: indexPath.row)
-//            self.travellersTableView.reloadData()
-//        }
-//    }
 }
 
 // MARK: - UITableViewDelegate
@@ -394,7 +379,6 @@ extension AddDetailsMyTripViewController: UITableViewDelegate {
                 travellersTableView.reloadData()
                 animationCell(tableView)
             } else {
-//                let items = coreDataManager?.items
                 guard let items = coreDataManager?.items else { return }
                 let itemsByTraveler = getItemsListByTravelerName(items: items, index: indexPath.row)
                 if !itemsByTraveler.isEmpty {
