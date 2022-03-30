@@ -36,6 +36,7 @@
 		3A5FF4F42434D94C00C2B395 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FF4F32434D94C00C2B395 /* MockCoreDataStack.swift */; };
 		3A5FF4F62434D98A00C2B395 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FF4F52434D98A00C2B395 /* CoreDataManagerTests.swift */; };
 		3A631DBE2428F0D70023BFCA /* ImagesBackgroundList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A631DBD2428F0D70023BFCA /* ImagesBackgroundList.swift */; };
+		3A64705E27BFF8390088BE54 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64705D27BFF8390088BE54 /* Sequence.swift */; };
 		3A6D058F2743CB8600AB0735 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A70AD59250AA96600C1CD09 /* WebKit.framework */; };
 		3A70AD51250A94B300C1CD09 /* Informations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A70AD50250A94B300C1CD09 /* Informations.storyboard */; };
 		3A70AD54250A9BF000C1CD09 /* InformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A70AD53250A9BF000C1CD09 /* InformationsViewController.swift */; };
@@ -81,6 +82,7 @@
 		3AE5D2FD276517C600BB025D /* TravellerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE5D2FB276517C600BB025D /* TravellerTableViewCell.xib */; };
 		3AE7F570241A944300751764 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE7F56F241A944300751764 /* Date.swift */; };
 		3AE99AC32539DDDA00471F2B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3AE99AC22539DDDA00471F2B /* README.md */; };
+		3AEFF30927F4C75800B277A1 /* Dictionnary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFF30827F4C75800B277A1 /* Dictionnary.swift */; };
 		3AF881BA23F16A19005F64ED /* PlaceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881B923F16A19005F64ED /* PlaceSession.swift */; };
 		3AF881BC23F16A46005F64ED /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BB23F16A46005F64ED /* PlaceService.swift */; };
 		3AF881BE23F16B2B005F64ED /* PlacesSearchElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881BD23F16B2B005F64ED /* PlacesSearchElement.swift */; };
@@ -137,6 +139,7 @@
 		3A5FF4F32434D94C00C2B395 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		3A5FF4F52434D98A00C2B395 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
 		3A631DBD2428F0D70023BFCA /* ImagesBackgroundList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesBackgroundList.swift; sourceTree = "<group>"; };
+		3A64705D27BFF8390088BE54 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		3A70AD50250A94B300C1CD09 /* Informations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Informations.storyboard; sourceTree = "<group>"; };
 		3A70AD53250A9BF000C1CD09 /* InformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsViewController.swift; sourceTree = "<group>"; };
 		3A70AD55250A9DB800C1CD09 /* WebViewInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewInformationsViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 		3AE5D2FB276517C600BB025D /* TravellerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravellerTableViewCell.xib; sourceTree = "<group>"; };
 		3AE7F56F241A944300751764 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3AE99AC22539DDDA00471F2B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		3AEFF30827F4C75800B277A1 /* Dictionnary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionnary.swift; sourceTree = "<group>"; };
 		3AF881B923F16A19005F64ED /* PlaceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSession.swift; sourceTree = "<group>"; };
 		3AF881BB23F16A46005F64ED /* PlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
 		3AF881BD23F16B2B005F64ED /* PlacesSearchElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearchElement.swift; sourceTree = "<group>"; };
@@ -384,6 +388,8 @@
 				3A02015D23F4788300CDDEED /* String.swift */,
 				3AE7F56F241A944300751764 /* Date.swift */,
 				3A78FB21276A04A800F3098E /* Array.swift */,
+				3A64705D27BFF8390088BE54 /* Sequence.swift */,
+				3AEFF30827F4C75800B277A1 /* Dictionnary.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -847,6 +853,8 @@
 				3AD895E825028B5200E8902F /* DetailsPlaceParameters.swift in Sources */,
 				3A70AD58250A9E4900C1CD09 /* UiViewController+WKWebView.swift in Sources */,
 				3AF881BC23F16A46005F64ED /* PlaceService.swift in Sources */,
+				3A64705E27BFF8390088BE54 /* Sequence.swift in Sources */,
+				3AEFF30927F4C75800B277A1 /* Dictionnary.swift in Sources */,
 				3ABB99A8241961CD007CE8FA /* DetailsTrip.swift in Sources */,
 				3A0E58E724081605000123D5 /* PlaceParameters.swift in Sources */,
 				3AE7F570241A944300751764 /* Date.swift in Sources */,

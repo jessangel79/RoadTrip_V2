@@ -88,7 +88,6 @@ class DetailsMyTripViewController: UIViewController {
     
     // TODO: KO - checkIfTravelerExistInAnotherTrip
     private func checkIfTravelerExistInAnotherTrip(_ indexPath: IndexPath) -> Bool {
-        var travelerExistInAnotherTrip = false
         guard let detailsTrips = coreDataManager?.detailsTrips else { return false }
         var travellersList = [String]()
         for detailsTrip in detailsTrips {
@@ -99,25 +98,50 @@ class DetailsMyTripViewController: UIViewController {
         }
         let detailsTripSelected = self.coreDataManager?.detailsTrips[indexPath.row]
         guard let travellersSelected = detailsTripSelected?.travellers?.components(separatedBy: "-") else { return false }
-        var countTravellerName = 0
-        for travellerName in travellersSelected {
-//            countTravellerName = 0
-            if travellersList.contains(travellerName) {
-                countTravellerName += 1
-            } else {
-                countTravellerName = 0
-            }
-            
-            if countTravellerName >= 2 {
-                travelerExistInAnotherTrip = false
-            } else {
-                travelerExistInAnotherTrip = true
-            }
+        
+        let countsItemDict = travellersList.histogram
+        print("travellersList.histogram")
+        print(countsItemDict)
+        
+        let keysOfCountsItemDict = countsItemDict.allKeys(forValue: 2)
+        print("keysOfCountsItemDict.sorted")
+        print(keysOfCountsItemDict.sorted())
+        print("keysOfCountsItemDict.count")
+        print(keysOfCountsItemDict.count)
+        print("travellersSelected.sorted")
+        print(travellersSelected.sorted())
+        print("travellersSelected.count")
+        print(travellersSelected.count)
+        
+        var travelerExistInAnotherTrip = false
+        if keysOfCountsItemDict.count == travellersSelected.count {
+            travelerExistInAnotherTrip = true
+        } else {
+            travelerExistInAnotherTrip = false
         }
-        print(countTravellerName)
-        print("item list in check if traveler exist in another trip")
-        print(travellersList)
-        countTravellerName = 0
+        print("travelerExistInAnotherTrip")
+        print(travelerExistInAnotherTrip)
+        // Stop
+//        var countTravellerName = 0
+//        for travellerName in travellersSelected {
+////            countTravellerName = 0
+//            if travellersList.contains(travellerName) {
+//                countTravellerName += 1
+//            } else {
+//                countTravellerName = 0
+//            }
+//
+//            if countTravellerName > 1 {
+//                travelerExistInAnotherTrip = false
+//            } else {
+//                travelerExistInAnotherTrip = true
+//            }
+//        }
+//        print(countTravellerName)
+//        print("item list in check if traveler exist in another trip")
+//        print(travellersList)
+//        countTravellerName = 0
+        // stop 2
         return travelerExistInAnotherTrip
     }
     
@@ -187,16 +211,17 @@ extension DetailsMyTripViewController: UITableViewDelegate {
 //            }
             
 //            checkIfTravelerExistInAnotherTrip(indexPath, tableView)
-//            if checkIfTravelerExistInAnotherTrip(indexPath) {
-//                destructionTrip(indexPath, tableView)
-//            } else {
-//                let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
-//                self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
-//                tableView.deleteRows(at: [indexPath], with: .automatic)
-//                self.myTripTableView.reloadData()
-//                self.animationCell(tableView)
-//            }
-            destructionTrip(indexPath, tableView)
+            
+            if !checkIfTravelerExistInAnotherTrip(indexPath) {
+                destructionTrip(indexPath, tableView)
+            } else {
+                let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
+                self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.myTripTableView.reloadData()
+                self.animationCell(tableView)
+            }
+//            destructionTrip(indexPath, tableView)
         }
     }
     

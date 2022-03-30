@@ -23,11 +23,11 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     
     // MARK: - Properties
     
-    private let forwardBarItem = UIBarButtonItem(title: ">>", style: .plain, target: self,
+    private let forwardBarItem = UIBarButtonItem(title: ">>", style: .plain, target: WebViewInformationsViewController.self,
                                          action: #selector(forwardAction))
-    private let backBarItem = UIBarButtonItem(title: "<<", style: .plain, target: self,
+    private let backBarItem = UIBarButtonItem(title: "<<", style: .plain, target: WebViewInformationsViewController.self,
                                       action: #selector(backAction))
-    private let refreshBarItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
+    private let refreshBarItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: WebViewInformationsViewController.self, action: #selector(refresh))
     
     private let adMobService = AdMobService()
     
