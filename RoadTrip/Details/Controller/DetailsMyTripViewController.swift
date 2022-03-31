@@ -86,64 +86,28 @@ class DetailsMyTripViewController: UIViewController {
         showAlertWithAction(destructiveAction, typeError: .resetAllAlert)
     }
     
-    // TODO: KO - checkIfTravelerExistInAnotherTrip
-    private func checkIfTravelerExistInAnotherTrip(_ indexPath: IndexPath) -> Bool {
-        guard let detailsTrips = coreDataManager?.detailsTrips else { return false }
-        var travellersList = [String]()
-        for detailsTrip in detailsTrips {
-            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return false }
-            print(travellers)
-            
-            travellersList += travellers
-        }
-        let detailsTripSelected = self.coreDataManager?.detailsTrips[indexPath.row]
-        guard let travellersSelected = detailsTripSelected?.travellers?.components(separatedBy: "-") else { return false }
-        
-        let countsItemDict = travellersList.histogram
-        print("travellersList.histogram")
-        print(countsItemDict)
-        
-        let keysOfCountsItemDict = countsItemDict.allKeys(forValue: 2)
-        print("keysOfCountsItemDict.sorted")
-        print(keysOfCountsItemDict.sorted())
-        print("keysOfCountsItemDict.count")
-        print(keysOfCountsItemDict.count)
-        print("travellersSelected.sorted")
-        print(travellersSelected.sorted())
-        print("travellersSelected.count")
-        print(travellersSelected.count)
-        
-        var travelerExistInAnotherTrip = false
-        if keysOfCountsItemDict.count == travellersSelected.count {
-            travelerExistInAnotherTrip = true
-        } else {
-            travelerExistInAnotherTrip = false
-        }
-        print("travelerExistInAnotherTrip")
-        print(travelerExistInAnotherTrip)
-        // Stop
-//        var countTravellerName = 0
-//        for travellerName in travellersSelected {
-////            countTravellerName = 0
-//            if travellersList.contains(travellerName) {
-//                countTravellerName += 1
-//            } else {
-//                countTravellerName = 0
-//            }
-//
-//            if countTravellerName > 1 {
-//                travelerExistInAnotherTrip = false
-//            } else {
-//                travelerExistInAnotherTrip = true
-//            }
+//    private func checkIfTravelerExistInAnotherTrip(_ indexPath: IndexPath) -> Bool {
+//        guard let detailsTrips = coreDataManager?.detailsTrips else { return false }
+//        var travellersList = [String]()
+//        for detailsTrip in detailsTrips {
+//            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return false }
+//            travellersList += travellers
 //        }
-//        print(countTravellerName)
-//        print("item list in check if traveler exist in another trip")
-//        print(travellersList)
-//        countTravellerName = 0
-        // stop 2
-        return travelerExistInAnotherTrip
-    }
+//        let detailsTripSelected = self.coreDataManager?.detailsTrips[indexPath.row]
+//        guard let travellersSelected = detailsTripSelected?.travellers?.components(separatedBy: "-") else { return false }
+//
+//        let countsItemDict = travellersList.histogram
+//        let keysOfCountsItemDict = countsItemDict.allKeys(forValue: 2)
+//
+//        var travelerExistInAnotherTrip = false
+//        if keysOfCountsItemDict.count == travellersSelected.count {
+//            travelerExistInAnotherTrip = true
+//        } else {
+//            travelerExistInAnotherTrip = false
+//        }
+//
+//        return travelerExistInAnotherTrip
+//    }
     
     private func destructionTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
         let destructiveAction = UIAlertAction(title: "Yes, I want to delete this trip.", style: .destructive, handler: { action in
@@ -198,21 +162,8 @@ extension DetailsMyTripViewController: UITableViewDelegate {
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // TODO: TEST
-//            guard let items = coreDataManager?.items else { return }
-//            let itemsByTraveler = getItemsListByTravelerName(items: items, index: indexPath.row)
-//            if !itemsByTraveler.isEmpty {
-//                presentAlert(typeError: .impossibleToDeleteTraveler)
-//            } else {
-//                travellersNames.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: .automatic)
-//                travellersTableView.reloadData()
-//                animationCell(tableView)
-//            }
-            
-//            checkIfTravelerExistInAnotherTrip(indexPath, tableView)
-            
-            if !checkIfTravelerExistInAnotherTrip(indexPath) {
+            let checkIfTravelerExistInAnotherTrip = coreDataManager?.checkIfTravelerExistInAnotherTrip(indexPath) ?? false
+            if checkIfTravelerExistInAnotherTrip {
                 destructionTrip(indexPath, tableView)
             } else {
                 let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
@@ -221,7 +172,6 @@ extension DetailsMyTripViewController: UITableViewDelegate {
                 self.myTripTableView.reloadData()
                 self.animationCell(tableView)
             }
-//            destructionTrip(indexPath, tableView)
         }
     }
     

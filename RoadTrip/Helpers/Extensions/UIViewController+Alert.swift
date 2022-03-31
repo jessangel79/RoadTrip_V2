@@ -174,9 +174,12 @@ extension UIViewController {
         case .deletedTripAlert:
             title = "Warning delete of this trip !"
             message = """
-Are you sure you want to delete this trip ? This will also erase the packing list of the travelers present on this trip.
-If you want to keep your items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
+Impossible to delete this trip! There is a packing list for at least one of the travelers on this trip.
+
 """
+//Are you sure you want to delete this trip ? This will also erase the packing list of the travelers present on this trip.
+//If you want to keep your items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
+
 //        case .deleteTravelerAlertIfPackingListIsEmpty:
 //            title = "Warning delete of this traveler !"
 //            message = "Are you sure you want to delete this traveler ?"

@@ -147,6 +147,71 @@ final class CoreDataManager {
         return counter == 0 ? false : true
     }
     
+    func checkIfTravelerExistInAnotherTrip(_ indexPath: IndexPath) -> Bool {
+        var travellersList = [String]()
+        for detailsTrip in detailsTrips {
+            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return false }
+            travellersList += travellers
+        }
+        let detailsTripSelected = self.detailsTrips[indexPath.row]
+        guard let travellersSelected = detailsTripSelected.travellers?.components(separatedBy: "-") else { return false }
+        
+        let countsItemDict = travellersList.histogram
+        let keysOfCountsItemDict = countsItemDict.allKeys(forValue: 2)
+        
+        print("keysOfCountsItemDict.sorted")
+        print(keysOfCountsItemDict.sorted())
+        print("keysOfCountsItemDict.count")
+        print(keysOfCountsItemDict.count)
+        print("travellersSelected.sorted")
+        print(travellersSelected.sorted())
+        print("travellersSelected.count")
+        print(travellersSelected.count)
+        
+        print("checkIfItemsListIsEmpty -> travellersSelected")
+        print(checkIfItemsListIsEmpty(travellersSelected)) // test
+        
+        var travelerExistInAnotherTrip = false
+        if keysOfCountsItemDict.count == travellersSelected.count {
+            travelerExistInAnotherTrip = false
+        } else {
+            travelerExistInAnotherTrip = true
+        }
+        return travelerExistInAnotherTrip
+    }
+    
+    private func checkIfItemsListIsEmpty(_ travellersSelected: [String]) -> Bool {
+        var itemListIsEmpty = false
+        for travellerSelected in travellersSelected {
+            // TODO: - KO
+//            if items.isEmpty {
+//                itemListIsEmpty = true
+//            } else {
+//                itemListIsEmpty = false
+//            }
+            
+//            for item in items {
+//                if item.itemName != nil {
+//                    itemListIsEmpty = false
+//                } else {
+//                    itemListIsEmpty = true
+//                }
+//                print("item.itemName")
+//                print(item.itemName as Any)
+//            }
+            return itemListIsEmpty
+        }
+        return true
+    }
+    
+//    private func checkIfItemsInListBy(traveller: String) -> Bool {
+//        let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
+//        request.predicate = NSPredicate(format: "traveller == %@", traveller)
+//
+//        guard let counter = try? managedObjectContext.count(for: request) else { return false }
+//        return counter == 0 ? false : true
+//    }
+    
     // MARK: - Manage TravellerEntity
     
     func createTraveller(_ travellerName: String) {
