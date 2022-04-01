@@ -172,7 +172,7 @@ final class CoreDataManager {
         print(checkIfItemsListIsEmpty(travellersSelected)) // test
         
         var travelerExistInAnotherTrip = false
-        if keysOfCountsItemDict.count == travellersSelected.count {
+        if keysOfCountsItemDict.count == travellersSelected.count && checkIfItemsListIsEmpty(travellersSelected) {
             travelerExistInAnotherTrip = false
         } else {
             travelerExistInAnotherTrip = true
@@ -183,6 +183,17 @@ final class CoreDataManager {
     private func checkIfItemsListIsEmpty(_ travellersSelected: [String]) -> Bool {
         var itemListIsEmpty = false
         for travellerSelected in travellersSelected {
+            for item in items {
+                if item.traveller == travellerSelected {
+                    if item.itemName != nil {
+                        itemListIsEmpty = false
+                    } else {
+                        itemListIsEmpty = true
+                    }
+                } else {
+                    itemListIsEmpty = true
+                }
+            }
             // TODO: - KO
 //            if items.isEmpty {
 //                itemListIsEmpty = true
