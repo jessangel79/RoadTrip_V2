@@ -85,6 +85,7 @@ extension UIViewController {
         case listIsEmpty
         case impossibleToDeleteTraveler
         case impossibleToDeleteTravelersList
+        case impossibleToDeleteTrip
     }
     
     /// Alert message for user
@@ -123,6 +124,12 @@ extension UIViewController {
     Cannot delete these travelers because there is a packing list for at less the one of them.
     Please delete the packing lists of these travelers before performing this deletion.
     """
+        case .impossibleToDeleteTrip:
+            title = "Warning, impossible to delete this trip !"
+            message = """
+    Impossible to delete this trip! There is a packing list for at least one of the travelers on this trip.
+    If you wish to delete this trip, you must classify your items as \"out of category\" in the suitcase to be able to proceed with this deletion.
+    """
         }
         
         alertError(title, message)
@@ -158,6 +165,7 @@ extension UIViewController {
     enum AlertShowAction {
         case resetAllAlert
         case deletedTripAlert
+        
 //        case deleteTravelerAlertIfPackingListIsEmpty
 //        case deleteTravelerAlertIfPackingListIsNotEmpty
     }
@@ -171,24 +179,27 @@ extension UIViewController {
         case .resetAllAlert:
             title =  "Warning Reset All !"
             message = "Are you sure to reset all ?"
+            
         case .deletedTripAlert:
-            title = "Warning delete of this trip !"
-            message = """
-Impossible to delete this trip! There is a packing list for at least one of the travelers on this trip.
-
-"""
-//Are you sure you want to delete this trip ? This will also erase the packing list of the travelers present on this trip.
-//If you want to keep your items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
-
-//        case .deleteTravelerAlertIfPackingListIsEmpty:
-//            title = "Warning delete of this traveler !"
-//            message = "Are you sure you want to delete this traveler ?"
-//        case .deleteTravelerAlertIfPackingListIsNotEmpty:
-//            title = "Warning impossible to delete this traveler !"
-//            message = """
-//Cannot delete this traveler because there is a packing list for him.
-//Please delete the packing list of this traveler before performing this deletion.
-//"""
+            title = "Warning, this action will erase your trip !"
+            message = "Are you sure you want to delete this trip ?"
+            // message = """
+            // Impossible to delete this trip! There is a packing list for at least one of the travelers on this trip.
+            // If you wish to delete this trip, you must classify your items as \"out of category\" in the suitcase to be able to proceed with this deletion.
+            // """
+//             """
+//            Are you sure you want to delete this trip ? This will also erase the packing list of the travelers present on this trip.
+//            If you want to keep your items you must classify them in \"uncategorized\" in the suitcase before carrying out this deletion.
+//            """
+            //        case .deleteTravelerAlertIfPackingListIsEmpty:
+            //            title = "Warning delete of this traveler !"
+            //            message = "Are you sure you want to delete this traveler ?"
+            //        case .deleteTravelerAlertIfPackingListIsNotEmpty:
+            //            title = "Warning impossible to delete this traveler !"
+            //            message = """
+            //Cannot delete this traveler because there is a packing list for him.
+            //Please delete the packing list of this traveler before performing this deletion.
+            //"""
         }
         showAlert(destructiveAction, title: title, message: message)
     }

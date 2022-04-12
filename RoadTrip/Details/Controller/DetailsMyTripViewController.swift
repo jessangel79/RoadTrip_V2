@@ -112,16 +112,23 @@ class DetailsMyTripViewController: UIViewController {
     private func destructionTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
         let destructiveAction = UIAlertAction(title: "Yes, I want to delete this trip.", style: .destructive, handler: { action in
             let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
-            guard let travellers = detailsTrip?.travellers?.components(separatedBy: "-") else { return }
-            for traveller in travellers {
-                self.coreDataManager?.deleteItemsByTraveller(traveller: traveller)
-            }
+//            guard let travellers = detailsTrip?.travellers?.components(separatedBy: "-") else { return }
+//            for traveller in travellers {
+//                self.coreDataManager?.deleteItemsByTraveller(traveller: traveller)
+//            }
             self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
             tableView.deleteRows(at: [indexPath], with: .automatic)
             self.myTripTableView.reloadData()
             self.animationCell(tableView)
         })
+//        presentAlert(typeError: .impossibleToDeleteTrip)
         showAlertWithAction(destructiveAction, typeError: .deletedTripAlert)
+        
+//        let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
+//        self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
+//        tableView.deleteRows(at: [indexPath], with: .automatic)
+//        self.myTripTableView.reloadData()
+//        self.animationCell(tableView)
     }
     
 }
@@ -162,16 +169,23 @@ extension DetailsMyTripViewController: UITableViewDelegate {
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let checkIfTravelerExistInAnotherTrip = coreDataManager?.checkIfTravelerExistInAnotherTrip(indexPath) ?? false
-            if checkIfTravelerExistInAnotherTrip {
+            let checkIfDeleteTripIsPossible = coreDataManager?.checkIfDeleteTripIsPossible(indexPath) ?? false
+            if checkIfDeleteTripIsPossible {
                 destructionTrip(indexPath, tableView)
+//                destructionTrip(indexPath, tableView)
+//                presentAlert(typeError: .impossibleToDeleteTrip)
             } else {
-                let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
-                self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-                self.myTripTableView.reloadData()
-                self.animationCell(tableView)
+//                destructionTrip(indexPath, tableView)
+                presentAlert(typeError: .impossibleToDeleteTrip)
+
+//                let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
+//                self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
+//                tableView.deleteRows(at: [indexPath], with: .automatic)
+//                self.myTripTableView.reloadData()
+//                self.animationCell(tableView)
             }
+            print("checkIfDeleteTripIsPossible")
+            print(checkIfDeleteTripIsPossible)
         }
     }
     

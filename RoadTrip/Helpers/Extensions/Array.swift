@@ -18,4 +18,18 @@ extension Array where Element: Equatable {
             }
         }
     }
+    
+//    func compareArray(array1: [String], array2: [String]) -> Bool {
+//        var someHash: [String: Bool] = [:]
+//        var commonItemsExist = false
+//        array1.forEach { someHash[$0] = true }
+//        array2.forEach { item in
+//            if someHash[item] ?? false {
+//                commonItemsExist = true
+//            } else {
+//                commonItemsExist = false
+//            }
+//        }
+//        return commonItemsExist
+//    }
 }
