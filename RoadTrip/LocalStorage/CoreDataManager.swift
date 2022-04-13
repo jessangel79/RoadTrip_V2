@@ -171,12 +171,8 @@ final class CoreDataManager {
         print("travellersSelected.count")
         print(travellersSelected.count)
         
-        print("checkIfItemsListIsEmpty(travellersSelected)")
-        print(checkIfItemsListIsEmpty(travellersSelected)) // test
-        print("keysOfCountsItemDict.count == travellersSelected.count")
-        print(keysOfCountsItemDict.count == travellersSelected.count)
-        print("keysOfCountsItemDict.sorted() == travellersSelected.sorted()")
-        print(keysOfCountsItemDict.sorted() == travellersSelected.sorted())
+//        print("checkIfItemsListIsEmpty(travellersSelected)")
+//        print(checkIfItemsListIsEmpty(travellersSelected)) // test
         
 //        var travelerExistInAnotherTrip = false
 //        if keysOfCountsItemDict.count == travellersSelected.count {
@@ -204,26 +200,76 @@ final class CoreDataManager {
         
 //        var itemsListIsEmpty = false
 //        var travelerExistInAnotherTrip = false
+        
         var deleteIsPossible = false
-        var boolArray = [Bool]()
-        if !checkIfItemsListIsEmpty(travellersSelected) {
+        let itemsByTraveler = getItemsListByTravelerName(travellersSelected)
+        print("itemsByTraveler")
+        print(itemsByTraveler)
+        
+//        var listIsEmpty = false
+//        if !itemsByTraveler.isEmpty {
+//            listIsEmpty = false
+//        } else {
+//            listIsEmpty = true
+//        }
+        
+        var travelerExistInAnotherTrip = false
+        
+//        if keysOfCountsItemDict.count == travellersSelected.count {
+//            travelerExistInAnotherTrip = true
+//        } else {
+//            travelerExistInAnotherTrip = false
+//        }
+        
+        for keyOfCountsItemDict in keysOfCountsItemDict {
+            if travellersSelected.contains(keyOfCountsItemDict) {
+                travelerExistInAnotherTrip = true
+            } else {
+                travelerExistInAnotherTrip = false
+            }
+        }
+        
+//        for travellerSelected in travellersSelected {
+//            if keysOfCountsItemDict.contains(travellerSelected) {
+//                travelerExistInAnotherTrip = true
+//            } else {
+//                travelerExistInAnotherTrip = false
+//            }
+//        }
+        
+        if itemsByTraveler.isEmpty {
+            deleteIsPossible = true
+        } else if !itemsByTraveler.isEmpty && travelerExistInAnotherTrip {
+            deleteIsPossible = true
+        } else {
+            deleteIsPossible = false
+        }
+        
+        print("keysOfCountsItemDict.count == travellersSelected.count")
+        print(keysOfCountsItemDict.count == travellersSelected.count)
+        print("keysOfCountsItemDict.sorted() == travellersSelected.sorted()")
+        print(keysOfCountsItemDict.sorted() == travellersSelected.sorted())
+        
+//        if !checkIfItemsListIsEmpty(travellersSelected) {
+            
 //            if compareArray(array1: keysOfCountsItemDict, array2: travellersSelected) {
 //                deleteIsPossible = true
 //            } else {
 //                deleteIsPossible = false
 //            }
-            for trav in travellersSelected {
-                if keysOfCountsItemDict.contains(trav) {
-                    deleteIsPossible = true
-                    boolArray.append(deleteIsPossible)
-
-                } else {
-                    deleteIsPossible = false
-                    boolArray.append(deleteIsPossible)
-
-                }
-//                boolArray.append(deleteIsPossible)
-            }
+            
+//            for trav in travellersSelected {
+//                if keysOfCountsItemDict.contains(trav) {
+//                    deleteIsPossible = true
+//                    boolArray.append(deleteIsPossible)
+//
+//                } else {
+//                    deleteIsPossible = false
+//                    boolArray.append(deleteIsPossible)
+//
+//                }
+//            }
+            
 //                if keysOfCountsItemDict.count == travellersSelected.count {
 //    //            if keysOfCountsItemDict.sorted() == travellersSelected.sorted() {
 //    //                travelerExistInAnotherTrip = true
@@ -232,84 +278,86 @@ final class CoreDataManager {
 //    //                travelerExistInAnotherTrip = false
 //                    deleteIsPossible = false
 //                }
-        } else {
-            deleteIsPossible = true
-//            itemsListIsEmpty = true
-        }
-        print("boolArray")
-        print(boolArray)
-        print("checkIfItemsListIsEmpty(travellersSelected)")
-        print(checkIfItemsListIsEmpty(travellersSelected))
+//            } else {
+//                deleteIsPossible = true
+//    //            itemsListIsEmpty = true
+//            }
+//        print("checkIfItemsListIsEmpty(travellersSelected)")
+//        print(checkIfItemsListIsEmpty(travellersSelected))
         print("deleteIsPossible")
         print(deleteIsPossible)
-//        print("travelerExistInAnotherTrip")
-//        print(travelerExistInAnotherTrip)
-//        print("itemsListIsEmpty")
-//        print(itemsListIsEmpty)
-//        print("travelerExistInAnotherTrip && itemsListIsEmpty")
-//        print(travelerExistInAnotherTrip && itemsListIsEmpty)
                 
         return deleteIsPossible
     }
     
-    private func checkIfItemsListIsEmpty(_ travellersSelected: [String]) -> Bool {
-        var itemListIsEmpty = false
-        print("travellersSelected")
-        print(travellersSelected)
+    private func getItemsListByTravelerName(_ travellersSelected: [String]) -> [ItemEntity] {
+        var itemsList = [ItemEntity]()
         for travellerSelected in travellersSelected {
-            for item in items {
-                if item.traveller == travellerSelected {
-                    itemListIsEmpty = false
-//                    if (item.itemName?.isEmpty) != nil {
-//                        itemListIsEmpty = false
-//                    } else {
-//                        itemListIsEmpty = true
-//                    }
-                } else {
-                    itemListIsEmpty = true
-                }
-                
-//                if item.traveller?.contains(travellerSelected) != nil {
-//                    itemListIsEmpty = false
-//                } else {
-//                    itemListIsEmpty = true
-//                }
-                
-//                    if item.traveller == travellerSelected {
-//    //                    itemListIsEmpty = false
-//    //                    itemListIsEmpty = true
-//                        if item.itemName != nil {
-//                            itemListIsEmpty = false
-//                        } else {
-//                            itemListIsEmpty = true
-//                        }
-//                    } else {
-//                        itemListIsEmpty = true
-//    //                    itemListIsEmpty = false
-//                    }
+            for item in items where item.traveller == travellerSelected {
+                itemsList.append(item)
             }
-            // TODO: - KO
-//            if items.isEmpty {
-//                itemListIsEmpty = true
-//            } else {
-//                itemListIsEmpty = false
-//            }
-            
-//            for item in items {
-//                if item.itemName != nil {
-//                    itemListIsEmpty = false
-//                } else {
-//                    itemListIsEmpty = true
-//                }
-//                print("item.itemName")
-//                print(item.itemName as Any)
-//            }
-            print("itemListIsEmpty")
-            print(itemListIsEmpty)
-            return itemListIsEmpty
         }
-        return true
+        return itemsList
     }
+    
+//        private func checkIfItemsListIsEmpty(_ travellersSelected: [String]) -> Bool {
+//            var itemListIsEmpty = false
+//            print("travellersSelected")
+//            print(travellersSelected)
+//            for travellerSelected in travellersSelected {
+//                for item in items {
+//                    if item.traveller == travellerSelected {
+//                        itemListIsEmpty = false
+//    //                    if (item.itemName?.isEmpty) != nil {
+//    //                        itemListIsEmpty = false
+//    //                    } else {
+//    //                        itemListIsEmpty = true
+//    //                    }
+//                    } else {
+//                        itemListIsEmpty = true
+//                    }
+//
+//    //                if item.traveller?.contains(travellerSelected) != nil {
+//    //                    itemListIsEmpty = false
+//    //                } else {
+//    //                    itemListIsEmpty = true
+//    //                }
+//
+//    //                    if item.traveller == travellerSelected {
+//    //    //                    itemListIsEmpty = false
+//    //    //                    itemListIsEmpty = true
+//    //                        if item.itemName != nil {
+//    //                            itemListIsEmpty = false
+//    //                        } else {
+//    //                            itemListIsEmpty = true
+//    //                        }
+//    //                    } else {
+//    //                        itemListIsEmpty = true
+//    //    //                    itemListIsEmpty = false
+//    //                    }
+//                }
+//                // TODO: - KO
+//    //            if items.isEmpty {
+//    //                itemListIsEmpty = true
+//    //            } else {
+//    //                itemListIsEmpty = false
+//    //            }
+//
+//    //            for item in items {
+//    //                if item.itemName != nil {
+//    //                    itemListIsEmpty = false
+//    //                } else {
+//    //                    itemListIsEmpty = true
+//    //                }
+//    //                print("item.itemName")
+//    //                print(item.itemName as Any)
+//    //            }
+//                print("itemListIsEmpty")
+//                print(itemListIsEmpty)
+//                return itemListIsEmpty
+//            }
+//            return true
+//        }
     
 //    func compareArray(array1: [String], array2: [String]) -> Bool {
 //        var someHash: [String: Bool] = [:]
