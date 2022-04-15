@@ -171,72 +171,26 @@ final class CoreDataManager {
         print("travellersSelected.count")
         print(travellersSelected.count)
         
-//        print("checkIfItemsListIsEmpty(travellersSelected)")
-//        print(checkIfItemsListIsEmpty(travellersSelected)) // test
-        
-//        var travelerExistInAnotherTrip = false
-//        if keysOfCountsItemDict.count == travellersSelected.count {
-//            travelerExistInAnotherTrip = true
-//        } else {
-//            travelerExistInAnotherTrip = false
-//        }
-//
-//        var itemsListIsEmpty = false
-//        if !checkIfItemsListIsEmpty(travellersSelected) {
-//            itemsListIsEmpty = false
-//        } else {
-//            itemsListIsEmpty = true
-//        }
-        
-//        print("keysOfCountsItemDict.count == travellersSelected.count && checkIfItemsListIsEmpty(travellersSelected)")
-//        print(keysOfCountsItemDict.count == travellersSelected.count && checkIfItemsListIsEmpty(travellersSelected))
-        
-//        var travelerExistInAnotherTrip = false
-//        if keysOfCountsItemDict.count == travellersSelected.count {
-//            travelerExistInAnotherTrip = true
-//        } else {
-//            travelerExistInAnotherTrip = false
-//        }
-        
-//        var itemsListIsEmpty = false
-//        var travelerExistInAnotherTrip = false
-        
         var deleteIsPossible = false
         let itemsByTraveler = getItemsListByTravelerName(travellersSelected)
-        print("itemsByTraveler")
-        print(itemsByTraveler)
-        
-//        var listIsEmpty = false
-//        if !itemsByTraveler.isEmpty {
-//            listIsEmpty = false
-//        } else {
-//            listIsEmpty = true
-//        }
         
         var travelerExistInAnotherTrip = false
+        var travelerExistInAnotherTripList = [Bool]()
         
-//        if keysOfCountsItemDict.count == travellersSelected.count {
-//            travelerExistInAnotherTrip = true
-//        } else {
-//            travelerExistInAnotherTrip = false
-//        }
-        
-        for keyOfCountsItemDict in keysOfCountsItemDict {
-            if travellersSelected.contains(keyOfCountsItemDict) {
-                travelerExistInAnotherTrip = true
+        for trav in travellersSelected {
+            if keysOfCountsItemDict.contains(trav) {
+                travelerExistInAnotherTripList.append(true)
             } else {
-                travelerExistInAnotherTrip = false
+                travelerExistInAnotherTripList.append(false)
             }
         }
         
-//        for travellerSelected in travellersSelected {
-//            if keysOfCountsItemDict.contains(travellerSelected) {
-//                travelerExistInAnotherTrip = true
-//            } else {
-//                travelerExistInAnotherTrip = false
-//            }
-//        }
-        
+        if travelerExistInAnotherTripList.contains(false) {
+            travelerExistInAnotherTrip = false
+        } else {
+            travelerExistInAnotherTrip = true
+        }
+ 
         if itemsByTraveler.isEmpty {
             deleteIsPossible = true
         } else if !itemsByTraveler.isEmpty && travelerExistInAnotherTrip {
@@ -244,49 +198,6 @@ final class CoreDataManager {
         } else {
             deleteIsPossible = false
         }
-        
-        print("keysOfCountsItemDict.count == travellersSelected.count")
-        print(keysOfCountsItemDict.count == travellersSelected.count)
-        print("keysOfCountsItemDict.sorted() == travellersSelected.sorted()")
-        print(keysOfCountsItemDict.sorted() == travellersSelected.sorted())
-        
-//        if !checkIfItemsListIsEmpty(travellersSelected) {
-            
-//            if compareArray(array1: keysOfCountsItemDict, array2: travellersSelected) {
-//                deleteIsPossible = true
-//            } else {
-//                deleteIsPossible = false
-//            }
-            
-//            for trav in travellersSelected {
-//                if keysOfCountsItemDict.contains(trav) {
-//                    deleteIsPossible = true
-//                    boolArray.append(deleteIsPossible)
-//
-//                } else {
-//                    deleteIsPossible = false
-//                    boolArray.append(deleteIsPossible)
-//
-//                }
-//            }
-            
-//                if keysOfCountsItemDict.count == travellersSelected.count {
-//    //            if keysOfCountsItemDict.sorted() == travellersSelected.sorted() {
-//    //                travelerExistInAnotherTrip = true
-//                    deleteIsPossible = true
-//                } else {
-//    //                travelerExistInAnotherTrip = false
-//                    deleteIsPossible = false
-//                }
-//            } else {
-//                deleteIsPossible = true
-//    //            itemsListIsEmpty = true
-//            }
-//        print("checkIfItemsListIsEmpty(travellersSelected)")
-//        print(checkIfItemsListIsEmpty(travellersSelected))
-        print("deleteIsPossible")
-        print(deleteIsPossible)
-                
         return deleteIsPossible
     }
     
@@ -299,87 +210,6 @@ final class CoreDataManager {
         }
         return itemsList
     }
-    
-//        private func checkIfItemsListIsEmpty(_ travellersSelected: [String]) -> Bool {
-//            var itemListIsEmpty = false
-//            print("travellersSelected")
-//            print(travellersSelected)
-//            for travellerSelected in travellersSelected {
-//                for item in items {
-//                    if item.traveller == travellerSelected {
-//                        itemListIsEmpty = false
-//    //                    if (item.itemName?.isEmpty) != nil {
-//    //                        itemListIsEmpty = false
-//    //                    } else {
-//    //                        itemListIsEmpty = true
-//    //                    }
-//                    } else {
-//                        itemListIsEmpty = true
-//                    }
-//
-//    //                if item.traveller?.contains(travellerSelected) != nil {
-//    //                    itemListIsEmpty = false
-//    //                } else {
-//    //                    itemListIsEmpty = true
-//    //                }
-//
-//    //                    if item.traveller == travellerSelected {
-//    //    //                    itemListIsEmpty = false
-//    //    //                    itemListIsEmpty = true
-//    //                        if item.itemName != nil {
-//    //                            itemListIsEmpty = false
-//    //                        } else {
-//    //                            itemListIsEmpty = true
-//    //                        }
-//    //                    } else {
-//    //                        itemListIsEmpty = true
-//    //    //                    itemListIsEmpty = false
-//    //                    }
-//                }
-//                // TODO: - KO
-//    //            if items.isEmpty {
-//    //                itemListIsEmpty = true
-//    //            } else {
-//    //                itemListIsEmpty = false
-//    //            }
-//
-//    //            for item in items {
-//    //                if item.itemName != nil {
-//    //                    itemListIsEmpty = false
-//    //                } else {
-//    //                    itemListIsEmpty = true
-//    //                }
-//    //                print("item.itemName")
-//    //                print(item.itemName as Any)
-//    //            }
-//                print("itemListIsEmpty")
-//                print(itemListIsEmpty)
-//                return itemListIsEmpty
-//            }
-//            return true
-//        }
-    
-//    func compareArray(array1: [String], array2: [String]) -> Bool {
-//        var someHash: [String: Bool] = [:]
-//        var commonItemsExist = false
-//        array1.forEach { someHash[$0] = true }
-//        array2.forEach { item in
-//            if someHash[item] ?? false {
-//                commonItemsExist = true
-//            } else {
-//                commonItemsExist = false
-//            }
-//        }
-//        return commonItemsExist
-//    }
-    
-//    private func checkIfItemsInListBy(traveller: String) -> Bool {
-//        let request: NSFetchRequest<ItemEntity> = ItemEntity.fetchRequest()
-//        request.predicate = NSPredicate(format: "traveller == %@", traveller)
-//
-//        guard let counter = try? managedObjectContext.count(for: request) else { return false }
-//        return counter == 0 ? false : true
-//    }
     
     // MARK: - Manage TravellerEntity
     
