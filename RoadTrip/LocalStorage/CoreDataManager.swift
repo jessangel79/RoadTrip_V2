@@ -148,32 +148,43 @@ final class CoreDataManager {
     }
     
     func checkIfDeleteTripIsPossible(_ indexPath: IndexPath) -> Bool {
-        var travellersList = [String]()
-        for detailsTrip in detailsTrips {
-            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return false }
-            travellersList += travellers
-        }
         let detailsTripSelected = self.detailsTrips[indexPath.row]
-        guard let travellersSelected = detailsTripSelected.travellers?.components(separatedBy: "-") else { return false }
-
-        let countsItemDict = travellersList.histogram
-        let keysOfCountsItemDict = countsItemDict.allKeys(forValue: 2)
-//        travellersList = [String]()
-        
-        print("countsItemDict")
-        print(countsItemDict)
-        print("keysOfCountsItemDict.sorted")
-        print(keysOfCountsItemDict.sorted())
-        print("keysOfCountsItemDict.count")
-        print(keysOfCountsItemDict.count)
-        print("travellersSelected.sorted")
-        print(travellersSelected.sorted())
-        print("travellersSelected.count")
-        print(travellersSelected.count)
+        guard let travelersSelected = detailsTripSelected.travellers?.components(separatedBy: "-") else { return false }
+        let keysOfCountsItemDictOfTravelersList = getKeysOfCountsItemDictOfTravelersList()
+        let itemsByTraveler = getItemsListByTravelerName(travelersSelected)
+        let travelerExistInAnotherTrip = checkIfTravelerExistInAnotherTrip(travelersSelected, keysOfCountsItemDictOfTravelersList)
         
         var deleteIsPossible = false
-        let itemsByTraveler = getItemsListByTravelerName(travellersSelected)
-        
+        if itemsByTraveler.isEmpty || (!itemsByTraveler.isEmpty && travelerExistInAnotherTrip) {
+            deleteIsPossible = true
+        } else {
+            deleteIsPossible = false
+        }
+        return deleteIsPossible
+    }
+    
+    private func getKeysOfCountsItemDictOfTravelersList() -> [String] {
+        var travelersList = [String]()
+        for detailsTrip in detailsTrips {
+            guard let travelers = detailsTrip.travellers?.components(separatedBy: "-") else { return [] }
+            travelersList += travelers
+        }
+        let countsItemDict = travelersList.histogram
+        let keysOfCountsItemDictOfTravelersList = countsItemDict.allKeys(forValue: 2)
+        return keysOfCountsItemDictOfTravelersList
+    }
+    
+    private func getItemsListByTravelerName(_ travellersSelected: [String]) -> [ItemEntity] {
+        var itemsList = [ItemEntity]()
+        for travellerSelected in travellersSelected {
+            for item in items where item.traveller == travellerSelected {
+                itemsList.append(item)
+            }
+        }
+        return itemsList
+    }
+    
+    private func checkIfTravelerExistInAnotherTrip(_ travellersSelected: [String], _ keysOfCountsItemDict: [String]) -> Bool {
         var travelerExistInAnotherTrip = false
         var travelerExistInAnotherTripList = [Bool]()
         
@@ -190,25 +201,7 @@ final class CoreDataManager {
         } else {
             travelerExistInAnotherTrip = true
         }
- 
-        if itemsByTraveler.isEmpty {
-            deleteIsPossible = true
-        } else if !itemsByTraveler.isEmpty && travelerExistInAnotherTrip {
-            deleteIsPossible = true
-        } else {
-            deleteIsPossible = false
-        }
-        return deleteIsPossible
-    }
-    
-    private func getItemsListByTravelerName(_ travellersSelected: [String]) -> [ItemEntity] {
-        var itemsList = [ItemEntity]()
-        for travellerSelected in travellersSelected {
-            for item in items where item.traveller == travellerSelected {
-                itemsList.append(item)
-            }
-        }
-        return itemsList
+        return travelerExistInAnotherTrip
     }
     
     // MARK: - Manage TravellerEntity

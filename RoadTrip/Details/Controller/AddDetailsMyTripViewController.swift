@@ -63,28 +63,13 @@ class AddDetailsMyTripViewController: UIViewController {
     }
     
     @IBAction func removeTravellersListBarButtonItemTapped(_ sender: UIBarButtonItem) {
-//        let items = coreDataManager?.items
         guard let items = coreDataManager?.items else { return }
         let itemsListByTravelers = getItemsListByTravelers(items: items)
         if !itemsListByTravelers.isEmpty {
             presentAlert(typeError: .impossibleToDeleteTravelersList)
         } else {
-            travellersNames.removeAll()
-            travellersTableView.reloadData()
+            showAlertDeleteAllTravelers()
         }
-//        travellersNames.removeAll()
-//        travellersTableView.reloadData()
-        // TODO: coredata maj
-    }
-    
-    private func getItemsListByTravelers(items: [ItemEntity]) -> [ItemEntity] {
-        var itemsList = [ItemEntity]()
-        for traveler in travellersNames {
-            for item in items where item.traveller == traveler {
-                itemsList.append(item)
-            }
-        }
-        return itemsList
     }
     
     // MARK: - View Life Cycle
@@ -246,6 +231,43 @@ class AddDetailsMyTripViewController: UIViewController {
         endDateTextField.text = String()
         notesTextView.text = String()
     }
+    
+    private func getItemsListByTravelers(items: [ItemEntity]) -> [ItemEntity] {
+        var itemsList = [ItemEntity]()
+        for traveler in travellersNames {
+            for item in items where item.traveller == traveler {
+                itemsList.append(item)
+            }
+        }
+        return itemsList
+    }
+    
+    private func showAlertDeleteAllTravelers() {
+        let destructiveAction = UIAlertAction(title: "Delete all travelers", style: .destructive, handler: { action in
+            self.deleteAllTravelers()
+        })
+        showAlertWithAction(destructiveAction, typeError: .deletedTravelersList)
+    }
+    
+    private func deleteAllTravelers() {
+        travellersNames.removeAll()
+        travellersTableView.reloadData()
+    }
+    
+    private func showAlertDeleteTraveler(_ indexPath: IndexPath, _ tableView: UITableView) {
+        let destructiveAction = UIAlertAction(title: "Delete this traveler", style: .destructive, handler: { action in
+            self.deleteTraveler(indexPath, tableView)
+
+        })
+        showAlertWithAction(destructiveAction, typeError: .deletedTraveler)
+    }
+    
+    private func deleteTraveler(_ indexPath: IndexPath, _ tableView: UITableView) {
+        travellersNames.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        travellersTableView.reloadData()
+        animationCell(tableView)
+    }
 }
 
 // MARK: - DatePicker
@@ -351,62 +373,36 @@ extension AddDetailsMyTripViewController: UITableViewDelegate {
         }
         return itemsList
     }
-
-//    private func checkIfTravelerExistInAnotherTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
-//        guard let detailsTrips = coreDataManager?.detailsTrips else { return }
-//        let detailsTripSelected = self.coreDataManager?.detailsTrips[indexPath.row]
-//        guard let travellersSelected = detailsTripSelected?.travellers?.components(separatedBy: "-") else { return }
-//
-//        for detailsTrip in detailsTrips {
-//            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return }
-//            for traveller in travellers {
-//                var travellersInTrip = [String]()
-//                if traveller == travellersSelected[indexPath.row] {
-//                    travellersInTrip.append(traveller)
-//                }
-//                print("travellersInTrip")
-//                print(travellersInTrip)
-//            }
-//        }
-//    }
     
     /// delete entity CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if !celluleActive {
-                travellersNames.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-                travellersTableView.reloadData()
-                animationCell(tableView)
+            guard let items = coreDataManager?.items else { return }
+            let itemsByTraveler = getItemsListByTravelerName(items: items, index: indexPath.row)
+            if !itemsByTraveler.isEmpty {
+                presentAlert(typeError: .impossibleToDeleteTraveler)
             } else {
-                guard let items = coreDataManager?.items else { return }
-                let itemsByTraveler = getItemsListByTravelerName(items: items, index: indexPath.row)
-                if !itemsByTraveler.isEmpty {
-                    presentAlert(typeError: .impossibleToDeleteTraveler)
-                } else {
-                    travellersNames.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .automatic)
-                    travellersTableView.reloadData()
-                    animationCell(tableView)
-                }
-//                let destructiveAction = UIAlertAction(title: "Yes, I want to delete this traveler.", style: .destructive, handler: { _ in
-//                    var itemIds = [UUID]()
-//                    let travellerName = self.travellersNames[indexPath.row]
-//                    self.deleteItemsListByTraveller(travellerName, &itemIds)
-//                    self.deleteItemsWithId(itemIds)
-//                    
-//                    self.travellersNames.remove(at: indexPath.row)
-//                    tableView.deleteRows(at: [indexPath], with: .automatic)
-//                    self.travellersTableView.reloadData()
-//                    self.animationCell(tableView)
-//                })
-//                showDeleteTravelerAlertIfPackingListIsNotEmpty(destructiveAction)
+                showAlertDeleteTraveler(indexPath, tableView)
             }
-            
-            // TODO: alert to user !!! coredata MAJ
         }
-
     }
+    
+    /// delete entity CoreData
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            if !celluleActive {
+//                showAlertDeleteTraveler(indexPath, tableView)
+//            } else {
+//                guard let items = coreDataManager?.items else { return }
+//                let itemsByTraveler = getItemsListByTravelerName(items: items, index: indexPath.row)
+//                if !itemsByTraveler.isEmpty {
+//                    presentAlert(typeError: .impossibleToDeleteTraveler)
+//                } else {
+//                    showAlertDeleteTraveler(indexPath, tableView)
+//                }
+//            }
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()

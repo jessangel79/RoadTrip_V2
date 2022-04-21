@@ -128,7 +128,7 @@ extension UIViewController {
             title = "Warning, impossible to delete this trip !"
             message = """
     Impossible to delete this trip! There is a packing list for at least one of the travelers on this trip.
-    If you wish to delete this trip, you must classify your items as \"out of category\" in the suitcase to be able to proceed with this deletion.
+    If you wish to delete this trip, you must classify your items as \"Uncategorized\" in the suitcase to be able to proceed with this deletion.
     """
         }
         
@@ -165,7 +165,8 @@ extension UIViewController {
     enum AlertShowAction {
         case resetAllAlert
         case deletedTripAlert
-        
+        case deletedTraveler
+        case deletedTravelersList
 //        case deleteTravelerAlertIfPackingListIsEmpty
 //        case deleteTravelerAlertIfPackingListIsNotEmpty
     }
@@ -181,8 +182,14 @@ extension UIViewController {
             message = "Are you sure to reset all ?"
             
         case .deletedTripAlert:
-            title = "Warning, this action will erase your trip !"
+            title = "Warning, this action will delete your trip !"
             message = "Are you sure you want to delete this trip ?"
+        case .deletedTraveler:
+            title = "Warning, this action will delete this traveler !"
+            message = "Are you sure you want to delete this traveler ?"
+        case .deletedTravelersList:
+            title = "Warning, this action will delete all your travelers !"
+            message = "Are you sure you want to delete all your travelers ?"
             // message = """
             // Impossible to delete this trip! There is a packing list for at least one of the travelers on this trip.
             // If you wish to delete this trip, you must classify your items as \"out of category\" in the suitcase to be able to proceed with this deletion.

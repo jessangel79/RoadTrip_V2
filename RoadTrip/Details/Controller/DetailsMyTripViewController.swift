@@ -73,12 +73,6 @@ class DetailsMyTripViewController: UIViewController {
         coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
     }
     
-    func resetAll() {
-        coreDataManager?.deleteAllDetailsTrip()
-        animationTableView(tableView: myTripTableView)
-        myTripTableView.reloadData()
-    }
-    
     func showAlertResetAll() {
         let destructiveAction = UIAlertAction(title: "Reset all", style: .destructive, handler: { action in
             self.resetAll()
@@ -86,51 +80,22 @@ class DetailsMyTripViewController: UIViewController {
         showAlertWithAction(destructiveAction, typeError: .resetAllAlert)
     }
     
-//    private func checkIfTravelerExistInAnotherTrip(_ indexPath: IndexPath) -> Bool {
-//        guard let detailsTrips = coreDataManager?.detailsTrips else { return false }
-//        var travellersList = [String]()
-//        for detailsTrip in detailsTrips {
-//            guard let travellers = detailsTrip.travellers?.components(separatedBy: "-") else { return false }
-//            travellersList += travellers
-//        }
-//        let detailsTripSelected = self.coreDataManager?.detailsTrips[indexPath.row]
-//        guard let travellersSelected = detailsTripSelected?.travellers?.components(separatedBy: "-") else { return false }
-//
-//        let countsItemDict = travellersList.histogram
-//        let keysOfCountsItemDict = countsItemDict.allKeys(forValue: 2)
-//
-//        var travelerExistInAnotherTrip = false
-//        if keysOfCountsItemDict.count == travellersSelected.count {
-//            travelerExistInAnotherTrip = true
-//        } else {
-//            travelerExistInAnotherTrip = false
-//        }
-//
-//        return travelerExistInAnotherTrip
-//    }
+    func resetAll() {
+        coreDataManager?.deleteAllDetailsTrip()
+        animationTableView(tableView: myTripTableView)
+        myTripTableView.reloadData()
+    }
     
     private func destructionTrip(_ indexPath: IndexPath, _ tableView: UITableView) {
         let destructiveAction = UIAlertAction(title: "Yes, I want to delete this trip.", style: .destructive, handler: { action in
             let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
-//            guard let travellers = detailsTrip?.travellers?.components(separatedBy: "-") else { return }
-//            for traveller in travellers {
-//                self.coreDataManager?.deleteItemsByTraveller(traveller: traveller)
-//            }
             self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
             tableView.deleteRows(at: [indexPath], with: .automatic)
             self.myTripTableView.reloadData()
             self.animationCell(tableView)
         })
-//        presentAlert(typeError: .impossibleToDeleteTrip)
         showAlertWithAction(destructiveAction, typeError: .deletedTripAlert)
-        
-//        let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
-//        self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
-//        tableView.deleteRows(at: [indexPath], with: .automatic)
-//        self.myTripTableView.reloadData()
-//        self.animationCell(tableView)
     }
-    
 }
 
 // MARK: - UITableViewDataSource
@@ -172,20 +137,9 @@ extension DetailsMyTripViewController: UITableViewDelegate {
             let checkIfDeleteTripIsPossible = coreDataManager?.checkIfDeleteTripIsPossible(indexPath) ?? false
             if checkIfDeleteTripIsPossible {
                 destructionTrip(indexPath, tableView)
-//                destructionTrip(indexPath, tableView)
-//                presentAlert(typeError: .impossibleToDeleteTrip)
             } else {
-//                destructionTrip(indexPath, tableView)
                 presentAlert(typeError: .impossibleToDeleteTrip)
-
-//                let detailsTrip = self.coreDataManager?.detailsTrips[indexPath.row]
-//                self.coreDataManager?.deleteDetailsTrip(nameTrip: detailsTrip?.name ?? "")
-//                tableView.deleteRows(at: [indexPath], with: .automatic)
-//                self.myTripTableView.reloadData()
-//                self.animationCell(tableView)
             }
-            print("checkIfDeleteTripIsPossible")
-            print(checkIfDeleteTripIsPossible)
         }
     }
     
