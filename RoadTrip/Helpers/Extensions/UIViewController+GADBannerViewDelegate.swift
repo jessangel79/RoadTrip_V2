@@ -8,42 +8,42 @@
 
 import Foundation
 
-import GoogleMobileAds
+// import GoogleMobileAds
 
 // MARK: - Extension GADBannerViewDelegate
 
-extension UIViewController: GADBannerViewDelegate {
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("Banner adapter class name: \(String(describing: bannerView.responseInfo?.adNetworkClassName))")
-    }
-    
-    public func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("bannerViewDidReceiveAd")
-        bannerView.alpha = 0
-        UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-        })
-    }
-    
-    public func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    
-    public func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-        print("bannerViewDidRecordImpression")
-    }
-    
-    public func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-        print("bannerViewWillPresentScreen")
-    }
-    
-    public func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("bannerViewWillDIsmissScreen")
-    }
-    
-    public func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print("bannerViewDidDismissScreen")
-    }
-    
-}
+// extension UIViewController: GADBannerViewDelegate {
+//
+//    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+//        print("Banner adapter class name: \(String(describing: bannerView.responseInfo?.adNetworkClassName))")
+//    }
+//
+//    public func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+//        print("bannerViewDidReceiveAd")
+//        bannerView.alpha = 0
+//        UIView.animate(withDuration: 1, animations: {
+//            bannerView.alpha = 1
+//        })
+//    }
+//
+//    public func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+//        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+//    }
+//
+//    public func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+//        print("bannerViewDidRecordImpression")
+//    }
+//
+//    public func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+//        print("bannerViewWillPresentScreen")
+//    }
+//
+//    public func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+//        print("bannerViewWillDIsmissScreen")
+//    }
+//
+//    public func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+//        print("bannerViewDidDismissScreen")
+//    }
+//
+// }

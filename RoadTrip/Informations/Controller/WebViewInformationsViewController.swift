@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-import GoogleMobileAds
+// import GoogleMobileAds
 
 final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     
@@ -19,7 +19,7 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     @IBOutlet private weak var safariBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var shareBarButtonItem: UIBarButtonItem!
     
-    @IBOutlet private weak var bannerView: GADBannerView!
+    @IBOutlet private weak var bannerView: UIView!
     
     // MARK: - Properties
     
@@ -29,7 +29,7 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
                                       action: #selector(backAction))
     private let refreshBarItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: WebViewInformationsViewController.self, action: #selector(refresh))
     
-    private let adMobService = AdMobService()
+//    private let adMobService = AdMobService()
     
     var urlString = String()
     
@@ -47,7 +47,7 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        adMobService.setAdMob(bannerView, self)
+//        adMobService.setAdMob(bannerView, self)
         let barItemsCollection: [UIBarButtonItem] = [forwardBarItem, refreshBarItem, backBarItem]
         setupWebView(webView: webView, barItemsCollection: barItemsCollection)
         loadWebsite(urlString, webView: webView)

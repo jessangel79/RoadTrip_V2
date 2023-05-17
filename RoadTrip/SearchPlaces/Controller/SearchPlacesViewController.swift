@@ -8,7 +8,7 @@
 
 import UIKit
 
-import GoogleMobileAds
+// import GoogleMobileAds
 
 final class SearchPlacesViewController: UIViewController {
     
@@ -20,7 +20,7 @@ final class SearchPlacesViewController: UIViewController {
     @IBOutlet private weak var cityTextField: UITextField!
     @IBOutlet private weak var placeTextField: UITextField!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var bannerView: GADBannerView!
+    @IBOutlet private weak var bannerView: UIView!
     
     // MARK: - Properties
     
@@ -30,7 +30,7 @@ final class SearchPlacesViewController: UIViewController {
     private var queriesList = [String]()
     private let segueToPlacesList = Constants.SegueToPlacesList
     
-    private let adMobService = AdMobService()
+//    private let adMobService = AdMobService()
     
     // MARK: - Actions
     
@@ -43,8 +43,8 @@ final class SearchPlacesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customButton(button: searchPlacesButton, radius: 20, width: 0.8, colorBackground: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
-        bannerView.adSize = GADAdSizeBanner // test
-        adMobService.setAdMob(bannerView, self)
+//        bannerView.adSize = GADAdSizeBanner // test
+//        adMobService.setAdMob(bannerView, self)
 //        adViewDidReceiveAd(bannerView)
     }
     
@@ -55,7 +55,7 @@ final class SearchPlacesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        bannerView.load(GADRequest())
+//        bannerView.load(GADRequest())
     }
     
     // MARK: - Methods

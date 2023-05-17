@@ -8,7 +8,7 @@
 
 import UIKit
 
-import GoogleMobileAds
+// import GoogleMobileAds
 
 class DetailsMyTripViewController: UIViewController {
     
@@ -18,7 +18,7 @@ class DetailsMyTripViewController: UIViewController {
         didSet { myTripTableView.tableFooterView = UIView() }
     }
     
-    @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var bannerView: UIView!
 
     // MARK: - Properties
     
@@ -29,7 +29,7 @@ class DetailsMyTripViewController: UIViewController {
     var celluleIndex = 0
     var tabType = Constants.Trip
     
-    let adMobService = AdMobService()
+//    let adMobService = AdMobService()
     
     // MARK: - Actions
     
@@ -43,7 +43,7 @@ class DetailsMyTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adMobService.setAdMob(bannerView, self)
+//        adMobService.setAdMob(bannerView, self)
         coreDataFunction()
         setNib()
         animationTableView(tableView: myTripTableView)

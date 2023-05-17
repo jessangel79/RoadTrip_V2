@@ -8,7 +8,7 @@
 
 import UIKit
 
-import GoogleMobileAds
+// import GoogleMobileAds
 
 final class InformationsViewController: UIViewController {
     
@@ -23,11 +23,11 @@ final class InformationsViewController: UIViewController {
     private let openStreetMap = "https://www.openstreetmap.org/copyright"
     private var urlString = String()
     
-    private let adMobService = AdMobService()
+//    private let adMobService = AdMobService()
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var bannerView: GADBannerView!
+    @IBOutlet private weak var bannerView: UIView!
     
     // MARK: - Actions
     
@@ -64,7 +64,7 @@ final class InformationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isToolbarHidden = true
-        adMobService.setAdMob(bannerView, self)
+//        adMobService.setAdMob(bannerView, self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -204,9 +204,9 @@ extension UIViewController {
             //        case .deleteTravelerAlertIfPackingListIsNotEmpty:
             //            title = "Warning impossible to delete this traveler !"
             //            message = """
-            //Cannot delete this traveler because there is a packing list for him.
-            //Please delete the packing list of this traveler before performing this deletion.
-            //"""
+            // Cannot delete this traveler because there is a packing list for him.
+            // Please delete the packing list of this traveler before performing this deletion.
+            // """
         }
         showAlert(destructiveAction, title: title, message: message)
     }

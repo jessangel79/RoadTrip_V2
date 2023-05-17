@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-import GoogleMobileAds
+// import GoogleMobileAds
 
 class DetailsPlaceViewController: UIViewController {
     
@@ -31,7 +31,7 @@ class DetailsPlaceViewController: UIViewController {
     @IBOutlet var allLabels: [UILabel]!
     @IBOutlet var allButtons: [UIButton]!
     
-    @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var bannerView: UIView!
     
     // MARK: - Properties
 
@@ -45,7 +45,7 @@ class DetailsPlaceViewController: UIViewController {
     var address = String()
     let dataManager = DataManager()
     
-    let adMobService = AdMobService()
+//    let adMobService = AdMobService()
     
     var shareInfoPlace: String {
         guard let country = cellule?.address.country else { return "Pays N/A" }
@@ -78,14 +78,19 @@ class DetailsPlaceViewController: UIViewController {
 
     @IBAction func saveBarButtonItemTapped(_ sender: UIBarButtonItem) {
         checkIfPlaceIsSaved()
-        !placeIsSaved ? savePlace() : deletePlace()
+        if !placeIsSaved {
+            savePlace()
+        } else {
+            deletePlace()
+        }
+//        !placeIsSaved ? savePlace() : deletePlace()
     }
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adMobService.setAdMob(bannerView, self)
+//        adMobService.setAdMob(bannerView, self)
         coreDataFunction()
         customUI()
         configureDetailsPlace()

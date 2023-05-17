@@ -8,7 +8,7 @@
 
 import UIKit
 
-import GoogleMobileAds
+// import GoogleMobileAds
 
 class AddDetailsMyTripViewController: UIViewController {
     
@@ -26,7 +26,7 @@ class AddDetailsMyTripViewController: UIViewController {
         didSet { travellersTableView.tableFooterView = UIView() }
     }
     
-    @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var bannerView: UIView!
     
     // MARK: - Properties
     
@@ -38,7 +38,7 @@ class AddDetailsMyTripViewController: UIViewController {
     var celluleActive = false
     var celluleIndex: Int?
     var randomImage = String()
-    let adMobService = AdMobService()
+//    let adMobService = AdMobService()
     private var travellersNames = [String]()
     private var cellSelected: String?
     private var itemTraveller = [ItemTraveller]()
@@ -77,7 +77,7 @@ class AddDetailsMyTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         notesTextView.delegate = self
-        adMobService.setAdMob(bannerView, self)
+//        adMobService.setAdMob(bannerView, self)
         coreDataFunction()
         customUI()
         setDatePicker()
@@ -387,7 +387,7 @@ extension AddDetailsMyTripViewController: UITableViewDelegate {
         }
     }
     
-    /// delete entity CoreData
+//    /// delete entity CoreData
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 //        if editingStyle == .delete {
 //            if !celluleActive {

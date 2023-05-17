@@ -11,7 +11,7 @@ import Alamofire
 
 protocol PlaceProtocol {
     var urlStringApi: String { get }
-    func request(url: URL, completionHandler: @escaping (DataResponse<Any>) -> Void)
+    func request(url: URL, completionHandler: @escaping (AFDataResponse<Any>) -> Void)
 }
 
 extension PlaceProtocol {

@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A01199D2A15430F004B8853 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A01199C2A15430F004B8853 /* SDWebImage */; };
+		3A01199F2A15430F004B8853 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3A01199E2A15430F004B8853 /* SDWebImageMapKit */; };
+		3A0119A22A154E26004B8853 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0119A12A154E26004B8853 /* Alamofire */; };
 		3A02015E23F4788300CDDEED /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02015D23F4788300CDDEED /* String.swift */; };
 		3A07E4B52656AFCD00F23E60 /* UIViewController+GADBannerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A07E4B42656AFCD00F23E60 /* UIViewController+GADBannerViewDelegate.swift */; };
 		3A07E4B72656B18700F23E60 /* AdMobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A07E4B62656B18700F23E60 /* AdMobService.swift */; };
@@ -222,11 +225,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A0119A22A154E26004B8853 /* Alamofire in Frameworks */,
 				3A84F5A0275677CF007BFA42 /* CoreTelephony.framework in Frameworks */,
 				3AAA369227568F6300FE4975 /* AdSupport.framework in Frameworks */,
 				3AAA368D27568F5200FE4975 /* EventKit.framework in Frameworks */,
+				3A01199D2A15430F004B8853 /* SDWebImage in Frameworks */,
 				3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */,
 				3A6D058F2743CB8600AB0735 /* WebKit.framework in Frameworks */,
+				3A01199F2A15430F004B8853 /* SDWebImageMapKit in Frameworks */,
 				E6E09DF279E0D1E17987D7CF /* Pods_RoadTrip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,13 +616,17 @@
 				3A755CAE23EDA3DE00889FA5 /* Frameworks */,
 				3A755CAF23EDA3DE00889FA5 /* Resources */,
 				3A755CD923EDA4DB00889FA5 /* ShellScript */,
-				0EEFE730B703790962D1561A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = RoadTrip;
+			packageProductDependencies = (
+				3A01199C2A15430F004B8853 /* SDWebImage */,
+				3A01199E2A15430F004B8853 /* SDWebImageMapKit */,
+				3A0119A12A154E26004B8853 /* Alamofire */,
+			);
 			productName = RoadTrip;
 			productReference = 3A755CB123EDA3DE00889FA5 /* RoadTrip.app */;
 			productType = "com.apple.product-type.application";
@@ -629,7 +639,6 @@
 				3A755CC623EDA3E300889FA5 /* Sources */,
 				3A755CC723EDA3E300889FA5 /* Frameworks */,
 				3A755CC823EDA3E300889FA5 /* Resources */,
-				D2F3CD4283DEA398DA0031C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -647,8 +656,9 @@
 		3A755CA923EDA3DE00889FA5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Angelique Babin";
 				TargetAttributes = {
 					3A755CB023EDA3DE00889FA5 = {
@@ -669,6 +679,10 @@
 				Base,
 			);
 			mainGroup = 3A755CA823EDA3DE00889FA5;
+			packageReferences = (
+				3A01199B2A15430F004B8853 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				3A0119A02A154E26004B8853 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 3A755CB223EDA3DE00889FA5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -713,23 +727,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0EEFE730B703790962D1561A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoadTrip/Pods-RoadTrip-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoadTrip/Pods-RoadTrip-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoadTrip/Pods-RoadTrip-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3A755CD923EDA4DB00889FA5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -738,14 +735,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/scriptInput.data",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/scriptOutput.data",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		3FCBB4F50CC4E29AB41B95B7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -789,23 +788,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2F3CD4283DEA398DA0031C7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -955,6 +937,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1016,6 +999,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1027,6 +1011,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1045,6 +1030,7 @@
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "RoadTrip/Supporting Files/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1059,8 +1045,6 @@
 					"-framework",
 					"\"AVFoundation\"",
 					"-framework",
-					"\"Alamofire\"",
-					"-framework",
 					"\"AudioToolbox\"",
 					"-framework",
 					"\"CFNetwork\"",
@@ -1073,14 +1057,6 @@
 					"-framework",
 					"\"CoreVideo\"",
 					"-framework",
-					"\"FBLPromises\"",
-					"-framework",
-					"\"GoogleAppMeasurement\"",
-					"-framework",
-					"\"GoogleMobileAds\"",
-					"-framework",
-					"\"GoogleUtilities\"",
-					"-framework",
 					"\"ImageIO\"",
 					"-framework",
 					"\"MediaPlayer\"",
@@ -1091,19 +1067,13 @@
 					"-framework",
 					"\"QuartzCore\"",
 					"-framework",
-					"\"SDWebImage\"",
-					"-framework",
 					"\"Security\"",
 					"-framework",
 					"\"StoreKit\"",
 					"-framework",
 					"\"SystemConfiguration\"",
 					"-framework",
-					"\"UserMessagingPlatform\"",
-					"-framework",
 					"\"WebKit\"",
-					"-framework",
-					"\"nanopb\"",
 					"-weak_framework",
 					"\"AdSupport\"",
 					"-weak_framework",
@@ -1132,6 +1102,7 @@
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "RoadTrip/Supporting Files/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1146,8 +1117,6 @@
 					"-framework",
 					"\"AVFoundation\"",
 					"-framework",
-					"\"Alamofire\"",
-					"-framework",
 					"\"AudioToolbox\"",
 					"-framework",
 					"\"CFNetwork\"",
@@ -1160,14 +1129,6 @@
 					"-framework",
 					"\"CoreVideo\"",
 					"-framework",
-					"\"FBLPromises\"",
-					"-framework",
-					"\"GoogleAppMeasurement\"",
-					"-framework",
-					"\"GoogleMobileAds\"",
-					"-framework",
-					"\"GoogleUtilities\"",
-					"-framework",
 					"\"ImageIO\"",
 					"-framework",
 					"\"MediaPlayer\"",
@@ -1178,19 +1139,13 @@
 					"-framework",
 					"\"QuartzCore\"",
 					"-framework",
-					"\"SDWebImage\"",
-					"-framework",
 					"\"Security\"",
 					"-framework",
 					"\"StoreKit\"",
 					"-framework",
 					"\"SystemConfiguration\"",
 					"-framework",
-					"\"UserMessagingPlatform\"",
-					"-framework",
 					"\"WebKit\"",
-					"-framework",
-					"\"nanopb\"",
 					"-weak_framework",
 					"\"AdSupport\"",
 					"-weak_framework",
@@ -1287,6 +1242,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A01199B2A15430F004B8853 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		3A0119A02A154E26004B8853 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A01199C2A15430F004B8853 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A01199B2A15430F004B8853 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		3A01199E2A15430F004B8853 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A01199B2A15430F004B8853 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		3A0119A12A154E26004B8853 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A0119A02A154E26004B8853 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3A755CBD23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld */ = {

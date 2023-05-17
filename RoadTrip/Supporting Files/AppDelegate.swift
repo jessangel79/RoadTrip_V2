@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GoogleMobileAds
+// import GoogleMobileAds
 import AdSupport
 
 @UIApplicationMain
@@ -27,19 +27,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let ads = GADMobileAds.sharedInstance()
-        ads.start { status in
-            // Optional: Log each adapter's initialization latency.
-            let adapterStatuses = status.adapterStatusesByClassName
-            for adapter in adapterStatuses {
-                let adapterStatus = adapter.value
-                NSLog("Adapter Name: %@, Description: %@, Latency: %f", adapter.key,
-                      adapterStatus.description, adapterStatus.latency)
-            }
-        }
+//        let ads = GADMobileAds.sharedInstance()
+//        ads.start { status in
+//            // Optional: Log each adapter's initialization latency.
+//            let adapterStatuses = status.adapterStatusesByClassName
+//            for adapter in adapterStatuses {
+//                let adapterStatus = adapter.value
+//                NSLog("Adapter Name: %@, Description: %@, Latency: %f", adapter.key,
+//                      adapterStatus.description, adapterStatus.latency)
+//            }
+//        }
         
 //        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID, "04b5955b04ab689e9a3e11e6927572c3" ]
+        
+//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID, "04b5955b04ab689e9a3e11e6927572c3" ]
         
         return true
     }
