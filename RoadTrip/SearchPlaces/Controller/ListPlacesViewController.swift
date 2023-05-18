@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AdColony
 
 // import GoogleMobileAds
 
@@ -26,6 +27,7 @@ class ListPlacesViewController: UIViewController {
     private var cellSelected: PlacesSearchElement?
     private var photoOfCellSelected: String?
     private let segueToPlaceDetails = Constants.SegueToPlaceDetails
+    var adColonyService = AdColonyService()
     
 //    let adMobService = AdMobService()
     
@@ -34,6 +36,8 @@ class ListPlacesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        adMobService.setAdMob(bannerView, self)
+        adColonyService.destroyAd()
+        adColonyService.requestBannerAd(Constants.AdColony.Banner1, self) // 1
         let nib = UINib(nibName: Constants.ListPlacesTableViewCell, bundle: nil)
         placesTableView.register(nib, forCellReuseIdentifier: Constants.ListPlacesCell)
         animationTableView(tableView: placesTableView)
@@ -87,5 +91,18 @@ extension ListPlacesViewController {
             detailsPlaceVC.cellule = self.cellSelected
             detailsPlaceVC.photoOfCellule = self.photoOfCellSelected
         }
+    }
+}
+
+// MARK: - Extension AdColony AdView Delegate
+
+extension ListPlacesViewController {
+    
+    override func adColonyAdViewDidLoad(_ adView: AdColonyAdView) {
+        adColonyService.destroyAd()
+        let placementSize = self.bannerView.frame.size
+        adView.frame = CGRect(x: 0, y: 0, width: placementSize.width, height: placementSize.height)
+        self.bannerView.addSubview(adView)
+        adColonyService.banner = adView
     }
 }

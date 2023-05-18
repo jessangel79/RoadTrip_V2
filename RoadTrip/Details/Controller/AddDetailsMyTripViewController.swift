@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AdColony
 // import GoogleMobileAds
 
 class AddDetailsMyTripViewController: UIViewController {
@@ -42,6 +42,7 @@ class AddDetailsMyTripViewController: UIViewController {
     private var travellersNames = [String]()
     private var cellSelected: String?
     private var itemTraveller = [ItemTraveller]()
+    var adColonyService = AdColonyService()
 
     // MARK: - Actions
 
@@ -78,6 +79,8 @@ class AddDetailsMyTripViewController: UIViewController {
         super.viewDidLoad()
         notesTextView.delegate = self
 //        adMobService.setAdMob(bannerView, self)
+        adColonyService.destroyAd()
+        adColonyService.requestBannerAd(Constants.AdColony.Banner1, self) // 1
         coreDataFunction()
         customUI()
         setDatePicker()
@@ -416,5 +419,18 @@ extension AddDetailsMyTripViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return travellersNames.isEmpty ? 44 : 0
+    }
+}
+
+// MARK: - Extension AdColony AdView Delegate
+
+extension AddDetailsMyTripViewController {
+    
+    override func adColonyAdViewDidLoad(_ adView: AdColonyAdView) {
+        adColonyService.destroyAd()
+        let placementSize = self.bannerView.frame.size
+        adView.frame = CGRect(x: 0, y: 0, width: placementSize.width, height: placementSize.height)
+        self.bannerView.addSubview(adView)
+        adColonyService.banner = adView
     }
 }

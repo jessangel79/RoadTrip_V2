@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: eb4b9cad7143b99c63c105fbb5763660202e2119
+PODS:
+  - AdColony (4.9.0)
+
+DEPENDENCIES:
+  - AdColony
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AdColony
+
+SPEC CHECKSUMS:
+  AdColony: 4f3738dc633d7aaa8ec60729df973076cc8e97ed
+
+PODFILE CHECKSUM: 002aa6478982deb89b3373c0f177c82c201fedf3
 
 COCOAPODS: 1.11.2

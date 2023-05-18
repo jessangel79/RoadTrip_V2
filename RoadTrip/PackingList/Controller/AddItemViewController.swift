@@ -40,6 +40,8 @@ final class AddItemViewController: AddDetailsMyTripViewController {
     
     override func viewDidLoad() {
 //        adMobService.setAdMob(bannerView, self)
+        adColonyService.destroyAd()
+        adColonyService.requestBannerAd(Constants.AdColony.Banner1, self) // 1
         coreDataFunction()
         customUI()
         setImagebackground()

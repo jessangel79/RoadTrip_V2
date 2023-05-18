@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AdColony
 // import GoogleMobileAds
 
 final class InformationsViewController: UIViewController {
@@ -22,6 +22,7 @@ final class InformationsViewController: UIViewController {
     private let mergersort = "https://github.com/mergesort/TableFlip"
     private let openStreetMap = "https://www.openstreetmap.org/copyright"
     private var urlString = String()
+    private var adColonyService = AdColonyService()
     
 //    private let adMobService = AdMobService()
     
@@ -65,6 +66,8 @@ final class InformationsViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isToolbarHidden = true
 //        adMobService.setAdMob(bannerView, self)
+        adColonyService.destroyAd()
+        adColonyService.requestBannerAd(Constants.AdColony.Banner1, self) // 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,5 +95,18 @@ extension InformationsViewController {
             guard let websiteInfoVC = segue.destination as? WebViewInformationsViewController else { return }
             websiteInfoVC.urlString = self.urlString
         }
+    }
+}
+
+// MARK: - Extension AdColony AdView Delegate
+
+extension InformationsViewController {
+    
+    override func adColonyAdViewDidLoad(_ adView: AdColonyAdView) {
+        adColonyService.destroyAd()
+        let placementSize = self.bannerView.frame.size
+        adView.frame = CGRect(x: 0, y: 0, width: placementSize.width, height: placementSize.height)
+        self.bannerView.addSubview(adView)
+        adColonyService.banner = adView
     }
 }

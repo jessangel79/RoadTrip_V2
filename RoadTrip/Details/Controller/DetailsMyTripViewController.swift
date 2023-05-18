@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AdColony
 // import GoogleMobileAds
 
 class DetailsMyTripViewController: UIViewController {
@@ -28,6 +28,8 @@ class DetailsMyTripViewController: UIViewController {
     var celluleActive = false
     var celluleIndex = 0
     var tabType = Constants.Trip
+    var adColonyService = AdColonyService()
+
     
 //    let adMobService = AdMobService()
     
@@ -44,6 +46,8 @@ class DetailsMyTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        adMobService.setAdMob(bannerView, self)
+        adColonyService.destroyAd()
+        adColonyService.requestBannerAd(Constants.AdColony.Banner1, self) // 1
         coreDataFunction()
         setNib()
         animationTableView(tableView: myTripTableView)
@@ -172,5 +176,18 @@ extension DetailsMyTripViewController {
                 addDetailsMyTripVC.celluleActive = false
             }
         }
+    }
+}
+
+// MARK: - Extension AdColony AdView Delegate
+
+extension DetailsMyTripViewController {
+    
+    override func adColonyAdViewDidLoad(_ adView: AdColonyAdView) {
+        adColonyService.destroyAd()
+        let placementSize = self.bannerView.frame.size
+        adView.frame = CGRect(x: 0, y: 0, width: placementSize.width, height: placementSize.height)
+        self.bannerView.addSubview(adView)
+        adColonyService.banner = adView
     }
 }

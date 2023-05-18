@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import AdColony
 
 // import GoogleMobileAds
 
@@ -34,6 +35,7 @@ class MapViewController: UIViewController {
     var subtitle: String?
     var info: String?
     var phone: String?
+    var adColonyService = AdColonyService()
     
 //    let adMobService = AdMobService()
         
@@ -70,6 +72,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        adMobService.setAdMob(bannerView, self)
+        adColonyService.destroyAd()
+        adColonyService.requestBannerAd(Constants.AdColony.Banner1, self) // 1
         mapView.register(PoiAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         customUI()
         setupData()
@@ -169,4 +173,17 @@ extension MapViewController: CLLocationManagerDelegate {
         mapView.setCamera(mapView.camera, animated: true)
     }
     
+}
+
+// MARK: - Extension AdColony AdView Delegate
+
+extension MapViewController {
+    
+    override func adColonyAdViewDidLoad(_ adView: AdColonyAdView) {
+        adColonyService.destroyAd()
+        let placementSize = self.bannerView.frame.size
+        adView.frame = CGRect(x: 0, y: 0, width: placementSize.width, height: placementSize.height)
+        self.bannerView.addSubview(adView)
+        adColonyService.banner = adView
+    }
 }

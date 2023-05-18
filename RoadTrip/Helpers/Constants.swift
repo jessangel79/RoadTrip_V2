@@ -44,4 +44,11 @@ struct Constants {
     
     static let BannerViewCell = "BannerViewCell"
     static let BannerTableViewCell = "BannerTableViewCell"
+    
+    struct AdColony {
+        static let AppUUID = valueForAPIKey(named: "AdColonyAppUUID")
+        static let Banner1 = "vzbd6cd9cf27ad491aa4"
+        static let Interstitial = "vz389bab72d821412c8d"
+//        static let BannerMediumRect = "vz9c33d64665964a36be"
+    }
 }

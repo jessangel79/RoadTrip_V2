@@ -8,6 +8,7 @@
 
 import UIKit
 // import GoogleMobileAds
+import AdColony
 import AdSupport
 
 @UIApplicationMain
@@ -24,24 +25,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coreDataStack.saveContext()
     }
     
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return .all
+    }
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-//        let ads = GADMobileAds.sharedInstance()
-//        ads.start { status in
-//            // Optional: Log each adapter's initialization latency.
-//            let adapterStatuses = status.adapterStatusesByClassName
-//            for adapter in adapterStatuses {
-//                let adapterStatus = adapter.value
-//                NSLog("Adapter Name: %@, Description: %@, Latency: %f", adapter.key,
-//                      adapterStatus.description, adapterStatus.latency)
-//            }
-//        }
-        
-//        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        
-//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID, "04b5955b04ab689e9a3e11e6927572c3" ]
-        
+        setAdColony()
         return true
+    }
+    
+    private func setAdColony() {
+        AdColony.configure(withAppID: Constants.AdColony.AppUUID, options: nil) { [] (zones) in // [weak self]
+             // config RGPD
+//            if UserSettings.userConsent {
+//
+//            } else {
+//
+//            }
+            
+            // Exemple : Précharger une publicité interstitielle
+//            let zoneID = Constants.AdColony.Banner1
+//            AdColony.requestInterstitial(inZone: zoneID) { (interstitial) in
+//                if let interstitial = interstitial {
+//                    // La publicité interstitielle a été préchargée avec succès
+//                    // Vous pouvez maintenant l'utiliser lorsque vous en avez besoin
+//                } else {
+//                    // La précharge de la publicité interstitielle a échoué
+//                    // Gérez cette situation en conséquence
+//                }
+//            }
+        }
+//        AdColony.configure(withAppID: Constants.AdColony.AppUUID,
+//                           zoneIDs: [Constants.AdColony.Banner1,
+//                                     Constants.AdColony.Interstitial], options: nil) { [] (zones) in
+//                // config RGPD [weak self]
+//    //            if UserSettings.userConsent {
+//    //
+//    //            } else {
+//    //
+//    //            }
+//
+//        }
     }
 }

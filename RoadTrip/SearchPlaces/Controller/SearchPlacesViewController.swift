@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AdColony
 
 // import GoogleMobileAds
 
@@ -29,7 +30,8 @@ final class SearchPlacesViewController: UIViewController {
     private var photosList = [PhotosResult]()
     private var queriesList = [String]()
     private let segueToPlacesList = Constants.SegueToPlacesList
-    
+    private var adColonyService = AdColonyService()
+
 //    private let adMobService = AdMobService()
     
     // MARK: - Actions
@@ -43,6 +45,8 @@ final class SearchPlacesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customButton(button: searchPlacesButton, radius: 20, width: 0.8, colorBackground: #colorLiteral(red: 0.397138536, green: 0.09071742743, blue: 0.3226287365, alpha: 1), colorBorder: #colorLiteral(red: 0.7162324786, green: 0.7817066312, blue: 1, alpha: 1))
+        adColonyService.destroyAd()
+        adColonyService.requestBannerAd(Constants.AdColony.Banner1, self) // 1
 //        bannerView.adSize = GADAdSizeBanner // test
 //        adMobService.setAdMob(bannerView, self)
 //        adViewDidReceiveAd(bannerView)
@@ -156,5 +160,18 @@ extension SearchPlacesViewController {
             guard let listPlacesVC = segue.destination as? ListPlacesViewController else { return }
             listPlacesVC.placesList = placesList
         }
+    }
+}
+
+// MARK: - Extension AdColony AdView Delegate
+
+extension SearchPlacesViewController {
+    
+    override func adColonyAdViewDidLoad(_ adView: AdColonyAdView) {
+        adColonyService.destroyAd()
+        let placementSize = self.bannerView.frame.size
+        adView.frame = CGRect(x: 0, y: 0, width: placementSize.width, height: placementSize.height)
+        self.bannerView.addSubview(adView)
+        adColonyService.banner = adView
     }
 }

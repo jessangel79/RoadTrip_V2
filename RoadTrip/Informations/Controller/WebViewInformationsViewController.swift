@@ -8,7 +8,7 @@
 
 import UIKit
 import WebKit
-
+import AdColony
 // import GoogleMobileAds
 
 final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
@@ -28,7 +28,8 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     private let backBarItem = UIBarButtonItem(title: "<<", style: .plain, target: WebViewInformationsViewController.self,
                                       action: #selector(backAction))
     private let refreshBarItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: WebViewInformationsViewController.self, action: #selector(refresh))
-    
+    private var adColonyService = AdColonyService()
+
 //    private let adMobService = AdMobService()
     
     var urlString = String()
@@ -48,6 +49,8 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        adMobService.setAdMob(bannerView, self)
+        adColonyService.destroyAd()
+        adColonyService.requestBannerAd(Constants.AdColony.Banner1, self) // 1
         let barItemsCollection: [UIBarButtonItem] = [forwardBarItem, refreshBarItem, backBarItem]
         setupWebView(webView: webView, barItemsCollection: barItemsCollection)
         loadWebsite(urlString, webView: webView)
@@ -73,5 +76,19 @@ final class WebViewInformationsViewController: UIViewController, WKUIDelegate {
     
     @objc private func refresh() {
         webView.reload()
+    }
+}
+
+
+// MARK: - Extension AdColony AdView Delegate
+
+extension WebViewInformationsViewController {
+    
+    override func adColonyAdViewDidLoad(_ adView: AdColonyAdView) {
+        adColonyService.destroyAd()
+        let placementSize = self.bannerView.frame.size
+        adView.frame = CGRect(x: 0, y: 0, width: placementSize.width, height: placementSize.height)
+        self.bannerView.addSubview(adView)
+        adColonyService.banner = adView
     }
 }

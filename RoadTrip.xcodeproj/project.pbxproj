@@ -30,6 +30,9 @@
 		3A30E9FD23F5A21C00532EDD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30E9FC23F5A21C00532EDD /* Constants.swift */; };
 		3A31469A276A5A69001E1A57 /* ItemTraveller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A314699276A5A69001E1A57 /* ItemTraveller.swift */; };
 		3A34E808241F917400237610 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34E807241F917400237610 /* UITextField.swift */; };
+		3A471C532A165B7F0054AE01 /* AdColonyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A471C522A165B7F0054AE01 /* AdColonyService.swift */; };
+		3A471C552A165BE80054AE01 /* UIViewController+AdColonyBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A471C542A165BE80054AE01 /* UIViewController+AdColonyBanner.swift */; };
+		3A471C572A165C050054AE01 /* UIViewController+AdColonyInterstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A471C562A165C050054AE01 /* UIViewController+AdColonyInterstitial.swift */; };
 		3A4D510124293D78008D682F /* PackingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */; };
 		3A4D510224293D78008D682F /* PackingListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4D510024293D78008D682F /* PackingListTableViewCell.xib */; };
 		3A5FF4E72434C0B600C2B395 /* FakeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FF4E62434C0B600C2B395 /* FakeResponse.swift */; };
@@ -133,6 +136,9 @@
 		3A34E807241F917400237610 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		3A3618FD24059328002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A36190124059795002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A471C522A165B7F0054AE01 /* AdColonyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdColonyService.swift; sourceTree = "<group>"; };
+		3A471C542A165BE80054AE01 /* UIViewController+AdColonyBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AdColonyBanner.swift"; sourceTree = "<group>"; };
+		3A471C562A165C050054AE01 /* UIViewController+AdColonyInterstitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AdColonyInterstitial.swift"; sourceTree = "<group>"; };
 		3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListTableViewCell.swift; sourceTree = "<group>"; };
 		3A4D510024293D78008D682F /* PackingListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackingListTableViewCell.xib; sourceTree = "<group>"; };
 		3A5FF4E62434C0B600C2B395 /* FakeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponse.swift; sourceTree = "<group>"; };
@@ -387,6 +393,8 @@
 				3AFA6203241A67430055E8E8 /* UIViewController+ActivityIndicator.swift */,
 				3A0E376C2412A9E200039FD3 /* UIViewController+EventKit.swift */,
 				3A70AD57250A9E4900C1CD09 /* UiViewController+WKWebView.swift */,
+				3A471C542A165BE80054AE01 /* UIViewController+AdColonyBanner.swift */,
+				3A471C562A165C050054AE01 /* UIViewController+AdColonyInterstitial.swift */,
 				3A07E4B42656AFCD00F23E60 /* UIViewController+GADBannerViewDelegate.swift */,
 				3A1EDD142512743100E2A51A /* UITableView+TableFlip.swift */,
 				3A832AB123FEC049008E7237 /* UITableViewCell.swift */,
@@ -588,6 +596,7 @@
 		3AD6A6F52742AA7D00DDD7C9 /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
+				3A471C522A165B7F0054AE01 /* AdColonyService.swift */,
 				3A07E4B62656B18700F23E60 /* AdMobService.swift */,
 			);
 			path = AdMob;
@@ -798,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2A7F5E2506AB5A00C06D8B /* MapOfMyPlaceViewController.swift in Sources */,
+				3A471C552A165BE80054AE01 /* UIViewController+AdColonyBanner.swift in Sources */,
 				3A07E4B72656B18700F23E60 /* AdMobService.swift in Sources */,
 				3AA339EE23FDA21B00356B6B /* DetailsPlaceViewController.swift in Sources */,
 				3A31469A276A5A69001E1A57 /* ItemTraveller.swift in Sources */,
@@ -805,6 +815,7 @@
 				3A2DB4B324003D9500709183 /* PlaceToShareParameters.swift in Sources */,
 				3A755CB523EDA3DE00889FA5 /* AppDelegate.swift in Sources */,
 				3A70AD56250A9DB800C1CD09 /* WebViewInformationsViewController.swift in Sources */,
+				3A471C572A165C050054AE01 /* UIViewController+AdColonyInterstitial.swift in Sources */,
 				3ABB99AA241963B8007CE8FA /* AddDetailsMyTripViewController.swift in Sources */,
 				3ADD71C9242A365A00CD4081 /* AddItemViewController.swift in Sources */,
 				3ABB99A024190D66007CE8FA /* DetailsMyTripViewController.swift in Sources */,
@@ -831,6 +842,7 @@
 				3A755CBF23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld in Sources */,
 				3ADD71C6242A339D00CD4081 /* Categories.swift in Sources */,
 				3A1EDD152512743100E2A51A /* UITableView+TableFlip.swift in Sources */,
+				3A471C532A165B7F0054AE01 /* AdColonyService.swift in Sources */,
 				3AFA6202241A66F60055E8E8 /* UIViewController+CustomUI.swift in Sources */,
 				3AD895E825028B5200E8902F /* DetailsPlaceParameters.swift in Sources */,
 				3A70AD58250A9E4900C1CD09 /* UiViewController+WKWebView.swift in Sources */,
@@ -952,7 +964,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1008,7 +1020,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1026,7 +1038,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadTrip/RoadTrip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "RoadTrip/Supporting Files/Info.plist";
@@ -1035,7 +1047,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1098,7 +1110,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadTrip/RoadTrip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "RoadTrip/Supporting Files/Info.plist";
@@ -1107,7 +1119,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1173,7 +1185,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				INFOPLIST_FILE = RoadTripTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1197,7 +1209,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				INFOPLIST_FILE = RoadTripTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import AdColony
 
 // import GoogleMobileAds
 
@@ -44,6 +45,7 @@ class DetailsPlaceViewController: UIViewController {
     var placeName = String()
     var address = String()
     let dataManager = DataManager()
+    var adColonyService = AdColonyService()
     
 //    let adMobService = AdMobService()
     
@@ -91,6 +93,8 @@ class DetailsPlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        adMobService.setAdMob(bannerView, self)
+        adColonyService.destroyAd()
+        adColonyService.requestBannerAd(Constants.AdColony.Banner1, self) // 1
         coreDataFunction()
         customUI()
         configureDetailsPlace()
@@ -253,5 +257,18 @@ extension DetailsPlaceViewController {
             guard let mapVC = segue.destination as? MapViewController else { return }
             mapVC.cellule = self.cellule
         }
+    }
+}
+
+// MARK: - Extension AdColony AdView Delegate
+
+extension DetailsPlaceViewController {
+    
+    override func adColonyAdViewDidLoad(_ adView: AdColonyAdView) {
+        adColonyService.destroyAd()
+        let placementSize = self.bannerView.frame.size
+        adView.frame = CGRect(x: 0, y: 0, width: placementSize.width, height: placementSize.height)
+        self.bannerView.addSubview(adView)
+        adColonyService.banner = adView
     }
 }
