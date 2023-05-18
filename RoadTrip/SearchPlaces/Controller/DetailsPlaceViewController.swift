@@ -219,7 +219,12 @@ class DetailsPlaceViewController: UIViewController {
     func checkIfPlaceIsSaved() {
         guard let checkIfPlaceIsSaved = coreDataManager?.checkIfPlaceIsSaved(placeName: placeName, address: address) else { return }
         placeIsSaved = checkIfPlaceIsSaved
-        placeIsSaved ? setBookmarkBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)) : setBookmarkBarButtonItem(color: .none)
+        if placeIsSaved {
+            setBookmarkBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1))
+        } else {
+            setBookmarkBarButtonItem(color: .none)
+        }
+//        placeIsSaved ? setBookmarkBarButtonItem(color: #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)) : setBookmarkBarButtonItem(color: .none)
 
     }
 
