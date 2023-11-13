@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -52,6 +52,8 @@
 		3A755CE623EDB2FE00889FA5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CE523EDB2FE00889FA5 /* CoreDataManager.swift */; };
 		3A755CEA23EDD63200889FA5 /* PlaceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CE923EDD63200889FA5 /* PlaceProtocol.swift */; };
 		3A832AB223FEC049008E7237 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A832AB123FEC049008E7237 /* UITableViewCell.swift */; };
+		3A85F36C2B027B36009137E2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A85F36B2B027B36009137E2 /* SDWebImage */; };
+		3A85F36F2B027B85009137E2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A85F36E2B027B85009137E2 /* Alamofire */; };
 		3A8806E425094A8400414F7B /* Photos.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A8806E325094A8400414F7B /* Photos.json */; };
 		3A959D3524992B7900C27B86 /* PlacesSearchOpen.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */; };
 		3AA316092523A72300B9C19E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA316082523A72200B9C19E /* DataManager.swift */; };
@@ -198,7 +200,9 @@
 				3A07E4B32656893900F23E60 /* CoreTelephony.framework in Frameworks */,
 				3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */,
 				3A6D058F2743CB8600AB0735 /* WebKit.framework in Frameworks */,
+				3A85F36F2B027B85009137E2 /* Alamofire in Frameworks */,
 				E6E09DF279E0D1E17987D7CF /* Pods_RoadTrip.framework in Frameworks */,
+				3A85F36C2B027B36009137E2 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +566,10 @@
 			dependencies = (
 			);
 			name = RoadTrip;
+			packageProductDependencies = (
+				3A85F36B2B027B36009137E2 /* SDWebImage */,
+				3A85F36E2B027B85009137E2 /* Alamofire */,
+			);
 			productName = RoadTrip;
 			productReference = 3A755CB123EDA3DE00889FA5 /* RoadTrip.app */;
 			productType = "com.apple.product-type.application";
@@ -574,7 +582,6 @@
 				3A755CC623EDA3E300889FA5 /* Sources */,
 				3A755CC723EDA3E300889FA5 /* Frameworks */,
 				3A755CC823EDA3E300889FA5 /* Resources */,
-				D2F3CD4283DEA398DA0031C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -614,6 +621,10 @@
 				Base,
 			);
 			mainGroup = 3A755CA823EDA3DE00889FA5;
+			packageReferences = (
+				3A85F36A2B027B36009137E2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				3A85F36D2B027B85009137E2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 3A755CB223EDA3DE00889FA5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -733,23 +744,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2F3CD4283DEA398DA0031C7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -907,7 +901,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -962,7 +956,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1156,7 +1150,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				INFOPLIST_FILE = RoadTripTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1180,7 +1174,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
 				INFOPLIST_FILE = RoadTripTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1225,6 +1219,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A85F36A2B027B36009137E2 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.4;
+			};
+		};
+		3A85F36D2B027B85009137E2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A85F36B2B027B36009137E2 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A85F36A2B027B36009137E2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		3A85F36E2B027B85009137E2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A85F36D2B027B85009137E2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3A755CBD23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld */ = {

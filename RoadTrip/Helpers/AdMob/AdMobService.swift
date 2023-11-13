@@ -15,7 +15,8 @@ final class AdMobService {
         bannerView.delegate = viewController
         bannerView.adUnitID = Constants.AdMobAdUnitIDTest // Test
         bannerView.rootViewController = viewController
-//        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
+        // To comment before AppStore
+        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
         bannerView.load(GADRequest())
     }
 }
