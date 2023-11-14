@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           "Google Mobile Ads SDK version: \(GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber))"
         )
         // TODO: - To delete -> to move in class AdMobService
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+//        GADMobileAds.sharedInstance().start(completionHandler: nil)
         return true
     }
 }

@@ -10,12 +10,12 @@ import Foundation
 
 import GoogleMobileAds
 
-// MARK: - Extension GADBannerViewDelegate
+// MARK: - Extension GADBannerViewDelegate methods
 
 extension UIViewController: GADBannerViewDelegate {
     
     public func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("bannerViewDidReceiveAd")
+        print(#function)
         bannerView.alpha = 0
         UIView.animate(withDuration: 1, animations: {
             bannerView.alpha = 1
@@ -23,23 +23,23 @@ extension UIViewController: GADBannerViewDelegate {
     }
     
     public func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        print(#function + ": " + error.localizedDescription)
     }
     
     public func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-        print("bannerViewDidRecordImpression")
+        print(#function)
     }
     
     public func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-        print("bannerViewWillPresentScreen")
+        print(#function)
     }
     
     public func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("bannerViewWillDIsmissScreen")
+        print(#function)
     }
     
     public func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print("bannerViewDidDismissScreen")
-    }
+        print(#function)
+     }
     
 }

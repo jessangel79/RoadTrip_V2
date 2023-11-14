@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rop-A0-w01">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rop-A0-w01">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +20,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vxI-8N-pIy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,10 +47,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coucher-du-soleil_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="SAv-Jc-Ff9">
-                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Gxs-Nb-Ylf">
-                                <rect key="frame" x="35" y="94" width="250" height="191"/>
+                                <rect key="frame" x="35" y="114" width="250" height="191"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fah-XF-Y8d">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="78"/>
@@ -158,6 +159,13 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="0Vt-Fr-HpN">
                             <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" id="zCz-O4-cCF">
+                            <imageReference key="image" image="hand.raised.fill" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="fsw-b1-xXk" id="Z8f-g6-HBe"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Info" image="info-credits" id="lq5-9L-2rs">
                             <color key="tintColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -172,6 +180,7 @@
                         <outlet property="cityTextField" destination="fMX-X7-Wpp" id="SJe-Y6-XK7"/>
                         <outlet property="placeLabel" destination="exa-D9-5Tw" id="yDy-dR-lfg"/>
                         <outlet property="placeTextField" destination="0YS-5o-w1l" id="V1N-zu-b4P"/>
+                        <outlet property="privacySettingsBarButtonItem" destination="zCz-O4-cCF" id="09r-kx-f8O"/>
                         <outlet property="searchPlacesButton" destination="0Rb-41-1xf" id="Eqc-Ee-7l3"/>
                         <segue destination="Ta4-aQ-To8" kind="show" identifier="segueToPlacesList" id="v8f-fx-716"/>
                     </connections>
@@ -204,7 +213,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ssd-4V-oao">
-                                <rect key="frame" x="0.0" y="44" width="320" height="425"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="405"/>
                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -256,7 +265,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brv-Ay-ucx" userLabel="Base View">
-                                <rect key="frame" x="0.0" y="44" width="320" height="260"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="260"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="palm-island_1024x768" translatesAutoresizingMaskIntoConstraints="NO" id="4oD-u5-Zz0">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
@@ -388,7 +397,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fce-BU-Ip6" userLabel="Details Text View">
-                                <rect key="frame" x="8" y="304" width="312" height="165"/>
+                                <rect key="frame" x="8" y="324" width="312" height="145"/>
                                 <color key="backgroundColor" red="0.71623247860000006" green="0.78170663119999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.36425268649999998" green="0.1160309836" blue="0.31373983620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -471,13 +480,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CtU-OZ-FQC">
-                                <rect key="frame" x="0.0" y="94" width="320" height="425"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="405"/>
                                 <connections>
                                     <outlet property="delegate" destination="RIc-BQ-kOp" id="Xdx-3f-rlc"/>
                                 </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZa-ar-oTP" customClass="GADBannerView">
-                                <rect key="frame" x="10" y="44" width="300" height="50"/>
+                                <rect key="frame" x="10" y="64" width="300" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3L5-yY-Nzv"/>
@@ -556,6 +565,7 @@
         <image name="bookmark_fill" width="25" height="25"/>
         <image name="coucher-du-soleil_1024x1024" width="1024" height="1024"/>
         <image name="europe" width="25" height="25"/>
+        <image name="hand.raised.fill" catalog="system" width="128" height="128"/>
         <image name="info-credits" width="25" height="25"/>
         <image name="palm-island_1024x768" width="1024" height="768"/>
         <image name="placemarker" width="25" height="25"/>
