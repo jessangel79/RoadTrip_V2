@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A02015E23F4788300CDDEED /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02015D23F4788300CDDEED /* String.swift */; };
-		3A07E4B32656893900F23E60 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A07E4B22656893900F23E60 /* CoreTelephony.framework */; };
 		3A07E4B52656AFCD00F23E60 /* UIViewController+GADBannerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A07E4B42656AFCD00F23E60 /* UIViewController+GADBannerViewDelegate.swift */; };
 		3A07E4B72656B18700F23E60 /* AdMobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A07E4B62656B18700F23E60 /* AdMobService.swift */; };
 		3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0E376824129BBF00039FD3 /* NetworkExtension.framework */; };
@@ -41,6 +40,8 @@
 		3A70AD54250A9BF000C1CD09 /* InformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A70AD53250A9BF000C1CD09 /* InformationsViewController.swift */; };
 		3A70AD56250A9DB800C1CD09 /* WebViewInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A70AD55250A9DB800C1CD09 /* WebViewInformationsViewController.swift */; };
 		3A70AD58250A9E4900C1CD09 /* UiViewController+WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A70AD57250A9E4900C1CD09 /* UiViewController+WKWebView.swift */; };
+		3A7447432B03BEC700E1F0C9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A7447422B03BEC700E1F0C9 /* Alamofire */; };
+		3A7447452B03C7C700E1F0C9 /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7447442B03C7C700E1F0C9 /* GoogleMobileAdsConsentManager.swift */; };
 		3A755CB523EDA3DE00889FA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CB423EDA3DE00889FA5 /* AppDelegate.swift */; };
 		3A755CBC23EDA3DE00889FA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A755CBA23EDA3DE00889FA5 /* Main.storyboard */; };
 		3A755CBF23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CBD23EDA3DE00889FA5 /* RoadTrip.xcdatamodeld */; };
@@ -53,7 +54,6 @@
 		3A755CEA23EDD63200889FA5 /* PlaceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A755CE923EDD63200889FA5 /* PlaceProtocol.swift */; };
 		3A832AB223FEC049008E7237 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A832AB123FEC049008E7237 /* UITableViewCell.swift */; };
 		3A85F36C2B027B36009137E2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A85F36B2B027B36009137E2 /* SDWebImage */; };
-		3A85F36F2B027B85009137E2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A85F36E2B027B85009137E2 /* Alamofire */; };
 		3A8806E425094A8400414F7B /* Photos.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A8806E325094A8400414F7B /* Photos.json */; };
 		3A959D3524992B7900C27B86 /* PlacesSearchOpen.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */; };
 		3AA316092523A72300B9C19E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA316082523A72200B9C19E /* DataManager.swift */; };
@@ -83,8 +83,8 @@
 		3AF881C223F175CC005F64ED /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF881C123F175CC005F64ED /* UIViewController+Alert.swift */; };
 		3AFA6202241A66F60055E8E8 /* UIViewController+CustomUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA6201241A66F60055E8E8 /* UIViewController+CustomUI.swift */; };
 		3AFA6204241A67430055E8E8 /* UIViewController+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA6203241A67430055E8E8 /* UIViewController+ActivityIndicator.swift */; };
-		A70F9AB0F3D15DCFCC37641D /* Pods_RoadTripTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66E5A0E9A831320DCB2101B /* Pods_RoadTripTests.framework */; };
-		E6E09DF279E0D1E17987D7CF /* Pods_RoadTrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC89F3061A341CC16E2908C2 /* Pods_RoadTrip.framework */; };
+		4AABE3EFC905032A549E3E81 /* Pods_RoadTrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BFB76981BB2E66E22C7760 /* Pods_RoadTrip.framework */; };
+		BAE6A0E4F4E1D43270CE7E14 /* Pods_RoadTripTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5221A17EB87B9FDFED52210D /* Pods_RoadTripTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,10 +98,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		28BCDF6C75CCD164028CB626 /* Pods-RoadTripTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTripTests.debug.xcconfig"; path = "Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests.debug.xcconfig"; sourceTree = "<group>"; };
+		076CA78FD63A2E0FEFB48BF0 /* Pods-RoadTripTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTripTests.debug.xcconfig"; path = "Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests.debug.xcconfig"; sourceTree = "<group>"; };
+		082C3C25CF44D5B2A517B5C4 /* Pods-RoadTrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTrip.debug.xcconfig"; path = "Target Support Files/Pods-RoadTrip/Pods-RoadTrip.debug.xcconfig"; sourceTree = "<group>"; };
+		38BFB76981BB2E66E22C7760 /* Pods_RoadTrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadTrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A02015D23F4788300CDDEED /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3A0720692510D2BF002619A7 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
-		3A07E4B22656893900F23E60 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		3A07E4B42656AFCD00F23E60 /* UIViewController+GADBannerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+GADBannerViewDelegate.swift"; sourceTree = "<group>"; };
 		3A07E4B62656B18700F23E60 /* AdMobService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobService.swift; sourceTree = "<group>"; };
 		3A0E376824129BBF00039FD3 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
@@ -120,8 +121,6 @@
 		3A30E9FA23F5990100532EDD /* ListPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlacesViewController.swift; sourceTree = "<group>"; };
 		3A30E9FC23F5A21C00532EDD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A34E807241F917400237610 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
-		3A3618FD24059328002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A36190124059795002A29BA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4D50FF24293D78008D682F /* PackingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListTableViewCell.swift; sourceTree = "<group>"; };
 		3A4D510024293D78008D682F /* PackingListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackingListTableViewCell.xib; sourceTree = "<group>"; };
 		3A5FF4E62434C0B600C2B395 /* FakeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponse.swift; sourceTree = "<group>"; };
@@ -136,6 +135,7 @@
 		3A70AD55250A9DB800C1CD09 /* WebViewInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewInformationsViewController.swift; sourceTree = "<group>"; };
 		3A70AD57250A9E4900C1CD09 /* UiViewController+WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiViewController+WKWebView.swift"; sourceTree = "<group>"; };
 		3A70AD59250AA96600C1CD09 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3A7447442B03C7C700E1F0C9 /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 		3A755CB123EDA3DE00889FA5 /* RoadTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A755CB423EDA3DE00889FA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A755CBB23EDA3DE00889FA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,7 +153,6 @@
 		3A832AB123FEC049008E7237 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		3A8806E325094A8400414F7B /* Photos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Photos.json; sourceTree = "<group>"; };
 		3A959D3424992B7900C27B86 /* PlacesSearchOpen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlacesSearchOpen.json; sourceTree = "<group>"; };
-		3AA069A2271F32DD0098447E /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		3AA316082523A72200B9C19E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		3AA339ED23FDA21B00356B6B /* DetailsPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlaceViewController.swift; sourceTree = "<group>"; };
 		3AA3A1672507EADC00C0999F /* PoiAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiAnnotationView.swift; sourceTree = "<group>"; };
@@ -172,9 +171,6 @@
 		3AD895E725028B5200E8902F /* DetailsPlaceParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlaceParameters.swift; sourceTree = "<group>"; };
 		3ADD71C5242A339D00CD4081 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		3ADD71C8242A365A00CD4081 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
-		3ADE91BE251255DD0009BAEA /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ADE91C2251255E70009BAEA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ADE91CF2512579C0009BAEA /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADF8DDB25010D160011DD77 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3AE7F56F241A944300751764 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3AE99AC22539DDDA00471F2B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -185,11 +181,9 @@
 		3AF881C123F175CC005F64ED /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		3AFA6201241A66F60055E8E8 /* UIViewController+CustomUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomUI.swift"; sourceTree = "<group>"; };
 		3AFA6203241A67430055E8E8 /* UIViewController+ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicator.swift"; sourceTree = "<group>"; };
-		494F0626EF0590516E5B1A5F /* Pods-RoadTrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTrip.debug.xcconfig"; path = "Target Support Files/Pods-RoadTrip/Pods-RoadTrip.debug.xcconfig"; sourceTree = "<group>"; };
-		4C1ACF704ED1862AA4237A93 /* Pods-RoadTrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTrip.release.xcconfig"; path = "Target Support Files/Pods-RoadTrip/Pods-RoadTrip.release.xcconfig"; sourceTree = "<group>"; };
-		DEAD594C8893A954613E4E27 /* Pods-RoadTripTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTripTests.release.xcconfig"; path = "Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests.release.xcconfig"; sourceTree = "<group>"; };
-		E66E5A0E9A831320DCB2101B /* Pods_RoadTripTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadTripTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC89F3061A341CC16E2908C2 /* Pods_RoadTrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadTrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5221A17EB87B9FDFED52210D /* Pods_RoadTripTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadTripTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A2EF8942249DA965367D0E6 /* Pods-RoadTripTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTripTests.release.xcconfig"; path = "Target Support Files/Pods-RoadTripTests/Pods-RoadTripTests.release.xcconfig"; sourceTree = "<group>"; };
+		763835D3364F51F00D9A2260 /* Pods-RoadTrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTrip.release.xcconfig"; path = "Target Support Files/Pods-RoadTrip/Pods-RoadTrip.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,12 +191,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A07E4B32656893900F23E60 /* CoreTelephony.framework in Frameworks */,
+				3A7447432B03BEC700E1F0C9 /* Alamofire in Frameworks */,
 				3A0E376924129BBF00039FD3 /* NetworkExtension.framework in Frameworks */,
 				3A6D058F2743CB8600AB0735 /* WebKit.framework in Frameworks */,
-				3A85F36F2B027B85009137E2 /* Alamofire in Frameworks */,
-				E6E09DF279E0D1E17987D7CF /* Pods_RoadTrip.framework in Frameworks */,
 				3A85F36C2B027B36009137E2 /* SDWebImage in Frameworks */,
+				4AABE3EFC905032A549E3E81 /* Pods_RoadTrip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A70F9AB0F3D15DCFCC37641D /* Pods_RoadTripTests.framework in Frameworks */,
+				BAE6A0E4F4E1D43270CE7E14 /* Pods_RoadTripTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,19 +214,23 @@
 			isa = PBXGroup;
 			children = (
 				3AD6A6FA2742CDF800DDD7C9 /* AppTrackingTransparency.framework */,
-				3AA069A2271F32DD0098447E /* GoogleMobileAds.xcframework */,
-				3A07E4B22656893900F23E60 /* CoreTelephony.framework */,
-				3ADE91CF2512579C0009BAEA /* SDWebImage.framework */,
-				3ADE91C2251255E70009BAEA /* Alamofire.framework */,
-				3ADE91BE251255DD0009BAEA /* SDWebImage.framework */,
 				3A70AD59250AA96600C1CD09 /* WebKit.framework */,
 				3A0E376824129BBF00039FD3 /* NetworkExtension.framework */,
-				3A36190124059795002A29BA /* Alamofire.framework */,
-				3A3618FD24059328002A29BA /* Alamofire.framework */,
-				EC89F3061A341CC16E2908C2 /* Pods_RoadTrip.framework */,
-				E66E5A0E9A831320DCB2101B /* Pods_RoadTripTests.framework */,
+				38BFB76981BB2E66E22C7760 /* Pods_RoadTrip.framework */,
+				5221A17EB87B9FDFED52210D /* Pods_RoadTripTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		354FB9F4D08B8E2D334821BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				082C3C25CF44D5B2A517B5C4 /* Pods-RoadTrip.debug.xcconfig */,
+				763835D3364F51F00D9A2260 /* Pods-RoadTrip.release.xcconfig */,
+				076CA78FD63A2E0FEFB48BF0 /* Pods-RoadTripTests.debug.xcconfig */,
+				5A2EF8942249DA965367D0E6 /* Pods-RoadTripTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		3A5FF4E52434C09200C2B395 /* Helpers */ = {
@@ -279,8 +276,8 @@
 				3A755CB323EDA3DE00889FA5 /* RoadTrip */,
 				3A755CCD23EDA3E300889FA5 /* RoadTripTests */,
 				3A755CB223EDA3DE00889FA5 /* Products */,
-				F789F328583151C4AD816E91 /* Pods */,
 				18A73A4B8CFE3F51A74F6441 /* Frameworks */,
+				354FB9F4D08B8E2D334821BF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -532,19 +529,9 @@
 			isa = PBXGroup;
 			children = (
 				3A07E4B62656B18700F23E60 /* AdMobService.swift */,
+				3A7447442B03C7C700E1F0C9 /* GoogleMobileAdsConsentManager.swift */,
 			);
 			path = AdMob;
-			sourceTree = "<group>";
-		};
-		F789F328583151C4AD816E91 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				494F0626EF0590516E5B1A5F /* Pods-RoadTrip.debug.xcconfig */,
-				4C1ACF704ED1862AA4237A93 /* Pods-RoadTrip.release.xcconfig */,
-				28BCDF6C75CCD164028CB626 /* Pods-RoadTripTests.debug.xcconfig */,
-				DEAD594C8893A954613E4E27 /* Pods-RoadTripTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,12 +541,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A755CD323EDA3E300889FA5 /* Build configuration list for PBXNativeTarget "RoadTrip" */;
 			buildPhases = (
-				3FCBB4F50CC4E29AB41B95B7 /* [CP] Check Pods Manifest.lock */,
+				F8C946233F6126EA33370803 /* [CP] Check Pods Manifest.lock */,
 				3A755CAD23EDA3DE00889FA5 /* Sources */,
 				3A755CAE23EDA3DE00889FA5 /* Frameworks */,
 				3A755CAF23EDA3DE00889FA5 /* Resources */,
 				3A755CD923EDA4DB00889FA5 /* ShellScript */,
-				0EEFE730B703790962D1561A /* [CP] Embed Pods Frameworks */,
+				053CD231C274462F16D3A519 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -568,7 +555,7 @@
 			name = RoadTrip;
 			packageProductDependencies = (
 				3A85F36B2B027B36009137E2 /* SDWebImage */,
-				3A85F36E2B027B85009137E2 /* Alamofire */,
+				3A7447422B03BEC700E1F0C9 /* Alamofire */,
 			);
 			productName = RoadTrip;
 			productReference = 3A755CB123EDA3DE00889FA5 /* RoadTrip.app */;
@@ -578,7 +565,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A755CD623EDA3E300889FA5 /* Build configuration list for PBXNativeTarget "RoadTripTests" */;
 			buildPhases = (
-				7B4C21803C8259E491E77102 /* [CP] Check Pods Manifest.lock */,
+				2F6E16C40691B31031444A28 /* [CP] Check Pods Manifest.lock */,
 				3A755CC623EDA3E300889FA5 /* Sources */,
 				3A755CC723EDA3E300889FA5 /* Frameworks */,
 				3A755CC823EDA3E300889FA5 /* Resources */,
@@ -599,8 +586,9 @@
 		3A755CA923EDA3DE00889FA5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = "Angelique Babin";
 				TargetAttributes = {
 					3A755CB023EDA3DE00889FA5 = {
@@ -623,7 +611,7 @@
 			mainGroup = 3A755CA823EDA3DE00889FA5;
 			packageReferences = (
 				3A85F36A2B027B36009137E2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				3A85F36D2B027B85009137E2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3A7447412B03BEC700E1F0C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3A755CB223EDA3DE00889FA5 /* Products */;
 			projectDirPath = "";
@@ -668,7 +656,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0EEFE730B703790962D1561A /* [CP] Embed Pods Frameworks */ = {
+		053CD231C274462F16D3A519 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -685,46 +673,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoadTrip/Pods-RoadTrip-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3A755CD923EDA4DB00889FA5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		3FCBB4F50CC4E29AB41B95B7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RoadTrip-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7B4C21803C8259E491E77102 /* [CP] Check Pods Manifest.lock */ = {
+		2F6E16C40691B31031444A28 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -740,6 +689,47 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-RoadTripTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A755CD923EDA4DB00889FA5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/scriptInputFile.data",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/scriptOutputFile.data",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		F8C946233F6126EA33370803 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoadTrip-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -775,6 +765,7 @@
 				3A631DBE2428F0D70023BFCA /* ImagesBackgroundList.swift in Sources */,
 				3A0E376D2412A9E200039FD3 /* UIViewController+EventKit.swift in Sources */,
 				3A30E9FB23F5990100532EDD /* ListPlacesViewController.swift in Sources */,
+				3A7447452B03C7C700E1F0C9 /* GoogleMobileAdsConsentManager.swift in Sources */,
 				3ABB99A524194CF8007CE8FA /* DetailsMyTripTableViewCell.swift in Sources */,
 				3AA316092523A72300B9C19E /* DataManager.swift in Sources */,
 				3A07E4B52656AFCD00F23E60 /* UIViewController+GADBannerViewDelegate.swift in Sources */,
@@ -854,6 +845,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -887,6 +879,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -915,6 +908,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -948,6 +942,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -968,14 +963,15 @@
 		};
 		3A755CD423EDA3E300889FA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 494F0626EF0590516E5B1A5F /* Pods-RoadTrip.debug.xcconfig */;
+			baseConfigurationReference = 082C3C25CF44D5B2A517B5C4 /* Pods-RoadTrip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadTrip/RoadTrip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = "RoadTrip/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -985,13 +981,8 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"c++\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
 					"-framework",
 					"\"AVFoundation\"",
-					"-framework",
-					"\"Alamofire\"",
 					"-framework",
 					"\"AudioToolbox\"",
 					"-framework",
@@ -1022,8 +1013,6 @@
 					"\"MobileCoreServices\"",
 					"-framework",
 					"\"QuartzCore\"",
-					"-framework",
-					"\"SDWebImage\"",
 					"-framework",
 					"\"Security\"",
 					"-framework",
@@ -1055,14 +1044,15 @@
 		};
 		3A755CD523EDA3E300889FA5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C1ACF704ED1862AA4237A93 /* Pods-RoadTrip.release.xcconfig */;
+			baseConfigurationReference = 763835D3364F51F00D9A2260 /* Pods-RoadTrip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadTrip/RoadTrip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = "RoadTrip/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1072,13 +1062,8 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"c++\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
 					"-framework",
 					"\"AVFoundation\"",
-					"-framework",
-					"\"Alamofire\"",
 					"-framework",
 					"\"AudioToolbox\"",
 					"-framework",
@@ -1110,8 +1095,6 @@
 					"-framework",
 					"\"QuartzCore\"",
 					"-framework",
-					"\"SDWebImage\"",
-					"-framework",
 					"\"Security\"",
 					"-framework",
 					"\"StoreKit\"",
@@ -1142,13 +1125,14 @@
 		};
 		3A755CD723EDA3E300889FA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28BCDF6C75CCD164028CB626 /* Pods-RoadTripTests.debug.xcconfig */;
+			baseConfigurationReference = 076CA78FD63A2E0FEFB48BF0 /* Pods-RoadTripTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				INFOPLIST_FILE = RoadTripTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1166,13 +1150,14 @@
 		};
 		3A755CD823EDA3E300889FA5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEAD594C8893A954613E4E27 /* Pods-RoadTripTests.release.xcconfig */;
+			baseConfigurationReference = 5A2EF8942249DA965367D0E6 /* Pods-RoadTripTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AS4ZG3MAQH;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				INFOPLIST_FILE = RoadTripTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1221,6 +1206,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3A7447412B03BEC700E1F0C9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		3A85F36A2B027B36009137E2 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -1229,26 +1222,18 @@
 				minimumVersion = 5.18.4;
 			};
 		};
-		3A85F36D2B027B85009137E2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.8.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3A7447422B03BEC700E1F0C9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A7447412B03BEC700E1F0C9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		3A85F36B2B027B36009137E2 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3A85F36A2B027B36009137E2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
-		};
-		3A85F36E2B027B85009137E2 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A85F36D2B027B85009137E2 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 

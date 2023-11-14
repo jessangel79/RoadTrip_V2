@@ -26,7 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        print(
+          "Google Mobile Ads SDK version: \(GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber))"
+        )
+        // TODO: - To delete -> to move in class AdMobService
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         return true
     }

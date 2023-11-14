@@ -10,9 +10,14 @@ import Foundation
 import Alamofire
 
 class PlaceSession: PlaceProtocol {
-    func request(url: URL, completionHandler: @escaping (DataResponse<Any>) -> Void) {
-        Alamofire.request(url).responseJSON { responseData in
-            completionHandler(responseData)
+    func request(url: URL, completionHandler: @escaping (AFDataResponse<PlacesSearch>) -> Void) {
+        AF.request(url).responseDecodable(of: PlacesSearch.self) { response in
+            completionHandler(response)
         }
     }
+//    func request(url: URL, completionHandler: @escaping (DataResponse<Any>) -> Void) {
+//        Alamofire.request(url).responseJSON { responseData in
+//            completionHandler(responseData)
+//        }
+//    }
 }
