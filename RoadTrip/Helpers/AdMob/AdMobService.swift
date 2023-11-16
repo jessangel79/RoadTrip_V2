@@ -10,10 +10,7 @@ import Foundation
 import GoogleMobileAds
 
 final class AdMobService {
-    
-//    private var isMobileAdsStartCalled = false
-//    private var isViewDidAppearCalled = false
-    
+        
     func setAdMob(_ bannerView: GADBannerView, _ viewController: UIViewController) {
         bannerView.delegate = viewController
         bannerView.adUnitID = Constants.AdMobAdUnitIDTest // Test
@@ -27,5 +24,26 @@ final class AdMobService {
         
 //        bannerView.load(GADRequest())
     }
+    
+    func alertUserPresentPrivacyOptionsForm(_ formError: Error, _ self: UIViewController) {
+        let alertController = UIAlertController(
+            title: formError.localizedDescription, message: "Please try again later.",
+            preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alertController, animated: true)
+    }
 
+    func adMobCanRequestAdsLoadBannerAd(_ bannerView: GADBannerView, _ view: UIView) {
+        if GoogleMobileAdsConsentManager.shared.canRequestAds {
+            loadBannerAd(bannerView, view)
+        }
+    }
+    
+    func loadBannerAd(_ bannerView: GADBannerView, _ view: UIView) {
+        let viewWidth = view.frame.inset(by: view.safeAreaInsets).width
+        //        bannerView.adSize = GADAdSizeBanner // test
+        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        bannerView.load(GADRequest())
+    }
+    
 }

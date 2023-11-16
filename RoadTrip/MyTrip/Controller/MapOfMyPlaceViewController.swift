@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapOfMyPlaceViewController: MapViewController {
+final class MapOfMyPlaceViewController: MapViewController {
     
     // MARK: - Properties
     

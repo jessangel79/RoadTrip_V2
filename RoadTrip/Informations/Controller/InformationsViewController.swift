@@ -24,6 +24,8 @@ final class InformationsViewController: UIViewController {
     private var urlString = String()
     
     private let adMobService = AdMobService()
+//    private var isMobileAdsStartCalled = false
+//    private var isViewDidAppearCalled = false
     
     // MARK: - Outlets
     
@@ -65,6 +67,7 @@ final class InformationsViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isToolbarHidden = true
         adMobService.setAdMob(bannerView, self)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +77,13 @@ final class InformationsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate { [self] _ in
+            adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+        }
     }
 
     // MARK: - Methods

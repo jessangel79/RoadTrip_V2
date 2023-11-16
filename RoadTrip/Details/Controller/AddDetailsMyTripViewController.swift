@@ -39,8 +39,9 @@ class AddDetailsMyTripViewController: UIViewController {
     var celluleActive = false
     var celluleIndex: Int?
     var randomImage = String()
-    
     let adMobService = AdMobService()
+//    var isMobileAdsStartCalled = false
+//    var isViewDidAppearCalled = false
         
     // MARK: - Actions
 
@@ -54,6 +55,7 @@ class AddDetailsMyTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adMobService.setAdMob(bannerView, self)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
         coreDataFunction()
         customUI()
         setDatePicker()
@@ -67,6 +69,13 @@ class AddDetailsMyTripViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate { [self] _ in
+            adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+        }
     }
     
     // MARK: - Methods

@@ -28,8 +28,9 @@ class DetailsMyTripViewController: UIViewController {
     private var celluleActive = false
     private var celluleIndex = 0
     var tabType = Constants.Trip
-    
     let adMobService = AdMobService()
+//    var isMobileAdsStartCalled = false
+//    var isViewDidAppearCalled = false
     
     // MARK: - Actions
     
@@ -44,6 +45,7 @@ class DetailsMyTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adMobService.setAdMob(bannerView, self)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
         coreDataFunction()
         setNib()
         animationTableView(tableView: myTripTableView)
@@ -58,6 +60,13 @@ class DetailsMyTripViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate { [self] _ in
+            adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+        }
     }
 
     // MARK: - Methods

@@ -26,14 +26,16 @@ class ListPlacesViewController: UIViewController {
     private var cellSelected: PlacesSearchElement?
     private var photoOfCellSelected: String?
     private let segueToPlaceDetails = Constants.SegueToPlaceDetails
-    
     let adMobService = AdMobService()
+//    var isViewDidAppearCalled = false
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         adMobService.setAdMob(bannerView, self)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+
         let nib = UINib(nibName: Constants.ListPlacesTableViewCell, bundle: nil)
         placesTableView.register(nib, forCellReuseIdentifier: Constants.ListPlacesCell)
         animationTableView(tableView: placesTableView)
@@ -47,7 +49,16 @@ class ListPlacesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+//        isViewDidAppearCalled = true
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate { [self] _ in
+            adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+        }
+    }
+    
 }
 
 // MARK: - UITableViewDataSource - UITableViewDelegate

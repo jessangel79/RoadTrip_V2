@@ -34,20 +34,18 @@ class GoogleMobileAdsConsentManager: NSObject {
     ) {
         let parameters = UMPRequestParameters()
         
-        //For testing purposes, you can force a UMPDebugGeography of EEA or not EEA.
+        // For testing purposes, you can force a UMPDebugGeography of EEA or not EEA.
         let debugSettings = UMPDebugSettings()
         // debugSettings.geography = UMPDebugGeography.EEA
         parameters.debugSettings = debugSettings
         
         // Requesting an update to consent information should be called on every app launch.
-        UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(with: parameters) {
-            requestConsentError in
+        UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(with: parameters) { requestConsentError in
             guard requestConsentError == nil else {
                 return consentGatheringComplete(requestConsentError)
             }
             
-            UMPConsentForm.loadAndPresentIfRequired(from: consentFormPresentationviewController) {
-                loadAndPresentError in
+            UMPConsentForm.loadAndPresentIfRequired(from: consentFormPresentationviewController) { loadAndPresentError in
                 
                 // Consent has been gathered.
                 consentGatheringComplete(loadAndPresentError)

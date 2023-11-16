@@ -34,8 +34,8 @@ class MapViewController: UIViewController {
     var subtitle: String?
     var info: String?
     var phone: String?
-    
     let adMobService = AdMobService()
+//    var isViewDidAppearCalled = false
         
     var coordinateInit: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude ?? 48.863581, longitude: longitude ?? 2.344312)
@@ -70,6 +70,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adMobService.setAdMob(bannerView, self)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
         mapView.register(PoiAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         customUI()
         setupData()
@@ -79,6 +80,13 @@ class MapViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate { [self] _ in
+            adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+        }
     }
     
     // MARK: - Methods

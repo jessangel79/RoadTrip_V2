@@ -44,8 +44,8 @@ class DetailsPlaceViewController: UIViewController {
     var placeName = String()
     var address = String()
     let dataManager = DataManager()
-    
     let adMobService = AdMobService()
+//    var isViewDidAppearCalled = false
     
     var shareInfoPlace: String {
         guard let country = cellule?.address.country else { return "Pays N/A" }
@@ -91,6 +91,7 @@ class DetailsPlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adMobService.setAdMob(bannerView, self)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
         coreDataFunction()
         customUI()
         configureDetailsPlace()
@@ -104,6 +105,14 @@ class DetailsPlaceViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+//        isViewDidAppearCalled = true
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate { [self] _ in
+            adMobService.adMobCanRequestAdsLoadBannerAd(bannerView, view)
+        }
     }
     
     // MARK: - Methods
