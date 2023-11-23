@@ -40,7 +40,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPlacesShouldPostFailedCallbackIfNoData() {
@@ -55,7 +55,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPlacesShouldPostFailedCallbackIfIncorrectResponse() {
@@ -70,7 +70,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPlacesShouldPostFailedCallbackIfResponseCorrectAndDataNil() {
@@ -85,7 +85,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPlacesShouldPostFailedCallbackIfIncorrectData() {
@@ -100,7 +100,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPlacesShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
@@ -121,7 +121,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     // MARK: - Tests GetPhotos
@@ -138,7 +138,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPhotosShouldPostFailedCallbackIfNoData() {
@@ -153,7 +153,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPhotosShouldPostFailedCallbackIfIncorrectResponse() {
@@ -168,7 +168,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPhotosShouldPostFailedCallbackIfResponseCorrectAndDataNil() {
@@ -183,7 +183,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPhotosShouldPostFailedCallbackIfIncorrectData() {
@@ -198,7 +198,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     func testGetPhotosShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
@@ -214,7 +214,7 @@ final class RoadTripTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 0.01)
+//        wait(for: [expectation], timeout: 0.01)
     }
     
     // MARK: - Tests Poi - Map

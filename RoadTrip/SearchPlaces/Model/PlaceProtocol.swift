@@ -30,6 +30,8 @@ extension PlaceProtocol {
     }
     
     var detailsAdressName: String {
+//        return "addressdetails=1"
+
         return "addressdetails=1&namedetails=1"
     }
     
@@ -43,7 +45,7 @@ extension PlaceProtocol {
     
     /// url  for API to get places
     var urlStringApi: String {
-        return "\(scheme)://\(host)/?format=\(format)&\(detailsAdressName)&extratags=\(extratags)&limit=\(limitResults)&q="
+        return "\(scheme)://\(host)/search?format=\(format)&\(detailsAdressName)&extratags=\(extratags)&limit=\(limitResults)&q="
     }
     
     var hostPhoto: String {

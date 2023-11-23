@@ -23,7 +23,7 @@ final class PlaceService {
     /// network call to get the places
     func getPlaces(queriesList: [String], completionHandler: @escaping (Bool, PlacesSearch?) -> Void) {
         guard let url = createPlacesSearchUrl(queriesList: queriesList) else { return }
-//        print("getPlaces \(url)")
+        print("getPlaces \(url)")
         
         placeSession.request(url: url) { responseData in
             guard responseData.response?.statusCode == 200 else {
@@ -51,7 +51,7 @@ final class PlaceService {
     /// network call to get photos with unsplash API
     func getPhotos(query: String, completionHandler: @escaping (Bool, Photos?) -> Void) {
         guard let url = createPhotosUrl(query: query) else { return }
-//        print("getPhotos \(url)")
+        print("getPhotos \(url)")
 
         placeSession.request(url: url) { responseData in
             guard responseData.response?.statusCode == 200 else {

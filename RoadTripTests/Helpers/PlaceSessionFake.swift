@@ -18,16 +18,20 @@ class PlaceSessionFake: PlaceProtocol {
         self.fakeResponse = fakeResponse
     }
 
-    func request(url: URL, completionHandler: @escaping (DataResponse<Any>) -> Void) {
-        let httpResponse = fakeResponse.response
-        let data = fakeResponse.data
-        let error = fakeResponse.error
-        let result = Request.serializeResponseJSON(options: .allowFragments, response: httpResponse, data: data, error: error)
+//    func request(url: URL, completionHandler: @escaping (DataResponse<Any>) -> Void) {
+    func request(url: URL, completionHandler: @escaping (AFDataResponse<PlacesSearch>) -> Void) {
+//        let httpResponse = fakeResponse.response
+//        let data = fakeResponse.data
+//        let error = fakeResponse.error
+//        let result = Request.serializeResponseJSON(options: .allowFragments, response: httpResponse, data: data, error: error)
+//        guard let url = createPlacesSearchUrl(queriesList: [String]()) else { return }
+//        let urlRequest = URLRequest(url: url)
+//        
+//        completionHandler(DataResponse(request: urlRequest, response: httpResponse, data: data, result: result))
         
-        guard let url = createPlacesSearchUrl(queriesList: [String]()) else { return }
-        let urlRequest = URLRequest(url: url)
-        
-        completionHandler(DataResponse(request: urlRequest, response: httpResponse, data: data, result: result))
+        AF.request(url).responseDecodable { response in
+            completionHandler(response)
+        }
     }
     
     private func createPlacesSearchUrl(queriesList: [String]) -> URL? {

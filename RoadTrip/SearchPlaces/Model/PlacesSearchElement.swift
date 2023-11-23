@@ -42,8 +42,12 @@ struct Address: Decodable {
 struct Extratags: Decodable {
     let phone: String?
     let website: String?
-    let smoking, wheelchair, toiletsWheelchair, layer: String?
-    let brewery, openingHours, outdoorSeating, wifi: String?
+    let smoking, wheelchair: String?
+    let toiletsWheelchair: String?
+    let layer: String?
+    let brewery, openingHours: String?
+    let outdoorSeating: String?
+    let wifi: String?
     let tobacco: String?
 
     enum CodingKeys: String, CodingKey {
@@ -53,7 +57,25 @@ struct Extratags: Decodable {
         case openingHours = "opening_hours"
         case outdoorSeating = "outdoor_seating"
         case wifi, tobacco
+
     }
 }
+
+// struct Extratags: Decodable {
+//    let phone: String?
+//    let website: String?
+//    let smoking, wheelchair, toiletsWheelchair, layer: String?
+//    let brewery, openingHours, outdoorSeating, wifi: String?
+//    let tobacco: String?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case phone, website, smoking, wheelchair
+//        case toiletsWheelchair = "toilets:wheelchair"
+//        case layer, brewery
+//        case openingHours = "opening_hours"
+//        case outdoorSeating = "outdoor_seating"
+//        case wifi, tobacco
+//    }
+// }
 
 typealias PlacesSearch = [PlacesSearchElement]

@@ -143,10 +143,12 @@ class DetailsPlaceViewController: UIViewController {
         let openDays = "- Opening Hours : " + (cellule?.extratags.openingHours ?? "N/A")
         let smoking = "- Smoking : " + (cellule?.extratags.smoking?.capitalized ?? "N/A")
         let wheelchair = "- Wheelchair : " + (cellule?.extratags.wheelchair?.capitalized ?? "N/A")
-        let toiletsWheelchair = "- Toilets Wheelchair : " + (cellule?.extratags.toiletsWheelchair?.capitalized ?? "N/A")
+//        let toiletsWheelchair = "- Toilets Wheelchair : " + (cellule?.extratags.toiletsWheelchair?.capitalized ?? "N/A")
+        let toiletsWheelchair = "- Toilets Wheelchair : TEST"
         let layer = "- Layer : " + (cellule?.extratags.layer?.capitalized ?? "N/A")
         let brewery = "- Brewery : " + (cellule?.extratags.brewery?.capitalized ?? "N/A")
-        let outdoorSeating = "- Outdoor Seating : " + (cellule?.extratags.outdoorSeating?.capitalized ?? "N/A")
+//        let outdoorSeating = "- Outdoor Seating : " + (cellule?.extratags.outdoorSeating?.capitalized ?? "N/A")
+        let outdoorSeating = "- Outdoor Seating : TEST "
         let wifi = "- Wifi : " + (cellule?.extratags.wifi?.capitalized ?? "N/A")
         let tobacco = "- Tobacco : " + (cellule?.extratags.tobacco?.capitalized ?? "N/A")
         
