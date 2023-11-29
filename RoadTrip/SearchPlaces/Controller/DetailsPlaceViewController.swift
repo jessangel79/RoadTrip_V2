@@ -50,7 +50,7 @@ class DetailsPlaceViewController: UIViewController {
     var shareInfoPlace: String {
         guard let country = cellule?.address.country else { return "Pays N/A" }
         guard let types = cellule?.type.changeDash.capitalized else { return "N/A" }
-        guard let websiteUrl = URL(string: cellule?.extratags.website ?? "N/A") else { return "" }
+        guard let websiteUrl = URL(string: cellule?.extratags?.website ?? "N/A") else { return "" }
         return placeToShare(country, placeName, address, types, websiteUrl)
     }
     
@@ -66,10 +66,10 @@ class DetailsPlaceViewController: UIViewController {
     }
     
     @IBAction func websiteButtonTapped(_ sender: UIButton) {
-        if cellule?.extratags.website == nil {
+        if cellule?.extratags?.website == nil {
             presentAlert(typeError: .noWebsite)
         }
-        openSafari(cellule?.extratags.website ?? "")
+        openSafari(cellule?.extratags?.website ?? "")
     }
     
     @IBAction func calendarButtonTapped(_ sender: UIButton) {
@@ -140,36 +140,41 @@ class DetailsPlaceViewController: UIViewController {
     }
     
     private func configureDetailsPlace() {
-        let openDays = "- Opening Hours : " + (cellule?.extratags.openingHours ?? "N/A")
-        let smoking = "- Smoking : " + (cellule?.extratags.smoking?.capitalized ?? "N/A")
-        let wheelchair = "- Wheelchair : " + (cellule?.extratags.wheelchair?.capitalized ?? "N/A")
-//        let toiletsWheelchair = "- Toilets Wheelchair : " + (cellule?.extratags.toiletsWheelchair?.capitalized ?? "N/A")
-        let toiletsWheelchair = "- Toilets Wheelchair : TEST"
-        let layer = "- Layer : " + (cellule?.extratags.layer?.capitalized ?? "N/A")
-        let brewery = "- Brewery : " + (cellule?.extratags.brewery?.capitalized ?? "N/A")
-//        let outdoorSeating = "- Outdoor Seating : " + (cellule?.extratags.outdoorSeating?.capitalized ?? "N/A")
-        let outdoorSeating = "- Outdoor Seating : TEST "
-        let wifi = "- Wifi : " + (cellule?.extratags.wifi?.capitalized ?? "N/A")
-        let tobacco = "- Tobacco : " + (cellule?.extratags.tobacco?.capitalized ?? "N/A")
-        
+        let openDays = "- Opening Hours : " + (cellule?.extratags?.openingHours ?? "N/A")
+        let smoking = "- Smoking : " + (cellule?.extratags?.smoking?.capitalized ?? "N/A")
+        let wheelchair = "- Wheelchair : " + (cellule?.extratags?.wheelchair?.capitalized ?? "N/A")
+        let toiletsWheelchair = "- Toilets Wheelchair : " + (cellule?.extratags?.toiletsWheelchair?.capitalized ?? "N/A")
+        let layer = "- Layer : " + (cellule?.extratags?.layer?.capitalized ?? "N/A")
+        let brewery = "- Brewery : " + (cellule?.extratags?.brewery?.capitalized ?? "N/A")
+        let outdoorSeating = "- Outdoor Seating : " + (cellule?.extratags?.outdoorSeating?.capitalized ?? "N/A")
+        let wifi = "- Wifi : " + (cellule?.extratags?.wifi?.capitalized ?? "N/A")
+//        let tobacco = "- Tobacco : " + (cellule?.extratags.tobacco?.capitalized ?? "N/A")
+        let email = "- Email : " + (cellule?.extratags?.email?.capitalized ?? "N/A")
+                        
         informations = setInformations(parameters: DetailsPlaceParameters(
             openDays: openDays, smoking: smoking, wheelchair: wheelchair,
             toiletsWheelchair: toiletsWheelchair, layer: layer,
             brewery: brewery, outdoorSeating: outdoorSeating,
-            wifi: wifi, tobacco: tobacco))
+            wifi: wifi, email: email))
+
+//        informations = setInformations(parameters: DetailsPlaceParameters(
+//            openDays: openDays, smoking: "smoking", wheelchair: "wheelchair",
+//            toiletsWheelchair: "toiletsWheelchair", layer: "layer",
+//            brewery: "brewery", outdoorSeating: "outdoorSeating",
+//            wifi: "wifi", tobacco: tobacco))
     }
     
     func setCelluleData() {
         placeName = cellule?.displayName.cutEndString() ?? ""
         address = cellule?.displayName.cutStartString(2) ?? "N/A"
-        let phoneNumber = cellule?.extratags.phone ?? "N/A"
-        let openHours = dataManager.setOpeningHours(openingHours: cellule?.extratags.openingHours)
+        let phoneNumber = cellule?.extratags?.phone ?? "N/A"
+        let openHours = dataManager.setOpeningHours(openingHours: cellule?.extratags?.openingHours)
         let types = cellule?.type.capitalized ?? "N/A"
         let importance = String(format: "%.1f", cellule?.importance ?? 0.0)
         let rating = importance.importanceString() ?? ""
         let icon = cellule?.icon ?? ""
         let country = cellule?.address.country ?? ""
-        let website = cellule?.extratags.website ?? ""
+        let website = cellule?.extratags?.website ?? ""
         let photo = photoOfCellule ?? ""
         let informations = self.informations ?? ""
         let lat = cellule?.lat ?? ""
@@ -197,9 +202,7 @@ class DetailsPlaceViewController: UIViewController {
     
     private func setInformations(parameters: DetailsPlaceParameters) -> String? {
         informations = """
-        \n \(parameters.openDays) \n \(parameters.smoking)
-        \(parameters.wheelchair) \n \(parameters.toiletsWheelchair) \n \(parameters.layer)
-        \(parameters.brewery) \n \(parameters.outdoorSeating) \n \(parameters.wifi) \n \(parameters.tobacco)
+        \n \(parameters.openDays) \n \(parameters.smoking) \n \(parameters.wheelchair) \n \(parameters.toiletsWheelchair) \n \(parameters.layer) \n \(parameters.brewery) \n \(parameters.outdoorSeating) \n \(parameters.wifi) \n \(parameters.email)
         """
         return informations
     }

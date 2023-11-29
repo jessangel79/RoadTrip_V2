@@ -19,5 +19,5 @@ struct DetailsPlaceParameters {
     let brewery: String
     let outdoorSeating: String
     let wifi: String
-    let tobacco: String
+    let email: String
 }

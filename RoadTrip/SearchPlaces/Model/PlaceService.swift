@@ -43,7 +43,9 @@ final class PlaceService {
     }
     
     private func createPlacesSearchUrl(queriesList: [String]) -> URL? {
+//        let queriesListUrl = queriesList.joined(separator: "+in+")
         let queriesListUrl = queriesList.joined(separator: "+in+")
+
         guard let url = URL(string: placeSession.urlStringApi + queriesListUrl) else { return nil }
         return url
     }

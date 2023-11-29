@@ -46,7 +46,7 @@ final class ListPlacesTableViewCell: UITableViewCell {
         didSet {
             nameLabel.text = place?.displayName.cutEndString()
             addressLabel.text = place?.displayName.cutStartString(2)
-            openLabel.text = place?.extratags.openingHours ?? "Opening Hours : N/A"
+            openLabel.text = place?.extratags?.openingHours ?? "Opening Hours : N/A"
             loadIcon(imageString: place?.icon)
             let importance = String(format: "%.1f", place?.importance ?? 0.0)
             ratingLabel.text = importance.importanceString() ?? ""

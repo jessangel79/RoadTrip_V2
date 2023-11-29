@@ -101,7 +101,7 @@ class MapViewController: UIViewController {
         titleName = cellule?.displayName.cutEndString()
         subtitle = cellule?.displayName.cutStartString(2)
         info = cellule?.type.capitalized
-        phone = cellule?.extratags.phone
+        phone = cellule?.extratags?.phone
     }
 }
 

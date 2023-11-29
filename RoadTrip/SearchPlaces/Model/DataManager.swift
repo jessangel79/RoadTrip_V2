@@ -19,9 +19,9 @@ final class DataManager {
         let rating = importance.importanceString() ?? ""
         let types =  cellule?.type.changeDash.capitalized ?? "N/A"
         let country = cellule?.address.country ?? ""
-        let openDays = setOpeningHours(openingHours: cellule?.extratags.openingHours)
-        let phoneNumber = cellule?.extratags.phone ?? "N/A"
-        let website = cellule?.extratags.website ?? "N/A"
+        let openDays = setOpeningHours(openingHours: cellule?.extratags?.openingHours)
+        let phoneNumber = cellule?.extratags?.phone ?? "N/A"
+        let website = cellule?.extratags?.website ?? "N/A"
         let informations = informations ?? ""
         let lat = cellule?.lat ?? ""
         let lon = cellule?.lon ?? ""

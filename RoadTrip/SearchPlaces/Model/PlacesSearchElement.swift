@@ -16,12 +16,13 @@ struct PlacesSearchElement: Decodable {
     let importance: Double
     let icon: String?
     let address: Address
-    let extratags: Extratags
+    let extratags: Extratags?
 
     enum CodingKeys: String, CodingKey {
         case lat, lon
         case displayName = "display_name"
-        case type, importance, icon
+        case type, importance
+        case icon
         case address
         case extratags
     }
@@ -42,22 +43,29 @@ struct Address: Decodable {
 struct Extratags: Decodable {
     let phone: String?
     let website: String?
-    let smoking, wheelchair: String?
+    let wheelchair: String?
     let toiletsWheelchair: String?
     let layer: String?
-    let brewery, openingHours: String?
+    let brewery: String?
+    let openingHours: String?
     let outdoorSeating: String?
     let wifi: String?
-    let tobacco: String?
-
+    //    let tobacco: String?
+    let smoking: String?
+    let email: String?
+    
     enum CodingKeys: String, CodingKey {
-        case phone, website, smoking, wheelchair
+        case phone, website
+        case wheelchair
         case toiletsWheelchair = "toilets:wheelchair"
-        case layer, brewery
+        case layer
+        case brewery
         case openingHours = "opening_hours"
         case outdoorSeating = "outdoor_seating"
-        case wifi, tobacco
-
+        case wifi
+        //        case tobacco
+        case smoking
+        case email
     }
 }
 
